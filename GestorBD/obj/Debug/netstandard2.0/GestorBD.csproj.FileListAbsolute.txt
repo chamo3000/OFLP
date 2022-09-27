@@ -1,0 +1,9 @@
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\bin\Debug\netstandard2.0\GestorBD.deps.json
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\bin\Debug\netstandard2.0\GestorBD.dll
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\obj\Debug\netstandard2.0\GestorBD.csprojAssemblyReference.cache
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\obj\Debug\netstandard2.0\GestorBD.AssemblyInfoInputs.cache
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\obj\Debug\netstandard2.0\GestorBD.AssemblyInfo.cs
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\bin\Debug\netstandard2.0\GestorBD.pdb
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\obj\Debug\netstandard2.0\GestorBD.csproj.CoreCompileInputs.cache
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\obj\Debug\netstandard2.0\GestorBD.dll
+C:\Users\Usuario1\Documents\Oficina LBP\OFLP v_2.0\GestorBD\obj\Debug\netstandard2.0\GestorBD.pdb

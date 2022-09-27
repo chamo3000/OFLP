@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D8B6BB1-E5D9-4341-8815-EE5AC1A2724F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OFLP</RootNamespace>
+    <AssemblyName>OFLP</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\Usuario1\Documents\Oficina LBP\Programa\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FA747E8EFE89A98BBDF0F3B9A37F6171FA180D3B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>OFLP_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RegistroLogs">
+      <HintPath>..\..\..\Librerias\RegistroLogs\RegistroLogs\bin\Debug\netstandard2.0\RegistroLogs.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.5.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\clsInicio.cs" />
+    <Compile Include="Controller\ctrlBanco.cs" />
+    <Compile Include="Controller\CtrlCliente.cs" />
+    <Compile Include="Controller\CtrlCuenta.cs" />
+    <Compile Include="Controller\CtrlFactura.cs" />
+    <Compile Include="Controller\CtrlGanado.cs" />
+    <Compile Include="Controller\ctrlHacienda.cs" />
+    <Compile Include="Controller\CtrlSexo.cs" />
+    <Compile Include="Controller\CtrlUtilidades.cs" />
+    <Compile Include="Controller\Restricciones.cs" />
+    <Compile Include="Model\ModBanco.cs" />
+    <Compile Include="Model\ModCliente.cs" />
+    <Compile Include="Model\ModCuenta.cs" />
+    <Compile Include="Model\ModFactura.cs" />
+    <Compile Include="Model\ModGanado.cs" />
+    <Compile Include="Model\ModHacienda.cs" />
+    <Compile Include="Model\ModSexo.cs" />
+    <Compile Include="Model\ModUtilidadesBd.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmAgregarCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAgregarCuenta.Designer.cs">
+      <DependentUpon>FrmAgregarCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmAgregarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAgregarFactura.Designer.cs">
+      <DependentUpon>FrmAgregarFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCuenta.Designer.cs">
+      <DependentUpon>FrmCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarBanco.Designer.cs">
+      <DependentUpon>FrmActualizarBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmActualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmActualizarCliente.Designer.cs">
+      <DependentUpon>frmActualizarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarGanado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarGanado.Designer.cs">
+      <DependentUpon>FrmActualizarGanado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmActualizarHacienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmActualizarHacienda.Designer.cs">
+      <DependentUpon>frmActualizarHacienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizaSexo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizaSexo.Designer.cs">
+      <DependentUpon>FrmActualizaSexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmAgregarBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAgregarBanco.Designer.cs">
+      <DependentUpon>FrmAgregarBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAgregarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAgregarCliente.Designer.cs">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmAgregarGanado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAgregarGanado.Designer.cs">
+      <DependentUpon>FrmAgregarGanado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAgregarHacienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAgregarHacienda.Designer.cs">
+      <DependentUpon>frmAgregarHacienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmAgregarSexo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAgregarSexo.Designer.cs">
+      <DependentUpon>FrmAgregarSexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBanco.Designer.cs">
+      <DependentUpon>FrmBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmFactura.Designer.cs">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmGanado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmGanado.Designer.cs">
+      <DependentUpon>FrmGanado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmHaciendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmHaciendas.Designer.cs">
+      <DependentUpon>frmHaciendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmPpal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmPpal.Designer.cs">
+      <DependentUpon>frmPpal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\frmComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmComisiones.Designer.cs">
+      <DependentUpon>frmComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSexo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSexo.Designer.cs">
+      <DependentUpon>FrmSexo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\FrmAgregarCuenta.resx">
+      <DependentUpon>FrmAgregarCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAgregarFactura.resx">
+      <DependentUpon>FrmAgregarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmCuenta.resx">
+      <DependentUpon>FrmCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarBanco.resx">
+      <DependentUpon>FrmActualizarBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmActualizarCliente.resx">
+      <DependentUpon>frmActualizarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarGanado.resx">
+      <DependentUpon>FrmActualizarGanado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmActualizarHacienda.resx">
+      <DependentUpon>frmActualizarHacienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizaSexo.resx">
+      <DependentUpon>FrmActualizaSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAgregarBanco.resx">
+      <DependentUpon>FrmAgregarBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAgregarCliente.resx">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAgregarGanado.resx">
+      <DependentUpon>FrmAgregarGanado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAgregarHacienda.resx">
+      <DependentUpon>frmAgregarHacienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAgregarSexo.resx">
+      <DependentUpon>FrmAgregarSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBanco.resx">
+      <DependentUpon>FrmBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmComisiones.resx">
+      <DependentUpon>frmComisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmFactura.resx">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmGanado.resx">
+      <DependentUpon>FrmGanado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmHaciendas.resx">
+      <DependentUpon>frmHaciendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmPpal.resx">
+      <DependentUpon>frmPpal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSexo.resx">
+      <DependentUpon>FrmSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="OFLP_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Flecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\maximizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\restaurar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\datos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\informes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Agregar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\ok.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\cancelar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\editar.png" />
+    <None Include="bin\Debug\editar.png" />
+    <None Include="img\639375.png" />
+    <None Include="img\images.jpeg" />
+    <None Include="img\2376996.png" />
+    <None Include="img\edit.jpg" />
+    <None Include="img\eliminar.png" />
+    <None Include="img\arhimicrostok170802891.jpg" />
+    <Content Include="Resources\FACTBYA.png" />
+    <None Include="Resources\FACTBYA_Icono.png" />
+    <None Include="Resources\FACTBYA1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
