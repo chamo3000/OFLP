@@ -1,5 +1,6 @@
 ﻿using OFLP.Controlador;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace OFLP.Vistas
@@ -7,6 +8,7 @@ namespace OFLP.Vistas
     public partial class FrmActualizarCliente : Form
     {
         private string[] datosActualizar { get; set; }
+
         public FrmActualizarCliente(string[] datos)
         {
             InitializeComponent();
@@ -23,24 +25,33 @@ namespace OFLP.Vistas
         private void BtnAceptaActualizarCliente_Click(object sender, EventArgs e)
         {
             CtrlUtilidades.ImprimirLog("Loggg");
+            string AuxiliarCedula = "";
+
             if (MessageBox.Show("Esta seguro que desea Actualizar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                if (txtPrimerApellido.Text.Equals(string.Empty) || txtNombre.Text.Equals(string.Empty))
+                if (string.IsNullOrEmpty(txtPrimerApellido.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtCedula.Text))
                 {
                     MessageBox.Show("Debe ingresar el primer apellido y nombre ", "Ingrese datos del Cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
 
+                    var queryLondonCustomers = (from cust in ClsInicio.clientes
+                                                where cust.cedulaCliente == Convert.ToInt32(txtCedula.Text)
+                                                select cust.cedulaCliente).ToList();
+
+                    if (!queryLondonCustomers.Any())AuxiliarCedula= datosActualizar[0];
+
+
                     datosActualizar[1] = txtPrimerApellido.Text;
                     datosActualizar[2] = txtSegundoApellido.Text;
                     datosActualizar[3] = txtNombre.Text;
-                    datosActualizar[4] = txtCedula.Text;
+                    datosActualizar[0] = txtCedula.Text;
 
 
 
                     CtrlCliente objCtrlCliente = new CtrlCliente();
-                    if (objCtrlCliente.ActualizarCliente(datosActualizar))
+                    if (objCtrlCliente.ActualizarCliente(datosActualizar, AuxiliarCedula))
                     {
                         MessageBox.Show("Cliente actualizado exitosamente", "Actualizar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
@@ -49,9 +60,6 @@ namespace OFLP.Vistas
                     {
                         MessageBox.Show("Error al actualizar el cliente, valide e intente nuevamente", "Actualizar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    objCtrlCliente = null;
-
-
                 }
             }
         }
@@ -61,7 +69,7 @@ namespace OFLP.Vistas
             txtPrimerApellido.Text = datosActualizar[1];
             txtSegundoApellido.Text = datosActualizar[2];
             txtNombre.Text = datosActualizar[3];
-            txtCedula.Text = datosActualizar[4];
+            txtCedula.Text = datosActualizar[0];
         }
 
         private void Validar_Texto(TextBox Elemento, EventArgs e)
@@ -93,17 +101,17 @@ namespace OFLP.Vistas
 
         private void txtSegundoApellido_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtSegundoApellido,e);
+            Validar_Texto(txtSegundoApellido, e);
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtNombre,e);
+            Validar_Texto(txtNombre, e);
         }
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            Validar_Numero(txtCedula,e);
+            Validar_Numero(txtCedula, e);
         }
     }
 }

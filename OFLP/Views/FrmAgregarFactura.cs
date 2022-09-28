@@ -671,7 +671,7 @@ namespace OFLP.Vistas
             {
                 if (comprador.Contains(item.primerApellido) && comprador.Contains(item.nombreCliente))
                 {
-                    retorno = item.idCliente;
+                    retorno = item.cedulaCliente;
                 }
             }
             return retorno;
@@ -685,7 +685,7 @@ namespace OFLP.Vistas
             {
                 if(Propietario.Contains(item.primerApellido) && Propietario.Contains(item.nombreCliente))
                 {
-                    IdPropietario = item.idCliente;
+                    IdPropietario = item.cedulaCliente;
                 }
             }
             

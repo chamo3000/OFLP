@@ -31,13 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgPropietario = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.segundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblError = new System.Windows.Forms.Label();
             this.pnlConfiguraPropietario = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,6 +52,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.segundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPropietario)).BeginInit();
             this.pnlConfiguraPropietario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicAgregarCliente)).BeginInit();
@@ -83,7 +82,6 @@
             this.primerApellido,
             this.segundoApellido,
             this.nombre,
-            this.cedula,
             this.Modificar,
             this.Eliminar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -108,77 +106,6 @@
             this.dtgPropietario.Size = new System.Drawing.Size(858, 187);
             this.dtgPropietario.TabIndex = 0;
             this.dtgPropietario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgPropietario_CellClick);
-            // 
-            // id
-            // 
-            this.id.Frozen = true;
-            this.id.HeaderText = "ID Cliente";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 72;
-            // 
-            // primerApellido
-            // 
-            this.primerApellido.Frozen = true;
-            this.primerApellido.HeaderText = "Primer Apellido";
-            this.primerApellido.MinimumWidth = 6;
-            this.primerApellido.Name = "primerApellido";
-            this.primerApellido.ReadOnly = true;
-            this.primerApellido.Width = 93;
-            // 
-            // segundoApellido
-            // 
-            this.segundoApellido.Frozen = true;
-            this.segundoApellido.HeaderText = "Segundo Apellido";
-            this.segundoApellido.MinimumWidth = 6;
-            this.segundoApellido.Name = "segundoApellido";
-            this.segundoApellido.ReadOnly = true;
-            this.segundoApellido.Width = 106;
-            // 
-            // nombre
-            // 
-            this.nombre.Frozen = true;
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 69;
-            // 
-            // cedula
-            // 
-            this.cedula.Frozen = true;
-            this.cedula.HeaderText = "Cedula";
-            this.cedula.MinimumWidth = 6;
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            this.cedula.Width = 65;
-            // 
-            // Modificar
-            // 
-            this.Modificar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Modificar.FillWeight = 10F;
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Image = global::OFLP.Properties.Resources.edit;
-            this.Modificar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
-            this.Modificar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Modificar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Modificar.Width = 55;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Eliminar.FillWeight = 5F;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = global::OFLP.Properties.Resources.eliminar2;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Width = 50;
             // 
             // lblError
             // 
@@ -424,6 +351,68 @@
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn2.Width = 68;
             // 
+            // id
+            // 
+            this.id.Frozen = true;
+            this.id.HeaderText = "Cedula";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 65;
+            // 
+            // primerApellido
+            // 
+            this.primerApellido.Frozen = true;
+            this.primerApellido.HeaderText = "Primer Apellido";
+            this.primerApellido.MinimumWidth = 6;
+            this.primerApellido.Name = "primerApellido";
+            this.primerApellido.ReadOnly = true;
+            this.primerApellido.Width = 101;
+            // 
+            // segundoApellido
+            // 
+            this.segundoApellido.Frozen = true;
+            this.segundoApellido.HeaderText = "Segundo Apellido";
+            this.segundoApellido.MinimumWidth = 6;
+            this.segundoApellido.Name = "segundoApellido";
+            this.segundoApellido.ReadOnly = true;
+            this.segundoApellido.Width = 106;
+            // 
+            // nombre
+            // 
+            this.nombre.Frozen = true;
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 69;
+            // 
+            // Modificar
+            // 
+            this.Modificar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Modificar.FillWeight = 10F;
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Image = global::OFLP.Properties.Resources.edit;
+            this.Modificar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            this.Modificar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Modificar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Modificar.Width = 55;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Eliminar.FillWeight = 5F;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = global::OFLP.Properties.Resources.eliminar2;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 50;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,14 +459,13 @@
         private System.Windows.Forms.PictureBox PicLimpiarBusquedaCliente;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.PictureBox PicAgregarCliente;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn primerApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn segundoApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
         private System.Windows.Forms.DataGridViewImageColumn Modificar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.PictureBox PicAgregarCliente;
-        private System.Windows.Forms.Label label6;
     }
 }

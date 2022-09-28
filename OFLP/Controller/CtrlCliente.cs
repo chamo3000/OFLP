@@ -54,12 +54,12 @@ namespace OFLP.Controlador
 
         }
 
-        public bool ActualizarCliente(string[] DatosIngresar)
+        public bool ActualizarCliente(string[] DatosIngresar, string cedulaAuxiliar="")
         {
             ModCliente oEquipo = new ModCliente();
 
 
-            if (!oEquipo.ActualizarCliente(DatosIngresar))
+            if (!oEquipo.ActualizarCliente(DatosIngresar, cedulaAuxiliar))
             {
                 oEquipo = null;
                 return false;

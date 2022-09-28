@@ -75,7 +75,7 @@ namespace OFLP.Controlador
         {
             Imprimir objLogs = new Imprimir();
             objLogs.imprimirLog(texto);
-            objLogs = null;
+
         }
 
 

@@ -40,28 +40,26 @@ namespace OFLP.Vistas
         {
             CtrlUtilidades.ImprimirLog("Loggg");
 
-
-
-            if (txtPrimerApellido.Text.Equals(string.Empty) || txtNombre.Text.Equals(string.Empty))
+            if (string.IsNullOrEmpty(txtPrimerApellido.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtCedula.Text))
             {
                 MessageBox.Show("Debe ingresar el primer apellido y nombre ", "Ingrese datos del Cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                string[] lstDatosIngresar = new string[5];
+                string[] lstDatosIngresar = new string[4];
                 lstDatosIngresar[0] = txtPrimerApellido.Text;
                 lstDatosIngresar[1] = txtSegundoApellido.Text;
                 lstDatosIngresar[2] = txtNombre.Text;
                 lstDatosIngresar[3] = txtCedula.Text;
-                lstDatosIngresar[4] = idTipoCliente.ToString();
+
 
                 var queryLondonCustomers = (from cust in ClsInicio.clientes
-                                            where cust.primerApellido == lstDatosIngresar[0]
-                                            where cust.nombreCliente == lstDatosIngresar[0]
+                                            where cust.cedulaCliente == Convert.ToInt32(txtCedula.Text) && cust.activo==1
                                             select cust).ToList();
+
                 if (queryLondonCustomers.Count() > 0)
                 {
-                    MessageBox.Show("El cliente ya existe", "Agregar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El cliente ya existe, intente nuevamente", "Agregar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -79,10 +77,8 @@ namespace OFLP.Vistas
                     {
                         MessageBox.Show("Error al agregar el cliente, valide e intente nuevamente", "Agregar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    objCtrlCliente = null;
+
                 }
-
-
 
                 txtPrimerApellido.Text = string.Empty;
                 txtSegundoApellido.Text = string.Empty;
@@ -94,12 +90,18 @@ namespace OFLP.Vistas
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
+            }
+
         }
 
         private void txtPrimerApellido_KeyPress(object sender, KeyPressEventArgs e)
@@ -109,6 +111,11 @@ namespace OFLP.Vistas
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
             }
         }
 
@@ -120,6 +127,11 @@ namespace OFLP.Vistas
                 e.Handled = true;
                 return;
             }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
+            }
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -129,6 +141,11 @@ namespace OFLP.Vistas
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
             }
         }
 
@@ -156,27 +173,35 @@ namespace OFLP.Vistas
                 Elemento.Text = string.Empty;
                 MessageBox.Show(this, "Este campo no permite letras", "Advertencia ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
+            else if (Elemento.Text.Length >= 6)
+            {
+                btnAceptaAgregarCliente.Enabled = true;
+            }
+            else
+            {
+                btnAceptaAgregarCliente.Enabled = false;
+            }
         }
 
 
         private void txtPrimerApellido_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtPrimerApellido,e);
+            Validar_Texto(txtPrimerApellido, e);
         }
 
         private void txtSegundoApellido_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtSegundoApellido,e);
+            Validar_Texto(txtSegundoApellido, e);
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtNombre,e);
+            Validar_Texto(txtNombre, e);
         }
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            Validar_Numero(txtCedula,e);
+            Validar_Numero(txtCedula, e);
         }
     }
 }
