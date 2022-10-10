@@ -562,3 +562,4 @@ C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.applicat
 C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.csproj.CopyComplete
 C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.exe
 C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.pdb
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.Views.FrmUsuario.resources

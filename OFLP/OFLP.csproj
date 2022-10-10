@@ -254,6 +254,12 @@
     <Compile Include="Views\FrmSexo.Designer.cs">
       <DependentUpon>FrmSexo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FrmAgregarCuenta.resx">
       <DependentUpon>FrmAgregarCuenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSexo.resx">
       <DependentUpon>FrmSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="OFLP_TemporaryKey.pfx" />
     <None Include="packages.config" />
