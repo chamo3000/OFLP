@@ -288,7 +288,7 @@
             // 
             // pnlMenuDatos
             // 
-            this.pnlMenuDatos.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.pnlMenuDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlMenuDatos.Controls.Add(this.btnSexos);
             this.pnlMenuDatos.Controls.Add(this.btnClasesGanado);
             this.pnlMenuDatos.Controls.Add(this.btnBancos);
@@ -318,6 +318,7 @@
             this.btnSexos.TabIndex = 0;
             this.btnSexos.Text = "Sexos";
             this.btnSexos.UseVisualStyleBackColor = false;
+            this.btnSexos.Visible = false;
             this.btnSexos.Click += new System.EventHandler(this.btnSexos_Click);
             // 
             // btnClasesGanado
@@ -334,6 +335,7 @@
             this.btnClasesGanado.TabIndex = 0;
             this.btnClasesGanado.Text = "Clases de Ganado";
             this.btnClasesGanado.UseVisualStyleBackColor = false;
+            this.btnClasesGanado.Visible = false;
             this.btnClasesGanado.Click += new System.EventHandler(this.btnClasesGanado_Click);
             // 
             // btnBancos
@@ -350,6 +352,7 @@
             this.btnBancos.TabIndex = 0;
             this.btnBancos.Text = "Bancos";
             this.btnBancos.UseVisualStyleBackColor = false;
+            this.btnBancos.Visible = false;
             this.btnBancos.Click += new System.EventHandler(this.btnBancos_Click);
             // 
             // btnCuentasBancarias
@@ -366,6 +369,7 @@
             this.btnCuentasBancarias.TabIndex = 0;
             this.btnCuentasBancarias.Text = "Cuentas Bancarias";
             this.btnCuentasBancarias.UseVisualStyleBackColor = false;
+            this.btnCuentasBancarias.Visible = false;
             this.btnCuentasBancarias.Click += new System.EventHandler(this.btnCuentasBancarias_Click);
             // 
             // btnPropietario
@@ -398,6 +402,7 @@
             this.btnGirosCheques.TabIndex = 0;
             this.btnGirosCheques.Text = "Giros / Cheques";
             this.btnGirosCheques.UseVisualStyleBackColor = false;
+            this.btnGirosCheques.Visible = false;
             // 
             // btnGastos
             // 
@@ -413,6 +418,7 @@
             this.btnGastos.TabIndex = 0;
             this.btnGastos.Text = "Gastos";
             this.btnGastos.UseVisualStyleBackColor = false;
+            this.btnGastos.Visible = false;
             // 
             // btnComisiones
             // 
@@ -428,6 +434,7 @@
             this.btnComisiones.TabIndex = 0;
             this.btnComisiones.Text = "Comisiones";
             this.btnComisiones.UseVisualStyleBackColor = false;
+            this.btnComisiones.Visible = false;
             this.btnComisiones.Click += new System.EventHandler(this.BtnComisiones_Click);
             // 
             // pnlContenedor

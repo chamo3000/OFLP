@@ -67,7 +67,8 @@ namespace OFLP.Modelo
                 catch (Exception err)
                 {
 
-                    //registrar Log
+                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
                 }
                 oBd.CerrarConexion();
             }
@@ -127,10 +128,11 @@ namespace OFLP.Modelo
                     }
 
                 }
-                catch (Exception ex)
+                catch (Exception err)
                 {
 
-                    throw;
+                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
                 }
             }
             return rslt;

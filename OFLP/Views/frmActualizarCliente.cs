@@ -24,10 +24,10 @@ namespace OFLP.Vistas
 
         private void BtnAceptaActualizarCliente_Click(object sender, EventArgs e)
         {
-            CtrlUtilidades.ImprimirLog("Loggg");
+            CtrlUtilidades.ImprimirLog("Actualizar cliente");
             string AuxiliarCedula = "";
 
-            if (MessageBox.Show("Esta seguro que desea Actualizar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("Esta seguro que desea Actualizar el cliente?", "Actualizar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 if (string.IsNullOrEmpty(txtPrimerApellido.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtCedula.Text))
                 {
@@ -43,9 +43,9 @@ namespace OFLP.Vistas
                     if (!queryLondonCustomers.Any())AuxiliarCedula= datosActualizar[0];
 
 
-                    datosActualizar[1] = txtPrimerApellido.Text;
-                    datosActualizar[2] = txtSegundoApellido.Text;
-                    datosActualizar[3] = txtNombre.Text;
+                    datosActualizar[1] = txtPrimerApellido.Text.ToUpper();
+                    datosActualizar[2] = txtSegundoApellido.Text.ToUpper();
+                    datosActualizar[3] = txtNombre.Text.ToUpper();
                     datosActualizar[0] = txtCedula.Text;
 
 
@@ -54,6 +54,9 @@ namespace OFLP.Vistas
                     if (objCtrlCliente.ActualizarCliente(datosActualizar, AuxiliarCedula))
                     {
                         MessageBox.Show("Cliente actualizado exitosamente", "Actualizar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CtrlUtilidades util = new CtrlUtilidades();
+                        util.CerrarFormulario<FrmCliente>(Program.objfrmPpal.pnlContenedor);
+                        util.AbrirFormulario<FrmCliente>(Program.objfrmPpal.pnlContenedor);
                         this.Close();
                     }
                     else

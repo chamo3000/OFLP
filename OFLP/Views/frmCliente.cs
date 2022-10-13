@@ -71,7 +71,7 @@ namespace OFLP.Vistas
             {
                 foreach (ModCliente item in ClsInicio.clientes)
                 {
-                    if (item.activo == 1) dtgPropietario.Rows.Add(item.cedulaCliente, item.primerApellido, item.segundoApellido, item.nombreCliente);
+                    dtgPropietario.Rows.Add(item.cedulaCliente, item.primerApellido, item.segundoApellido, item.nombreCliente);
                 }
 
             }
@@ -85,6 +85,7 @@ namespace OFLP.Vistas
             CtrlCliente ObjCtrlCliente = new CtrlCliente();
             if (ObjCtrlCliente.EliminarCliente(idCliente))
             {
+
                 MessageBox.Show("Cliente Eliminado exitosamente", "Eliminar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgPropietario.Rows.Remove(dtgPropietario.Rows[fila]);
                 lblApellidoUno.Text = "";

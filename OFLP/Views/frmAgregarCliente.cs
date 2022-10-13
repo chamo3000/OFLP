@@ -47,14 +47,14 @@ namespace OFLP.Vistas
             else
             {
                 string[] lstDatosIngresar = new string[4];
-                lstDatosIngresar[0] = txtPrimerApellido.Text;
-                lstDatosIngresar[1] = txtSegundoApellido.Text;
-                lstDatosIngresar[2] = txtNombre.Text;
+                lstDatosIngresar[0] = txtPrimerApellido.Text.ToUpper();
+                lstDatosIngresar[1] = txtSegundoApellido.Text.ToUpper();
+                lstDatosIngresar[2] = txtNombre.Text.ToUpper();
                 lstDatosIngresar[3] = txtCedula.Text;
 
 
                 var queryLondonCustomers = (from cust in ClsInicio.clientes
-                                            where cust.cedulaCliente == Convert.ToInt32(txtCedula.Text) && cust.activo==1
+                                            where cust.cedulaCliente == Convert.ToInt32(txtCedula.Text)
                                             select cust).ToList();
 
                 if (queryLondonCustomers.Count() > 0)

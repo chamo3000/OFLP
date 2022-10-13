@@ -15,8 +15,6 @@ namespace OFLP.Modelo
         public string segundoApellido { get; set; }
         public string nombreCliente { get; set; }
         public int cedulaCliente { get; set; }
-
-        public byte activo { get; set; }
         public string descripcion { get; set; }
         private string SQL;
 
@@ -67,11 +65,10 @@ namespace OFLP.Modelo
                     {
                         ClsInicio.clientes.Add(new ModCliente()
                         {
-                            activo = Convert.ToByte(reader[0]),
-                            cedulaCliente = Convert.ToInt32(reader[1]),
-                            nombreCliente = reader[2].ToString(),
-                            primerApellido = reader[3].ToString(),
-                            segundoApellido = reader[4].ToString()
+                            cedulaCliente = Convert.ToInt32(reader[0]),
+                            nombreCliente = reader[1].ToString(),
+                            primerApellido = reader[2].ToString(),
+                            segundoApellido = reader[3].ToString()
                         });
 
                     }

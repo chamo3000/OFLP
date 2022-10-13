@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OFLP.Controlador;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -24,7 +25,7 @@ namespace OFLP.Modelo
                     query = "select id from cliente where primerApellido=@primerApellido and nombre=@nombre";
                     break;
                 case "SelecionaCliente":
-                    query = "Select activo,cedula,nombre,primerApellido,segundoApellido from cliente";
+                    query = "Select cedula,nombre,primerApellido,segundoApellido from cliente";
                     break;
                 case "AgregarCliente":
                     query = "INSERT INTO CLIENTE (primerApellido,segundoApellido,nombre,cedula) values (@primerApellido,@segundoApellido,@nombre,@cedula);";
@@ -36,7 +37,7 @@ namespace OFLP.Modelo
                     query = "select id from cliente where primerApellido= @primerApellido and segundoApellido= @segundoApellido and nombre= @nombre and cedula= @cedula ";
                     break;
                 case "EliminarCliente":
-                    query = "update cliente set activo=0 where cedula= @cedula ";
+                    query = "delete from cliente where cedula= @cedula ";
                     break;
                 case "EliminarClaseCliente":
                     query = "delete from CLASECLIENTE where idCliente= @idCliente ";
@@ -131,7 +132,8 @@ namespace OFLP.Modelo
             }
             catch (Exception err)
             {
-                //registrar log
+                CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
             }
 
             return rstl;
