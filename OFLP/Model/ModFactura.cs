@@ -33,7 +33,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarFactura"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarFactura"), oBd.Con);
 
                     command.Parameters.AddWithValue("@consecutivo", datos[0]);
                     command.Parameters.AddWithValue("@reunion", datos[1]);
@@ -86,7 +86,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(query, oBd.con);
+                    SqlCommand command = new SqlCommand(query, oBd.Con);
                     SqlDataReader reader = command.ExecuteReader();
                     ClsInicio.Factura.Clear();
                     while (reader.Read())
@@ -116,7 +116,8 @@ namespace OFLP.Modelo
                 catch (Exception err)
                 {
 
-                    //registrar Log
+                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
                 }
                 oBd.CerrarConexion();
             }
@@ -133,7 +134,7 @@ namespace OFLP.Modelo
 
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarFactura"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarFactura"), oBd.Con);
 
                     command.Parameters.AddWithValue("@consecutivo", consecutivo);
 

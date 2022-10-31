@@ -49,7 +49,7 @@ namespace OFLP.Vistas
                     band = false;
                     foreach (ModCliente item2 in compradores)
                     {
-                        if (item2.idCliente == item.idCliente) band = true;
+                        if (item2.cedulaCliente == item.cedulaCliente) band = true;
                     }
 
                     if (!band)

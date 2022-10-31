@@ -111,6 +111,7 @@
     <Compile Include="Controller\CtrlGanado.cs" />
     <Compile Include="Controller\ctrlHacienda.cs" />
     <Compile Include="Controller\CtrlSexo.cs" />
+    <Compile Include="Controller\ctrlUsuario.cs" />
     <Compile Include="Controller\CtrlUtilidades.cs" />
     <Compile Include="Controller\Restricciones.cs" />
     <Compile Include="Model\ModBanco.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Model\ModGanado.cs" />
     <Compile Include="Model\ModHacienda.cs" />
     <Compile Include="Model\ModSexo.cs" />
+    <Compile Include="Model\ModUsuario.cs" />
     <Compile Include="Model\ModUtilidadesBd.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -254,6 +256,12 @@
     <Compile Include="Views\FrmSexo.Designer.cs">
       <DependentUpon>FrmSexo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FrmAgregarCuenta.resx">
       <DependentUpon>FrmAgregarCuenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSexo.resx">
       <DependentUpon>FrmSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="OFLP_TemporaryKey.pfx" />
     <None Include="packages.config" />

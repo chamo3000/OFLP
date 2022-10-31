@@ -18,7 +18,7 @@ namespace OFLP.Controlador
             {
                 if(nombre.Contains(item.nombreCliente) && nombre.Contains(item.primerApellido))
                 {
-                    IdCLiente = item.idCliente;
+                    IdCLiente = item.cedulaCliente;
                 }
             }
         }

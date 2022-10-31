@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OFLP.Controlador;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -11,7 +12,7 @@ namespace OFLP.Modelo
     class ModUtilidadesBd
     {
 
-        public SqlConnection con { get; private set; }
+        public SqlConnection Con { get; private set; }
 
 
 
@@ -20,11 +21,14 @@ namespace OFLP.Modelo
             string query = null;
             switch (operacion)
             {
+                case "ValidarUsuario":
+                    query = "  select nombre, apellido from usuario  where usuario =@usuario and contrasena=@contrasena";
+                    break;
                 case "SelecionaDuenoHacienda":
                     query = "select id from cliente where primerApellido=@primerApellido and nombre=@nombre";
                     break;
                 case "SelecionaCliente":
-                    query = "Select * from cliente";
+                    query = "Select cedula,nombre,primerApellido,segundoApellido from cliente";
                     break;
                 case "AgregarCliente":
                     query = "INSERT INTO CLIENTE (primerApellido,segundoApellido,nombre,cedula) values (@primerApellido,@segundoApellido,@nombre,@cedula);";
@@ -36,7 +40,7 @@ namespace OFLP.Modelo
                     query = "select id from cliente where primerApellido= @primerApellido and segundoApellido= @segundoApellido and nombre= @nombre and cedula= @cedula ";
                     break;
                 case "EliminarCliente":
-                    query = "delete from cliente where id= @id ";
+                    query = "delete from cliente where cedula= @cedula ";
                     break;
                 case "EliminarClaseCliente":
                     query = "delete from CLASECLIENTE where idCliente= @idCliente ";
@@ -44,8 +48,14 @@ namespace OFLP.Modelo
                 case "ActualizarCliente":
                     query = "UPDATE CLIENTE SET " +
                         "primerApellido = @primerApellido, segundoApellido = @segundoApellido," +
-                        " nombre = @nombre, cedula = @cedula" +
-                        " WHERE id = @id; ";
+                        " nombre = @nombre" +
+                        " WHERE cedula = @cedula; ";
+                    break;
+                case "ActualizarClienteConCedula":
+                    query = "UPDATE CLIENTE SET " +
+                        "primerApellido = @primerApellido, segundoApellido = @segundoApellido,cedula = @cedulaAuxiliar," +
+                        " nombre = @nombre" +
+                        " WHERE cedula = @cedula; ";
                     break;
                 case "AgregarHacienda":
                     query = "INSERT INTO HACIENDA (nombre,municipio,idCliente) VALUES (@nombre,@municipio,@idCliente)";
@@ -119,13 +129,14 @@ namespace OFLP.Modelo
 
             try
             {
-                con = new SqlConnection(ConfigurationManager.AppSettings["conexion"]);
-                con.Open();
+                Con = new SqlConnection(ConfigurationManager.AppSettings["conexion"]);
+                Con.Open();
                 rstl = true;
             }
             catch (Exception err)
             {
-                //registrar log
+                CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
             }
 
             return rstl;
@@ -133,7 +144,7 @@ namespace OFLP.Modelo
 
         public void CerrarConexion()
         {
-            con.Close();
+            Con.Close();
         }
 
     }
