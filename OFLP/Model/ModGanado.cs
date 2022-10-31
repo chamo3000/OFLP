@@ -38,7 +38,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(query, oBd.con);
+                    SqlCommand command = new SqlCommand(query, oBd.Con);
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -73,7 +73,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarGanado"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarGanado"), oBd.Con);
 
                     command.Parameters.AddWithValue("@claseGanado", claseGanado);
                     command.Parameters.AddWithValue("@clase", clase);
@@ -103,7 +103,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("ActualizarGanado"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("ActualizarGanado"), oBd.Con);
 
                     command.Parameters.AddWithValue("@claseGanado", datosActualizar[1]);
                     command.Parameters.AddWithValue("@clase", datosActualizar[2]);
@@ -138,7 +138,7 @@ namespace OFLP.Modelo
 
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarGanado"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarGanado"), oBd.Con);
 
                     command.Parameters.AddWithValue("@id", idGanado);
 

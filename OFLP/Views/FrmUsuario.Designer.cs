@@ -111,10 +111,15 @@
             // cmbEmpresa
             // 
             this.cmbEmpresa.FormattingEnabled = true;
+            this.cmbEmpresa.Items.AddRange(new object[] {
+            "EMP1",
+            "EMP2",
+            "EMP3"});
             this.cmbEmpresa.Location = new System.Drawing.Point(42, 134);
             this.cmbEmpresa.Name = "cmbEmpresa";
             this.cmbEmpresa.Size = new System.Drawing.Size(225, 21);
-            this.cmbEmpresa.TabIndex = 3;
+            this.cmbEmpresa.TabIndex = 2;
+            this.cmbEmpresa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbEmpresa_KeyDown);
             // 
             // label4
             // 
@@ -152,7 +157,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(162, 187);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(137, 32);
-            this.BtnCancelar.TabIndex = 1;
+            this.BtnCancelar.TabIndex = 4;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -163,17 +168,18 @@
             this.BtnIngresar.Location = new System.Drawing.Point(16, 187);
             this.BtnIngresar.Name = "BtnIngresar";
             this.BtnIngresar.Size = new System.Drawing.Size(132, 32);
-            this.BtnIngresar.TabIndex = 1;
+            this.BtnIngresar.TabIndex = 3;
             this.BtnIngresar.Text = "Ingresar";
             this.BtnIngresar.UseVisualStyleBackColor = true;
-            this.BtnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
+            this.BtnIngresar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // txtContrasena
             // 
             this.txtContrasena.Location = new System.Drawing.Point(42, 85);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(225, 20);
-            this.txtContrasena.TabIndex = 0;
+            this.txtContrasena.TabIndex = 1;
+            this.txtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtContrasena_KeyDown);
             // 
             // txtUsuario
             // 
@@ -181,6 +187,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(225, 20);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUsuario_KeyDown);
             // 
             // pnlBarraTitulo
             // 

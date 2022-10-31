@@ -45,7 +45,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(query, oBd.con);
+                    SqlCommand command = new SqlCommand(query, oBd.Con);
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -85,7 +85,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarCuenta"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarCuenta"), oBd.Con);
 
                     command.Parameters.AddWithValue("@numeroCuenta", numero_cuenta);
                     command.Parameters.AddWithValue("@ciudad", ciudad);

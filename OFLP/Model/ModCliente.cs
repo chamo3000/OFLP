@@ -58,7 +58,7 @@ namespace OFLP.Modelo
                 try
                 {
 
-                    SqlCommand command = new SqlCommand(query, oBd.con);
+                    SqlCommand command = new SqlCommand(query, oBd.Con);
                     SqlDataReader reader = command.ExecuteReader();
                     ClsInicio.clientes.Clear();
                     while (reader.Read())
@@ -97,7 +97,7 @@ namespace OFLP.Modelo
 
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarCliente"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarCliente"), oBd.Con);
 
                     command.Parameters.AddWithValue("@primerApellido", datos[0].ToUpper());
                     command.Parameters.AddWithValue("@segundoApellido", datos[1].ToUpper());
@@ -126,7 +126,7 @@ namespace OFLP.Modelo
                 {
                     if (string.IsNullOrEmpty(cedulaAuxiliar.Trim()))
                     {
-                        command = new SqlCommand(oBd.Definirquery("ActualizarCliente"), oBd.con);
+                        command = new SqlCommand(oBd.Definirquery("ActualizarCliente"), oBd.Con);
                         command.Parameters.AddWithValue("@cedula", datos[0]);
                         command.Parameters.AddWithValue("@primerApellido", datos[1]);
                         command.Parameters.AddWithValue("@segundoApellido", datos[2]);
@@ -136,7 +136,7 @@ namespace OFLP.Modelo
                     }
                     else
                     {
-                        command = new SqlCommand(oBd.Definirquery("ActualizarClienteConCedula"), oBd.con);
+                        command = new SqlCommand(oBd.Definirquery("ActualizarClienteConCedula"), oBd.Con);
                         command.Parameters.AddWithValue("@cedulaAuxiliar", datos[0]);
                         command.Parameters.AddWithValue("@cedula", cedulaAuxiliar);
                         command.Parameters.AddWithValue("@primerApellido", datos[1]);
@@ -166,7 +166,7 @@ namespace OFLP.Modelo
             ModUtilidadesBd oBd = new ModUtilidadesBd();
             if (oBd.AbrirConexion())
             {
-                SqlCommand command = new SqlCommand(oBd.Definirquery("SelecIdCliente"), oBd.con);
+                SqlCommand command = new SqlCommand(oBd.Definirquery("SelecIdCliente"), oBd.Con);
                 command.Parameters.AddWithValue("@primerApellido", datos[0]);
                 command.Parameters.AddWithValue("@segundoApellido", datos[1]);
                 command.Parameters.AddWithValue("@nombre", datos[2]);
@@ -201,7 +201,7 @@ namespace OFLP.Modelo
             ModUtilidadesBd oBd = new ModUtilidadesBd();
             if (oBd.AbrirConexion())
             {
-                SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarClaseCliente"), oBd.con);
+                SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarClaseCliente"), oBd.Con);
                 command.Parameters.AddWithValue("@idCliente", idCliente);
                 command.Parameters.AddWithValue("@idTipoCliente", idTipoCliente);
                 try
@@ -228,7 +228,7 @@ namespace OFLP.Modelo
             ModUtilidadesBd oBd = new ModUtilidadesBd();
             if (oBd.AbrirConexion())
             {
-                SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarClaseCliente"), oBd.con);
+                SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarClaseCliente"), oBd.Con);
                 command.Parameters.AddWithValue("@idCliente", idCliente);
 
                 try
@@ -258,7 +258,7 @@ namespace OFLP.Modelo
 
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarCliente"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarCliente"), oBd.Con);
 
                     command.Parameters.AddWithValue("@cedula", idCliente);
 

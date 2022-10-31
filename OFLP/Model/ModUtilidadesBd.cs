@@ -12,7 +12,7 @@ namespace OFLP.Modelo
     class ModUtilidadesBd
     {
 
-        public SqlConnection con { get; private set; }
+        public SqlConnection Con { get; private set; }
 
 
 
@@ -21,6 +21,9 @@ namespace OFLP.Modelo
             string query = null;
             switch (operacion)
             {
+                case "ValidarUsuario":
+                    query = "  select nombre, apellido from usuario  where usuario =@usuario and contrasena=@contrasena";
+                    break;
                 case "SelecionaDuenoHacienda":
                     query = "select id from cliente where primerApellido=@primerApellido and nombre=@nombre";
                     break;
@@ -126,8 +129,8 @@ namespace OFLP.Modelo
 
             try
             {
-                con = new SqlConnection(ConfigurationManager.AppSettings["conexion"]);
-                con.Open();
+                Con = new SqlConnection(ConfigurationManager.AppSettings["conexion"]);
+                Con.Open();
                 rstl = true;
             }
             catch (Exception err)
@@ -141,7 +144,7 @@ namespace OFLP.Modelo
 
         public void CerrarConexion()
         {
-            con.Close();
+            Con.Close();
         }
 
     }

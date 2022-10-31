@@ -111,6 +111,7 @@
     <Compile Include="Controller\CtrlGanado.cs" />
     <Compile Include="Controller\ctrlHacienda.cs" />
     <Compile Include="Controller\CtrlSexo.cs" />
+    <Compile Include="Controller\ctrlUsuario.cs" />
     <Compile Include="Controller\CtrlUtilidades.cs" />
     <Compile Include="Controller\Restricciones.cs" />
     <Compile Include="Model\ModBanco.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Model\ModGanado.cs" />
     <Compile Include="Model\ModHacienda.cs" />
     <Compile Include="Model\ModSexo.cs" />
+    <Compile Include="Model\ModUsuario.cs" />
     <Compile Include="Model\ModUtilidadesBd.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

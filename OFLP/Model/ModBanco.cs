@@ -47,7 +47,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(query, oBd.con);
+                    SqlCommand command = new SqlCommand(query, oBd.Con);
                     SqlDataReader reader = command.ExecuteReader();
                     
 
@@ -84,7 +84,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarBanco"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarBanco"), oBd.Con);
 
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@descripcion", descripcion);
@@ -114,7 +114,7 @@ namespace OFLP.Modelo
             {
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("ActualizarBanco"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("ActualizarBanco"), oBd.Con);
                  
                     command.Parameters.AddWithValue("@nombre", datosActualizar[1]);
                     command.Parameters.AddWithValue("@descripcion", datosActualizar[2]);
@@ -149,7 +149,7 @@ namespace OFLP.Modelo
 
                 try
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarBanco"), oBd.con);
+                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarBanco"), oBd.Con);
 
                     command.Parameters.AddWithValue("@id", idBanco);
 
