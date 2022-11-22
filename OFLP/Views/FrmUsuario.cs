@@ -24,17 +24,16 @@ namespace OFLP.Views
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
 
-            //if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtContrasena.Text))
-            //{
-            //    CtrlUsuario OctrlUsuario = new CtrlUsuario();
-            //    if (OctrlUsuario.ValidarCliente(txtUsuario.Text, txtContrasena.Text))
-            //    {
-            //        this.Hide();
-            //        Program.objfrmPpal.Show();
-            //    }
-            //    else MessageBox.Show("Usuario o contraseña no validos, por favor verifique e intente nuevamente", "Valida Usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //MessageBox.Show("Debe completar todos los campos", "Ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtContrasena.Text))
+            {
+                CtrlUsuario OctrlUsuario = new CtrlUsuario();
+                if (OctrlUsuario.ValidarCliente(txtUsuario.Text, txtContrasena.Text))
+                {
+                    this.Hide();
+                    Program.objfrmPpal.Show();
+                }
+                else MessageBox.Show("Usuario o contraseña no validos, por favor verifique e intente nuevamente", "Valida Usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else MessageBox.Show("Debe completar todos los campos", "Ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             this.Hide();
             Program.objfrmPpal.Show();
         }

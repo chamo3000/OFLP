@@ -54,7 +54,7 @@ namespace OFLP.Vistas
 
 
                 var queryLondonCustomers = (from cust in ClsInicio.clientes
-                                            where cust.cedulaCliente == Convert.ToInt32(txtCedula.Text)
+                                            where cust.cedulaCliente == Convert.ToUInt32(txtCedula.Text)
                                             select cust).ToList();
 
                 if (queryLondonCustomers.Count() > 0)

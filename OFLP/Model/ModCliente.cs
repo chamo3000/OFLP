@@ -1,10 +1,13 @@
 ﻿using OFLP.Controlador;
+using OFLP.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Web.UI.WebControls;
 
 namespace OFLP.Modelo
 {
@@ -23,14 +26,45 @@ namespace OFLP.Modelo
 
         public bool LlenarGrid()
         {
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            SQL = oBd.Definirquery("SelecionaCliente");
+            #region Codigo sin EF
+            //ModUtilidadesBd oBd = new ModUtilidadesBd();
+            //SQL = oBd.Definirquery("SelecionaCliente");
 
-            if (Select(SQL))
+            //if (Select(SQL))
+            //{
+            //    return true;
+            //}
+            //else return false;
+            #endregion
+            try
             {
+                ClsInicio.clientes.Clear();
+                using (MIGANEntities db = new MIGANEntities())
+                {
+                    var lstCliente = db.CLIENTE;
+                    foreach (var oCliente in lstCliente)
+                    {
+                        ClsInicio.clientes.Add(new ModCliente()
+                        {
+
+                            cedulaCliente = Convert.ToInt32(oCliente.cedula),
+                            nombreCliente = oCliente.nombre.ToString(),
+                            primerApellido = oCliente.primerApellido.ToString(),
+                            segundoApellido = oCliente.segundoApellido
+
+                        });
+                    }
+                }
                 return true;
+
             }
-            else return false;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
+
         }
 
 
@@ -90,77 +124,88 @@ namespace OFLP.Modelo
 
         public bool InsertarCliente(string[] datos)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
+            #region Codigo sin EF
+            //ModUtilidadesBd oBd = new ModUtilidadesBd();
+            //if (oBd.AbrirConexion())
+            //{
+
+            //    try
+            //    {
+            //        SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarCliente"), oBd.Con);
+
+            //        command.Parameters.AddWithValue("@primerApellido", datos[0].ToUpper());
+            //        command.Parameters.AddWithValue("@segundoApellido", datos[1].ToUpper());
+            //        command.Parameters.AddWithValue("@nombre", datos[2].ToUpper());
+            //        command.Parameters.AddWithValue("@cedula", datos[3]);
+            //        Int32 rowsAffected = command.ExecuteNonQuery();
+            //        oBd.CerrarConexion();
+            //        rslt = true;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
+            #endregion
+            try
             {
-
-                try
+                CLIENTE oCliente = new CLIENTE
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarCliente"), oBd.Con);
-
-                    command.Parameters.AddWithValue("@primerApellido", datos[0].ToUpper());
-                    command.Parameters.AddWithValue("@segundoApellido", datos[1].ToUpper());
-                    command.Parameters.AddWithValue("@nombre", datos[2].ToUpper());
-                    command.Parameters.AddWithValue("@cedula", datos[3]);
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    rslt = true;
-                }
-                catch (Exception ex)
+                    primerApellido = datos[0],
+                    segundoApellido = datos[1],
+                    nombre = datos[2],
+                    cedula = Convert.ToInt32(datos[3]),
+                };
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    Console.WriteLine(ex.Message);
+                    db.CLIENTE.Add(oCliente);
+                    db.SaveChanges();
                 }
+                return true;
+
             }
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
+
+
+
+
         }
 
         public bool ActualizarCliente(string[] datos, string cedulaAuxiliar = "")
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            SqlCommand command=null;
-            if (oBd.AbrirConexion())
+            int id = Convert.ToInt32(datos[0]); 
+            try
             {
-                try
+                using (MIGANEntities db=new MIGANEntities())
                 {
-                    if (string.IsNullOrEmpty(cedulaAuxiliar.Trim()))
-                    {
-                        command = new SqlCommand(oBd.Definirquery("ActualizarCliente"), oBd.Con);
-                        command.Parameters.AddWithValue("@cedula", datos[0]);
-                        command.Parameters.AddWithValue("@primerApellido", datos[1]);
-                        command.Parameters.AddWithValue("@segundoApellido", datos[2]);
-                        command.Parameters.AddWithValue("@nombre", datos[3]);
-                       
+                    CLIENTE oCliente = db.CLIENTE.Where(d => d.cedula == id).First();
 
-                    }
-                    else
-                    {
-                        command = new SqlCommand(oBd.Definirquery("ActualizarClienteConCedula"), oBd.Con);
-                        command.Parameters.AddWithValue("@cedulaAuxiliar", datos[0]);
-                        command.Parameters.AddWithValue("@cedula", cedulaAuxiliar);
-                        command.Parameters.AddWithValue("@primerApellido", datos[1]);
-                        command.Parameters.AddWithValue("@segundoApellido", datos[2]);
-                        command.Parameters.AddWithValue("@nombre", datos[3]);
-
-
-                    }
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    if (rowsAffected > 0)
-                    {
-                        rslt = true;
-                    }
+                    oCliente.cedula= Convert.ToInt32(datos[0]);
+                    oCliente.primerApellido = datos[1];
+                    oCliente.segundoApellido= datos[2];
+                    oCliente.nombre= datos[3];
+                    db.Entry(oCliente).State=System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                return true;
             }
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
+
+            return false;
         }
 
-        public bool selectIdCliente(string[] datos)
+        public bool SelectIdCliente(string[] datos)
         {
             bool rslt = false;
             ModUtilidadesBd oBd = new ModUtilidadesBd();
