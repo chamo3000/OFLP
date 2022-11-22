@@ -171,7 +171,7 @@
             this.BtnIngresar.TabIndex = 3;
             this.BtnIngresar.Text = "Ingresar";
             this.BtnIngresar.UseVisualStyleBackColor = true;
-            this.BtnIngresar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            this.BtnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
             // 
             // txtContrasena
             // 

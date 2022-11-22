@@ -13,61 +13,30 @@ namespace OFLP.Model
     {
         public string Usuario { get; set; }
         public string Password { get; set; }
-
         public bool ValidarUsuario(string user,string pass)
         {
             Usuario = user;
             Password = pass;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            string SQL = oBd.Definirquery("ValidarUsuario");
+            #region codigo sin EF;
+            //ModUtilidadesBd oBd = new ModUtilidadesBd();
+            //string SQL = oBd.Definirquery("ValidarUsuario");
 
-            if (Select(SQL))
+            //if (Select(SQL))
+            //{
+            //    return true;
+            //}
+            //else return false;
+            #endregion
+            using (MIGANEntities db =new MIGANEntities()) 
             {
-                return true;
-            }
-            else return false;
-        }
-
-        private bool Select(string query)
-        {
-
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
-            {
-                try
+                var lstUser = db.USUARIO;
+                foreach (var oUser in lstUser)
                 {
-
-                    SqlCommand command = new SqlCommand(query, oBd.Con);
-                    
-                    command.Parameters.AddWithValue("@usuario", Usuario);
-                    command.Parameters.AddWithValue("@contrasena", Password);
-
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        ClsInicio.clientes.Add(new ModCliente()
-                        {
-                            nombreCliente = reader[0].ToString(),
-                            primerApellido = reader[1].ToString(),
-                        });
-
-                    }
-                    rslt = true;
-
+                    if (oUser.USUARIO1.Equals(Usuario) && oUser.CONTRASENA.Equals(Password)) 
+                        return true;
                 }
-                catch (Exception err)
-                {
-                    CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
-                    //registrar Log
-                }
-                oBd.CerrarConexion();
-
-
             }
-
-            return rslt;
+            return false;
         }
 
     }
