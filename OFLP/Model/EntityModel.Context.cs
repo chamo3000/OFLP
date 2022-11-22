@@ -28,5 +28,9 @@ namespace OFLP.Model
         public virtual DbSet<CLIENTE> CLIENTE { get; set; }
         public virtual DbSet<ROL> ROL { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<CLASE> CLASE { get; set; }
+        public virtual DbSet<GASTO> GASTO { get; set; }
+        public virtual DbSet<SEXO> SEXO { get; set; }
+        public virtual DbSet<FACTURA> FACTURA { get; set; }
     }
 }

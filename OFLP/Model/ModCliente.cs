@@ -179,18 +179,18 @@ namespace OFLP.Modelo
         public bool ActualizarCliente(string[] datos, string cedulaAuxiliar = "")
         {
             bool rslt = false;
-            int id = Convert.ToInt32(datos[0]); 
+            int id = Convert.ToInt32(datos[0]);
             try
             {
-                using (MIGANEntities db=new MIGANEntities())
+                using (MIGANEntities db = new MIGANEntities())
                 {
                     CLIENTE oCliente = db.CLIENTE.Where(d => d.cedula == id).First();
 
-                    oCliente.cedula= Convert.ToInt32(datos[0]);
+                    oCliente.cedula = Convert.ToInt32(datos[0]);
                     oCliente.primerApellido = datos[1];
-                    oCliente.segundoApellido= datos[2];
-                    oCliente.nombre= datos[3];
-                    db.Entry(oCliente).State=System.Data.Entity.EntityState.Modified;
+                    oCliente.segundoApellido = datos[2];
+                    oCliente.nombre = datos[3];
+                    db.Entry(oCliente).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -296,32 +296,22 @@ namespace OFLP.Modelo
 
         public bool EliminarCliente(string idCliente)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
+            int id = Convert.ToInt32(idCliente);
+            try
             {
-
-                try
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarCliente"), oBd.Con);
-
-                    command.Parameters.AddWithValue("@cedula", idCliente);
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    if (rowsAffected > 0)
-                    {
-
-                        rslt = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
+                    CLIENTE oCliente = db.CLIENTE.Where(d => d.cedula == id).First();
+                    db.CLIENTE.Remove(oCliente);
+                    db.SaveChanges();
+                    return true;
                 }
             }
-
-            return rslt;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
         }
         #endregion
 
