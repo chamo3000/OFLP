@@ -161,7 +161,7 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(194, 194);
-            this.txtCedula.MaxLength = 20;
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(240, 20);
             this.txtCedula.TabIndex = 11;

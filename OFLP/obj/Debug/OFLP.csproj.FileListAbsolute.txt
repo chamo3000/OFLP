@@ -563,3 +563,56 @@ C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.csproj.C
 C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.exe
 C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.pdb
 C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.Views.FrmUsuario.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\OFLP.exe.config
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\OFLP.exe.manifest
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\OFLP.application
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\OFLP.exe
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\OFLP.pdb
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Security.AccessControl.dll
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Security.Permissions.dll
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Security.AccessControl.xml
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Security.Permissions.xml
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.csproj.AssemblyReference.cache
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.csproj.SuggestedBindingRedirects.cache
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmAgregarCuenta.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmAgregarFactura.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmCuenta.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmActualizarBanco.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmActualizarCliente.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmActualizarGanado.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmActualizarHacienda.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmActualizaSexo.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmAgregarBanco.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.frmAgregarCliente.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmAgregarGanado.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.frmAgregarHacienda.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmAgregarSexo.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmBanco.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmCliente.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.frmComisiones.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmFactura.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmGanado.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmHaciendas.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmPpal.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Properties.Resources.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Vistas.FrmSexo.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.Views.FrmUsuario.resources
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.csproj.GenerateResource.cache
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.csproj.CoreCompileInputs.cache
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.exe.manifest
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.application
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.csproj.CopyComplete
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.exe
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\obj\Debug\OFLP.pdb
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.dll
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.xml
+C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.dll
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.xml
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.xml
