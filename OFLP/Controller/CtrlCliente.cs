@@ -8,88 +8,36 @@ namespace OFLP.Controlador
         public bool LlenarGridCliente()
         {
             ModCliente oEquipo = new ModCliente();
-
-            if (!oEquipo.LlenarGrid())
-            {
-              return false;
-            }
-            else
-            {
-                return true;
-            }
-
+            if (!oEquipo.LlenarGrid()) return false;
+            else return true;
         }
         public List<ModCliente> BuscarPropietario(string datobusqueda)
         {
             ModCliente oEquipo = new ModCliente();
             List<ModCliente> lstBusqueda = oEquipo.BuscarPropietario(datobusqueda);
-            if (lstBusqueda == null)
-            {
-                return null;
-            }
-            else
-            {
-                return lstBusqueda;
-            }
-
+            if (lstBusqueda == null) return null;
+            else return lstBusqueda;
         }
 
         public bool InsertarCliente(string[] DatosIngresar)
         {
             ModCliente oEquipo = new ModCliente();
-
-
-
-
-            if (!oEquipo.InsertarCliente(DatosIngresar))
-            {
-                oEquipo = null;
-                return false;
-            }
-            else
-            {
-                oEquipo = null;
-                return true;
-            }
-
+            if (!oEquipo.InsertarCliente(DatosIngresar)) return false;
+            else return true;
         }
 
-        public bool ActualizarCliente(string[] DatosIngresar, string cedulaAuxiliar="")
+        public bool ActualizarCliente(string[] DatosIngresar)
         {
             ModCliente oEquipo = new ModCliente();
-
-
-            if (!oEquipo.ActualizarCliente(DatosIngresar, cedulaAuxiliar))
-            {
-                oEquipo = null;
-                return false;
-            }
-            else
-            {
-                oEquipo = null;
-                return true;
-            }
-
+            if (!oEquipo.ActualizarCliente(DatosIngresar)) return false;
+            else return true;
         }
 
         public bool EliminarCliente(string idCliente)
         {
             ModCliente oEquipo = new ModCliente();
-
-
-            if (!oEquipo.EliminarCliente(idCliente))
-            {
-                oEquipo = null;
-                return false;
-            }
-            else
-            {
-                oEquipo = null;
-                return true;
-            }
-
+            if (!oEquipo.EliminarCliente(idCliente)) return false;
+            else return true;
         }
-
-
     }
 }

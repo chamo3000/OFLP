@@ -122,6 +122,9 @@
     <Compile Include="Controller\ctrlUsuario.cs" />
     <Compile Include="Controller\CtrlUtilidades.cs" />
     <Compile Include="Controller\Restricciones.cs" />
+    <Compile Include="Model\CLASE.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CLIENTE.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
@@ -140,6 +143,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\FACTURA.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GASTO.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ModBanco.cs" />
     <Compile Include="Model\ModCliente.cs" />
     <Compile Include="Model\ModCuenta.cs" />
@@ -150,6 +159,9 @@
     <Compile Include="Model\ModUsuario.cs" />
     <Compile Include="Model\ModUtilidadesBd.cs" />
     <Compile Include="Model\ROL.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SEXO.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\USUARIO.cs">

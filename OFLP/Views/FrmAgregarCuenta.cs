@@ -29,7 +29,7 @@ namespace OFLP.Vistas
 
             foreach (ModCliente item in ClsInicio.clientes)
             {
-                cmbIdcliente.Items.Add(item.nombreCliente +" "+ item.primerApellido);
+                cmbIdcliente.Items.Add(item.NombreCliente +" "+ item.PrimerApellido);
 
             }
 

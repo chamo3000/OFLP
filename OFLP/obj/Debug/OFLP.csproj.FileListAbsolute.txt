@@ -612,3 +612,7 @@ C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.dll
 C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.xml
 C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.dll
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.xml
+C:\Users\Usuario1\Documents\Oficina LBP\Github\OFLP\OFLP\bin\Debug\EntityFramework.SqlServer.xml
