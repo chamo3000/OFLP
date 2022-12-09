@@ -2,26 +2,20 @@
 using OFLP.Model;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Web.UI.WebControls;
 
 namespace OFLP.Modelo
 {
     public class ModCliente
     {
         #region Propiedades
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
-        public string nombreCliente { get; set; }
-        public int cedulaCliente { get; set; }
-        public string descripcion { get; set; }
-        private string SQL;
-
-
+        public string PrimerApellido { get; set; }
+        public string SegundoApellido { get; set; }
+        public string NombreCliente { get; set; }
+        public int CedulaCliente { get; set; }
+        public string Descripcion { get; set; }
         #endregion
 
         public bool LlenarGrid()
@@ -47,10 +41,10 @@ namespace OFLP.Modelo
                         ClsInicio.clientes.Add(new ModCliente()
                         {
 
-                            cedulaCliente = Convert.ToInt32(oCliente.cedula),
-                            nombreCliente = oCliente.nombre.ToString(),
-                            primerApellido = oCliente.primerApellido.ToString(),
-                            segundoApellido = oCliente.segundoApellido
+                            CedulaCliente = Convert.ToInt32(oCliente.cedula),
+                            NombreCliente = oCliente.nombre.ToString(),
+                            PrimerApellido = oCliente.primerApellido.ToString(),
+                            SegundoApellido = oCliente.segundoApellido
 
                         });
                     }
@@ -76,51 +70,12 @@ namespace OFLP.Modelo
 
 
             lstBusqueda = (from cust in ClsInicio.clientes
-                           where cust.primerApellido.StartsWith(datoBuscar)
+                           where cust.PrimerApellido.StartsWith(datoBuscar)
                            select cust).ToList();
             return lstBusqueda;
         }
 
         #region Base de datos
-        private bool Select(string query)
-        {
-
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
-            {
-                try
-                {
-
-                    SqlCommand command = new SqlCommand(query, oBd.Con);
-                    SqlDataReader reader = command.ExecuteReader();
-                    ClsInicio.clientes.Clear();
-                    while (reader.Read())
-                    {
-                        ClsInicio.clientes.Add(new ModCliente()
-                        {
-                            cedulaCliente = Convert.ToInt32(reader[0]),
-                            nombreCliente = reader[1].ToString(),
-                            primerApellido = reader[2].ToString(),
-                            segundoApellido = reader[3].ToString()
-                        });
-
-                    }
-                    rslt = true;
-
-                }
-                catch (Exception err)
-                {
-                    CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
-                    //registrar Log
-                }
-                oBd.CerrarConexion();
-
-
-            }
-
-            return rslt;
-        }
 
         public bool InsertarCliente(string[] datos)
         {
@@ -176,9 +131,8 @@ namespace OFLP.Modelo
 
         }
 
-        public bool ActualizarCliente(string[] datos, string cedulaAuxiliar = "")
+        public bool ActualizarCliente(string[] datos)
         {
-            bool rslt = false;
             int id = Convert.ToInt32(datos[0]);
             try
             {
@@ -202,7 +156,7 @@ namespace OFLP.Modelo
                 return false;
             }
 
-            return false;
+
         }
 
         public bool SelectIdCliente(string[] datos)
@@ -222,7 +176,7 @@ namespace OFLP.Modelo
                     SqlDataReader rd = command.ExecuteReader();
                     if (rd.Read())
                     {
-                        cedulaCliente = Convert.ToInt32(rd[0]);
+                        CedulaCliente = Convert.ToInt32(rd[0]);
 
                     }
 
@@ -233,8 +187,6 @@ namespace OFLP.Modelo
                     Console.WriteLine(ex.Message);
                 }
                 oBd.CerrarConexion();
-                oBd = null;
-
             }
 
             return rslt;
@@ -260,8 +212,6 @@ namespace OFLP.Modelo
                     Console.WriteLine(ex.Message);
                 }
                 oBd.CerrarConexion();
-                oBd = null;
-
             }
 
             return rslt;
@@ -287,10 +237,7 @@ namespace OFLP.Modelo
                     Console.WriteLine(ex.Message);
                 }
                 oBd.CerrarConexion();
-                oBd = null;
-
             }
-
             return rslt;
         }
 

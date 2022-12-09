@@ -71,7 +71,7 @@ namespace OFLP.Vistas
             {
                 foreach (ModCliente item in ClsInicio.clientes)
                 {
-                    dtgPropietario.Rows.Add(item.cedulaCliente, item.primerApellido, item.segundoApellido, item.nombreCliente);
+                    dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
                 }
 
             }
@@ -85,7 +85,7 @@ namespace OFLP.Vistas
             CtrlCliente ObjCtrlCliente = new CtrlCliente();
             if (ObjCtrlCliente.EliminarCliente(idCliente))
             {
-
+                ClsInicio.clientes.RemoveAll(x => x.CedulaCliente ==Convert.ToInt32(idCliente));
                 MessageBox.Show("Cliente Eliminado exitosamente", "Eliminar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgPropietario.Rows.Remove(dtgPropietario.Rows[fila]);
                 lblApellidoUno.Text = "";
@@ -99,11 +99,6 @@ namespace OFLP.Vistas
             {
                 MessageBox.Show("Error al eliminar el cliente, valide e intente de nuevo", "Eliminar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ObjCtrlCliente = null;
-            GC.Collect();
-
-
-
         }
 
         private void ActualizarCliente(int columnas)
@@ -159,7 +154,7 @@ namespace OFLP.Vistas
                 dtgPropietario.Rows.Clear();
                 foreach (ModCliente item in lstBusqueda)
                 {
-                    dtgPropietario.Rows.Add(item.cedulaCliente, item.primerApellido, item.segundoApellido, item.nombreCliente, item.cedulaCliente, item.descripcion);
+                    dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
 
                 }
             }
@@ -182,13 +177,13 @@ namespace OFLP.Vistas
             dtgPropietario.Rows.Clear();
             foreach (ModCliente item in ClsInicio.clientes)
             {
-                dtgPropietario.Rows.Add(item.cedulaCliente, item.primerApellido, item.segundoApellido, item.nombreCliente, item.cedulaCliente, item.descripcion);
+                dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
             }
         }
 
         private void PicAgregarCliente_Click(object sender, EventArgs e)
         {
-            frmAgregarCliente objfrmAgregarCliente = new frmAgregarCliente(FrmPpal.TipoCliente);
+            FrmAgregarCliente objfrmAgregarCliente = new FrmAgregarCliente(FrmPpal.TipoCliente);
             objfrmAgregarCliente.Show();
         }
     }

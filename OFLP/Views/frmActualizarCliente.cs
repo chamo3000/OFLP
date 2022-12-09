@@ -7,12 +7,12 @@ namespace OFLP.Vistas
 {
     public partial class FrmActualizarCliente : Form
     {
-        private string[] datosActualizar { get; set; }
+        private string[] DatosActualizar { get; set; }
 
         public FrmActualizarCliente(string[] datos)
         {
             InitializeComponent();
-            datosActualizar = datos;
+            DatosActualizar = datos;
         }
 
 
@@ -37,21 +37,21 @@ namespace OFLP.Vistas
                 {
 
                     var queryLondonCustomers = (from cust in ClsInicio.clientes
-                                                where cust.cedulaCliente == Convert.ToInt32(txtCedula.Text)
-                                                select cust.cedulaCliente).ToList();
+                                                where cust.CedulaCliente == Convert.ToInt32(txtCedula.Text)
+                                                select cust.CedulaCliente).ToList();
 
-                    if (!queryLondonCustomers.Any())AuxiliarCedula= datosActualizar[0];
+                    if (!queryLondonCustomers.Any())AuxiliarCedula= DatosActualizar[0];
 
 
-                    datosActualizar[1] = txtPrimerApellido.Text.ToUpper();
-                    datosActualizar[2] = txtSegundoApellido.Text.ToUpper();
-                    datosActualizar[3] = txtNombre.Text.ToUpper();
-                    datosActualizar[0] = txtCedula.Text;
+                    DatosActualizar[1] = txtPrimerApellido.Text.ToUpper();
+                    DatosActualizar[2] = txtSegundoApellido.Text.ToUpper();
+                    DatosActualizar[3] = txtNombre.Text.ToUpper();
+                    DatosActualizar[0] = txtCedula.Text;
 
 
 
                     CtrlCliente objCtrlCliente = new CtrlCliente();
-                    if (objCtrlCliente.ActualizarCliente(datosActualizar, AuxiliarCedula))
+                    if (objCtrlCliente.ActualizarCliente(DatosActualizar))
                     {
                         MessageBox.Show("Cliente actualizado exitosamente", "Actualizar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         CtrlUtilidades util = new CtrlUtilidades();
@@ -69,15 +69,14 @@ namespace OFLP.Vistas
 
         private void FrmActualizarCliente_Load(object sender, EventArgs e)
         {
-            txtPrimerApellido.Text = datosActualizar[1];
-            txtSegundoApellido.Text = datosActualizar[2];
-            txtNombre.Text = datosActualizar[3];
-            txtCedula.Text = datosActualizar[0];
+            txtPrimerApellido.Text = DatosActualizar[1];
+            txtSegundoApellido.Text = DatosActualizar[2];
+            txtNombre.Text = DatosActualizar[3];
+            txtCedula.Text = DatosActualizar[0];
         }
 
-        private void Validar_Texto(TextBox Elemento, EventArgs e)
+        private void Validar_Texto(TextBox Elemento)
         {
-
             if (Controlador.Restricciones.Tiene_Letras(Elemento.Text.Trim()))
             {
                 Elemento.Text = string.Empty;
@@ -86,9 +85,8 @@ namespace OFLP.Vistas
 
         }
 
-        private void Validar_Numero(TextBox Elemento, EventArgs e)
+        private void Validar_Numero(TextBox Elemento)
         {
-
             if (Controlador.Restricciones.Tiene_Numeros(Elemento.Text.Trim()))
             {
                 Elemento.Text = string.Empty;
@@ -98,23 +96,22 @@ namespace OFLP.Vistas
 
         private void TxtPrimerApellido_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtPrimerApellido, e);
-
+            Validar_Texto(txtPrimerApellido);
         }
 
-        private void txtSegundoApellido_TextChanged(object sender, EventArgs e)
+        private void TxtSegundoApellido_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtSegundoApellido, e);
+            Validar_Texto(txtSegundoApellido);
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtNombre, e);
+            Validar_Texto(txtNombre);
         }
 
-        private void txtCedula_TextChanged(object sender, EventArgs e)
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
-            Validar_Numero(txtCedula, e);
+            Validar_Numero(txtCedula);
         }
     }
 }
