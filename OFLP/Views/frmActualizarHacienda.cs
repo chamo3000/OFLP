@@ -40,7 +40,7 @@ namespace OFLP.Vistas
             {
                 ObjCliente.LlenarGrid();
                 compradores = ClsInicio.clientes;
-                compradores = compradores.OrderBy(x => x.primerApellido).ToList();
+                compradores = compradores.OrderBy(x => x.PrimerApellido).ToList();
                 //ObjCliente.LlenarGrid();
                 //ObjCliente = null;
                 bool band = false;
@@ -49,7 +49,7 @@ namespace OFLP.Vistas
                     band = false;
                     foreach (ModCliente item2 in compradores)
                     {
-                        if (item2.idCliente == item.idCliente) band = true;
+                        if (item2.CedulaCliente == item.CedulaCliente) band = true;
                     }
 
                     if (!band)
@@ -60,9 +60,9 @@ namespace OFLP.Vistas
                 compradores.AddRange(noExisten);
                 foreach (ModCliente item in compradores)
                 {
-                    if (!item.nombreCliente.Equals(string.Empty))
+                    if (!item.NombreCliente.Equals(string.Empty))
                     {
-                        cmbDueñoHacienda.Items.Add(item.primerApellido + " " + item.nombreCliente);
+                        cmbDueñoHacienda.Items.Add(item.PrimerApellido + " " + item.NombreCliente);
                     }
 
                 }

@@ -22,11 +22,11 @@ namespace OFLP.Vistas
             {
                 ObjCliente.LlenarGrid();
                 ObjCliente = null;
-                ClsInicio.clientes = ClsInicio.clientes.OrderBy(x => x.primerApellido).ToList();
+                ClsInicio.clientes = ClsInicio.clientes.OrderBy(x => x.PrimerApellido).ToList();
                 foreach (ModCliente item in ClsInicio.clientes)
                 {
-                    if (!item.nombreCliente.Equals(string.Empty))
-                        cmbDueñoHacienda.Items.Add(item.primerApellido + " " + item.nombreCliente);
+                    if (!item.NombreCliente.Equals(string.Empty))
+                        cmbDueñoHacienda.Items.Add(item.PrimerApellido + " " + item.NombreCliente);
                 }
             }
             catch

@@ -30,13 +30,6 @@ namespace OFLP.Vistas
         }
 
 
-
-        private void DtgPropietario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-
-        }
-
         private void DtgPropietario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgPropietario.Columns[e.ColumnIndex].Name.Equals("Modificar"))
@@ -73,22 +66,16 @@ namespace OFLP.Vistas
             dtgPropietario.Enabled = true;
             pnlConfiguraPropietario.Visible = true;
             dtgPropietario.AutoGenerateColumns = false;
-            //dtgPropietario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            //dtgPropietario.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dtgPropietario.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
-
-            foreach (ModCliente item in ClsInicio.clientes)
+            if (ClsInicio.clientes.Count > 0)
             {
-                dtgPropietario.Rows.Add(item.idCliente, item.primerApellido, item.segundoApellido, item.nombreCliente, item.cedulaCliente);
-
+                foreach (ModCliente item in ClsInicio.clientes)
+                {
+                    dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
+                }
 
             }
-            if (dtgPropietario.DataSource == null)
-            {
-
-                lblError.Text = "Error al cargar los datos de la base de datos";
-            }
-
+            if (dtgPropietario.DataSource == null) lblError.Text = "Error al cargar los datos de la base de datos";
         }
         #endregion
         private void EliminarCliente(int fila, string idCliente)
@@ -98,6 +85,7 @@ namespace OFLP.Vistas
             CtrlCliente ObjCtrlCliente = new CtrlCliente();
             if (ObjCtrlCliente.EliminarCliente(idCliente))
             {
+                ClsInicio.clientes.RemoveAll(x => x.CedulaCliente ==Convert.ToInt32(idCliente));
                 MessageBox.Show("Cliente Eliminado exitosamente", "Eliminar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgPropietario.Rows.Remove(dtgPropietario.Rows[fila]);
                 lblApellidoUno.Text = "";
@@ -111,17 +99,12 @@ namespace OFLP.Vistas
             {
                 MessageBox.Show("Error al eliminar el cliente, valide e intente de nuevo", "Eliminar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ObjCtrlCliente = null;
-            GC.Collect();
-
-
-
         }
 
         private void ActualizarCliente(int columnas)
         {
 
-            string[] datos = new string[columnas];
+            string[] datos = new string[4];
             for (int i = 0; i < columnas-2; i++)
             {
                 datos[i] = dtgPropietario.Rows[dtgPropietario.CurrentRow.Index].Cells[i].Value.ToString();
@@ -171,7 +154,7 @@ namespace OFLP.Vistas
                 dtgPropietario.Rows.Clear();
                 foreach (ModCliente item in lstBusqueda)
                 {
-                    dtgPropietario.Rows.Add(item.idCliente, item.primerApellido, item.segundoApellido, item.nombreCliente, item.cedulaCliente, item.descripcion);
+                    dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
 
                 }
             }
@@ -194,13 +177,13 @@ namespace OFLP.Vistas
             dtgPropietario.Rows.Clear();
             foreach (ModCliente item in ClsInicio.clientes)
             {
-                dtgPropietario.Rows.Add(item.idCliente, item.primerApellido, item.segundoApellido, item.nombreCliente, item.cedulaCliente, item.descripcion);
+                dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
             }
         }
 
         private void PicAgregarCliente_Click(object sender, EventArgs e)
         {
-            frmAgregarCliente objfrmAgregarCliente = new frmAgregarCliente(FrmPpal.TipoCliente);
+            FrmAgregarCliente objfrmAgregarCliente = new FrmAgregarCliente(FrmPpal.TipoCliente);
             objfrmAgregarCliente.Show();
         }
     }

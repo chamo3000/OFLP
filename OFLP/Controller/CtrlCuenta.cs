@@ -16,9 +16,9 @@ namespace OFLP.Controlador
         {
             foreach (ModCliente item in ClsInicio.clientes)
             {
-                if(nombre.Contains(item.nombreCliente) && nombre.Contains(item.primerApellido))
+                if(nombre.Contains(item.NombreCliente) && nombre.Contains(item.PrimerApellido))
                 {
-                    IdCLiente = item.idCliente;
+                    IdCLiente = item.CedulaCliente;
                 }
             }
         }

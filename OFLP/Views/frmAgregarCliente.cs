@@ -8,60 +8,58 @@ using System.Windows.Forms;
 
 namespace OFLP.Vistas
 {
-    public partial class frmAgregarCliente : Form
+    public partial class FrmAgregarCliente : Form
     {
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        public int idTipoCliente { get; set; }
+        public int IdTipoCliente { get; set; }
 
 
-        private void pnlBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        private void PnlBarraTitulo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
 
         }
-        public frmAgregarCliente(int idTipoCliente)
+        public FrmAgregarCliente(int idTipoCliente)
         {
             InitializeComponent();
-            this.idTipoCliente = idTipoCliente;
+            this.IdTipoCliente = idTipoCliente;
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void BtnAceptaAgregarCliente_Click(object sender, EventArgs e)
         {
-            CtrlUtilidades.ImprimirLog("Loggg");
+            CtrlUtilidades.ImprimirLog("Ingresa a modulo agregar cliente");
 
-
-
-            if (txtPrimerApellido.Text.Equals(string.Empty) || txtNombre.Text.Equals(string.Empty))
+            if (string.IsNullOrEmpty(txtPrimerApellido.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtCedula.Text))
             {
                 MessageBox.Show("Debe ingresar el primer apellido y nombre ", "Ingrese datos del Cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                string[] lstDatosIngresar = new string[5];
-                lstDatosIngresar[0] = txtPrimerApellido.Text;
-                lstDatosIngresar[1] = txtSegundoApellido.Text;
-                lstDatosIngresar[2] = txtNombre.Text;
+                string[] lstDatosIngresar = new string[4];
+                lstDatosIngresar[0] = txtPrimerApellido.Text.ToUpper();
+                lstDatosIngresar[1] = txtSegundoApellido.Text.ToUpper();
+                lstDatosIngresar[2] = txtNombre.Text.ToUpper();
                 lstDatosIngresar[3] = txtCedula.Text;
-                lstDatosIngresar[4] = idTipoCliente.ToString();
+
 
                 var queryLondonCustomers = (from cust in ClsInicio.clientes
-                                            where cust.primerApellido == lstDatosIngresar[0]
-                                            where cust.nombreCliente == lstDatosIngresar[0]
+                                            where cust.CedulaCliente == Convert.ToUInt32(txtCedula.Text)
                                             select cust).ToList();
+
                 if (queryLondonCustomers.Count() > 0)
                 {
-                    MessageBox.Show("El cliente ya existe", "Agregar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El cliente ya existe, intente nuevamente", "Agregar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -79,30 +77,35 @@ namespace OFLP.Vistas
                     {
                         MessageBox.Show("Error al agregar el cliente, valide e intente nuevamente", "Agregar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    objCtrlCliente = null;
+
                 }
-
-
 
                 txtPrimerApellido.Text = string.Empty;
                 txtSegundoApellido.Text = string.Empty;
                 txtNombre.Text = string.Empty;
                 txtCedula.Text = string.Empty;
+                CtrlUtilidades.ImprimirLog("Cliente Agregado exitosamente");
 
             }
         }
 
-        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
+            }
+
         }
 
-        private void txtPrimerApellido_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtPrimerApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -110,9 +113,14 @@ namespace OFLP.Vistas
                 e.Handled = true;
                 return;
             }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
+            }
         }
 
-        private void txtSegundoApellido_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtSegundoApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -120,9 +128,14 @@ namespace OFLP.Vistas
                 e.Handled = true;
                 return;
             }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
+            }
         }
 
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -130,17 +143,21 @@ namespace OFLP.Vistas
                 e.Handled = true;
                 return;
             }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;//elimina el sonido
+                BtnAceptaAgregarCliente_Click(sender, e);//llama al evento click del boton
+            }
         }
 
-        private void frmAgregarCliente_Load(object sender, EventArgs e)
+        private void FrmAgregarCliente_Load(object sender, EventArgs e)
         {
             if (FrmPpal.TipoCliente == 2) lblAddUser.Text = "Agregar Nuevo Comprador";
             else lblAddUser.Text = "Agregar Nuevo Propietario";
         }
 
-        private void Validar_Texto(TextBox Elemento, EventArgs e)
+        private void Validar_Texto(TextBox Elemento)
         {
-
             if (Controlador.Restricciones.Tiene_Letras(Elemento.Text.Trim()))
             {
                 Elemento.Text = string.Empty;
@@ -148,35 +165,42 @@ namespace OFLP.Vistas
             }
         }
 
-        private void Validar_Numero(TextBox Elemento, EventArgs e)
+        private void Validar_Numero(TextBox Elemento)
         {
-
             if (Controlador.Restricciones.Tiene_Numeros(Elemento.Text.Trim()))
             {
                 Elemento.Text = string.Empty;
                 MessageBox.Show(this, "Este campo no permite letras", "Advertencia ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
+            else if (Elemento.Text.Length >= 6)
+            {
+                btnAceptaAgregarCliente.Enabled = true;
+            }
+            else
+            {
+                btnAceptaAgregarCliente.Enabled = false;
+            }
         }
 
 
-        private void txtPrimerApellido_TextChanged(object sender, EventArgs e)
+        private void TxtPrimerApellido_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtPrimerApellido,e);
+            Validar_Texto(txtPrimerApellido);
         }
 
-        private void txtSegundoApellido_TextChanged(object sender, EventArgs e)
+        private void TxtSegundoApellido_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtSegundoApellido,e);
+            Validar_Texto(txtSegundoApellido);
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtNombre,e);
+            Validar_Texto(txtNombre);
         }
 
-        private void txtCedula_TextChanged(object sender, EventArgs e)
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
-            Validar_Numero(txtCedula,e);
+            Validar_Numero(txtCedula);
         }
     }
 }

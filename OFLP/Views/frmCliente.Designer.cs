@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgPropietario = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.primerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.segundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblError = new System.Windows.Forms.Label();
@@ -73,8 +72,8 @@
             this.dtgPropietario.AllowUserToDeleteRows = false;
             this.dtgPropietario.AllowUserToResizeColumns = false;
             this.dtgPropietario.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgPropietario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dtgPropietario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgPropietario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgPropietario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgPropietario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -83,17 +82,16 @@
             this.primerApellido,
             this.segundoApellido,
             this.nombre,
-            this.cedula,
             this.Modificar,
             this.Eliminar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgPropietario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgPropietario.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgPropietario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgPropietario.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dtgPropietario.ImeMode = System.Windows.Forms.ImeMode.Close;
@@ -112,11 +110,11 @@
             // id
             // 
             this.id.Frozen = true;
-            this.id.HeaderText = "ID Cliente";
+            this.id.HeaderText = "Cedula";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 72;
+            this.id.Width = 65;
             // 
             // primerApellido
             // 
@@ -144,15 +142,6 @@
             this.nombre.Name = "nombre";
             this.nombre.ReadOnly = true;
             this.nombre.Width = 69;
-            // 
-            // cedula
-            // 
-            this.cedula.Frozen = true;
-            this.cedula.HeaderText = "Cedula";
-            this.cedula.MinimumWidth = 6;
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            this.cedula.Width = 65;
             // 
             // Modificar
             // 
@@ -242,9 +231,9 @@
             // 
             this.PicLimpiarBusquedaCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PicLimpiarBusquedaCliente.Image = global::OFLP.Properties.Resources._2376996;
-            this.PicLimpiarBusquedaCliente.Location = new System.Drawing.Point(810, 207);
+            this.PicLimpiarBusquedaCliente.Location = new System.Drawing.Point(797, 203);
             this.PicLimpiarBusquedaCliente.Name = "PicLimpiarBusquedaCliente";
-            this.PicLimpiarBusquedaCliente.Size = new System.Drawing.Size(39, 23);
+            this.PicLimpiarBusquedaCliente.Size = new System.Drawing.Size(48, 27);
             this.PicLimpiarBusquedaCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicLimpiarBusquedaCliente.TabIndex = 47;
             this.PicLimpiarBusquedaCliente.TabStop = false;
@@ -254,9 +243,9 @@
             // 
             this.PicBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PicBuscarCliente.Image = global::OFLP.Properties.Resources._639375;
-            this.PicBuscarCliente.Location = new System.Drawing.Point(775, 207);
+            this.PicBuscarCliente.Location = new System.Drawing.Point(752, 203);
             this.PicBuscarCliente.Name = "PicBuscarCliente";
-            this.PicBuscarCliente.Size = new System.Drawing.Size(33, 23);
+            this.PicBuscarCliente.Size = new System.Drawing.Size(37, 27);
             this.PicBuscarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicBuscarCliente.TabIndex = 46;
             this.PicBuscarCliente.TabStop = false;
@@ -279,7 +268,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(458, 209);
+            this.label5.Location = new System.Drawing.Point(429, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 20);
             this.label5.TabIndex = 12;
@@ -287,9 +276,11 @@
             // 
             // txtBusquedaPropietario
             // 
-            this.txtBusquedaPropietario.Location = new System.Drawing.Point(590, 209);
+            this.txtBusquedaPropietario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBusquedaPropietario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusquedaPropietario.Location = new System.Drawing.Point(561, 209);
             this.txtBusquedaPropietario.Name = "txtBusquedaPropietario";
-            this.txtBusquedaPropietario.Size = new System.Drawing.Size(185, 20);
+            this.txtBusquedaPropietario.Size = new System.Drawing.Size(185, 22);
             this.txtBusquedaPropietario.TabIndex = 11;
             this.txtBusquedaPropietario.TextChanged += new System.EventHandler(this.txtBusquedaPropietario_TextChanged);
             // 
@@ -470,14 +461,13 @@
         private System.Windows.Forms.PictureBox PicLimpiarBusquedaCliente;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.PictureBox PicAgregarCliente;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn primerApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn segundoApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
         private System.Windows.Forms.DataGridViewImageColumn Modificar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.PictureBox PicAgregarCliente;
-        private System.Windows.Forms.Label label6;
     }
 }

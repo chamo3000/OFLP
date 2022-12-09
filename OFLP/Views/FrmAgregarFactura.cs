@@ -103,7 +103,7 @@ namespace OFLP.Vistas
         {
             foreach (ModCliente item in ClsInicio.clientes)
             {
-                cmbPropietario.Items.Add(item.nombreCliente + " " + item.primerApellido);
+                cmbPropietario.Items.Add(item.NombreCliente + " " + item.PrimerApellido);
             }
         }
 
@@ -111,7 +111,7 @@ namespace OFLP.Vistas
         {
             foreach (ModCliente item in ClsInicio.Compradores)
             {
-                CmbComprador.Items.Add(item.nombreCliente + " " + item.primerApellido);
+                CmbComprador.Items.Add(item.NombreCliente + " " + item.PrimerApellido);
             }
         }
 
@@ -669,9 +669,9 @@ namespace OFLP.Vistas
             int retorno = 0;
             foreach (ModCliente item in ClsInicio.Compradores)
             {
-                if (comprador.Contains(item.primerApellido) && comprador.Contains(item.nombreCliente))
+                if (comprador.Contains(item.PrimerApellido) && comprador.Contains(item.NombreCliente))
                 {
-                    retorno = item.idCliente;
+                    retorno = item.CedulaCliente;
                 }
             }
             return retorno;
@@ -683,9 +683,9 @@ namespace OFLP.Vistas
             Propietario = cmbPropietario.SelectedItem.ToString();
             foreach (ModCliente item in ClsInicio.clientes)
             {
-                if(Propietario.Contains(item.primerApellido) && Propietario.Contains(item.nombreCliente))
+                if(Propietario.Contains(item.PrimerApellido) && Propietario.Contains(item.NombreCliente))
                 {
-                    IdPropietario = item.idCliente;
+                    IdPropietario = item.CedulaCliente;
                 }
             }
             

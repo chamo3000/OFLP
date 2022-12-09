@@ -181,7 +181,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 33);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(133, 967);
+            this.pnlMenu.Size = new System.Drawing.Size(133, 755);
             this.pnlMenu.TabIndex = 1;
             // 
             // lblVersion
@@ -189,7 +189,7 @@
             this.lblVersion.AutoSize = true;
             this.lblVersion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblVersion.ForeColor = System.Drawing.Color.White;
-            this.lblVersion.Location = new System.Drawing.Point(0, 950);
+            this.lblVersion.Location = new System.Drawing.Point(0, 738);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(35, 13);
             this.lblVersion.TabIndex = 5;
@@ -253,7 +253,7 @@
             this.btnInformes.FlatAppearance.BorderSize = 0;
             this.btnInformes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnInformes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformes.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInformes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInformes.ForeColor = System.Drawing.Color.White;
             this.btnInformes.Location = new System.Drawing.Point(8, 145);
             this.btnInformes.Margin = new System.Windows.Forms.Padding(2);
@@ -273,7 +273,7 @@
             this.btnDatos.FlatAppearance.BorderSize = 0;
             this.btnDatos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatos.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatos.ForeColor = System.Drawing.Color.White;
             this.btnDatos.Location = new System.Drawing.Point(8, 110);
             this.btnDatos.Margin = new System.Windows.Forms.Padding(2);
@@ -288,7 +288,7 @@
             // 
             // pnlMenuDatos
             // 
-            this.pnlMenuDatos.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.pnlMenuDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlMenuDatos.Controls.Add(this.btnSexos);
             this.pnlMenuDatos.Controls.Add(this.btnClasesGanado);
             this.pnlMenuDatos.Controls.Add(this.btnBancos);
@@ -297,7 +297,7 @@
             this.pnlMenuDatos.Controls.Add(this.btnGirosCheques);
             this.pnlMenuDatos.Controls.Add(this.btnGastos);
             this.pnlMenuDatos.Controls.Add(this.btnComisiones);
-            this.pnlMenuDatos.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold);
+            this.pnlMenuDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.pnlMenuDatos.Location = new System.Drawing.Point(5, 110);
             this.pnlMenuDatos.Name = "pnlMenuDatos";
             this.pnlMenuDatos.Size = new System.Drawing.Size(189, 169);
@@ -310,7 +310,7 @@
             this.btnSexos.FlatAppearance.BorderSize = 0;
             this.btnSexos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnSexos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSexos.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnSexos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnSexos.ForeColor = System.Drawing.Color.White;
             this.btnSexos.Location = new System.Drawing.Point(-4, 148);
             this.btnSexos.Name = "btnSexos";
@@ -318,6 +318,7 @@
             this.btnSexos.TabIndex = 0;
             this.btnSexos.Text = "Sexos";
             this.btnSexos.UseVisualStyleBackColor = false;
+            this.btnSexos.Visible = false;
             this.btnSexos.Click += new System.EventHandler(this.btnSexos_Click);
             // 
             // btnClasesGanado
@@ -326,7 +327,7 @@
             this.btnClasesGanado.FlatAppearance.BorderSize = 0;
             this.btnClasesGanado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnClasesGanado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClasesGanado.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnClasesGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnClasesGanado.ForeColor = System.Drawing.Color.White;
             this.btnClasesGanado.Location = new System.Drawing.Point(-4, 127);
             this.btnClasesGanado.Name = "btnClasesGanado";
@@ -334,6 +335,7 @@
             this.btnClasesGanado.TabIndex = 0;
             this.btnClasesGanado.Text = "Clases de Ganado";
             this.btnClasesGanado.UseVisualStyleBackColor = false;
+            this.btnClasesGanado.Visible = false;
             this.btnClasesGanado.Click += new System.EventHandler(this.btnClasesGanado_Click);
             // 
             // btnBancos
@@ -342,7 +344,7 @@
             this.btnBancos.FlatAppearance.BorderSize = 0;
             this.btnBancos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnBancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBancos.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnBancos.ForeColor = System.Drawing.Color.White;
             this.btnBancos.Location = new System.Drawing.Point(-4, 106);
             this.btnBancos.Name = "btnBancos";
@@ -350,6 +352,7 @@
             this.btnBancos.TabIndex = 0;
             this.btnBancos.Text = "Bancos";
             this.btnBancos.UseVisualStyleBackColor = false;
+            this.btnBancos.Visible = false;
             this.btnBancos.Click += new System.EventHandler(this.btnBancos_Click);
             // 
             // btnCuentasBancarias
@@ -358,7 +361,7 @@
             this.btnCuentasBancarias.FlatAppearance.BorderSize = 0;
             this.btnCuentasBancarias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnCuentasBancarias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCuentasBancarias.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnCuentasBancarias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnCuentasBancarias.ForeColor = System.Drawing.Color.White;
             this.btnCuentasBancarias.Location = new System.Drawing.Point(-5, 85);
             this.btnCuentasBancarias.Name = "btnCuentasBancarias";
@@ -366,6 +369,7 @@
             this.btnCuentasBancarias.TabIndex = 0;
             this.btnCuentasBancarias.Text = "Cuentas Bancarias";
             this.btnCuentasBancarias.UseVisualStyleBackColor = false;
+            this.btnCuentasBancarias.Visible = false;
             this.btnCuentasBancarias.Click += new System.EventHandler(this.btnCuentasBancarias_Click);
             // 
             // btnPropietario
@@ -374,7 +378,7 @@
             this.btnPropietario.FlatAppearance.BorderSize = 0;
             this.btnPropietario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnPropietario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPropietario.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnPropietario.ForeColor = System.Drawing.Color.White;
             this.btnPropietario.Location = new System.Drawing.Point(-4, 64);
             this.btnPropietario.Name = "btnPropietario";
@@ -390,7 +394,7 @@
             this.btnGirosCheques.FlatAppearance.BorderSize = 0;
             this.btnGirosCheques.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnGirosCheques.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGirosCheques.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnGirosCheques.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnGirosCheques.ForeColor = System.Drawing.Color.White;
             this.btnGirosCheques.Location = new System.Drawing.Point(-4, 43);
             this.btnGirosCheques.Name = "btnGirosCheques";
@@ -398,6 +402,7 @@
             this.btnGirosCheques.TabIndex = 0;
             this.btnGirosCheques.Text = "Giros / Cheques";
             this.btnGirosCheques.UseVisualStyleBackColor = false;
+            this.btnGirosCheques.Visible = false;
             // 
             // btnGastos
             // 
@@ -405,7 +410,7 @@
             this.btnGastos.FlatAppearance.BorderSize = 0;
             this.btnGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGastos.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnGastos.ForeColor = System.Drawing.Color.White;
             this.btnGastos.Location = new System.Drawing.Point(-4, 22);
             this.btnGastos.Name = "btnGastos";
@@ -413,6 +418,7 @@
             this.btnGastos.TabIndex = 0;
             this.btnGastos.Text = "Gastos";
             this.btnGastos.UseVisualStyleBackColor = false;
+            this.btnGastos.Visible = false;
             // 
             // btnComisiones
             // 
@@ -420,7 +426,7 @@
             this.btnComisiones.FlatAppearance.BorderSize = 0;
             this.btnComisiones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnComisiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComisiones.Font = new System.Drawing.Font("Bookman Old Style", 8F, System.Drawing.FontStyle.Bold);
+            this.btnComisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnComisiones.ForeColor = System.Drawing.Color.White;
             this.btnComisiones.Location = new System.Drawing.Point(-4, 1);
             this.btnComisiones.Name = "btnComisiones";
@@ -428,6 +434,7 @@
             this.btnComisiones.TabIndex = 0;
             this.btnComisiones.Text = "Comisiones";
             this.btnComisiones.UseVisualStyleBackColor = false;
+            this.btnComisiones.Visible = false;
             this.btnComisiones.Click += new System.EventHandler(this.BtnComisiones_Click);
             // 
             // pnlContenedor
@@ -438,7 +445,7 @@
             this.pnlContenedor.Location = new System.Drawing.Point(133, 33);
             this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(867, 967);
+            this.pnlContenedor.Size = new System.Drawing.Size(867, 755);
             this.pnlContenedor.TabIndex = 2;
             // 
             // FrmPpal
@@ -446,7 +453,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 1000);
+            this.ClientSize = new System.Drawing.Size(1000, 788);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlBarraTitulo);

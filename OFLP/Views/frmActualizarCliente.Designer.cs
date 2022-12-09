@@ -55,7 +55,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(240, 20);
             this.txtCedula.TabIndex = 22;
-            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
+            this.txtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
             // 
             // txtNombre
             // 
@@ -63,7 +63,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(240, 20);
             this.txtNombre.TabIndex = 21;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.TextChanged += new System.EventHandler(this.TxtNombre_TextChanged);
             // 
             // txtSegundoApellido
             // 
@@ -71,7 +71,7 @@
             this.txtSegundoApellido.Name = "txtSegundoApellido";
             this.txtSegundoApellido.Size = new System.Drawing.Size(240, 20);
             this.txtSegundoApellido.TabIndex = 20;
-            this.txtSegundoApellido.TextChanged += new System.EventHandler(this.txtSegundoApellido_TextChanged);
+            this.txtSegundoApellido.TextChanged += new System.EventHandler(this.TxtSegundoApellido_TextChanged);
             // 
             // txtPrimerApellido
             // 

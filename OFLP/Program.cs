@@ -1,4 +1,5 @@
-﻿using OFLP.Vistas;
+﻿using OFLP.Views;
+using OFLP.Vistas;
 using System;
 using System.Windows.Forms;
 
@@ -16,9 +17,8 @@ namespace OFLP
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Vistas.frmPpal());
             objfrmPpal = new FrmPpal();
-            Application.Run(objfrmPpal);
+            Application.Run(new FrmUsuario());
         }
     }
 }
