@@ -35,8 +35,8 @@ namespace OFLP.Vistas
                     MessageBox.Show(this, "El registro ha sido agregado exitosamente", "Agregar Banco", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     CtrlUtilidades util = new CtrlUtilidades();
-                    util.CerrarFormulario<FrmBanco>(Program.objfrmPpal.pnlContenedor);
-                    util.AbrirFormulario<FrmBanco>(Program.objfrmPpal.pnlContenedor);
+                    util.CerrarFormulario<FrmSexo>(Program.objfrmPpal.pnlContenedor);
+                    util.AbrirFormulario<FrmSexo>(Program.objfrmPpal.pnlContenedor);
                     this.Close();
                 }
                 else

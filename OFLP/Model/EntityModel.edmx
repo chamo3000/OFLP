@@ -4,16 +4,71 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MIGANModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MIGANModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLASE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="claseGanado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="clase" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
-            <PropertyRef Name="cedula" />
+            <PropertyRef Name="CEDULA" />
           </Key>
-          <Property Name="primerApellido" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="segundoApellido" Type="varchar" MaxLength="50" />
-          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="cedula" Type="int" Nullable="false" />
+          <Property Name="PRIMERAPELLIDO" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SEGUNDOAPELLIDO" Type="varchar" MaxLength="255" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CEDULA" Type="int" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'MIGAN.dbo.FACTURA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="consecutivo" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="consecutivo" Type="int" Nullable="false" />
+          <Property Name="reunion" Type="int" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="id_claseGanado" Type="int" />
+          <Property Name="corral" Type="int" />
+          <Property Name="cabezas" Type="int" />
+          <Property Name="id_sexo" Type="int" />
+          <Property Name="kilos" Type="int" />
+          <Property Name="valorKg" Type="int" />
+          <Property Name="valorTotal" Type="float" />
+          <Property Name="anio" Type="int" />
+        </EntityType>
+        <EntityType Name="GASTO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reunion" Type="int" />
+          <Property Name="cliente" Type="int" />
+          <Property Name="bascula" Type="int" />
+          <Property Name="transporte" Type="int" />
+          <Property Name="bano" Type="int" />
+          <Property Name="recibida" Type="int" />
+          <Property Name="comisionF" Type="int" />
+          <Property Name="comisionG" Type="int" />
+          <Property Name="vacuna" Type="int" />
+          <Property Name="anticipo" Type="int" />
+          <Property Name="otros" Type="int" />
+          <Property Name="observacion" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="PERFILES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="ROL">
           <Key>
@@ -21,6 +76,14 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ROL" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEXO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -33,6 +96,30 @@
           <Property Name="APELLIDO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IDPERFIL" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="id_claseGanado">
+          <End Role="CLASE" Type="Self.CLASE" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_claseGanado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_sexo">
+          <End Role="SEXO" Type="Self.SEXO" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEXO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_sexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="USUARIO_ROL">
           <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -46,29 +133,47 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MIGANModelStoreContainer">
+          <EntitySet Name="CLASE" EntityType="Self.CLASE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GASTO" EntityType="Self.GASTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERFILES" EntityType="Self.PERFILES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEXO" EntityType="Self.SEXO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACTURA" EntityType="Self.FACTURA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FACTURA].[id] AS [id], 
+    [FACTURA].[consecutivo] AS [consecutivo], 
+    [FACTURA].[reunion] AS [reunion], 
+    [FACTURA].[fecha] AS [fecha], 
+    [FACTURA].[id_cliente] AS [id_cliente], 
+    [FACTURA].[id_claseGanado] AS [id_claseGanado], 
+    [FACTURA].[corral] AS [corral], 
+    [FACTURA].[cabezas] AS [cabezas], 
+    [FACTURA].[id_sexo] AS [id_sexo], 
+    [FACTURA].[kilos] AS [kilos], 
+    [FACTURA].[valorKg] AS [valorKg], 
+    [FACTURA].[valorTotal] AS [valorTotal], 
+    [FACTURA].[anio] AS [anio]
+    FROM [dbo].[FACTURA] AS [FACTURA]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="id_claseGanado" Association="Self.id_claseGanado">
+            <End Role="CLASE" EntitySet="CLASE" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="id_sexo" Association="Self.id_sexo">
+            <End Role="SEXO" EntitySet="SEXO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
           <AssociationSet Name="USUARIO_ROL" Association="Self.USUARIO_ROL">
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MIGANModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CLIENTE">
-          <Key>
-            <PropertyRef Name="cedula" />
-          </Key>
-          <Property Name="primerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="segundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cedula" Type="Int32" Nullable="false" />
-          <Property Name="ID" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="ROL">
           <Key>
             <PropertyRef Name="ID" />
@@ -102,31 +207,132 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MIGANEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
           <EntitySet Name="ROL" EntityType="Self.ROL" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
           <AssociationSet Name="USUARIO_ROL" Association="Self.USUARIO_ROL">
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
+          <EntitySet Name="CLASE" EntityType="MIGANModel.CLASE" />
+          <EntitySet Name="CLIENTE" EntityType="MIGANModel.CLIENTE" />
+          <EntitySet Name="GASTO" EntityType="MIGANModel.GASTO" />
+          <EntitySet Name="PERFILES" EntityType="MIGANModel.PERFILES" />
+          <EntitySet Name="SEXO" EntityType="MIGANModel.SEXO" />
+          <EntitySet Name="FACTURA" EntityType="MIGANModel.FACTURA" />
+          <AssociationSet Name="id_claseGanado" Association="MIGANModel.id_claseGanado">
+            <End Role="CLASE" EntitySet="CLASE" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="id_sexo" Association="MIGANModel.id_sexo">
+            <End Role="SEXO" EntitySet="SEXO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CLASE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="claseGanado" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="clase1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FACTURA" Relationship="MIGANModel.id_claseGanado" FromRole="CLASE" ToRole="FACTURA" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="CEDULA" />
+          </Key>
+          <Property Name="PRIMERAPELLIDO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SEGUNDOAPELLIDO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GASTO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reunion" Type="Int32" />
+          <Property Name="cliente" Type="Int32" />
+          <Property Name="bascula" Type="Int32" />
+          <Property Name="transporte" Type="Int32" />
+          <Property Name="bano" Type="Int32" />
+          <Property Name="recibida" Type="Int32" />
+          <Property Name="comisionF" Type="Int32" />
+          <Property Name="comisionG" Type="Int32" />
+          <Property Name="vacuna" Type="Int32" />
+          <Property Name="anticipo" Type="Int32" />
+          <Property Name="otros" Type="Int32" />
+          <Property Name="observacion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PERFILES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SEXO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sexo1" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FACTURA" Relationship="MIGANModel.id_sexo" FromRole="SEXO" ToRole="FACTURA" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="consecutivo" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="consecutivo" Type="Int32" Nullable="false" />
+          <Property Name="reunion" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="id_claseGanado" Type="Int32" />
+          <Property Name="corral" Type="Int32" />
+          <Property Name="cabezas" Type="Int32" />
+          <Property Name="id_sexo" Type="Int32" />
+          <Property Name="kilos" Type="Int32" />
+          <Property Name="valorKg" Type="Int32" />
+          <Property Name="valorTotal" Type="Double" />
+          <Property Name="anio" Type="Int32" />
+          <NavigationProperty Name="CLASE" Relationship="MIGANModel.id_claseGanado" FromRole="FACTURA" ToRole="CLASE" />
+          <NavigationProperty Name="SEXO" Relationship="MIGANModel.id_sexo" FromRole="FACTURA" ToRole="SEXO" />
+        </EntityType>
+        <Association Name="id_claseGanado">
+          <End Type="MIGANModel.CLASE" Role="CLASE" Multiplicity="0..1" />
+          <End Type="MIGANModel.FACTURA" Role="FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_claseGanado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_sexo">
+          <End Type="MIGANModel.SEXO" Role="SEXO" Multiplicity="0..1" />
+          <End Type="MIGANModel.FACTURA" Role="FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEXO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_sexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MIGANModelStoreContainer" CdmEntityContainer="MIGANEntities">
-          <EntitySetMapping Name="CLIENTE">
-            <EntityTypeMapping TypeName="MIGANModel.CLIENTE">
-              <MappingFragment StoreEntitySet="CLIENTE">
-                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
-                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ROL">
             <EntityTypeMapping TypeName="MIGANModel.ROL">
               <MappingFragment StoreEntitySet="ROL">
@@ -144,6 +350,82 @@
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
                 <ScalarProperty Name="IDPERFIL" ColumnName="IDPERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLASE">
+            <EntityTypeMapping TypeName="MIGANModel.CLASE">
+              <MappingFragment StoreEntitySet="CLASE">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="clase1" ColumnName="clase" />
+                <ScalarProperty Name="claseGanado" ColumnName="claseGanado" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="MIGANModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="SEGUNDOAPELLIDO" ColumnName="SEGUNDOAPELLIDO" />
+                <ScalarProperty Name="PRIMERAPELLIDO" ColumnName="PRIMERAPELLIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GASTO">
+            <EntityTypeMapping TypeName="MIGANModel.GASTO">
+              <MappingFragment StoreEntitySet="GASTO">
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="otros" ColumnName="otros" />
+                <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+                <ScalarProperty Name="vacuna" ColumnName="vacuna" />
+                <ScalarProperty Name="comisionG" ColumnName="comisionG" />
+                <ScalarProperty Name="comisionF" ColumnName="comisionF" />
+                <ScalarProperty Name="recibida" ColumnName="recibida" />
+                <ScalarProperty Name="bano" ColumnName="bano" />
+                <ScalarProperty Name="transporte" ColumnName="transporte" />
+                <ScalarProperty Name="bascula" ColumnName="bascula" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="reunion" ColumnName="reunion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFILES">
+            <EntityTypeMapping TypeName="MIGANModel.PERFILES">
+              <MappingFragment StoreEntitySet="PERFILES">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEXO">
+            <EntityTypeMapping TypeName="MIGANModel.SEXO">
+              <MappingFragment StoreEntitySet="SEXO">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="sexo1" ColumnName="sexo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURA">
+            <EntityTypeMapping TypeName="MIGANModel.FACTURA">
+              <MappingFragment StoreEntitySet="FACTURA">
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
+                <ScalarProperty Name="valorKg" ColumnName="valorKg" />
+                <ScalarProperty Name="kilos" ColumnName="kilos" />
+                <ScalarProperty Name="id_sexo" ColumnName="id_sexo" />
+                <ScalarProperty Name="cabezas" ColumnName="cabezas" />
+                <ScalarProperty Name="corral" ColumnName="corral" />
+                <ScalarProperty Name="id_claseGanado" ColumnName="id_claseGanado" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="reunion" ColumnName="reunion" />
+                <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

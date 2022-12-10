@@ -17,16 +17,12 @@ namespace OFLP.Vistas
         public FrmCliente()
         {
             InitializeComponent();
-
-
         }
 
         public void FrmCliente_Load(object sender, EventArgs e)
         {
-
             var @delegate = new delegadoLLenarGrid(LlenarGrid);
             new Task(() => this.label1.BeginInvoke(@delegate)).Start();
-
         }
 
 
@@ -42,7 +38,6 @@ namespace OFLP.Vistas
                 {
                     EliminarCliente(dtgPropietario.CurrentRow.Index, dtgPropietario.Rows[dtgPropietario.CurrentRow.Index].Cells[0].Value.ToString());
                 }
-
             }
             else
             {
@@ -50,7 +45,6 @@ namespace OFLP.Vistas
                 lblApellidoDos.Text = dtgPropietario.CurrentRow.Cells[2].Value.ToString();
                 lblNombre.Text = dtgPropietario.CurrentRow.Cells[3].Value.ToString();
                 lblCedula.Text = dtgPropietario.CurrentRow.Cells[4].Value.ToString();
-
             }
         }
 
@@ -59,7 +53,6 @@ namespace OFLP.Vistas
 
         private void LlenarGrid()
         {
-
             CtrlCliente objPropietario = new CtrlCliente();
             objPropietario.LlenarGridCliente();
             dtgPropietario.ScrollBars = ScrollBars.Both;
@@ -73,19 +66,16 @@ namespace OFLP.Vistas
                 {
                     dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
                 }
-
             }
             if (dtgPropietario.DataSource == null) lblError.Text = "Error al cargar los datos de la base de datos";
         }
         #endregion
         private void EliminarCliente(int fila, string idCliente)
         {
-
-            
             CtrlCliente ObjCtrlCliente = new CtrlCliente();
             if (ObjCtrlCliente.EliminarCliente(idCliente))
             {
-                ClsInicio.clientes.RemoveAll(x => x.CedulaCliente ==Convert.ToInt32(idCliente));
+                ClsInicio.clientes.RemoveAll(x => x.CedulaCliente == Convert.ToInt32(idCliente));
                 MessageBox.Show("Cliente Eliminado exitosamente", "Eliminar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgPropietario.Rows.Remove(dtgPropietario.Rows[fila]);
                 lblApellidoUno.Text = "";
@@ -93,7 +83,6 @@ namespace OFLP.Vistas
                 lblNombre.Text = "";
                 lblCedula.Text = "";
                 lblTipoCliente.Text = "";
-
             }
             else
             {
@@ -103,20 +92,17 @@ namespace OFLP.Vistas
 
         private void ActualizarCliente(int columnas)
         {
-
             string[] datos = new string[4];
-            for (int i = 0; i < columnas-2; i++)
+            for (int i = 0; i < columnas - 2; i++)
             {
                 datos[i] = dtgPropietario.Rows[dtgPropietario.CurrentRow.Index].Cells[i].Value.ToString();
             }
-
             FrmActualizarCliente objfrmAgregarCliente = new FrmActualizarCliente(datos);
             objfrmAgregarCliente.Show();
         }
 
-        private void Validar_Texto(TextBox Elemento, EventArgs e)
+        private void Validar_Texto(TextBox Elemento)
         {
-
             if (Controlador.Restricciones.Tiene_Letras(Elemento.Text.Trim()))
             {
                 Elemento.Text = string.Empty;
@@ -124,15 +110,15 @@ namespace OFLP.Vistas
             }
         }
 
-        private void txtBusquedaPropietario_TextChanged(object sender, EventArgs e)
+        private void TxtBusquedaPropietario_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtBusquedaPropietario, e);
+            Validar_Texto(txtBusquedaPropietario);
         }
 
         private void PicBuscarCliente_Click(object sender, EventArgs e)
         {
             string datoBuscar = txtBusquedaPropietario.Text.ToUpper();
-            List<ModCliente> lstBusqueda = new List<ModCliente>();
+            List<ModCliente> lstBusqueda;
             lblApellidoUno.Text = "";
             lblApellidoDos.Text = "";
             lblNombre.Text = "";
@@ -142,11 +128,8 @@ namespace OFLP.Vistas
             CtrlCliente objPropietario = new CtrlCliente();
             lstBusqueda = objPropietario.BuscarPropietario(datoBuscar);
 
-
             if (lstBusqueda.Count > 0)
             {
-
-                objPropietario = null;
                 dtgPropietario.ScrollBars = ScrollBars.Both;
                 dtgPropietario.Enabled = true;
                 pnlConfiguraPropietario.Visible = true;
@@ -163,8 +146,6 @@ namespace OFLP.Vistas
                 MessageBox.Show("El criterio de busqueda no arroja resultado", "Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-
-
         }
 
         private void PicLimpiarBusquedaCliente_Click(object sender, EventArgs e)

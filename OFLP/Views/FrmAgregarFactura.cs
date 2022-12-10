@@ -129,7 +129,7 @@ namespace OFLP.Vistas
             }
             foreach (ModSexo item in ClsInicio.sexo)
             {
-                cmbSexo.Items.Add(item.descripcion);
+                cmbSexo.Items.Add(item.Descripcion);
             }
 
 
@@ -656,9 +656,9 @@ namespace OFLP.Vistas
             int retorno = 0;
             foreach (ModSexo item in ClsInicio.sexo)
             {
-                if (genero.Equals(item.descripcion))
+                if (genero.Equals(item.Descripcion))
                 {
-                    retorno = item.id;
+                    retorno = item.Id;
                 }
             }
             return retorno;

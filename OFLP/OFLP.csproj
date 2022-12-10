@@ -158,6 +158,9 @@
     <Compile Include="Model\ModSexo.cs" />
     <Compile Include="Model\ModUsuario.cs" />
     <Compile Include="Model\ModUtilidadesBd.cs" />
+    <Compile Include="Model\PERFILES.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ROL.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>

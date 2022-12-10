@@ -1,4 +1,5 @@
 ﻿using OFLP.Controlador;
+using OFLP.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,155 +11,109 @@ namespace OFLP.Modelo
 {
     class ModSexo
     {
-        public int id { get; set; }
-        public string sexo { get; set; }
-        public string descripcion { get; set; }
-
-        private string SQL;
+        public int Id { get; set; }
+        public string Sexo { get; set; }
+        public string Descripcion { get; set; }
 
         public bool LlenarGrid()
         {
-            SQL = "select * from SEXO";
-
-            if (Select(SQL))
+            CtrlUtilidades.ImprimirLog("Ingresa llenar datos de la tabla sexo");
+            try
             {
-                return true;
-            }
-            else return false;
-
-
-        }
-
-        private bool Select(string query)
-        {
-
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
-            {
-                try
+                ClsInicio.sexo.Clear();
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(query, oBd.Con);
-                    SqlDataReader reader = command.ExecuteReader();
-
-
-                    while (reader.Read())
+                    var lstSexo = db.SEXO;
+                    foreach (var oSexo in lstSexo)
                     {
                         ClsInicio.sexo.Add(new ModSexo()
                         {
-                            id = Convert.ToInt32(reader["id"]),
-                            sexo = reader["sexo"].ToString(),
-                            descripcion = reader["descripcion"].ToString()
+                            Id = Convert.ToInt32(oSexo.id),
+                            Sexo = oSexo.sexo1,
+                            Descripcion = oSexo.descripcion
                         });
                     }
-                    rslt = true;
-
-
                 }
-                catch (Exception err)
-                {
-
-                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
-                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
-                }
-                oBd.CerrarConexion();
+                CtrlUtilidades.ImprimirLog("Fin llenar datos de la tabla sexo");
+                return true;
             }
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
+                return false;
+            }
         }
-
 
         public bool AgregarSexo(string sexo, string descripcion)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
+            try
             {
-                try
+                SEXO oSexo = new SEXO
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarSexo"), oBd.Con);
-
-                    command.Parameters.AddWithValue("@sexo", sexo);
-                    command.Parameters.AddWithValue("@descripcion", descripcion);
-
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-
-                    if (rowsAffected > 0) rslt = true;
-
-                }
-                catch (Exception ex)
+                    sexo1 = sexo,
+                    descripcion = descripcion,
+                };
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    Console.WriteLine(ex.Message);
+                    db.SEXO.Add(oSexo);
+                    db.SaveChanges();
                 }
+                return true;
+
             }
-
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
         }
 
         public bool ActualizarSexo(string[] datosActualizar)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
+            try
             {
-                try
+                int id = Convert.ToInt32(datosActualizar[0]);
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("ActualizarSexo"), oBd.Con);
+                    SEXO oSexo = db.SEXO.Where(d => d.id == id).First();
 
-                    command.Parameters.AddWithValue("@sexo", datosActualizar[1]);
-                    command.Parameters.AddWithValue("@descripcion", datosActualizar[2]);
-                    command.Parameters.AddWithValue("@id", datosActualizar[0]);
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    if (rowsAffected > 0)
-                    {
-                        rslt = true;
-                    }
-
+                    oSexo.id = Convert.ToInt32(datosActualizar[0]);
+                    oSexo.sexo1 = datosActualizar[1];
+                    oSexo.descripcion = datosActualizar[2];
+                    db.Entry(oSexo).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                 }
-                catch (Exception err)
-                {
-
-                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
-                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
-                }
+                return true;
             }
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
+                return false;
+            }
         }
 
-
-        public bool EliminarSexo(string idBanco)
+        public bool EliminarSexo(string idSexo)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-
-            if (oBd.AbrirConexion())
+            int id = Convert.ToInt32(idSexo);
+            try
             {
-
-                try
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarSexo"), oBd.Con);
-
-                    command.Parameters.AddWithValue("@id", idBanco);
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    if (rowsAffected > 0)
-                    {
-
-                        rslt = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
+                    SEXO oSexo = db.SEXO.Where(d => d.id == id).First();
+                    db.SEXO.Remove(oSexo);
+                    db.SaveChanges();
+                    return true;
                 }
             }
-
-            oBd = null;
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("Error: " + err.Message);
+                CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
+                return false;
+            }
         }
 
         public List<ModSexo> BuscarSexo(string datoBuscar)
@@ -167,7 +122,7 @@ namespace OFLP.Modelo
             List<ModSexo> lstBusqueda = new List<ModSexo>();
 
             lstBusqueda = (from cust in ClsInicio.sexo
-                           where cust.sexo.StartsWith(datoBuscar)
+                           where cust.Sexo.StartsWith(datoBuscar)
                            select cust).ToList();
 
             return lstBusqueda;

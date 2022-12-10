@@ -5,10 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="506d65c0ecd44be080ccf9afc0d44825" Name="Diagram1">
-        <EntityTypeShape EntityType="MIGANModel.CLIENTE" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MIGANModel.ROL" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MIGANModel.USUARIO" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="MIGANModel.USUARIO_ROL" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MIGANModel.CLASE" Width="1.5" PointX="0.5" PointY="3.875" />
+        <EntityTypeShape EntityType="MIGANModel.CLIENTE" Width="1.5" PointX="5.75" PointY="0.5" />
+        <EntityTypeShape EntityType="MIGANModel.GASTO" Width="1.5" PointX="5.75" PointY="3.5" />
+        <EntityTypeShape EntityType="MIGANModel.PERFILES" Width="1.5" PointX="7.75" PointY="0.5" />
+        <EntityTypeShape EntityType="MIGANModel.SEXO" Width="1.5" PointX="0.5" PointY="6.25" />
+        <EntityTypeShape EntityType="MIGANModel.FACTURA" Width="1.5" PointX="3" PointY="3.625" />
+        <AssociationConnector Association="MIGANModel.id_claseGanado" />
+        <AssociationConnector Association="MIGANModel.id_sexo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

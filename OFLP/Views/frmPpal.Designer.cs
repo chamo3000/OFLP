@@ -318,7 +318,6 @@
             this.btnSexos.TabIndex = 0;
             this.btnSexos.Text = "Sexos";
             this.btnSexos.UseVisualStyleBackColor = false;
-            this.btnSexos.Visible = false;
             this.btnSexos.Click += new System.EventHandler(this.btnSexos_Click);
             // 
             // btnClasesGanado

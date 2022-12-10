@@ -12,12 +12,9 @@ namespace OFLP.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class CLIENTE
+    public partial class PERFILES
     {
-        public string PRIMERAPELLIDO { get; set; }
-        public string SEGUNDOAPELLIDO { get; set; }
-        public string NOMBRE { get; set; }
-        public int CEDULA { get; set; }
         public int ID { get; set; }
+        public string DESCRIPCION { get; set; }
     }
 }

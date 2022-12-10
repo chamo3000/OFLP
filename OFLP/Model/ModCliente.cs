@@ -41,10 +41,10 @@ namespace OFLP.Modelo
                         ClsInicio.clientes.Add(new ModCliente()
                         {
 
-                            CedulaCliente = Convert.ToInt32(oCliente.cedula),
-                            NombreCliente = oCliente.nombre.ToString(),
-                            PrimerApellido = oCliente.primerApellido.ToString(),
-                            SegundoApellido = oCliente.segundoApellido
+                            CedulaCliente = Convert.ToInt32(oCliente.CEDULA),
+                            NombreCliente = oCliente.NOMBRE.ToString(),
+                            PrimerApellido = oCliente.PRIMERAPELLIDO.ToString(),
+                            SegundoApellido = oCliente.SEGUNDOAPELLIDO
 
                         });
                     }
@@ -106,10 +106,10 @@ namespace OFLP.Modelo
             {
                 CLIENTE oCliente = new CLIENTE
                 {
-                    primerApellido = datos[0],
-                    segundoApellido = datos[1],
-                    nombre = datos[2],
-                    cedula = Convert.ToInt32(datos[3]),
+                    PRIMERAPELLIDO = datos[0],
+                    SEGUNDOAPELLIDO = datos[1],
+                    NOMBRE = datos[2],
+                    CEDULA = Convert.ToInt32(datos[3]),
                 };
                 using (MIGANEntities db = new MIGANEntities())
                 {
@@ -125,10 +125,6 @@ namespace OFLP.Modelo
                 CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
                 return false;
             }
-
-
-
-
         }
 
         public bool ActualizarCliente(string[] datos)
@@ -138,12 +134,12 @@ namespace OFLP.Modelo
             {
                 using (MIGANEntities db = new MIGANEntities())
                 {
-                    CLIENTE oCliente = db.CLIENTE.Where(d => d.cedula == id).First();
+                    CLIENTE oCliente = db.CLIENTE.Where(d => d.CEDULA == id).First();
 
-                    oCliente.cedula = Convert.ToInt32(datos[0]);
-                    oCliente.primerApellido = datos[1];
-                    oCliente.segundoApellido = datos[2];
-                    oCliente.nombre = datos[3];
+                    oCliente.CEDULA = Convert.ToInt32(datos[0]);
+                    oCliente.PRIMERAPELLIDO = datos[1];
+                    oCliente.SEGUNDOAPELLIDO = datos[2];
+                    oCliente.NOMBRE = datos[3];
                     db.Entry(oCliente).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -155,8 +151,6 @@ namespace OFLP.Modelo
                 CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
                 return false;
             }
-
-
         }
 
         public bool SelectIdCliente(string[] datos)
@@ -191,56 +185,6 @@ namespace OFLP.Modelo
 
             return rslt;
         }
-
-        public bool InsertarClaseCliente(int idCliente, int idTipoCliente)
-        {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
-            {
-                SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarClaseCliente"), oBd.Con);
-                command.Parameters.AddWithValue("@idCliente", idCliente);
-                command.Parameters.AddWithValue("@idTipoCliente", idTipoCliente);
-                try
-                {
-                    //connection.Open();
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    if (rowsAffected > 0) rslt = true;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                oBd.CerrarConexion();
-            }
-
-            return rslt;
-        }
-
-        public bool EliminarClaseCliente(string idCliente)
-        {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
-            {
-                SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarClaseCliente"), oBd.Con);
-                command.Parameters.AddWithValue("@idCliente", idCliente);
-
-                try
-                {
-                    //connection.Open();
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    if (rowsAffected > 0) rslt = true;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                oBd.CerrarConexion();
-            }
-            return rslt;
-        }
-
         public bool EliminarCliente(string idCliente)
         {
             int id = Convert.ToInt32(idCliente);
@@ -248,7 +192,7 @@ namespace OFLP.Modelo
             {
                 using (MIGANEntities db = new MIGANEntities())
                 {
-                    CLIENTE oCliente = db.CLIENTE.Where(d => d.cedula == id).First();
+                    CLIENTE oCliente = db.CLIENTE.Where(d => d.CEDULA == id).First();
                     db.CLIENTE.Remove(oCliente);
                     db.SaveChanges();
                     return true;
