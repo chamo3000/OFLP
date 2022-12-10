@@ -14,10 +14,19 @@ namespace OFLP.Model
     
     public partial class CLIENTE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CLIENTE()
+        {
+            this.FACTURA = new HashSet<FACTURA>();
+        }
+    
         public string PRIMERAPELLIDO { get; set; }
         public string SEGUNDOAPELLIDO { get; set; }
         public string NOMBRE { get; set; }
         public int CEDULA { get; set; }
         public int ID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FACTURA> FACTURA { get; set; }
     }
 }

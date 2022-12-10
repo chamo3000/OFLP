@@ -16,19 +16,22 @@ namespace OFLP.Model
     {
         public int id { get; set; }
         public int consecutivo { get; set; }
-        public Nullable<int> reunion { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
-        public Nullable<int> id_cliente { get; set; }
-        public Nullable<int> id_claseGanado { get; set; }
+        public int reunion { get; set; }
+        public System.DateTime fecha { get; set; }
+        public int cabezas { get; set; }
         public Nullable<int> corral { get; set; }
-        public Nullable<int> cabezas { get; set; }
-        public Nullable<int> id_sexo { get; set; }
-        public Nullable<int> kilos { get; set; }
-        public Nullable<int> valorKg { get; set; }
-        public Nullable<double> valorTotal { get; set; }
-        public Nullable<int> anio { get; set; }
+        public int kilos { get; set; }
+        public int valorkilo { get; set; }
+        public int valortotal { get; set; }
+        public int anio { get; set; }
+        public int clienteID { get; set; }
+        public int claseID { get; set; }
+        public int sexoID { get; set; }
+        public int gastoID { get; set; }
     
         public virtual CLASE CLASE { get; set; }
+        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual GASTO GASTO { get; set; }
         public virtual SEXO SEXO { get; set; }
     }
 }

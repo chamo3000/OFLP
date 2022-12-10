@@ -14,6 +14,12 @@ namespace OFLP.Model
     
     public partial class GASTO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public GASTO()
+        {
+            this.FACTURA = new HashSet<FACTURA>();
+        }
+    
         public int id { get; set; }
         public Nullable<int> reunion { get; set; }
         public Nullable<int> cliente { get; set; }
@@ -27,5 +33,8 @@ namespace OFLP.Model
         public Nullable<int> anticipo { get; set; }
         public Nullable<int> otros { get; set; }
         public string observacion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FACTURA> FACTURA { get; set; }
     }
 }
