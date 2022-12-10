@@ -1,4 +1,5 @@
 ﻿using OFLP.Controlador;
+using OFLP.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,156 +11,114 @@ namespace OFLP.Modelo
 {
     class ModGanado
     {
-        public Int32 idGanado { get; set; }
-        public string claseGanado{ get; set; }
-        public string clase { get; set; }
-        public string descripcion { get; set; }
-
-        private string SQL;
+        public Int32 IdGanado { get; set; }
+        public string ClaseGanado { get; set; }
+        public string Clase { get; set; }
+        public string Descripcion { get; set; }
 
         public bool LlenarGrid()
         {
-            SQL = "select * from CLASE";
-
-            if (Select(SQL))
+            try
             {
-                return true;
-            }
-            else return false;
-        }
-
-
-        private bool Select(string query)
-        {
-
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
-            {
-                try
+                ClsInicio.ganado.Clear();
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(query, oBd.Con);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    var lstClase = db.CLASE;
+                    foreach (var oClase in lstClase)
                     {
                         ClsInicio.ganado.Add(new ModGanado()
                         {
-                            idGanado = Convert.ToInt32(reader["id"]),
-                            claseGanado = reader["claseGanado"].ToString(),
-                            clase = reader["clase"].ToString(),
-                            descripcion = reader["descripcion"].ToString()
+
+                            IdGanado = Convert.ToInt32(oClase.id),
+                            ClaseGanado = oClase.claseGanado,
+                            Clase = oClase.clase1,
+                            Descripcion = oClase.descripcion
+
                         });
-
                     }
-                    rslt = true;
-
                 }
-                catch (Exception err)
-                {
+                return true;
 
-                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
-                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
-                }
-                oBd.CerrarConexion();
             }
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
         }
 
         public bool AgregarGanado(string claseGanado, string clase, string descripcion)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
+            try
             {
-                try
+                CLASE oClase = new CLASE
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("AgregarGanado"), oBd.Con);
-
-                    command.Parameters.AddWithValue("@claseGanado", claseGanado);
-                    command.Parameters.AddWithValue("@clase", clase);
-                    command.Parameters.AddWithValue("@descripcion", descripcion);
-
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-
-                    if (rowsAffected > 0) rslt = true;
-
-                }
-                catch (Exception ex)
+                    claseGanado = claseGanado,
+                    clase1 = clase,
+                    descripcion = descripcion,
+                };
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    Console.WriteLine(ex.Message);
+                    db.CLASE.Add(oClase);
+                    db.SaveChanges();
                 }
+                return true;
             }
-
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
         }
 
         public bool ActualizarGanado(string[] datosActualizar)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
+            int id = Convert.ToInt32(datosActualizar[0]);
+            try
             {
-                try
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("ActualizarGanado"), oBd.Con);
+                    CLASE oClase = db.CLASE.Where(d => d.id == id).First();
 
-                    command.Parameters.AddWithValue("@claseGanado", datosActualizar[1]);
-                    command.Parameters.AddWithValue("@clase", datosActualizar[2]);
-                    command.Parameters.AddWithValue("@descripcion", datosActualizar[3]);
-                    command.Parameters.AddWithValue("@id", datosActualizar[0]);
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    if (rowsAffected > 0)
-                    {
-                        rslt = true;
-                    }
-
+                    oClase.id = Convert.ToInt32(datosActualizar[0]);
+                    oClase.claseGanado = datosActualizar[1];
+                    oClase.clase1 = datosActualizar[2];
+                    oClase.descripcion = datosActualizar[3];
+                    db.Entry(oClase).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                 }
-                catch (Exception err)
-                {
-
-                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
-                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
-                }
+                return true;
             }
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
         }
 
         public bool EliminarGanado(string idGanado)
         {
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-
-            if (oBd.AbrirConexion())
+            int id = Convert.ToInt32(idGanado);
+            try
             {
-
-                try
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarGanado"), oBd.Con);
-
-                    command.Parameters.AddWithValue("@id", idGanado);
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    if (rowsAffected > 0)
-                    {
-
-                        rslt = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
+                    CLASE oClase = db.CLASE.Where(d => d.id == id).First();
+                    db.CLASE.Remove(oClase);
+                    db.SaveChanges();
+                    return true;
                 }
             }
-
-            oBd = null;
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
         }
-
 
         public List<ModGanado> BuscarGanado(string datoBuscar)
         {
@@ -167,7 +126,7 @@ namespace OFLP.Modelo
             List<ModGanado> lstBusqueda = new List<ModGanado>();
 
             lstBusqueda = (from cust in ClsInicio.ganado
-                           where cust.claseGanado.StartsWith(datoBuscar)
+                           where cust.ClaseGanado.StartsWith(datoBuscar)
                            select cust).ToList();
 
             return lstBusqueda;

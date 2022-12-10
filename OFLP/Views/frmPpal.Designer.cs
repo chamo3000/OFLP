@@ -334,7 +334,6 @@
             this.btnClasesGanado.TabIndex = 0;
             this.btnClasesGanado.Text = "Clases de Ganado";
             this.btnClasesGanado.UseVisualStyleBackColor = false;
-            this.btnClasesGanado.Visible = false;
             this.btnClasesGanado.Click += new System.EventHandler(this.btnClasesGanado_Click);
             // 
             // btnBancos

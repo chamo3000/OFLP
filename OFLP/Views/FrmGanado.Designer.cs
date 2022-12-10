@@ -43,17 +43,18 @@ namespace OFLP.Vistas
             this.clase_ganado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlConfiguracionGanado = new System.Windows.Forms.Panel();
+            this.PicLimpiarBusquedaClase = new System.Windows.Forms.PictureBox();
+            this.PicBuscarClase = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PicAgregarGanado = new System.Windows.Forms.PictureBox();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.lblClase = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BtnActualizarGanado = new System.Windows.Forms.Button();
-            this.BtnEliminarGanado = new System.Windows.Forms.Button();
-            this.BtnAgregarGanado = new System.Windows.Forms.Button();
-            this.BtnLimpiarGanado = new System.Windows.Forms.Button();
-            this.BtnBuscarGanado = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtBuscarGanado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,10 +62,11 @@ namespace OFLP.Vistas
             this.lblClaseGanado = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DtgGanado)).BeginInit();
             this.pnlConfiguracionGanado.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicLimpiarBusquedaClase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBuscarClase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicAgregarGanado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,11 +169,14 @@ namespace OFLP.Vistas
             this.idferia,
             this.clase_ganado,
             this.clase,
-            this.descripcion});
+            this.descripcion,
+            this.Modificar,
+            this.Eliminar});
             this.DtgGanado.Dock = System.Windows.Forms.DockStyle.Top;
             this.DtgGanado.Location = new System.Drawing.Point(0, 238);
             this.DtgGanado.Name = "DtgGanado";
             this.DtgGanado.ReadOnly = true;
+            this.DtgGanado.RowHeadersVisible = false;
             this.DtgGanado.RowHeadersWidth = 51;
             this.DtgGanado.Size = new System.Drawing.Size(989, 177);
             this.DtgGanado.TabIndex = 45;
@@ -183,7 +188,7 @@ namespace OFLP.Vistas
             this.idferia.MinimumWidth = 6;
             this.idferia.Name = "idferia";
             this.idferia.ReadOnly = true;
-            this.idferia.Width = 125;
+            this.idferia.Width = 156;
             // 
             // clase_ganado
             // 
@@ -191,7 +196,7 @@ namespace OFLP.Vistas
             this.clase_ganado.MinimumWidth = 6;
             this.clase_ganado.Name = "clase_ganado";
             this.clase_ganado.ReadOnly = true;
-            this.clase_ganado.Width = 125;
+            this.clase_ganado.Width = 156;
             // 
             // clase
             // 
@@ -199,7 +204,7 @@ namespace OFLP.Vistas
             this.clase.MinimumWidth = 6;
             this.clase.Name = "clase";
             this.clase.ReadOnly = true;
-            this.clase.Width = 125;
+            this.clase.Width = 156;
             // 
             // descripcion
             // 
@@ -207,19 +212,38 @@ namespace OFLP.Vistas
             this.descripcion.MinimumWidth = 6;
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 125;
+            this.descripcion.Width = 156;
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "MODIFICAR";
+            this.Modificar.Image = global::OFLP.Properties.Resources.edit;
+            this.Modificar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            this.Modificar.Width = 156;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "ELIMINAR";
+            this.Eliminar.Image = global::OFLP.Properties.Resources.eliminar;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 156;
             // 
             // pnlConfiguracionGanado
             // 
             this.pnlConfiguracionGanado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlConfiguracionGanado.Controls.Add(this.PicLimpiarBusquedaClase);
+            this.pnlConfiguracionGanado.Controls.Add(this.PicBuscarClase);
+            this.pnlConfiguracionGanado.Controls.Add(this.label6);
+            this.pnlConfiguracionGanado.Controls.Add(this.PicAgregarGanado);
             this.pnlConfiguracionGanado.Controls.Add(this.picLogo);
             this.pnlConfiguracionGanado.Controls.Add(this.lblClase);
             this.pnlConfiguracionGanado.Controls.Add(this.lblDescripcion);
             this.pnlConfiguracionGanado.Controls.Add(this.label12);
             this.pnlConfiguracionGanado.Controls.Add(this.label13);
-            this.pnlConfiguracionGanado.Controls.Add(this.groupBox2);
-            this.pnlConfiguracionGanado.Controls.Add(this.BtnLimpiarGanado);
-            this.pnlConfiguracionGanado.Controls.Add(this.BtnBuscarGanado);
             this.pnlConfiguracionGanado.Controls.Add(this.label2);
             this.pnlConfiguracionGanado.Controls.Add(this.TxtBuscarGanado);
             this.pnlConfiguracionGanado.Controls.Add(this.label4);
@@ -232,6 +256,64 @@ namespace OFLP.Vistas
             this.pnlConfiguracionGanado.Name = "pnlConfiguracionGanado";
             this.pnlConfiguracionGanado.Size = new System.Drawing.Size(989, 238);
             this.pnlConfiguracionGanado.TabIndex = 44;
+            // 
+            // PicLimpiarBusquedaClase
+            // 
+            this.PicLimpiarBusquedaClase.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PicLimpiarBusquedaClase.Image = global::OFLP.Properties.Resources._2376996;
+            this.PicLimpiarBusquedaClase.Location = new System.Drawing.Point(810, 179);
+            this.PicLimpiarBusquedaClase.Name = "PicLimpiarBusquedaClase";
+            this.PicLimpiarBusquedaClase.Size = new System.Drawing.Size(48, 27);
+            this.PicLimpiarBusquedaClase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicLimpiarBusquedaClase.TabIndex = 53;
+            this.PicLimpiarBusquedaClase.TabStop = false;
+            this.PicLimpiarBusquedaClase.Click += new System.EventHandler(this.PicLimpiarBusquedaClase_Click);
+            // 
+            // PicBuscarClase
+            // 
+            this.PicBuscarClase.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PicBuscarClase.Image = global::OFLP.Properties.Resources._639375;
+            this.PicBuscarClase.Location = new System.Drawing.Point(765, 179);
+            this.PicBuscarClase.Name = "PicBuscarClase";
+            this.PicBuscarClase.Size = new System.Drawing.Size(37, 27);
+            this.PicBuscarClase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicBuscarClase.TabIndex = 52;
+            this.PicBuscarClase.TabStop = false;
+            this.PicBuscarClase.Click += new System.EventHandler(this.PicBuscarClase_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(13, 196);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 20);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Agregar Cliente";
+            // 
+            // PicAgregarGanado
+            // 
+            this.PicAgregarGanado.Image = global::OFLP.Properties.Resources.Agregar;
+            this.PicAgregarGanado.Location = new System.Drawing.Point(153, 187);
+            this.PicAgregarGanado.Name = "PicAgregarGanado";
+            this.PicAgregarGanado.Size = new System.Drawing.Size(77, 37);
+            this.PicAgregarGanado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicAgregarGanado.TabIndex = 50;
+            this.PicAgregarGanado.TabStop = false;
+            this.PicAgregarGanado.Click += new System.EventHandler(this.PicAgregarGanado_Click);
+            // 
+            // picLogo
+            // 
+            this.picLogo.BackColor = System.Drawing.Color.White;
+            this.picLogo.Image = global::OFLP.Properties.Resources.FACTBYA;
+            this.picLogo.Location = new System.Drawing.Point(647, 5);
+            this.picLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(211, 148);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 45;
+            this.picLogo.TabStop = false;
             // 
             // lblClase
             // 
@@ -275,92 +357,20 @@ namespace OFLP.Vistas
             this.label13.TabIndex = 34;
             this.label13.Text = "Clase:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.BtnActualizarGanado);
-            this.groupBox2.Controls.Add(this.BtnEliminarGanado);
-            this.groupBox2.Controls.Add(this.BtnAgregarGanado);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(694, 68);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(224, 148);
-            this.groupBox2.TabIndex = 33;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Configuración Clase Ganado";
-            // 
-            // BtnActualizarGanado
-            // 
-            this.BtnActualizarGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActualizarGanado.ForeColor = System.Drawing.Color.Black;
-            this.BtnActualizarGanado.Location = new System.Drawing.Point(22, 62);
-            this.BtnActualizarGanado.Name = "BtnActualizarGanado";
-            this.BtnActualizarGanado.Size = new System.Drawing.Size(181, 26);
-            this.BtnActualizarGanado.TabIndex = 14;
-            this.BtnActualizarGanado.Text = "Actualiza Ganado";
-            this.BtnActualizarGanado.UseVisualStyleBackColor = true;
-            this.BtnActualizarGanado.Click += new System.EventHandler(this.BtnActualizarGanado_Click);
-            // 
-            // BtnEliminarGanado
-            // 
-            this.BtnEliminarGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarGanado.ForeColor = System.Drawing.Color.Black;
-            this.BtnEliminarGanado.Location = new System.Drawing.Point(22, 94);
-            this.BtnEliminarGanado.Name = "BtnEliminarGanado";
-            this.BtnEliminarGanado.Size = new System.Drawing.Size(181, 26);
-            this.BtnEliminarGanado.TabIndex = 14;
-            this.BtnEliminarGanado.Text = "Eliminar Ganado";
-            this.BtnEliminarGanado.UseVisualStyleBackColor = true;
-            this.BtnEliminarGanado.Click += new System.EventHandler(this.BtnEliminarGanado_Click);
-            // 
-            // BtnAgregarGanado
-            // 
-            this.BtnAgregarGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarGanado.ForeColor = System.Drawing.Color.Black;
-            this.BtnAgregarGanado.Location = new System.Drawing.Point(22, 30);
-            this.BtnAgregarGanado.Name = "BtnAgregarGanado";
-            this.BtnAgregarGanado.Size = new System.Drawing.Size(181, 26);
-            this.BtnAgregarGanado.TabIndex = 14;
-            this.BtnAgregarGanado.Text = "Agregar Ganado";
-            this.BtnAgregarGanado.UseVisualStyleBackColor = true;
-            this.BtnAgregarGanado.Click += new System.EventHandler(this.btnAgregarGanado_Click);
-            // 
-            // BtnLimpiarGanado
-            // 
-            this.BtnLimpiarGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiarGanado.Location = new System.Drawing.Point(502, 125);
-            this.BtnLimpiarGanado.Name = "BtnLimpiarGanado";
-            this.BtnLimpiarGanado.Size = new System.Drawing.Size(86, 23);
-            this.BtnLimpiarGanado.TabIndex = 32;
-            this.BtnLimpiarGanado.Text = "Limpiar";
-            this.BtnLimpiarGanado.UseVisualStyleBackColor = true;
-            this.BtnLimpiarGanado.Click += new System.EventHandler(this.BtnLimpiarGanado_Click);
-            // 
-            // BtnBuscarGanado
-            // 
-            this.BtnBuscarGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscarGanado.Location = new System.Drawing.Point(412, 125);
-            this.BtnBuscarGanado.Name = "BtnBuscarGanado";
-            this.BtnBuscarGanado.Size = new System.Drawing.Size(86, 23);
-            this.BtnBuscarGanado.TabIndex = 31;
-            this.BtnBuscarGanado.Text = "Buscar";
-            this.BtnBuscarGanado.UseVisualStyleBackColor = true;
-            this.BtnBuscarGanado.Click += new System.EventHandler(this.BtnBuscarGanado_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(407, 68);
+            this.label2.Location = new System.Drawing.Point(499, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 20);
+            this.label2.Size = new System.Drawing.Size(70, 20);
             this.label2.TabIndex = 30;
-            this.label2.Text = "Buscar  Clase Ganado";
+            this.label2.Text = "Buscar ";
             // 
             // TxtBuscarGanado
             // 
-            this.TxtBuscarGanado.Location = new System.Drawing.Point(411, 94);
+            this.TxtBuscarGanado.Location = new System.Drawing.Point(575, 186);
             this.TxtBuscarGanado.Name = "TxtBuscarGanado";
             this.TxtBuscarGanado.Size = new System.Drawing.Size(177, 20);
             this.TxtBuscarGanado.TabIndex = 29;
@@ -419,18 +429,6 @@ namespace OFLP.Vistas
             this.label9.TabIndex = 19;
             this.label9.Text = "Id Feria:";
             // 
-            // picLogo
-            // 
-            this.picLogo.BackColor = System.Drawing.Color.White;
-            this.picLogo.Image = global::OFLP.Properties.Resources.FACTBYA;
-            this.picLogo.Location = new System.Drawing.Point(960, 68);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(211, 148);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 45;
-            this.picLogo.TabStop = false;
-            // 
             // FrmGanado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,7 +455,9 @@ namespace OFLP.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.DtgGanado)).EndInit();
             this.pnlConfiguracionGanado.ResumeLayout(false);
             this.pnlConfiguracionGanado.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicLimpiarBusquedaClase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBuscarClase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicAgregarGanado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -475,12 +475,6 @@ namespace OFLP.Vistas
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlConfiguracionGanado;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button BtnActualizarGanado;
-        private System.Windows.Forms.Button BtnEliminarGanado;
-        private System.Windows.Forms.Button BtnAgregarGanado;
-        private System.Windows.Forms.Button BtnLimpiarGanado;
-        private System.Windows.Forms.Button BtnBuscarGanado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtBuscarGanado;
         private System.Windows.Forms.Label label4;
@@ -492,11 +486,17 @@ namespace OFLP.Vistas
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.DataGridView DtgGanado;
+        private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.DataGridViewTextBoxColumn idferia;
         private System.Windows.Forms.DataGridViewTextBoxColumn clase_ganado;
         private System.Windows.Forms.DataGridViewTextBoxColumn clase;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        public System.Windows.Forms.DataGridView DtgGanado;
-        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.DataGridViewImageColumn Modificar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox PicAgregarGanado;
+        private System.Windows.Forms.PictureBox PicLimpiarBusquedaClase;
+        private System.Windows.Forms.PictureBox PicBuscarClase;
     }
 }

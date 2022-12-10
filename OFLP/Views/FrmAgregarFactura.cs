@@ -125,7 +125,7 @@ namespace OFLP.Vistas
 
             foreach (ModGanado item in ClsInicio.ganado)
             {
-                cmbClase.Items.Add(item.claseGanado + ": "+item.descripcion);
+                cmbClase.Items.Add(item.ClaseGanado + ": "+item.Descripcion);
             }
             foreach (ModSexo item in ClsInicio.sexo)
             {
@@ -643,9 +643,9 @@ namespace OFLP.Vistas
             int retorno=0;
             foreach(ModGanado item in ClsInicio.ganado)
             {
-                if (claseganado.Equals(item.claseGanado))
+                if (claseganado.Equals(item.ClaseGanado))
                 {
-                    retorno = item.idGanado;
+                    retorno = item.IdGanado;
                 }
             }
             return retorno;
