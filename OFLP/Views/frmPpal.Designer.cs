@@ -48,10 +48,7 @@
             this.pnlMenuDatos = new System.Windows.Forms.Panel();
             this.btnSexos = new System.Windows.Forms.Button();
             this.btnClasesGanado = new System.Windows.Forms.Button();
-            this.btnBancos = new System.Windows.Forms.Button();
-            this.btnCuentasBancarias = new System.Windows.Forms.Button();
             this.btnPropietario = new System.Windows.Forms.Button();
-            this.btnGirosCheques = new System.Windows.Forms.Button();
             this.btnGastos = new System.Windows.Forms.Button();
             this.btnComisiones = new System.Windows.Forms.Button();
             this.pnlContenedor = new System.Windows.Forms.Panel();
@@ -291,16 +288,13 @@
             this.pnlMenuDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlMenuDatos.Controls.Add(this.btnSexos);
             this.pnlMenuDatos.Controls.Add(this.btnClasesGanado);
-            this.pnlMenuDatos.Controls.Add(this.btnBancos);
-            this.pnlMenuDatos.Controls.Add(this.btnCuentasBancarias);
             this.pnlMenuDatos.Controls.Add(this.btnPropietario);
-            this.pnlMenuDatos.Controls.Add(this.btnGirosCheques);
             this.pnlMenuDatos.Controls.Add(this.btnGastos);
             this.pnlMenuDatos.Controls.Add(this.btnComisiones);
             this.pnlMenuDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.pnlMenuDatos.Location = new System.Drawing.Point(5, 110);
             this.pnlMenuDatos.Name = "pnlMenuDatos";
-            this.pnlMenuDatos.Size = new System.Drawing.Size(189, 169);
+            this.pnlMenuDatos.Size = new System.Drawing.Size(189, 124);
             this.pnlMenuDatos.TabIndex = 0;
             this.pnlMenuDatos.Visible = false;
             // 
@@ -312,7 +306,7 @@
             this.btnSexos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSexos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnSexos.ForeColor = System.Drawing.Color.White;
-            this.btnSexos.Location = new System.Drawing.Point(-4, 148);
+            this.btnSexos.Location = new System.Drawing.Point(-2, 99);
             this.btnSexos.Name = "btnSexos";
             this.btnSexos.Size = new System.Drawing.Size(193, 21);
             this.btnSexos.TabIndex = 0;
@@ -328,47 +322,13 @@
             this.btnClasesGanado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClasesGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnClasesGanado.ForeColor = System.Drawing.Color.White;
-            this.btnClasesGanado.Location = new System.Drawing.Point(-4, 127);
+            this.btnClasesGanado.Location = new System.Drawing.Point(-2, 72);
             this.btnClasesGanado.Name = "btnClasesGanado";
             this.btnClasesGanado.Size = new System.Drawing.Size(193, 21);
             this.btnClasesGanado.TabIndex = 0;
             this.btnClasesGanado.Text = "Clases de Ganado";
             this.btnClasesGanado.UseVisualStyleBackColor = false;
             this.btnClasesGanado.Click += new System.EventHandler(this.btnClasesGanado_Click);
-            // 
-            // btnBancos
-            // 
-            this.btnBancos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnBancos.FlatAppearance.BorderSize = 0;
-            this.btnBancos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnBancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBancos.ForeColor = System.Drawing.Color.White;
-            this.btnBancos.Location = new System.Drawing.Point(-4, 106);
-            this.btnBancos.Name = "btnBancos";
-            this.btnBancos.Size = new System.Drawing.Size(193, 21);
-            this.btnBancos.TabIndex = 0;
-            this.btnBancos.Text = "Bancos";
-            this.btnBancos.UseVisualStyleBackColor = false;
-            this.btnBancos.Visible = false;
-            this.btnBancos.Click += new System.EventHandler(this.btnBancos_Click);
-            // 
-            // btnCuentasBancarias
-            // 
-            this.btnCuentasBancarias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCuentasBancarias.FlatAppearance.BorderSize = 0;
-            this.btnCuentasBancarias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnCuentasBancarias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCuentasBancarias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.btnCuentasBancarias.ForeColor = System.Drawing.Color.White;
-            this.btnCuentasBancarias.Location = new System.Drawing.Point(-5, 85);
-            this.btnCuentasBancarias.Name = "btnCuentasBancarias";
-            this.btnCuentasBancarias.Size = new System.Drawing.Size(193, 21);
-            this.btnCuentasBancarias.TabIndex = 0;
-            this.btnCuentasBancarias.Text = "Cuentas Bancarias";
-            this.btnCuentasBancarias.UseVisualStyleBackColor = false;
-            this.btnCuentasBancarias.Visible = false;
-            this.btnCuentasBancarias.Click += new System.EventHandler(this.btnCuentasBancarias_Click);
             // 
             // btnPropietario
             // 
@@ -378,29 +338,13 @@
             this.btnPropietario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnPropietario.ForeColor = System.Drawing.Color.White;
-            this.btnPropietario.Location = new System.Drawing.Point(-4, 64);
+            this.btnPropietario.Location = new System.Drawing.Point(-2, 45);
             this.btnPropietario.Name = "btnPropietario";
             this.btnPropietario.Size = new System.Drawing.Size(193, 21);
             this.btnPropietario.TabIndex = 0;
             this.btnPropietario.Text = "Clientes";
             this.btnPropietario.UseVisualStyleBackColor = false;
             this.btnPropietario.Click += new System.EventHandler(this.btnPropietario_Click);
-            // 
-            // btnGirosCheques
-            // 
-            this.btnGirosCheques.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnGirosCheques.FlatAppearance.BorderSize = 0;
-            this.btnGirosCheques.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnGirosCheques.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGirosCheques.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.btnGirosCheques.ForeColor = System.Drawing.Color.White;
-            this.btnGirosCheques.Location = new System.Drawing.Point(-4, 43);
-            this.btnGirosCheques.Name = "btnGirosCheques";
-            this.btnGirosCheques.Size = new System.Drawing.Size(193, 21);
-            this.btnGirosCheques.TabIndex = 0;
-            this.btnGirosCheques.Text = "Giros / Cheques";
-            this.btnGirosCheques.UseVisualStyleBackColor = false;
-            this.btnGirosCheques.Visible = false;
             // 
             // btnGastos
             // 
@@ -416,7 +360,6 @@
             this.btnGastos.TabIndex = 0;
             this.btnGastos.Text = "Gastos";
             this.btnGastos.UseVisualStyleBackColor = false;
-            this.btnGastos.Visible = false;
             // 
             // btnComisiones
             // 
@@ -432,7 +375,6 @@
             this.btnComisiones.TabIndex = 0;
             this.btnComisiones.Text = "Comisiones";
             this.btnComisiones.UseVisualStyleBackColor = false;
-            this.btnComisiones.Visible = false;
             this.btnComisiones.Click += new System.EventHandler(this.BtnComisiones_Click);
             // 
             // pnlContenedor
@@ -493,9 +435,7 @@
         private System.Windows.Forms.Panel pnlMenuDatos;
         private System.Windows.Forms.Button btnSexos;
         private System.Windows.Forms.Button btnClasesGanado;
-        private System.Windows.Forms.Button btnBancos;
         private System.Windows.Forms.Button btnPropietario;
-        private System.Windows.Forms.Button btnGirosCheques;
         private System.Windows.Forms.Button btnGastos;
         private System.Windows.Forms.Button btnComisiones;
         private System.Windows.Forms.Panel panel2;
@@ -506,7 +446,6 @@
         public System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button btnCuentasBancarias;
     }
 }
 

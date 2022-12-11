@@ -93,6 +93,7 @@ namespace OFLP.Vistas
             this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnGasto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAgregaFactura)).BeginInit();
             this.panel2.SuspendLayout();
@@ -136,9 +137,9 @@ namespace OFLP.Vistas
             this.editar,
             this.eliminar});
             this.DtgAgregaFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DtgAgregaFactura.Location = new System.Drawing.Point(0, 307);
+            this.DtgAgregaFactura.Location = new System.Drawing.Point(0, 351);
             this.DtgAgregaFactura.Name = "DtgAgregaFactura";
-            this.DtgAgregaFactura.Size = new System.Drawing.Size(944, 244);
+            this.DtgAgregaFactura.Size = new System.Drawing.Size(944, 200);
             this.DtgAgregaFactura.TabIndex = 2;
             this.DtgAgregaFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgAgregaFactura_CellClick);
             // 
@@ -228,6 +229,7 @@ namespace OFLP.Vistas
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.BtnGasto);
             this.panel2.Controls.Add(this.PnlAgregar);
             this.panel2.Controls.Add(this.pnlBarraTitulo);
             this.panel2.Controls.Add(this.pictureBox3);
@@ -495,7 +497,7 @@ namespace OFLP.Vistas
             // pictureBox3
             // 
             this.pictureBox3.Image = global::OFLP.Properties.Resources.cancelar;
-            this.pictureBox3.Location = new System.Drawing.Point(537, 259);
+            this.pictureBox3.Location = new System.Drawing.Point(537, 303);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(45, 39);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -505,7 +507,7 @@ namespace OFLP.Vistas
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 258);
+            this.pictureBox2.Location = new System.Drawing.Point(18, 302);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(46, 40);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -524,7 +526,7 @@ namespace OFLP.Vistas
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(537, 258);
+            this.button2.Location = new System.Drawing.Point(537, 303);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(221, 39);
             this.button2.TabIndex = 6;
@@ -542,7 +544,7 @@ namespace OFLP.Vistas
             this.btnTerminarGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerminarGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTerminarGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnTerminarGuardar.Location = new System.Drawing.Point(18, 258);
+            this.btnTerminarGuardar.Location = new System.Drawing.Point(18, 303);
             this.btnTerminarGuardar.Name = "btnTerminarGuardar";
             this.btnTerminarGuardar.Size = new System.Drawing.Size(221, 39);
             this.btnTerminarGuardar.TabIndex = 6;
@@ -808,6 +810,26 @@ namespace OFLP.Vistas
             this.kilo.Name = "kilo";
             this.kilo.ReadOnly = true;
             // 
+            // BtnGasto
+            // 
+            this.BtnGasto.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnGasto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnGasto.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnGasto.FlatAppearance.BorderSize = 0;
+            this.BtnGasto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.BtnGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.BtnGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGasto.ForeColor = System.Drawing.Color.White;
+            this.BtnGasto.Location = new System.Drawing.Point(18, 256);
+            this.BtnGasto.Name = "BtnGasto";
+            this.BtnGasto.Size = new System.Drawing.Size(221, 39);
+            this.BtnGasto.TabIndex = 49;
+            this.BtnGasto.Text = "Gasto";
+            this.BtnGasto.UseVisualStyleBackColor = false;
+            this.BtnGasto.Visible = false;
+            this.BtnGasto.Click += new System.EventHandler(this.BtnGasto_Click);
+            // 
             // FrmAgregarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -905,5 +927,6 @@ namespace OFLP.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn valor_total;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn eliminar;
+        private System.Windows.Forms.Button BtnGasto;
     }
 }

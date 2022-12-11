@@ -1,5 +1,6 @@
 ﻿using OFLP.Controlador;
 using OFLP.Modelo;
+using OFLP.Views;
 using System;
 using System.Drawing;
 using System.Globalization;
@@ -33,9 +34,6 @@ namespace OFLP.Vistas
             InitializeComponent();
             this.DtgFormFactura = dtgFrm;
             this.CantFacturas = dtgFrm.Rows.Count;
-
-
-
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -54,12 +52,11 @@ namespace OFLP.Vistas
             LimpiarControles();
             CalcularReunion();
             Thread hiloPropietarios = new Thread(LlenarComboPropietarios);
-            Thread hiloCompradores = new Thread(LlenarComboCompradores);
+            //Thread hiloCompradores = new Thread(LlenarComboCompradores);
             hiloPropietarios.Start();
-            hiloCompradores.Start();
+            //hiloCompradores.Start();
             CargarDatosListas();
             LlenarCombos();
-
         }
 
         private void CalcularReunion()
@@ -109,20 +106,14 @@ namespace OFLP.Vistas
 
         private void LlenarComboCompradores()
         {
-            foreach (ModCliente item in ClsInicio.Compradores)
+            foreach (ModCliente item in ClsInicio.clientes)
             {
-                CmbComprador.Items.Add(item.NombreCliente + " " + item.PrimerApellido);
+                if(!cmbPropietario.Text.Equals(item.NombreCliente +" "+ item.PrimerApellido)) CmbComprador.Items.Add(item.NombreCliente + " " + item.PrimerApellido);
             }
         }
 
         private void LlenarCombos()
         {
-
-            //foreach (ModHacienda item in clsInicio.haciendas)
-            //{
-            //    cmbHacienda.Items.Add(item.nombreHacienda);
-            //}
-
             foreach (ModGanado item in ClsInicio.ganado)
             {
                 cmbClase.Items.Add(item.ClaseGanado + ": "+item.Descripcion);
@@ -131,8 +122,6 @@ namespace OFLP.Vistas
             {
                 cmbSexo.Items.Add(item.Descripcion);
             }
-
-
         }
 
         private void CmbClase_KeyPress(object sender, KeyPressEventArgs e)
@@ -424,6 +413,7 @@ namespace OFLP.Vistas
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
+            BtnGasto.Visible = true;
             btnTerminarGuardar.Visible = true;
             claseGanado = cmbClase.SelectedItem.ToString();
             numeroCorral = txtCorral.Text;
@@ -681,6 +671,8 @@ namespace OFLP.Vistas
         {
             pictureBox2.Visible = true;
             Propietario = cmbPropietario.SelectedItem.ToString();
+            Thread hiloCompradores = new Thread(LlenarComboCompradores);
+            hiloCompradores.Start();
             foreach (ModCliente item in ClsInicio.clientes)
             {
                 if(Propietario.Contains(item.PrimerApellido) && Propietario.Contains(item.NombreCliente))
@@ -695,6 +687,12 @@ namespace OFLP.Vistas
         private void CmbComprador_SelectedIndexChanged(object sender, EventArgs e)
         {
             PnlAgregar.Visible = true;
+        }
+
+        private void BtnGasto_Click(object sender, EventArgs e)
+        {
+            FrmGasto OGasto = new FrmGasto();
+            OGasto.Show();
         }
     }
 }

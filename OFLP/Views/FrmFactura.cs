@@ -14,20 +14,6 @@ namespace OFLP.Vistas
         {
             InitializeComponent();
         }
-
-        private void BtnAgregarHacienda_Click(object sender, EventArgs e)
-        {
-
-            FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
-            //{
-            //    TopMost = true,
-            //    Owner = this
-            //};
-            f.Show();
-            //f.ShowDialog();
-            
-        }
-
         private void FrmFactura_Load(object sender, EventArgs e)
         {
             LimpiarControles();
@@ -48,7 +34,6 @@ namespace OFLP.Vistas
             }
 
         }
-
         private void LlenarGrid()
         {
             CtrlFactura objFactura = new CtrlFactura();
@@ -65,7 +50,6 @@ namespace OFLP.Vistas
             }
 
         }
-
         private void LimpiarControles()
         {
             LblNumFactura.Text = string.Empty;
@@ -81,8 +65,7 @@ namespace OFLP.Vistas
             LblValorKilo.Text = string.Empty;
             LblValorTotal.Text = string.Empty;
         }
-
-        private void btnEliminarHacienda_Click(object sender, EventArgs e)
+        private void BtnEliminarHacienda_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Esta seguro que desea eliminar la Factura?", "Eliminar Factura", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
@@ -101,6 +84,11 @@ namespace OFLP.Vistas
 
                 }
             }
+        }
+        private void PicAgregarFactura_Click(object sender, EventArgs e)
+        {
+            FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
+            f.Show();
         }
     }
 }
