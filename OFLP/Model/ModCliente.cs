@@ -20,16 +20,6 @@ namespace OFLP.Modelo
 
         public bool LlenarGrid()
         {
-            #region Codigo sin EF
-            //ModUtilidadesBd oBd = new ModUtilidadesBd();
-            //SQL = oBd.Definirquery("SelecionaCliente");
-
-            //if (Select(SQL))
-            //{
-            //    return true;
-            //}
-            //else return false;
-            #endregion
             try
             {
                 ClsInicio.clientes.Clear();
@@ -40,17 +30,14 @@ namespace OFLP.Modelo
                     {
                         ClsInicio.clientes.Add(new ModCliente()
                         {
-
                             CedulaCliente = Convert.ToInt32(oCliente.CEDULA),
                             NombreCliente = oCliente.NOMBRE.ToString(),
                             PrimerApellido = oCliente.PRIMERAPELLIDO.ToString(),
                             SegundoApellido = oCliente.SEGUNDOAPELLIDO
-
                         });
                     }
                 }
                 return true;
-
             }
             catch (Exception err)
             {
@@ -58,7 +45,6 @@ namespace OFLP.Modelo
                 CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
                 return false;
             }
-
         }
 
 

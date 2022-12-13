@@ -18,6 +18,7 @@ namespace OFLP.Model
         public CLIENTE()
         {
             this.FACTURA = new HashSet<FACTURA>();
+            this.FACTURA1 = new HashSet<FACTURA>();
         }
     
         public string PRIMERAPELLIDO { get; set; }
@@ -28,5 +29,7 @@ namespace OFLP.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FACTURA> FACTURA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FACTURA> FACTURA1 { get; set; }
     }
 }

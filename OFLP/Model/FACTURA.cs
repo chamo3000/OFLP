@@ -28,10 +28,12 @@ namespace OFLP.Model
         public int claseID { get; set; }
         public int sexoID { get; set; }
         public int gastoID { get; set; }
+        public int compradorID { get; set; }
     
         public virtual CLASE CLASE { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual GASTO GASTO { get; set; }
         public virtual SEXO SEXO { get; set; }
+        public virtual CLIENTE CLIENTE1 { get; set; }
     }
 }

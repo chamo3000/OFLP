@@ -37,6 +37,7 @@
     <Property Name="claseID" Type="int" Nullable="false" />
     <Property Name="sexoID" Type="int" Nullable="false" />
     <Property Name="gastoID" Type="int" Nullable="false" />
+    <Property Name="compradorID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="GASTO">
     <Key>
@@ -130,6 +131,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_Factura_Comprador">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CEDULA" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="compradorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="USUARIO_ROL">
     <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
     <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -164,6 +177,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__FACTURA__sexoID__22FF2F51" Association="Self.FK__FACTURA__sexoID__22FF2F51">
       <End Role="SEXO" EntitySet="SEXO" />
+      <End Role="FACTURA" EntitySet="FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Factura_Comprador" Association="Self.fk_Factura_Comprador">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
       <End Role="FACTURA" EntitySet="FACTURA" />
     </AssociationSet>
     <AssociationSet Name="USUARIO_ROL" Association="Self.USUARIO_ROL">

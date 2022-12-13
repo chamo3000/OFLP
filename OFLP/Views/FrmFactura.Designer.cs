@@ -72,20 +72,11 @@ namespace OFLP.Vistas
             this.label1 = new System.Windows.Forms.Label();
             this.idFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reunion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.propietario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.corral = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cabezas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorkilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gastos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anticipos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SFavor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
@@ -116,20 +107,11 @@ namespace OFLP.Vistas
             this.DtgFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idFactura,
             this.reunion,
-            this.fecha,
             this.propietario,
-            this.clase,
-            this.corral,
-            this.cabezas,
-            this.sexo,
             this.comprador,
-            this.kilos,
-            this.valorkilo,
-            this.valortotal,
-            this.iva,
             this.Gastos,
-            this.Anticipos,
-            this.SFavor,
+            this.clase,
+            this.valortotal,
             this.Modificar,
             this.Eliminar});
             this.DtgFactura.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -192,9 +174,9 @@ namespace OFLP.Vistas
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(501, 212);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(134, 20);
+            this.label13.Size = new System.Drawing.Size(140, 20);
             this.label13.TabIndex = 56;
-            this.label13.Text = "Agregar Cliente";
+            this.label13.Text = "Agregar Factura";
             // 
             // PicAgregarFactura
             // 
@@ -616,51 +598,12 @@ namespace OFLP.Vistas
             this.reunion.ReadOnly = true;
             this.reunion.Width = 82;
             // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "FECHA";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Width = 67;
-            // 
             // propietario
             // 
             this.propietario.HeaderText = "PROPIETARIO";
             this.propietario.Name = "propietario";
             this.propietario.ReadOnly = true;
             this.propietario.Width = 105;
-            // 
-            // clase
-            // 
-            this.clase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clase.HeaderText = "CLASE";
-            this.clase.Name = "clase";
-            this.clase.ReadOnly = true;
-            this.clase.Width = 66;
-            // 
-            // corral
-            // 
-            this.corral.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.corral.HeaderText = "CORRAL";
-            this.corral.Name = "corral";
-            this.corral.ReadOnly = true;
-            this.corral.Width = 76;
-            // 
-            // cabezas
-            // 
-            this.cabezas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cabezas.HeaderText = "CABEZAS";
-            this.cabezas.Name = "cabezas";
-            this.cabezas.ReadOnly = true;
-            this.cabezas.Width = 81;
-            // 
-            // sexo
-            // 
-            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.sexo.HeaderText = "SEXO";
-            this.sexo.Name = "sexo";
-            this.sexo.ReadOnly = true;
-            this.sexo.Width = 61;
             // 
             // comprador
             // 
@@ -670,21 +613,20 @@ namespace OFLP.Vistas
             this.comprador.ReadOnly = true;
             this.comprador.Width = 102;
             // 
-            // kilos
+            // Gastos
             // 
-            this.kilos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kilos.HeaderText = "KILOS";
-            this.kilos.Name = "kilos";
-            this.kilos.ReadOnly = true;
-            this.kilos.Width = 63;
+            this.Gastos.HeaderText = "GASTOS";
+            this.Gastos.Name = "Gastos";
+            this.Gastos.ReadOnly = true;
+            this.Gastos.Width = 76;
             // 
-            // valorkilo
+            // clase
             // 
-            this.valorkilo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.valorkilo.HeaderText = "VALOR KILO";
-            this.valorkilo.Name = "valorkilo";
-            this.valorkilo.ReadOnly = true;
-            this.valorkilo.Width = 88;
+            this.clase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clase.HeaderText = "CLASE";
+            this.clase.Name = "clase";
+            this.clase.ReadOnly = true;
+            this.clase.Width = 66;
             // 
             // valortotal
             // 
@@ -693,36 +635,6 @@ namespace OFLP.Vistas
             this.valortotal.Name = "valortotal";
             this.valortotal.ReadOnly = true;
             this.valortotal.Width = 97;
-            // 
-            // iva
-            // 
-            this.iva.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.iva.HeaderText = "IVA";
-            this.iva.Name = "iva";
-            this.iva.ReadOnly = true;
-            this.iva.Visible = false;
-            this.iva.Width = 49;
-            // 
-            // Gastos
-            // 
-            this.Gastos.HeaderText = "GASTOS";
-            this.Gastos.Name = "Gastos";
-            this.Gastos.ReadOnly = true;
-            this.Gastos.Width = 76;
-            // 
-            // Anticipos
-            // 
-            this.Anticipos.HeaderText = "ANTICIPOS";
-            this.Anticipos.Name = "Anticipos";
-            this.Anticipos.ReadOnly = true;
-            this.Anticipos.Width = 89;
-            // 
-            // SFavor
-            // 
-            this.SFavor.HeaderText = "SALDO A FAVOR";
-            this.SFavor.Name = "SFavor";
-            this.SFavor.ReadOnly = true;
-            this.SFavor.Width = 107;
             // 
             // Modificar
             // 
@@ -810,20 +722,11 @@ namespace OFLP.Vistas
         private System.Windows.Forms.PictureBox PicAgregarFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn idFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn reunion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn propietario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn corral;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cabezas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexo;
         private System.Windows.Forms.DataGridViewTextBoxColumn comprador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kilos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorkilo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valortotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iva;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gastos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Anticipos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SFavor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valortotal;
         private System.Windows.Forms.DataGridViewImageColumn Modificar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }

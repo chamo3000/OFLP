@@ -45,6 +45,7 @@
     <EntitySetMapping Name="FACTURA">
       <EntityTypeMapping TypeName="MIGANModel.FACTURA">
         <MappingFragment StoreEntitySet="FACTURA">
+          <ScalarProperty Name="compradorID" ColumnName="compradorID" />
           <ScalarProperty Name="gastoID" ColumnName="gastoID" />
           <ScalarProperty Name="sexoID" ColumnName="sexoID" />
           <ScalarProperty Name="claseID" ColumnName="claseID" />

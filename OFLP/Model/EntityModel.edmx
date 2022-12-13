@@ -42,6 +42,7 @@
           <Property Name="claseID" Type="int" Nullable="false" />
           <Property Name="sexoID" Type="int" Nullable="false" />
           <Property Name="gastoID" Type="int" Nullable="false" />
+          <Property Name="compradorID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="GASTO">
           <Key>
@@ -135,6 +136,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Factura_Comprador">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="CEDULA" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="compradorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="USUARIO_ROL">
           <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -169,6 +182,10 @@
           </AssociationSet>
           <AssociationSet Name="FK__FACTURA__sexoID__22FF2F51" Association="Self.FK__FACTURA__sexoID__22FF2F51">
             <End Role="SEXO" EntitySet="SEXO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Factura_Comprador" Association="Self.fk_Factura_Comprador">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="FACTURA" EntitySet="FACTURA" />
           </AssociationSet>
           <AssociationSet Name="USUARIO_ROL" Association="Self.USUARIO_ROL">
@@ -229,8 +246,8 @@
             <End Role="FACTURA" EntitySet="FACTURA" />
           </AssociationSet>
           <AssociationSet Name="FK__FACTURA__cliente__2116E6DF" Association="MIGANModel.FK__FACTURA__cliente__2116E6DF">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End EntitySet="CLIENTE" Role="CLIENTE" />
+            <End EntitySet="FACTURA" Role="FACTURA" />
           </AssociationSet>
           <AssociationSet Name="FK__FACTURA__gastoID__23F3538A" Association="MIGANModel.FK__FACTURA__gastoID__23F3538A">
             <End Role="GASTO" EntitySet="GASTO" />
@@ -238,6 +255,10 @@
           </AssociationSet>
           <AssociationSet Name="FK__FACTURA__sexoID__22FF2F51" Association="MIGANModel.FK__FACTURA__sexoID__22FF2F51">
             <End Role="SEXO" EntitySet="SEXO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Factura_Comprador" Association="MIGANModel.fk_Factura_Comprador">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="FACTURA" EntitySet="FACTURA" />
           </AssociationSet>
           </EntityContainer>
@@ -261,6 +282,7 @@
           <Property Name="CEDULA" Type="Int32" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FACTURA" Relationship="MIGANModel.FK__FACTURA__cliente__2116E6DF" FromRole="CLIENTE" ToRole="FACTURA" />
+          <NavigationProperty Name="FACTURA1" Relationship="MIGANModel.fk_Factura_Comprador" FromRole="CLIENTE" ToRole="FACTURA" />
         </EntityType>
         <EntityType Name="FACTURA">
           <Key>
@@ -284,6 +306,8 @@
           <NavigationProperty Name="CLIENTE" Relationship="MIGANModel.FK__FACTURA__cliente__2116E6DF" FromRole="FACTURA" ToRole="CLIENTE" />
           <NavigationProperty Name="GASTO" Relationship="MIGANModel.FK__FACTURA__gastoID__23F3538A" FromRole="FACTURA" ToRole="GASTO" />
           <NavigationProperty Name="SEXO" Relationship="MIGANModel.FK__FACTURA__sexoID__22FF2F51" FromRole="FACTURA" ToRole="SEXO" />
+          <Property Name="compradorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CLIENTE1" Relationship="MIGANModel.fk_Factura_Comprador" FromRole="FACTURA" ToRole="CLIENTE" />
         </EntityType>
         <EntityType Name="GASTO">
           <Key>
@@ -326,8 +350,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__FACTURA__cliente__2116E6DF">
-          <End Type="MIGANModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
-          <End Type="MIGANModel.FACTURA" Role="FACTURA" Multiplicity="*" />
+          <End Type="MIGANModel.CLIENTE" Multiplicity="1" Role="CLIENTE" />
+          <End Type="MIGANModel.FACTURA" Multiplicity="*" Role="FACTURA" />
           <ReferentialConstraint>
             <Principal Role="CLIENTE">
               <PropertyRef Name="CEDULA" />
@@ -358,6 +382,18 @@
             </Principal>
             <Dependent Role="FACTURA">
               <PropertyRef Name="sexoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Factura_Comprador">
+          <End Type="MIGANModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+          <End Type="MIGANModel.FACTURA" Role="FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="CEDULA" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="compradorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -411,6 +447,7 @@
           <EntitySetMapping Name="FACTURA">
             <EntityTypeMapping TypeName="MIGANModel.FACTURA">
               <MappingFragment StoreEntitySet="FACTURA">
+                <ScalarProperty Name="compradorID" ColumnName="compradorID" />
                 <ScalarProperty Name="gastoID" ColumnName="gastoID" />
                 <ScalarProperty Name="sexoID" ColumnName="sexoID" />
                 <ScalarProperty Name="claseID" ColumnName="claseID" />

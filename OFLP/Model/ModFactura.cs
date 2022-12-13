@@ -1,4 +1,5 @@
 ﻿using OFLP.Controlador;
+using OFLP.Model;
 using System;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -11,19 +12,22 @@ namespace OFLP.Modelo
         public Int32 IdFactura { get; set; }
         public Double NumeroFactura { get; set; }
         public int Reunion { get; set; }
-        public string Fecha { get; set; }
+        public DateTime Fecha { get; set; }
         public string Propietario { get; set; }
+        public int PropietarioID { get; set; }
         public string Clase { get; set; }
+        public int ClaseID { get; set; }
         public int Corral { get; set; }
         public int Cabezas { get; set; }
         public string Sexo { get; set; }
+        public int SexoID { get; set; }
         public string Comprador { get; set; }
+        public int CompradorID { get; set; }
         public int Kilos { get; set; }
         public int ValorKilo { get; set; }
         public int ValorTotal { get; set; }
-      
-        private string SQL;
-
+        public int Gasto { get; set; }
+        public int GastoID { get; set; }
 
         public bool AgregarFactura(string[] datos )
         {
@@ -66,64 +70,41 @@ namespace OFLP.Modelo
 
         public bool LlenarGrid()
         {
-            SQL = "select * from VISTAFACTURA";
-
-            if (Select(SQL))
+            try
             {
-                return true;
-            }
-            else return false;
-
-
-        }
-
-        private bool Select(string query)
-        {
-
-            bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
-            if (oBd.AbrirConexion())
-            {
-                try
+                ClsInicio.Factura.Clear();
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(query, oBd.Con);
-                    SqlDataReader reader = command.ExecuteReader();
-                    ClsInicio.Factura.Clear();
-                    while (reader.Read())
+                    var lstFactura = db.FACTURA;
+                    foreach (var oFactura in lstFactura)
                     {
                         ClsInicio.Factura.Add(new ModFactura()
                         {
-                            IdFactura = Convert.ToInt32(reader[0]),
-                            NumeroFactura =Convert.ToDouble(reader[1]),
-                            Reunion = Convert.ToInt32(reader[2]),
-                            Fecha = reader[3].ToString(),
-                            Propietario = reader[4].ToString() + " " + reader[5].ToString(),
-                            Clase = reader[6].ToString(),
-                            Corral = Convert.ToInt32(reader[7]),
-                            Cabezas = Convert.ToInt32(reader[8]),
-                            Sexo = reader[9].ToString(),
-                            Comprador = reader[14].ToString() + " " + reader[15].ToString(),
-                            Kilos = Convert.ToInt32(reader[10]),
-                            ValorKilo =  Convert.ToInt32(reader[11]),
-                            ValorTotal= Convert.ToInt32(reader[12]),
-
+                            NumeroFactura = Convert.ToInt32(oFactura.consecutivo),
+                            Reunion = oFactura.reunion,
+                            Fecha = oFactura.fecha,
+                            PropietarioID = oFactura.clienteID,
+                            ClaseID=oFactura.claseID,
+                            Corral= (int)oFactura.corral,
+                            Cabezas= (int)oFactura.cabezas,
+                            SexoID=oFactura.sexoID,
+                            CompradorID=oFactura.compradorID,
+                            Kilos=oFactura.kilos,
+                            ValorKilo=oFactura.valorkilo,
+                            ValorTotal=oFactura.valortotal,
+                            GastoID=oFactura.gastoID
                         });
-
                     }
-                    rslt = true;
-
                 }
-                catch (Exception err)
-                {
-
-                    CtrlUtilidades.ImprimirLog("Error: " + err.Message);
-                    CtrlUtilidades.ImprimirLog("Error: " + err.StackTrace);
-                }
-                oBd.CerrarConexion();
+                return true;
             }
-            return rslt;
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
         }
-
         public bool Eliminarfactura(string consecutivo)
         {
             bool rslt = false;
@@ -131,7 +112,6 @@ namespace OFLP.Modelo
 
             if (oBd.AbrirConexion())
             {
-
                 try
                 {
                     SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarFactura"), oBd.Con);
@@ -151,8 +131,6 @@ namespace OFLP.Modelo
                     Console.WriteLine(ex.Message);
                 }
             }
-
-            oBd = null;
             return rslt;
         }
 

@@ -17,6 +17,7 @@
         <AssociationConnector Association="MIGANModel.FK__FACTURA__cliente__2116E6DF" />
         <AssociationConnector Association="MIGANModel.FK__FACTURA__gastoID__23F3538A" />
         <AssociationConnector Association="MIGANModel.FK__FACTURA__sexoID__22FF2F51" />
+        <AssociationConnector Association="MIGANModel.fk_Factura_Comprador" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
