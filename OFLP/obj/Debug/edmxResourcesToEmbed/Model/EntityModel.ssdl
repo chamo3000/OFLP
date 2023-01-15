@@ -6,7 +6,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="claseGanado" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="clase" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="clase1" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="CLIENTE">
@@ -26,7 +26,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="consecutivo" Type="int" Nullable="false" />
     <Property Name="reunion" Type="int" Nullable="false" />
-    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
     <Property Name="cabezas" Type="int" Nullable="false" />
     <Property Name="corral" Type="int" />
     <Property Name="kilos" Type="int" Nullable="false" />
@@ -55,21 +55,23 @@
     <Property Name="vacuna" Type="int" />
     <Property Name="anticipo" Type="int" />
     <Property Name="otros" Type="int" />
-    <Property Name="observacion" Type="varchar" MaxLength="25" />
+    <Property Name="observacion" Type="varchar" MaxLength="500" />
+    <Property Name="idfactura" Type="int" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ROL">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ROL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ROL1" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="SEXO">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="sexo1" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="USUARIO">
@@ -77,7 +79,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="USUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USUARIO1" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CONTRASENA" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="APELLIDO" Type="varchar" MaxLength="50" Nullable="false" />
@@ -143,7 +145,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="USUARIO_ROL">
+  <Association Name="FK_USUARIO_ROL">
     <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
     <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -183,7 +185,7 @@
       <End Role="CLIENTE" EntitySet="CLIENTE" />
       <End Role="FACTURA" EntitySet="FACTURA" />
     </AssociationSet>
-    <AssociationSet Name="USUARIO_ROL" Association="Self.USUARIO_ROL">
+    <AssociationSet Name="FK_USUARIO_ROL" Association="Self.FK_USUARIO_ROL">
       <End Role="ROL" EntitySet="ROL" />
       <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>

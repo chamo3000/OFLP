@@ -1,31 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MIGANModelStoreContainer" CdmEntityContainer="MIGANEntities">
-    <EntitySetMapping Name="ROL">
-      <EntityTypeMapping TypeName="MIGANModel.ROL">
-        <MappingFragment StoreEntitySet="ROL">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ROL1" ColumnName="ROL" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="USUARIO">
-      <EntityTypeMapping TypeName="MIGANModel.USUARIO">
-        <MappingFragment StoreEntitySet="USUARIO">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO" />
-          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-          <ScalarProperty Name="IDPERFIL" ColumnName="IDPERFIL" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CLASE">
       <EntityTypeMapping TypeName="MIGANModel.CLASE">
         <MappingFragment StoreEntitySet="CLASE">
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="clase1" ColumnName="clase" />
+          <ScalarProperty Name="clase1" ColumnName="clase1" />
           <ScalarProperty Name="claseGanado" ColumnName="claseGanado" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
@@ -66,6 +46,8 @@
     <EntitySetMapping Name="GASTO">
       <EntityTypeMapping TypeName="MIGANModel.GASTO">
         <MappingFragment StoreEntitySet="GASTO">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="idfactura" ColumnName="idfactura" />
           <ScalarProperty Name="observacion" ColumnName="observacion" />
           <ScalarProperty Name="otros" ColumnName="otros" />
           <ScalarProperty Name="anticipo" ColumnName="anticipo" />
@@ -82,12 +64,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="MIGANModel.ROL">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="ROL1" ColumnName="ROL1" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SEXO">
       <EntityTypeMapping TypeName="MIGANModel.SEXO">
         <MappingFragment StoreEntitySet="SEXO">
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="sexo1" ColumnName="sexo" />
+          <ScalarProperty Name="sexo1" ColumnName="sexo1" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="MIGANModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="IDPERFIL" ColumnName="IDPERFIL" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO1" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
