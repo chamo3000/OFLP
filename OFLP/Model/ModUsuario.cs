@@ -1,13 +1,4 @@
-﻿using OFLP.Controlador;
-using OFLP.Modelo;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OFLP.Model
+﻿namespace OFLP.Model
 {
     internal class ModUsuario
     {
@@ -17,22 +8,12 @@ namespace OFLP.Model
         {
             Usuario = user;
             Password = pass;
-            #region codigo sin EF;
-            //ModUtilidadesBd oBd = new ModUtilidadesBd();
-            //string SQL = oBd.Definirquery("ValidarUsuario");
-
-            //if (Select(SQL))
-            //{
-            //    return true;
-            //}
-            //else return false;
-            #endregion
             using (MIGANEntities db =new MIGANEntities()) 
             {
                 var lstUser = db.USUARIO;
-                foreach (var oUser in lstUser)
+                foreach (var User in lstUser)
                 {
-                    if (oUser.USUARIO1.Equals(Usuario) && oUser.CONTRASENA.Equals(Password)) 
+                    if (User.USUARIO1.Equals(Usuario) && User.CONTRASENA.Equals(Password)) 
                         return true;
                 }
             }

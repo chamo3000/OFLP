@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="506d65c0ecd44be080ccf9afc0d44825" Name="Diagram1">
-        <EntityTypeShape EntityType="MIGANModel.ROL" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MIGANModel.USUARIO" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="MIGANModel.USUARIO_ROL" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="MIGANModel.CLASE" Width="1.5" PointX="7.125" PointY="6" />
-        <EntityTypeShape EntityType="MIGANModel.CLIENTE" Width="1.5" PointX="10.75" PointY="6.125" />
-        <EntityTypeShape EntityType="MIGANModel.FACTURA" Width="1.5" PointX="9.375" PointY="0.5" />
-        <EntityTypeShape EntityType="MIGANModel.GASTO" Width="1.5" PointX="7.125" PointY="0.875" />
-        <EntityTypeShape EntityType="MIGANModel.SEXO" Width="1.5" PointX="12" PointY="2.75" />
+        <EntityTypeShape EntityType="MIGANModel.CLASE" Width="1.5" PointX="0.75" PointY="8.625" />
+        <EntityTypeShape EntityType="MIGANModel.CLIENTE" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="MIGANModel.FACTURA" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="MIGANModel.GASTO" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="MIGANModel.ROL" Width="1.5" PointX="5.75" PointY="1.375" />
+        <EntityTypeShape EntityType="MIGANModel.SEXO" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="MIGANModel.USUARIO" Width="1.5" PointX="8" PointY="1" />
         <AssociationConnector Association="MIGANModel.FK__FACTURA__claseID__220B0B18" />
         <AssociationConnector Association="MIGANModel.FK__FACTURA__cliente__2116E6DF" />
+        <AssociationConnector Association="MIGANModel.fk_Factura_Comprador" />
         <AssociationConnector Association="MIGANModel.FK__FACTURA__gastoID__23F3538A" />
         <AssociationConnector Association="MIGANModel.FK__FACTURA__sexoID__22FF2F51" />
-        <AssociationConnector Association="MIGANModel.fk_Factura_Comprador" />
-        </Diagram>
+        <AssociationConnector Association="MIGANModel.FK_USUARIO_ROL" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
