@@ -14,16 +14,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          Opciones del manifiesto de Control de cuentas de usuario
-          Si quiere cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el
-          nodo requestedExecutionLevel por alguno de los siguientes.
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Si desea usar la virtualización de archivos y del Registro para la
-         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lhv0O2eN7WN0ZizJcUCxFnCOBVImhvj0CUrbSb31LG4=</dsig:DigestValue>
+        <dsig:DigestValue>sD1g/TWYniY/oUyL30VNyR4MlVSUS02g6fV/OkWPu+g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -155,13 +155,13 @@
       <dsig:DigestValue>lVORLrWZZ2zaQcs8CsA9k6l/rOLraXyZgdVf1DIbB3c=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="OFLP.exe.config" size="1015">
+  <file name="OFLP.exe.config" size="1003">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zer0jrw89sYYrn+lhK6JNQWLF9nyfeDLBKvqHkLqyNI=</dsig:DigestValue>
+      <dsig:DigestValue>RxwgTdKSQIRo1eRZ582lyufJTQ4jhdqsMQ/s3KhAiOk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\FACTBYA.png" size="18467">
