@@ -7,35 +7,35 @@ namespace OFLP.Controlador
     {
         public bool LlenarGridCliente()
         {
-            ModCliente oEquipo = new ModCliente();
+            MCliente oEquipo = new MCliente();
             if (!oEquipo.LlenarGrid()) return false;
             else return true;
         }
-        public List<ModCliente> BuscarPropietario(string datobusqueda)
+        public List<MCliente> BuscarPropietario(string datobusqueda)
         {
-            ModCliente oEquipo = new ModCliente();
-            List<ModCliente> lstBusqueda = oEquipo.BuscarPropietario(datobusqueda);
+            MCliente oEquipo = new MCliente();
+            List<MCliente> lstBusqueda = oEquipo.BuscarPropietario(datobusqueda);
             if (lstBusqueda == null) return null;
             else return lstBusqueda;
         }
 
         public bool InsertarCliente(string[] DatosIngresar)
         {
-            ModCliente oEquipo = new ModCliente();
+            MCliente oEquipo = new MCliente();
             if (!oEquipo.InsertarCliente(DatosIngresar)) return false;
             else return true;
         }
 
         public bool ActualizarCliente(string[] DatosIngresar)
         {
-            ModCliente oEquipo = new ModCliente();
+            MCliente oEquipo = new MCliente();
             if (!oEquipo.ActualizarCliente(DatosIngresar)) return false;
             else return true;
         }
 
         public bool EliminarCliente(string idCliente)
         {
-            ModCliente oEquipo = new ModCliente();
+            MCliente oEquipo = new MCliente();
             if (!oEquipo.EliminarCliente(idCliente)) return false;
             else return true;
         }

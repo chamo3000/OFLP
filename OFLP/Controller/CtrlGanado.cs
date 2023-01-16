@@ -12,7 +12,7 @@ namespace OFLP.Controlador
     {
         public bool LlenarGridGanado()
         {
-            ModGanado oEquipo = new ModGanado();
+            Ganado oEquipo = new Ganado();
 
             if (!oEquipo.LlenarGrid()) return false;
             else return true;
@@ -20,7 +20,7 @@ namespace OFLP.Controlador
 
         public bool AgregarGanado(string claseGanado, string clase, string descripcion)
         {
-            ModGanado objModGanado = new ModGanado();
+            Ganado objModGanado = new Ganado();
 
             if (objModGanado.AgregarGanado(claseGanado, clase, descripcion)) return true;
             else return false;
@@ -28,7 +28,7 @@ namespace OFLP.Controlador
 
         public bool ActualizarGanado(string[] datosActualizar)
         {
-            ModGanado oBanco = new ModGanado();
+            Ganado oBanco = new Ganado();
          
             if (!oBanco.ActualizarGanado(datosActualizar)) return false;
             else return true;
@@ -36,16 +36,16 @@ namespace OFLP.Controlador
 
         public bool EliminarGanado(string idGanado)
         {
-            ModGanado oEquipo = new ModGanado();
+            Ganado oEquipo = new Ganado();
 
             if (!oEquipo.EliminarGanado(idGanado)) return false;
             else return true;
         }
 
-        public List<ModGanado> BuscarGanado(string datobusqueda)
+        public List<Ganado> BuscarGanado(string datobusqueda)
         {
-            ModGanado oEquipo = new ModGanado();
-            List<ModGanado> lstBusqueda = oEquipo.BuscarGanado(datobusqueda);
+            Ganado oEquipo = new Ganado();
+            List<Ganado> lstBusqueda = oEquipo.BuscarGanado(datobusqueda);
             
             if (lstBusqueda == null) return null;
             else return lstBusqueda;

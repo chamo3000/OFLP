@@ -14,7 +14,7 @@ namespace OFLP.Controlador
 
         private void SelectIdCliente(string nombre)
         {
-            foreach (ModCliente item in ClsInicio.clientes)
+            foreach (MCliente item in ClsInicio.clientes)
             {
                 if(nombre.Contains(item.NombreCliente) && nombre.Contains(item.PrimerApellido))
                 {
@@ -25,7 +25,7 @@ namespace OFLP.Controlador
 
         private void SelectIdBanco(string nombre)
         {
-            foreach (ModBanco item in ClsInicio.banco)
+            foreach (Banco item in ClsInicio.banco)
             {
                 if (nombre.Equals(item.NombreBanco))
                 {
@@ -40,7 +40,7 @@ namespace OFLP.Controlador
 
             SelectIdCliente(cmbIdcliente);
             SelectIdBanco(cmbIdBanco);
-            ModCuenta objModCuenta = new ModCuenta();
+            Cuenta objModCuenta = new Cuenta();
 
 
             //SeleccionaIdCliente()
@@ -59,7 +59,7 @@ namespace OFLP.Controlador
 
         public bool LlenarGridCuenta()
         {
-            ModCuenta oEquipo = new ModCuenta();
+            Cuenta oEquipo = new Cuenta();
 
 
             if (!oEquipo.LlenarGrid())

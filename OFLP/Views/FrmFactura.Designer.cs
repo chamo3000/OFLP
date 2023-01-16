@@ -53,10 +53,6 @@ namespace OFLP.Vistas
             this.LblValorKilo = new System.Windows.Forms.Label();
             this.LblCorral = new System.Windows.Forms.Label();
             this.LblSexo = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnActualizaHacienda = new System.Windows.Forms.Button();
-            this.btnEliminarHacienda = new System.Windows.Forms.Button();
-            this.BtnAgregarFactura = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBusquedaHacienda = new System.Windows.Forms.TextBox();
             this.lblconfigFactura = new System.Windows.Forms.Label();
@@ -73,9 +69,7 @@ namespace OFLP.Vistas
             this.idFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reunion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.propietario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gastos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -86,7 +80,6 @@ namespace OFLP.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.PicLimpiarBusquedaCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBuscarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,9 +101,7 @@ namespace OFLP.Vistas
             this.idFactura,
             this.reunion,
             this.propietario,
-            this.comprador,
             this.Gastos,
-            this.clase,
             this.valortotal,
             this.Modificar,
             this.Eliminar});
@@ -146,7 +137,6 @@ namespace OFLP.Vistas
             this.pnlConfiguraHacienda.Controls.Add(this.LblValorKilo);
             this.pnlConfiguraHacienda.Controls.Add(this.LblCorral);
             this.pnlConfiguraHacienda.Controls.Add(this.LblSexo);
-            this.pnlConfiguraHacienda.Controls.Add(this.groupBox1);
             this.pnlConfiguraHacienda.Controls.Add(this.label5);
             this.pnlConfiguraHacienda.Controls.Add(this.txtBusquedaHacienda);
             this.pnlConfiguraHacienda.Controls.Add(this.lblconfigFactura);
@@ -161,7 +151,7 @@ namespace OFLP.Vistas
             this.pnlConfiguraHacienda.Controls.Add(this.lblFecha);
             this.pnlConfiguraHacienda.Controls.Add(this.label1);
             this.pnlConfiguraHacienda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlConfiguraHacienda.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlConfiguraHacienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlConfiguraHacienda.Location = new System.Drawing.Point(0, 0);
             this.pnlConfiguraHacienda.Name = "pnlConfiguraHacienda";
             this.pnlConfiguraHacienda.Size = new System.Drawing.Size(1182, 342);
@@ -172,7 +162,7 @@ namespace OFLP.Vistas
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(501, 212);
+            this.label13.Location = new System.Drawing.Point(499, 219);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(140, 20);
             this.label13.TabIndex = 56;
@@ -181,7 +171,7 @@ namespace OFLP.Vistas
             // PicAgregarFactura
             // 
             this.PicAgregarFactura.Image = global::OFLP.Properties.Resources.Agregar;
-            this.PicAgregarFactura.Location = new System.Drawing.Point(641, 195);
+            this.PicAgregarFactura.Location = new System.Drawing.Point(639, 202);
             this.PicAgregarFactura.Name = "PicAgregarFactura";
             this.PicAgregarFactura.Size = new System.Drawing.Size(77, 37);
             this.PicAgregarFactura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -193,7 +183,7 @@ namespace OFLP.Vistas
             // 
             this.PicLimpiarBusquedaCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PicLimpiarBusquedaCliente.Image = global::OFLP.Properties.Resources._2376996;
-            this.PicLimpiarBusquedaCliente.Location = new System.Drawing.Point(800, 251);
+            this.PicLimpiarBusquedaCliente.Location = new System.Drawing.Point(798, 287);
             this.PicLimpiarBusquedaCliente.Name = "PicLimpiarBusquedaCliente";
             this.PicLimpiarBusquedaCliente.Size = new System.Drawing.Size(48, 27);
             this.PicLimpiarBusquedaCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -204,7 +194,7 @@ namespace OFLP.Vistas
             // 
             this.PicBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PicBuscarCliente.Image = global::OFLP.Properties.Resources._639375;
-            this.PicBuscarCliente.Location = new System.Drawing.Point(755, 251);
+            this.PicBuscarCliente.Location = new System.Drawing.Point(753, 287);
             this.PicBuscarCliente.Name = "PicBuscarCliente";
             this.PicBuscarCliente.Size = new System.Drawing.Size(37, 27);
             this.PicBuscarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -399,60 +389,12 @@ namespace OFLP.Vistas
             this.LblSexo.TabIndex = 16;
             this.LblSexo.Text = "111";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnActualizaHacienda);
-            this.groupBox1.Controls.Add(this.btnEliminarHacienda);
-            this.groupBox1.Controls.Add(this.BtnAgregarFactura);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(394, 16);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(211, 148);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Configuración Factura";
-            // 
-            // btnActualizaHacienda
-            // 
-            this.btnActualizaHacienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizaHacienda.ForeColor = System.Drawing.Color.Black;
-            this.btnActualizaHacienda.Location = new System.Drawing.Point(16, 62);
-            this.btnActualizaHacienda.Name = "btnActualizaHacienda";
-            this.btnActualizaHacienda.Size = new System.Drawing.Size(181, 26);
-            this.btnActualizaHacienda.TabIndex = 14;
-            this.btnActualizaHacienda.Text = "Actualiza Factura";
-            this.btnActualizaHacienda.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarHacienda
-            // 
-            this.btnEliminarHacienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarHacienda.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminarHacienda.Location = new System.Drawing.Point(16, 94);
-            this.btnEliminarHacienda.Name = "btnEliminarHacienda";
-            this.btnEliminarHacienda.Size = new System.Drawing.Size(181, 26);
-            this.btnEliminarHacienda.TabIndex = 14;
-            this.btnEliminarHacienda.Text = "Eliminar Factura";
-            this.btnEliminarHacienda.UseVisualStyleBackColor = true;
-            this.btnEliminarHacienda.Click += new System.EventHandler(this.BtnEliminarHacienda_Click);
-            // 
-            // BtnAgregarFactura
-            // 
-            this.BtnAgregarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarFactura.ForeColor = System.Drawing.Color.Black;
-            this.BtnAgregarFactura.Location = new System.Drawing.Point(16, 30);
-            this.BtnAgregarFactura.Name = "BtnAgregarFactura";
-            this.BtnAgregarFactura.Size = new System.Drawing.Size(181, 26);
-            this.BtnAgregarFactura.TabIndex = 14;
-            this.BtnAgregarFactura.Text = "Agregar Factura";
-            this.BtnAgregarFactura.UseVisualStyleBackColor = true;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(501, 258);
+            this.label5.Location = new System.Drawing.Point(499, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 12;
@@ -460,7 +402,7 @@ namespace OFLP.Vistas
             // 
             // txtBusquedaHacienda
             // 
-            this.txtBusquedaHacienda.Location = new System.Drawing.Point(572, 258);
+            this.txtBusquedaHacienda.Location = new System.Drawing.Point(570, 294);
             this.txtBusquedaHacienda.Name = "txtBusquedaHacienda";
             this.txtBusquedaHacienda.Size = new System.Drawing.Size(177, 20);
             this.txtBusquedaHacienda.TabIndex = 11;
@@ -605,28 +547,12 @@ namespace OFLP.Vistas
             this.propietario.ReadOnly = true;
             this.propietario.Width = 105;
             // 
-            // comprador
-            // 
-            this.comprador.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.comprador.HeaderText = "COMPRADOR";
-            this.comprador.Name = "comprador";
-            this.comprador.ReadOnly = true;
-            this.comprador.Width = 102;
-            // 
             // Gastos
             // 
             this.Gastos.HeaderText = "GASTOS";
             this.Gastos.Name = "Gastos";
             this.Gastos.ReadOnly = true;
             this.Gastos.Width = 76;
-            // 
-            // clase
-            // 
-            this.clase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clase.HeaderText = "CLASE";
-            this.clase.Name = "clase";
-            this.clase.ReadOnly = true;
-            this.clase.Width = 66;
             // 
             // valortotal
             // 
@@ -672,7 +598,6 @@ namespace OFLP.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.PicLimpiarBusquedaCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBuscarCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -684,10 +609,6 @@ namespace OFLP.Vistas
         private System.Windows.Forms.Label LblClase;
         private System.Windows.Forms.Label LblCorral;
         private System.Windows.Forms.Label LblSexo;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnActualizaHacienda;
-        private System.Windows.Forms.Button btnEliminarHacienda;
-        private System.Windows.Forms.Button BtnAgregarFactura;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBusquedaHacienda;
         private System.Windows.Forms.Label lblconfigFactura;
@@ -723,9 +644,7 @@ namespace OFLP.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn idFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn reunion;
         private System.Windows.Forms.DataGridViewTextBoxColumn propietario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comprador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gastos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clase;
         private System.Windows.Forms.DataGridViewTextBoxColumn valortotal;
         private System.Windows.Forms.DataGridViewImageColumn Modificar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;

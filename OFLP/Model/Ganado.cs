@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OFLP.Modelo
 {
-    class ModGanado
+    class Ganado
     {
         public Int32 IdGanado { get; set; }
         public string ClaseGanado { get; set; }
@@ -26,7 +26,7 @@ namespace OFLP.Modelo
                     var lstClase = db.CLASE;
                     foreach (var oClase in lstClase)
                     {
-                        ClsInicio.ganado.Add(new ModGanado()
+                        ClsInicio.ganado.Add(new Ganado()
                         {
 
                             IdGanado = Convert.ToInt32(oClase.id),
@@ -120,10 +120,10 @@ namespace OFLP.Modelo
             }
         }
 
-        public List<ModGanado> BuscarGanado(string datoBuscar)
+        public List<Ganado> BuscarGanado(string datoBuscar)
         {
 
-            List<ModGanado> lstBusqueda = new List<ModGanado>();
+            List<Ganado> lstBusqueda = new List<Ganado>();
 
             lstBusqueda = (from cust in ClsInicio.ganado
                            where cust.ClaseGanado.StartsWith(datoBuscar)

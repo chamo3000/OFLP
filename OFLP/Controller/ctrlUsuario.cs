@@ -6,7 +6,7 @@ namespace OFLP.Controller
     {
         public bool ValidarCliente(string user, string pass)
         {
-            ModUsuario Ousuario = new ModUsuario();
+            MUsuario Ousuario = new MUsuario();
 
            if(Ousuario.ValidarUsuario(user,pass)) return true;
            return false;

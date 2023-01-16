@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace OFLP.Modelo
 {
-    class ModHacienda
+    class Hacienda
     {
         #region Propiedades
         public Int32 idHacienda { get; set; }
@@ -38,7 +38,7 @@ namespace OFLP.Modelo
         {
 
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -47,7 +47,7 @@ namespace OFLP.Modelo
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        ClsInicio.haciendas.Add(new ModHacienda()
+                        ClsInicio.haciendas.Add(new Hacienda()
                         {
                             idHacienda = Convert.ToInt32(reader[0]),
                             nombreHacienda = reader[1].ToString(),
@@ -74,10 +74,10 @@ namespace OFLP.Modelo
             return rslt;
         }
 
-        public List<ModHacienda> BuscarHacienda(string datoBuscar)
+        public List<Hacienda> BuscarHacienda(string datoBuscar)
         {
 
-            List<ModHacienda> lstBusqueda = new List<ModHacienda>();
+            List<Hacienda> lstBusqueda = new List<Hacienda>();
 
             lstBusqueda = (from cust in ClsInicio.haciendas
                            where cust.nombreHacienda.StartsWith(datoBuscar)
@@ -89,7 +89,7 @@ namespace OFLP.Modelo
         public bool AgregarHacienda(string nombre, string municipio, string idCliente)
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -118,7 +118,7 @@ namespace OFLP.Modelo
         public bool ActualizarHacienda(string[] datosActualizar, string idCliente)
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -151,7 +151,7 @@ namespace OFLP.Modelo
         {
             string rslt = "";
 
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -185,7 +185,7 @@ namespace OFLP.Modelo
         public bool EliminarHacienda(string idHacienda)
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
            
                 if (oBd.AbrirConexion())
                 {

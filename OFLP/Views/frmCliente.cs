@@ -62,7 +62,7 @@ namespace OFLP.Vistas
             dtgPropietario.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             if (ClsInicio.clientes.Count > 0)
             {
-                foreach (ModCliente item in ClsInicio.clientes)
+                foreach (MCliente item in ClsInicio.clientes)
                 {
                     dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
                 }
@@ -118,7 +118,7 @@ namespace OFLP.Vistas
         private void PicBuscarCliente_Click(object sender, EventArgs e)
         {
             string datoBuscar = txtBusquedaPropietario.Text.ToUpper();
-            List<ModCliente> lstBusqueda;
+            List<MCliente> lstBusqueda;
             lblApellidoUno.Text = "";
             lblApellidoDos.Text = "";
             lblNombre.Text = "";
@@ -135,7 +135,7 @@ namespace OFLP.Vistas
                 pnlConfiguraPropietario.Visible = true;
                 dtgPropietario.AutoGenerateColumns = false;
                 dtgPropietario.Rows.Clear();
-                foreach (ModCliente item in lstBusqueda)
+                foreach (MCliente item in lstBusqueda)
                 {
                     dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
 
@@ -156,7 +156,7 @@ namespace OFLP.Vistas
             pnlConfiguraPropietario.Visible = true;
             dtgPropietario.AutoGenerateColumns = false;
             dtgPropietario.Rows.Clear();
-            foreach (ModCliente item in ClsInicio.clientes)
+            foreach (MCliente item in ClsInicio.clientes)
             {
                 dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
             }

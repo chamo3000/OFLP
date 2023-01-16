@@ -73,8 +73,9 @@
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RegistroLogs">
-      <HintPath>..\..\..\Librerias\RegistroLogs\RegistroLogs\bin\Debug\netstandard2.0\RegistroLogs.dll</HintPath>
+    <Reference Include="RegistroLogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librerias\RegistroLogs\RegistroLogs\bin\Release\netstandard2.0\RegistroLogs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -121,6 +122,7 @@
     <Compile Include="Controller\CtrlSexo.cs" />
     <Compile Include="Controller\ctrlUsuario.cs" />
     <Compile Include="Controller\CtrlUtilidades.cs" />
+    <Compile Include="Controller\GastosContoller.cs" />
     <Compile Include="Controller\Restricciones.cs" />
     <Compile Include="Model\CLASE.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
@@ -149,15 +151,15 @@
     <Compile Include="Model\GASTO.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ModBanco.cs" />
-    <Compile Include="Model\ModCliente.cs" />
-    <Compile Include="Model\ModCuenta.cs" />
-    <Compile Include="Model\ModFactura.cs" />
-    <Compile Include="Model\ModGanado.cs" />
-    <Compile Include="Model\ModHacienda.cs" />
+    <Compile Include="Model\MGastos.cs" />
+    <Compile Include="Model\Banco.cs" />
+    <Compile Include="Model\MCliente.cs" />
+    <Compile Include="Model\Cuenta.cs" />
+    <Compile Include="Model\MFactura.cs" />
+    <Compile Include="Model\Ganado.cs" />
+    <Compile Include="Model\Hacienda.cs" />
     <Compile Include="Model\ModSexo.cs" />
-    <Compile Include="Model\ModUsuario.cs" />
-    <Compile Include="Model\ModUtilidadesBd.cs" />
+    <Compile Include="Model\MUsuario.cs" />
     <Compile Include="Model\ROL.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
@@ -167,6 +169,7 @@
     <Compile Include="Model\USUARIO.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\UtilidadesBd.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

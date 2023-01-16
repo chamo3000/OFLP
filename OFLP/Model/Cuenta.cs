@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OFLP.Modelo
 {
-    class ModCuenta
+    class Cuenta
     {
 
         #region Propiedades
@@ -40,7 +40,7 @@ namespace OFLP.Modelo
         {
 
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -49,7 +49,7 @@ namespace OFLP.Modelo
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        ClsInicio.cuenta.Add(new ModCuenta()
+                        ClsInicio.cuenta.Add(new Cuenta()
                         {
                             id = Convert.ToInt32(reader[0]),
                             numeroCuenta = Convert.ToInt32(reader[1]),
@@ -80,7 +80,7 @@ namespace OFLP.Modelo
         public bool AgregarCuenta(string numero_cuenta, string ciudad, string sucursal, string comentario, int  cmbIdcliente, int cmbIdBanco)
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try

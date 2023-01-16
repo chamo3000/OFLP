@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OFLP.Modelo
 {
-    class ModBanco
+    class Banco
     {
 
         #region Propiedades
@@ -42,7 +42,7 @@ namespace OFLP.Modelo
         {
 
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -53,7 +53,7 @@ namespace OFLP.Modelo
 
                     while (reader.Read())
                         {
-                            ClsInicio.banco.Add(new ModBanco()
+                            ClsInicio.banco.Add(new Banco()
                             {
                                 IdBanco = Convert.ToInt32(reader["id"]),
                                 NombreBanco = reader["nombre"].ToString(),
@@ -79,7 +79,7 @@ namespace OFLP.Modelo
         public bool AgregarBanco(string nombre, string descripcion)
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -109,7 +109,7 @@ namespace OFLP.Modelo
         public bool ActualizarBanco(string[] datosActualizar)
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
             if (oBd.AbrirConexion())
             {
                 try
@@ -142,7 +142,7 @@ namespace OFLP.Modelo
         public bool EliminarBanco(string idBanco)
         {
             bool rslt = false;
-            ModUtilidadesBd oBd = new ModUtilidadesBd();
+            UtilidadesBd oBd = new UtilidadesBd();
 
             if (oBd.AbrirConexion())
             {
@@ -172,10 +172,10 @@ namespace OFLP.Modelo
         }
 
 
-        public List<ModBanco> BuscarBanco(string datoBuscar)
+        public List<Banco> BuscarBanco(string datoBuscar)
         {
 
-            List<ModBanco> lstBusqueda = new List<ModBanco>();
+            List<Banco> lstBusqueda = new List<Banco>();
 
             lstBusqueda = (from cust in ClsInicio.banco
                            where cust.NombreBanco.StartsWith(datoBuscar)

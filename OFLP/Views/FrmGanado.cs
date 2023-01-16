@@ -74,7 +74,7 @@ namespace OFLP.Vistas
             DtgGanado.AutoGenerateColumns = false;
             DtgGanado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DtgGanado.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
-            foreach (ModGanado item in ClsInicio.ganado)
+            foreach (Ganado item in ClsInicio.ganado)
             {
                 DtgGanado.Rows.Add(item.IdGanado, item.ClaseGanado, item.Clase, item.Descripcion);
             }
@@ -100,7 +100,7 @@ namespace OFLP.Vistas
         {
             string datoBuscar = TxtBuscarGanado.Text.ToUpper();
             CtrlGanado objGanado = new CtrlGanado();
-            List<ModGanado> lstBusqueda = objGanado.BuscarGanado(datoBuscar);
+            List<Ganado> lstBusqueda = objGanado.BuscarGanado(datoBuscar);
             lbl_ID.Text = "";
             lblClaseGanado.Text = "";
             lblClase.Text = "";
@@ -113,7 +113,7 @@ namespace OFLP.Vistas
                 pnlConfiguracionGanado.Visible = true;
                 DtgGanado.AutoGenerateColumns = false;
                 DtgGanado.Rows.Clear();
-                foreach (ModGanado item in lstBusqueda)
+                foreach (Ganado item in lstBusqueda)
                 {
                     DtgGanado.Rows.Add(item.IdGanado, item.ClaseGanado, item.Clase, item.Clase);
                 }
@@ -131,7 +131,7 @@ namespace OFLP.Vistas
             pnlConfiguracionGanado.Visible = true;
             DtgGanado.AutoGenerateColumns = false;
             DtgGanado.Rows.Clear();
-            foreach (ModGanado item in ClsInicio.ganado)
+            foreach (Ganado item in ClsInicio.ganado)
             {
                 DtgGanado.Rows.Add(item.IdGanado, item.ClaseGanado, item.Clase, item.Descripcion);
             }

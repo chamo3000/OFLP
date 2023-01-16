@@ -38,7 +38,7 @@ namespace OFLP.Vistas
             dtgCuenta.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             dtgCuenta.Rows.Clear();
 
-            foreach (ModCuenta item in ClsInicio.cuenta)
+            foreach (Cuenta item in ClsInicio.cuenta)
             {
                 dtgCuenta.Rows.Add(item.id,item.numeroCuenta,item.ciudad,item.sucursal,item.idCliente,item.IdBanco);
             }

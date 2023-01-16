@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OFLP.Modelo
 {
-    class ModUtilidadesBd
+    class UtilidadesBd
     {
 
         public SqlConnection Con { get; private set; }
