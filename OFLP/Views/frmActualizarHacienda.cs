@@ -13,7 +13,7 @@ namespace OFLP.Vistas
     {
 
         private string[] DatosActualizar { get; set; }
-        List<ModCliente> compradores = new List<ModCliente>();
+        List<MCliente> compradores = new List<MCliente>();
 
         public FrmActualizarHacienda(string[] datosActualizar)
         {
@@ -34,8 +34,8 @@ namespace OFLP.Vistas
         private void LlenaComboCliente()
         {
 
-            List<ModCliente> noExisten = new List<ModCliente>();
-            ModCliente ObjCliente = new ModCliente();
+            List<MCliente> noExisten = new List<MCliente>();
+            MCliente ObjCliente = new MCliente();
             try
             {
                 ObjCliente.LlenarGrid();
@@ -44,10 +44,10 @@ namespace OFLP.Vistas
                 //ObjCliente.LlenarGrid();
                 //ObjCliente = null;
                 bool band = false;
-                foreach (ModCliente item in ClsInicio.clientes)
+                foreach (MCliente item in ClsInicio.clientes)
                 {
                     band = false;
-                    foreach (ModCliente item2 in compradores)
+                    foreach (MCliente item2 in compradores)
                     {
                         if (item2.CedulaCliente == item.CedulaCliente) band = true;
                     }
@@ -58,7 +58,7 @@ namespace OFLP.Vistas
                     }
                 }
                 compradores.AddRange(noExisten);
-                foreach (ModCliente item in compradores)
+                foreach (MCliente item in compradores)
                 {
                     if (!item.NombreCliente.Equals(string.Empty))
                     {

@@ -1,7 +1,9 @@
 ﻿using OFLP.Controlador;
+using OFLP.Model;
 using OFLP.Modelo;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,20 +16,6 @@ namespace OFLP.Vistas
         {
             InitializeComponent();
         }
-
-        private void BtnAgregarHacienda_Click(object sender, EventArgs e)
-        {
-
-            FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
-            //{
-            //    TopMost = true,
-            //    Owner = this
-            //};
-            f.Show();
-            //f.ShowDialog();
-            
-        }
-
         private void FrmFactura_Load(object sender, EventArgs e)
         {
             LimpiarControles();
@@ -48,7 +36,6 @@ namespace OFLP.Vistas
             }
 
         }
-
         private void LlenarGrid()
         {
             CtrlFactura objFactura = new CtrlFactura();
@@ -59,13 +46,24 @@ namespace OFLP.Vistas
             DtgFactura.AutoGenerateColumns = false;
             DtgFactura.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             DtgFactura.Rows.Clear();
-            foreach (ModFactura item in ClsInicio.Factura)
+            foreach (MFactura item in ClsInicio.Factura)
             {
-                DtgFactura.Rows.Add(item.NumeroFactura, item.Reunion, item.Fecha, item.Propietario, item.Clase, item.Corral,item.Cabezas,item.Sexo,item.Comprador,item.Kilos, Convert.ToInt32(item.ValorKilo).ToString("N"), Convert.ToInt32(item.ValorTotal).ToString("N") );
+                int gasto;
+                string propietario;
+                int IdFact = Convert.ToInt32(item.NumeroFactura);
+                int IdPropietario = Convert.ToInt32(item.PropietarioID);
+                using (MIGANEntities db = new MIGANEntities())
+                {
+                    
+                     gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
+                    propietario = $"{db.CLIENTE.FirstOrDefault(p => p.CEDULA == IdPropietario).NOMBRE} {db.CLIENTE.FirstOrDefault(p => p.CEDULA == IdPropietario).PRIMERAPELLIDO}";
+
+                }
+                
+                DtgFactura.Rows.Add(item.NumeroFactura, item.Reunion, propietario, gasto.ToString(), Convert.ToInt32(item.ValorTotal).ToString("N") );
             }
 
         }
-
         private void LimpiarControles()
         {
             LblNumFactura.Text = string.Empty;
@@ -81,8 +79,7 @@ namespace OFLP.Vistas
             LblValorKilo.Text = string.Empty;
             LblValorTotal.Text = string.Empty;
         }
-
-        private void btnEliminarHacienda_Click(object sender, EventArgs e)
+        private void BtnEliminarHacienda_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Esta seguro que desea eliminar la Factura?", "Eliminar Factura", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
@@ -102,5 +99,11 @@ namespace OFLP.Vistas
                 }
             }
         }
+        private void PicAgregarFactura_Click(object sender, EventArgs e)
+        {
+            FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
+            f.Show();
+        }
+
     }
 }

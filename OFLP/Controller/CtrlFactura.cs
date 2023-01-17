@@ -1,4 +1,5 @@
-﻿using OFLP.Modelo;
+﻿using OFLP.Model;
+using OFLP.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,9 @@ namespace OFLP.Controlador
 {
     class CtrlFactura
     {
-
-
-
-        public bool AgregarFactura(string [] datos)
+        public bool AgregarFactura(List<FACTURA> datos)
         {
-            ModFactura oEquipo = new ModFactura();
+            MFactura oEquipo = new MFactura();
 
 
             if (!oEquipo.AgregarFactura(datos))
@@ -30,7 +28,7 @@ namespace OFLP.Controlador
 
         public bool EliminarFactura(string consecutivo)
         {
-            ModFactura oEquipo = new ModFactura();
+            MFactura oEquipo = new MFactura();
 
 
             if (!oEquipo.Eliminarfactura(consecutivo))
@@ -48,7 +46,7 @@ namespace OFLP.Controlador
 
         public bool LlenarGridFactura()
         {
-            ModFactura oEquipo = new ModFactura();
+            MFactura oEquipo = new MFactura();
 
             if (!oEquipo.LlenarGrid())
             {

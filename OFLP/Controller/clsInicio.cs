@@ -7,14 +7,14 @@ namespace OFLP.Controlador
     class ClsInicio
     {
         public static FrmPpal objfrmPpal = new FrmPpal();
-        public static List<ModCliente> clientes = new List<ModCliente>();
-        public static List<ModCliente> Compradores = new List<ModCliente>();
-        public static List<ModHacienda> haciendas = new List<ModHacienda>();
-        public static List<ModGanado> ganado = new List<ModGanado>();
-        public static List<ModBanco> banco = new List<ModBanco>();
+        public static List<MCliente> clientes = new List<MCliente>();
+        public static List<MCliente> Compradores = new List<MCliente>();
+        public static List<Hacienda> haciendas = new List<Hacienda>();
+        public static List<Ganado> ganado = new List<Ganado>();
+        public static List<Banco> banco = new List<Banco>();
         public static List<ModSexo> sexo = new List<ModSexo>();
-        public static List<ModCuenta> cuenta = new List<ModCuenta>();
-        public static List<ModFactura> Factura = new List<ModFactura>();
+        public static List<Cuenta> cuenta = new List<Cuenta>();
+        public static List<MFactura> Factura = new List<MFactura>();
 
         public void Iniciar()
         {
