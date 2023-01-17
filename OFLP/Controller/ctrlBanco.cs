@@ -13,7 +13,7 @@ namespace OFLP.Controlador
 
         public bool LlenarGridBanco()
         {
-            ModBanco oEquipo = new ModBanco();
+            Banco oEquipo = new Banco();
 
 
             if (!oEquipo.LlenarGrid())
@@ -32,7 +32,7 @@ namespace OFLP.Controlador
 
         public bool AgregarBanco(string nombreBanco, string descripcionBanco)
         {
-            ModBanco objModBanco = new ModBanco();
+            Banco objModBanco = new Banco();
 
 
             //SeleccionaIdCliente()
@@ -51,7 +51,7 @@ namespace OFLP.Controlador
 
         public bool ActualizarBanco(string[] datosActualizar)
         {
-            ModBanco oBanco = new ModBanco();
+            Banco oBanco = new Banco();
 
             if (!oBanco.ActualizarBanco(datosActualizar))
             {
@@ -68,7 +68,7 @@ namespace OFLP.Controlador
 
         public bool EliminarBanco(string idBanco)
         {
-            ModBanco oEquipo = new ModBanco();
+            Banco oEquipo = new Banco();
 
 
             if (!oEquipo.EliminarBanco(idBanco))
@@ -81,10 +81,10 @@ namespace OFLP.Controlador
             }
 
         }
-        public List<ModBanco> BuscarBanco(string datobusqueda)
+        public List<Banco> BuscarBanco(string datobusqueda)
         {
-            ModBanco oEquipo = new ModBanco();
-            List<ModBanco> lstBusqueda = new List<ModBanco>();
+            Banco oEquipo = new Banco();
+            List<Banco> lstBusqueda = new List<Banco>();
             lstBusqueda = oEquipo.BuscarBanco(datobusqueda);
             if (lstBusqueda == null)
             {

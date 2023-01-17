@@ -1,8 +1,7 @@
-﻿using OFLP.Controller;
+﻿using OFLP.Controlador;
+using OFLP.Controller;
 using System;
 using System.Windows.Forms;
-
-
 
 namespace OFLP.Views
 {
@@ -12,23 +11,19 @@ namespace OFLP.Views
         {
             InitializeComponent();
             this.cmbEmpresa.SelectedIndex = 0;
-
-
         }
-
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-
             if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtContrasena.Text))
             {
                 CtrlUsuario OctrlUsuario = new CtrlUsuario();
                 if (OctrlUsuario.ValidarCliente(txtUsuario.Text, txtContrasena.Text))
                 {
+                    CtrlUtilidades.ImprimirLog($"El usuario ==> {txtUsuario.Text} <==, se ha logeado de manera existos ");
                     this.Hide();
                     Program.objfrmPpal.Show();
                 }
@@ -37,7 +32,6 @@ namespace OFLP.Views
             this.Hide();
             Program.objfrmPpal.Show();
         }
-
         private void TxtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -46,7 +40,6 @@ namespace OFLP.Views
                 BtnIngresar_Click(sender, e);//llama al evento click del boton
             }
         }
-
         private void TxtContrasena_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -55,7 +48,6 @@ namespace OFLP.Views
                 BtnIngresar_Click(sender, e);//llama al evento click del boton
             }
         }
-
         private void CmbEmpresa_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

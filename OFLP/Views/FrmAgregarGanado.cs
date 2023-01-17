@@ -17,7 +17,6 @@ namespace OFLP.Vistas
         {
             InitializeComponent();
         }
-
         private void BtnAceptarInsertar_Click(object sender, EventArgs e)
         {
             string claseGanado = TxtInsertarGanado.Text.ToUpper();
@@ -47,34 +46,27 @@ namespace OFLP.Vistas
                 TxtInsertarGanado.Text = string.Empty;
                 TxtInsertarClase.Text = string.Empty;
                 TxtInsertarDescripcion.Text = string.Empty;
-
-                objGanado = null;
             }
         }
-
-        private void Validar_Texto(TextBox Elemento, EventArgs e)
+        private void Validar_Texto(TextBox Elemento)
         {
-
             if (Controlador.Restricciones.Tiene_Letras(Elemento.Text.Trim()))
             {
                 Elemento.Text = string.Empty;
                 MessageBox.Show(this, "Este campo no permite números", "Advertencia ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
-
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void TxtInsertarGanado_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(TxtInsertarGanado,e);
+            Validar_Texto(TxtInsertarGanado);
         }
-
         private void TxtInsertarClase_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(TxtInsertarClase,e);
+            Validar_Texto(TxtInsertarClase);
         }
 
     }

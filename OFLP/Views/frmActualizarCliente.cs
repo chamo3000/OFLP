@@ -8,20 +8,15 @@ namespace OFLP.Vistas
     public partial class FrmActualizarCliente : Form
     {
         private string[] DatosActualizar { get; set; }
-
         public FrmActualizarCliente(string[] datos)
         {
             InitializeComponent();
             DatosActualizar = datos;
         }
-
-
-
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void BtnAceptaActualizarCliente_Click(object sender, EventArgs e)
         {
             CtrlUtilidades.ImprimirLog("Actualizar cliente");
@@ -35,20 +30,16 @@ namespace OFLP.Vistas
                 }
                 else
                 {
-
                     var queryLondonCustomers = (from cust in ClsInicio.clientes
                                                 where cust.CedulaCliente == Convert.ToInt32(txtCedula.Text)
                                                 select cust.CedulaCliente).ToList();
 
                     if (!queryLondonCustomers.Any())AuxiliarCedula= DatosActualizar[0];
 
-
                     DatosActualizar[1] = txtPrimerApellido.Text.ToUpper();
                     DatosActualizar[2] = txtSegundoApellido.Text.ToUpper();
                     DatosActualizar[3] = txtNombre.Text.ToUpper();
                     DatosActualizar[0] = txtCedula.Text;
-
-
 
                     CtrlCliente objCtrlCliente = new CtrlCliente();
                     if (objCtrlCliente.ActualizarCliente(DatosActualizar))
@@ -66,7 +57,6 @@ namespace OFLP.Vistas
                 }
             }
         }
-
         private void FrmActualizarCliente_Load(object sender, EventArgs e)
         {
             txtPrimerApellido.Text = DatosActualizar[1];
@@ -82,9 +72,7 @@ namespace OFLP.Vistas
                 Elemento.Text = string.Empty;
                 MessageBox.Show(this, "Este campo no permite números", "Advertencia ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
-
         }
-
         private void Validar_Numero(TextBox Elemento)
         {
             if (Controlador.Restricciones.Tiene_Numeros(Elemento.Text.Trim()))
@@ -93,22 +81,18 @@ namespace OFLP.Vistas
                 MessageBox.Show(this, "Este campo no permite letras", "Advertencia ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
-
         private void TxtPrimerApellido_TextChanged(object sender, EventArgs e)
         {
             Validar_Texto(txtPrimerApellido);
         }
-
         private void TxtSegundoApellido_TextChanged(object sender, EventArgs e)
         {
             Validar_Texto(txtSegundoApellido);
         }
-
         private void TxtNombre_TextChanged(object sender, EventArgs e)
         {
             Validar_Texto(txtNombre);
         }
-
         private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
             Validar_Numero(txtCedula);

@@ -222,6 +222,7 @@ namespace OFLP.Vistas
             this.DtgSexo.Location = new System.Drawing.Point(0, 238);
             this.DtgSexo.Name = "DtgSexo";
             this.DtgSexo.ReadOnly = true;
+            this.DtgSexo.RowHeadersVisible = false;
             this.DtgSexo.RowHeadersWidth = 51;
             this.DtgSexo.Size = new System.Drawing.Size(976, 154);
             this.DtgSexo.TabIndex = 46;

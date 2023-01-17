@@ -32,7 +32,7 @@ namespace OFLP.Vistas
             dtgHacienda.AutoGenerateColumns = false;
             dtgHacienda.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             dtgHacienda.Rows.Clear();
-            foreach (ModHacienda item in ClsInicio.haciendas)
+            foreach (Hacienda item in ClsInicio.haciendas)
             {
                 dtgHacienda.Rows.Add(item.idHacienda, item.nombreHacienda, item.municipio, item.nombreCliente, item.primerApellido, item.segundoApellido, item.cedulaCliente);
             }
@@ -55,7 +55,7 @@ namespace OFLP.Vistas
         private void BtnBuscarHacienda_Click(object sender, EventArgs e)
         {
             string datoBuscar = txtBusquedaHacienda.Text.ToUpper();
-            List<ModHacienda> lstBusqueda = new List<ModHacienda>();
+            List<Hacienda> lstBusqueda = new List<Hacienda>();
             lblNombreHacienda.Text = "";
             lblMunicipio.Text = "";
             lblNombreCliente.Text = "";
@@ -73,7 +73,7 @@ namespace OFLP.Vistas
                 pnlConfiguraHacienda.Visible = true;
                 dtgHacienda.AutoGenerateColumns = false;
                 dtgHacienda.Rows.Clear();
-                foreach (ModHacienda item in lstBusqueda)
+                foreach (Hacienda item in lstBusqueda)
                 {
                     dtgHacienda.Rows.Add(item.idHacienda, item.nombreHacienda, item.municipio, item.nombreCliente, item.primerApellido, item.segundoApellido, item.cedulaCliente);
                 }
@@ -93,7 +93,7 @@ namespace OFLP.Vistas
             pnlConfiguraHacienda.Visible = true;
             dtgHacienda.AutoGenerateColumns = false;
             dtgHacienda.Rows.Clear();
-            foreach (ModHacienda item in ClsInicio.haciendas)
+            foreach (Hacienda item in ClsInicio.haciendas)
             {
                 dtgHacienda.Rows.Add(item.idHacienda, item.nombreHacienda, item.municipio, item.nombreCliente, item.primerApellido, item.segundoApellido, item.cedulaCliente);
             }

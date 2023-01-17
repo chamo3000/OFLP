@@ -27,7 +27,7 @@ namespace OFLP.Vistas
             CtrlCliente objCliente = new CtrlCliente();
             objCliente.LlenarGridCliente();
 
-            foreach (ModCliente item in ClsInicio.clientes)
+            foreach (MCliente item in ClsInicio.clientes)
             {
                 cmbIdcliente.Items.Add(item.NombreCliente +" "+ item.PrimerApellido);
 
@@ -37,7 +37,7 @@ namespace OFLP.Vistas
             CtrlBanco objBanco = new CtrlBanco();
             objBanco.LlenarGridBanco();
 
-            foreach (ModBanco item in ClsInicio.banco)
+            foreach (Banco item in ClsInicio.banco)
             {
                 cmbIdBanco.Items.Add(item.NombreBanco);
 

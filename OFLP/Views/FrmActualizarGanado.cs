@@ -19,11 +19,8 @@ namespace OFLP.Vistas
 
         public FrmActualizarGanado(string[] datosActualizar)
         {
-            CtrlGanado objCtrlGanado = new CtrlGanado();
-            
             InitializeComponent();
             DatosActualizar = datosActualizar;
-
         }
 
         private void FrmActualizarGanado_Load(object sender, EventArgs e)
@@ -52,7 +49,7 @@ namespace OFLP.Vistas
 
                     if (objCtrlGanado.ActualizarGanado(DatosActualizar))
                     {
-                        MessageBox.Show("Hacienda actualizada exitosamente", "Actualizar Ganado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Clase de ganado actualizada exitosamente", "Actualizar Ganado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ActualizarGanado();
                         this.Close();
                     }
@@ -81,7 +78,7 @@ namespace OFLP.Vistas
             this.Close();
         }
 
-        private void Validar_Texto(TextBox Elemento, EventArgs e)
+        private void Validar_Texto(TextBox Elemento)
         {
 
             if (Controlador.Restricciones.Tiene_Letras(Elemento.Text.Trim()))
@@ -94,17 +91,17 @@ namespace OFLP.Vistas
 
         private void TxtActualizarGanado_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(TxtActualizarGanado,e);
+            Validar_Texto(TxtActualizarGanado);
         }
 
         private void TxtActualizarClase_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(TxtActualizarClase,e);
+            Validar_Texto(TxtActualizarClase);
         }
 
         private void TxtActualizarDescripcion_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(TxtActualizarDescripcion,e);
+            Validar_Texto(TxtActualizarDescripcion);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace OFLP.Controlador
 
         public bool LlenarGridHacienda()
         {
-            ModHacienda oEquipo = new ModHacienda();
+            Hacienda oEquipo = new Hacienda();
 
 
             if (!oEquipo.LlenarGrid())
@@ -26,10 +26,10 @@ namespace OFLP.Controlador
 
         }
 
-        public List<ModHacienda> BuscarHacienda(string datobusqueda)
+        public List<Hacienda> BuscarHacienda(string datobusqueda)
         {
-            ModHacienda oEquipo = new ModHacienda();
-            List<ModHacienda> lstBusqueda = new List<ModHacienda>();
+            Hacienda oEquipo = new Hacienda();
+            List<Hacienda> lstBusqueda = new List<Hacienda>();
             lstBusqueda = oEquipo.BuscarHacienda(datobusqueda);
             if (lstBusqueda == null)
             {
@@ -47,7 +47,7 @@ namespace OFLP.Controlador
 
         public bool AgregarHacienda(string nombreHacienda, string municipioHacienda, string duenoHacienda)
         {
-            ModHacienda objModHacienda = new ModHacienda();
+            Hacienda objModHacienda = new Hacienda();
             string[] vecCliente = new string[2];
             vecCliente = duenoHacienda.Split(' ');
             //SeleccionaIdCliente()
@@ -67,14 +67,14 @@ namespace OFLP.Controlador
         private string SeleccionaIdDuenio(string nombre, string apellido)
         {
             string id = "";
-            ModHacienda oHacienda = new ModHacienda();
+            Hacienda oHacienda = new Hacienda();
             id = oHacienda.SeleccionaIdDueno(apellido, nombre);
             return id;
         }
 
         public bool ActualizarHacienda(string[] DatosIngresar)
         {
-            ModHacienda oHacienda = new ModHacienda();
+            Hacienda oHacienda = new Hacienda();
             idCliente = oHacienda.SeleccionaIdDueno(DatosIngresar[3].Split(' ')[0], DatosIngresar[3].Split(' ')[1]);
             if (!oHacienda.ActualizarHacienda(DatosIngresar, idCliente.ToString()))
             {
@@ -90,7 +90,7 @@ namespace OFLP.Controlador
 
         public bool EliminarHacienda(string idHacienda)
         {
-            ModHacienda oEquipo = new ModHacienda();
+            Hacienda oEquipo = new Hacienda();
 
 
             if (!oEquipo.EliminarHacienda(idHacienda))

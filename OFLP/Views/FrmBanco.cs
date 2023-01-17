@@ -49,7 +49,7 @@ namespace OFLP.Vistas
             DtgBanco.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DtgBanco.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
 
-            foreach (ModBanco item in ClsInicio.banco)
+            foreach (Banco item in ClsInicio.banco)
             {
                 DtgBanco.Rows.Add(item.IdBanco, item.NombreBanco, item.DescripcionBanco);
             }
@@ -109,7 +109,7 @@ namespace OFLP.Vistas
         private void btnBuscarBanco_Click(object sender, EventArgs e)
         {
             string datoBuscar = txtBusquedaBanco.Text.ToUpper();
-            List<ModBanco> lstBusqueda = new List<ModBanco>();
+            List<Banco> lstBusqueda = new List<Banco>();
             lblNombreBanco.Text = "";
             lblDescripcionBanco.Text = "";
 
@@ -123,7 +123,7 @@ namespace OFLP.Vistas
                 pnlConfiguracionBanco.Visible = true;
                 DtgBanco.AutoGenerateColumns = false;
                 DtgBanco.Rows.Clear();
-                foreach (ModBanco item in lstBusqueda)
+                foreach (Banco item in lstBusqueda)
                 {
                     DtgBanco.Rows.Add(item.IdBanco, item.NombreBanco, item.DescripcionBanco);
                 }
@@ -144,7 +144,7 @@ namespace OFLP.Vistas
             pnlConfiguracionBanco.Visible = true;
             DtgBanco.AutoGenerateColumns = false;
             DtgBanco.Rows.Clear();
-            foreach (ModBanco item in ClsInicio.banco)
+            foreach (Banco item in ClsInicio.banco)
             {
                 DtgBanco.Rows.Add(item.IdBanco, item.NombreBanco, item.DescripcionBanco);
             }

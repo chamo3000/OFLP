@@ -44,6 +44,7 @@ namespace OFLP.Vistas
             this.editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnGasto = new System.Windows.Forms.Button();
             this.PnlAgregar = new System.Windows.Forms.Panel();
             this.txtKilos = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,7 +68,7 @@ namespace OFLP.Vistas
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picAceptar = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnTerminarGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -103,7 +104,7 @@ namespace OFLP.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAceptar)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -136,9 +137,9 @@ namespace OFLP.Vistas
             this.editar,
             this.eliminar});
             this.DtgAgregaFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DtgAgregaFactura.Location = new System.Drawing.Point(0, 307);
+            this.DtgAgregaFactura.Location = new System.Drawing.Point(0, 351);
             this.DtgAgregaFactura.Name = "DtgAgregaFactura";
-            this.DtgAgregaFactura.Size = new System.Drawing.Size(944, 244);
+            this.DtgAgregaFactura.Size = new System.Drawing.Size(944, 200);
             this.DtgAgregaFactura.TabIndex = 2;
             this.DtgAgregaFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgAgregaFactura_CellClick);
             // 
@@ -228,10 +229,11 @@ namespace OFLP.Vistas
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.BtnGasto);
             this.panel2.Controls.Add(this.PnlAgregar);
             this.panel2.Controls.Add(this.pnlBarraTitulo);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.picAceptar);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnTerminarGuardar);
             this.panel2.Controls.Add(this.groupBox1);
@@ -240,6 +242,26 @@ namespace OFLP.Vistas
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(944, 551);
             this.panel2.TabIndex = 1;
+            // 
+            // BtnGasto
+            // 
+            this.BtnGasto.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnGasto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnGasto.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnGasto.FlatAppearance.BorderSize = 0;
+            this.BtnGasto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.BtnGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.BtnGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGasto.ForeColor = System.Drawing.Color.White;
+            this.BtnGasto.Location = new System.Drawing.Point(18, 256);
+            this.BtnGasto.Name = "BtnGasto";
+            this.BtnGasto.Size = new System.Drawing.Size(221, 39);
+            this.BtnGasto.TabIndex = 49;
+            this.BtnGasto.Text = "Gasto";
+            this.BtnGasto.UseVisualStyleBackColor = false;
+            this.BtnGasto.Visible = false;
+            this.BtnGasto.Click += new System.EventHandler(this.BtnGasto_Click);
             // 
             // PnlAgregar
             // 
@@ -266,10 +288,10 @@ namespace OFLP.Vistas
             // 
             // txtKilos
             // 
-            this.txtKilos.Location = new System.Drawing.Point(402, 25);
+            this.txtKilos.Location = new System.Drawing.Point(438, 24);
             this.txtKilos.Name = "txtKilos";
             this.txtKilos.Size = new System.Drawing.Size(58, 20);
-            this.txtKilos.TabIndex = 4;
+            this.txtKilos.TabIndex = 7;
             this.txtKilos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtKilos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKilos_KeyPress);
             // 
@@ -278,7 +300,7 @@ namespace OFLP.Vistas
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(48, 3);
+            this.label3.Location = new System.Drawing.Point(44, 2);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 1;
@@ -289,7 +311,7 @@ namespace OFLP.Vistas
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(194, 3);
+            this.label4.Location = new System.Drawing.Point(179, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 20);
             this.label4.TabIndex = 1;
@@ -300,7 +322,7 @@ namespace OFLP.Vistas
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(259, 3);
+            this.label5.Location = new System.Drawing.Point(236, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 1;
@@ -323,7 +345,7 @@ namespace OFLP.Vistas
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(335, 3);
+            this.label6.Location = new System.Drawing.Point(331, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 20);
             this.label6.TabIndex = 1;
@@ -334,7 +356,7 @@ namespace OFLP.Vistas
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(405, 3);
+            this.label7.Location = new System.Drawing.Point(441, 2);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 20);
             this.label7.TabIndex = 1;
@@ -345,7 +367,7 @@ namespace OFLP.Vistas
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(463, 3);
+            this.label8.Location = new System.Drawing.Point(491, 3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 20);
             this.label8.TabIndex = 1;
@@ -402,10 +424,10 @@ namespace OFLP.Vistas
             // 
             // TxtValorTotal
             // 
-            this.TxtValorTotal.Location = new System.Drawing.Point(576, 24);
+            this.TxtValorTotal.Location = new System.Drawing.Point(595, 24);
             this.TxtValorTotal.Name = "TxtValorTotal";
-            this.TxtValorTotal.Size = new System.Drawing.Size(155, 20);
-            this.TxtValorTotal.TabIndex = 4;
+            this.TxtValorTotal.Size = new System.Drawing.Size(136, 20);
+            this.TxtValorTotal.TabIndex = 9;
             this.TxtValorTotal.Text = "0";
             this.TxtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -413,7 +435,7 @@ namespace OFLP.Vistas
             // 
             this.cmbClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClase.FormattingEnabled = true;
-            this.cmbClase.Location = new System.Drawing.Point(14, 26);
+            this.cmbClase.Location = new System.Drawing.Point(10, 25);
             this.cmbClase.Name = "cmbClase";
             this.cmbClase.Size = new System.Drawing.Size(169, 21);
             this.cmbClase.TabIndex = 3;
@@ -421,10 +443,10 @@ namespace OFLP.Vistas
             // 
             // txtValorKilo
             // 
-            this.txtValorKilo.Location = new System.Drawing.Point(471, 24);
+            this.txtValorKilo.Location = new System.Drawing.Point(499, 24);
             this.txtValorKilo.Name = "txtValorKilo";
             this.txtValorKilo.Size = new System.Drawing.Size(92, 20);
-            this.txtValorKilo.TabIndex = 4;
+            this.txtValorKilo.TabIndex = 8;
             this.txtValorKilo.Text = "0";
             this.txtValorKilo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValorKilo.TextChanged += new System.EventHandler(this.TxtValorKilo_TextChanged);
@@ -434,15 +456,15 @@ namespace OFLP.Vistas
             // 
             this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSexo.FormattingEnabled = true;
-            this.cmbSexo.Location = new System.Drawing.Point(338, 25);
+            this.cmbSexo.Location = new System.Drawing.Point(319, 23);
             this.cmbSexo.Name = "cmbSexo";
-            this.cmbSexo.Size = new System.Drawing.Size(55, 21);
-            this.cmbSexo.TabIndex = 3;
+            this.cmbSexo.Size = new System.Drawing.Size(114, 21);
+            this.cmbSexo.TabIndex = 6;
             this.cmbSexo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbSexo_KeyPress);
             // 
             // txtCorral
             // 
-            this.txtCorral.Location = new System.Drawing.Point(198, 26);
+            this.txtCorral.Location = new System.Drawing.Point(183, 25);
             this.txtCorral.Name = "txtCorral";
             this.txtCorral.Size = new System.Drawing.Size(53, 20);
             this.txtCorral.TabIndex = 4;
@@ -451,10 +473,10 @@ namespace OFLP.Vistas
             // 
             // txtCabezas
             // 
-            this.txtCabezas.Location = new System.Drawing.Point(264, 25);
+            this.txtCabezas.Location = new System.Drawing.Point(241, 24);
             this.txtCabezas.Name = "txtCabezas";
-            this.txtCabezas.Size = new System.Drawing.Size(58, 20);
-            this.txtCabezas.TabIndex = 4;
+            this.txtCabezas.Size = new System.Drawing.Size(74, 20);
+            this.txtCabezas.TabIndex = 5;
             this.txtCabezas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCabezas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCabezas_KeyPress);
             // 
@@ -495,23 +517,23 @@ namespace OFLP.Vistas
             // pictureBox3
             // 
             this.pictureBox3.Image = global::OFLP.Properties.Resources.cancelar;
-            this.pictureBox3.Location = new System.Drawing.Point(537, 259);
+            this.pictureBox3.Location = new System.Drawing.Point(537, 303);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(45, 39);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
+            // picAceptar
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 258);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
+            this.picAceptar.Image = ((System.Drawing.Image)(resources.GetObject("picAceptar.Image")));
+            this.picAceptar.Location = new System.Drawing.Point(18, 302);
+            this.picAceptar.Name = "picAceptar";
+            this.picAceptar.Size = new System.Drawing.Size(46, 40);
+            this.picAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAceptar.TabIndex = 8;
+            this.picAceptar.TabStop = false;
+            this.picAceptar.Visible = false;
             // 
             // button2
             // 
@@ -524,7 +546,7 @@ namespace OFLP.Vistas
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(537, 258);
+            this.button2.Location = new System.Drawing.Point(537, 303);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(221, 39);
             this.button2.TabIndex = 6;
@@ -542,7 +564,7 @@ namespace OFLP.Vistas
             this.btnTerminarGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerminarGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTerminarGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnTerminarGuardar.Location = new System.Drawing.Point(18, 258);
+            this.btnTerminarGuardar.Location = new System.Drawing.Point(18, 303);
             this.btnTerminarGuardar.Name = "btnTerminarGuardar";
             this.btnTerminarGuardar.Size = new System.Drawing.Size(221, 39);
             this.btnTerminarGuardar.TabIndex = 6;
@@ -599,10 +621,6 @@ namespace OFLP.Vistas
             this.cmbHacienda.Size = new System.Drawing.Size(284, 28);
             this.cmbHacienda.TabIndex = 4;
             this.cmbHacienda.Visible = false;
-            this.cmbHacienda.SelectedIndexChanged += new System.EventHandler(this.CmbHacienda_SelectedIndexChanged);
-            this.cmbHacienda.SelectionChangeCommitted += new System.EventHandler(this.CmbHacienda_SelectionChangeCommitted);
-            this.cmbHacienda.SelectedValueChanged += new System.EventHandler(this.CmbHacienda_SelectedValueChanged);
-            this.cmbHacienda.TextChanged += new System.EventHandler(this.CmbHacienda_TextChanged);
             this.cmbHacienda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbHacienda_KeyPress);
             // 
             // CmbComprador
@@ -614,7 +632,7 @@ namespace OFLP.Vistas
             this.CmbComprador.Location = new System.Drawing.Point(119, 111);
             this.CmbComprador.Name = "CmbComprador";
             this.CmbComprador.Size = new System.Drawing.Size(284, 28);
-            this.CmbComprador.TabIndex = 3;
+            this.CmbComprador.TabIndex = 2;
             this.CmbComprador.Visible = false;
             this.CmbComprador.SelectedIndexChanged += new System.EventHandler(this.CmbComprador_SelectedIndexChanged);
             this.CmbComprador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbPropietario_KeyPress);
@@ -628,7 +646,7 @@ namespace OFLP.Vistas
             this.cmbPropietario.Location = new System.Drawing.Point(119, 77);
             this.cmbPropietario.Name = "cmbPropietario";
             this.cmbPropietario.Size = new System.Drawing.Size(284, 28);
-            this.cmbPropietario.TabIndex = 3;
+            this.cmbPropietario.TabIndex = 1;
             this.cmbPropietario.SelectedIndexChanged += new System.EventHandler(this.CmbPropietario_SelectedIndexChanged);
             this.cmbPropietario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbPropietario_KeyPress);
             // 
@@ -639,7 +657,7 @@ namespace OFLP.Vistas
             this.dtpicFechaFactura.Location = new System.Drawing.Point(119, 44);
             this.dtpicFechaFactura.Name = "dtpicFechaFactura";
             this.dtpicFechaFactura.Size = new System.Drawing.Size(150, 26);
-            this.dtpicFechaFactura.TabIndex = 2;
+            this.dtpicFechaFactura.TabIndex = 0;
             this.dtpicFechaFactura.ValueChanged += new System.EventHandler(this.DtpicFechaFactura_ValueChanged);
             this.dtpicFechaFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DateTimePicker1_KeyPress);
             // 
@@ -832,7 +850,7 @@ namespace OFLP.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAceptar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -877,7 +895,7 @@ namespace OFLP.Vistas
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnTerminarGuardar;
         private System.Windows.Forms.PictureBox PicAgregar;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picAceptar;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel pnlBarraTitulo;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -905,5 +923,6 @@ namespace OFLP.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn valor_total;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn eliminar;
+        private System.Windows.Forms.Button BtnGasto;
     }
 }

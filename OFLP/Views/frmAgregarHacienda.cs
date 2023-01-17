@@ -17,13 +17,13 @@ namespace OFLP.Vistas
 
         private void LlenaComboCliente()
         {
-            ModCliente ObjCliente = new ModCliente();
+            MCliente ObjCliente = new MCliente();
             try
             {
                 ObjCliente.LlenarGrid();
                 ObjCliente = null;
                 ClsInicio.clientes = ClsInicio.clientes.OrderBy(x => x.PrimerApellido).ToList();
-                foreach (ModCliente item in ClsInicio.clientes)
+                foreach (MCliente item in ClsInicio.clientes)
                 {
                     if (!item.NombreCliente.Equals(string.Empty))
                         cmbDueñoHacienda.Items.Add(item.PrimerApellido + " " + item.NombreCliente);
