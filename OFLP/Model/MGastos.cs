@@ -1,4 +1,5 @@
 ﻿using OFLP.Controlador;
+using OFLP.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,26 @@ namespace OFLP.Model
                 CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
                 return false;
             }
+        }
+
+        public bool EliminarGasto(int idGasto)
+        {
+            int id = Convert.ToInt32(idGasto);
+            try
+            {
+                using (MIGANEntities db = new MIGANEntities())
+                {
+                    GASTO oGasto = db.GASTO.Where(d => d.id == id).First();
+                    db.GASTO.Remove(oGasto);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
         }
     }
 }

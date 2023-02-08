@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OFLP.exe" size="1420288">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OFLP.exe" size="1422336">
       <assemblyIdentity name="OFLP" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KjNnFG03nlfH8fE6jiJMka3IuBcJwuPaUmvKZKqkpDY=</dsig:DigestValue>
+        <dsig:DigestValue>5m0OMJWX4140j9TBjcyh4ZjzNPoxFvOg3OTyJxGZWVQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -288,6 +288,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Wi2AYH5vcOnupRhJgnF93AufWksCf+YtL1V3Tr/xtF0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Model\EntityModel.edmx.sql" size="8612">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>V4SnOonvTgiqSRc5ZFhCT0ilvkhl5qPdjBxNB/jXPn8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Model\EntityModel.tt" size="25280">

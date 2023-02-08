@@ -2,6 +2,7 @@
 using OFLP.Model;
 using OFLP.Modelo;
 using System;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
@@ -35,7 +36,6 @@ namespace OFLP.Vistas
                 
                 ObjCliente.LlenarGridCliente();
             }
-
         }
         private void LlenarGrid()
         {
@@ -58,6 +58,7 @@ namespace OFLP.Vistas
                     
                      gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
                     propietario = $"{db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).NOMBRE} {db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).PRIMERAPELLIDO}";
+                    item.ValorTotal =  db.FACTURA.Where(p=>p.consecutivo==item.NumeroFactura).Sum(x => x.valortotal);
 
                 }
                 
@@ -80,26 +81,6 @@ namespace OFLP.Vistas
             LblValorKilo.Text = string.Empty;
             LblValorTotal.Text = string.Empty;
         }
-        private void BtnEliminarHacienda_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Esta seguro que desea eliminar la Factura?", "Eliminar Factura", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-
-                string consecutivo = DtgFactura.Rows[DtgFactura.CurrentRow.Index].Cells[0].Value.ToString();
-
-                CtrlFactura ObjCtrlFactura = new CtrlFactura();
-
-                if (ObjCtrlFactura.EliminarFactura(consecutivo))
-                {
-                    LimpiarControles();
-                    ClsInicio.Factura.RemoveAll(c => c.NumeroFactura == Convert.ToDouble(consecutivo));
-                    DtgFactura.Rows.RemoveAt(DtgFactura.CurrentRow.Index);
-
-
-
-                }
-            }
-        }
         private void PicAgregarFactura_Click(object sender, EventArgs e)
         {
             FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
@@ -119,10 +100,15 @@ namespace OFLP.Vistas
                     form.ShowDialog();
                     break;
                 case "Eliminar":
-                    if (MessageBox.Show("Esta seguro que desea eliminar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (MessageBox.Show("Esta seguro que desea eliminar la factura?", "Eliminar Factura", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
                         CtrlFactura delFact = new CtrlFactura();
-                        delFact.EliminarFactura(idFactura);
+                        if (delFact.EliminarFactura(idFactura))
+                        {
+                            DtgFactura.Rows.Remove(DtgFactura.CurrentRow);
+                            MessageBox.Show("Factura eliminada correctamente","Eliminar Factura",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        }
+                        else MessageBox.Show("La factura no ha sido eliminada", "Eliminar Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     break;

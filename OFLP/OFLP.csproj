@@ -397,6 +397,7 @@
       <LastGenOutput>EntityModel.Context.cs</LastGenOutput>
       <DependentUpon>EntityModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Model\EntityModel.edmx.sql" />
     <Content Include="Model\EntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EntityModel.edmx</DependentUpon>

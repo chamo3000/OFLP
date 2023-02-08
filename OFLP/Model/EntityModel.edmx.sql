@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/15/2023 13:05:07
+-- Date Created: 02/08/2023 09:35:09
 -- Generated from EDMX file: H:\Salvados\Oficina LBP\Github\OFLP\OFLP\Model\EntityModel.edmx
 -- --------------------------------------------------
 
@@ -66,24 +66,6 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'ROL'
-CREATE TABLE [dbo].[ROL] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [ROL1] varchar(50)  NOT NULL
-);
-GO
-
--- Creating table 'USUARIO'
-CREATE TABLE [dbo].[USUARIO] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [USUARIO1] varchar(50)  NOT NULL,
-    [CONTRASENA] varchar(50)  NOT NULL,
-    [NOMBRE] varchar(50)  NOT NULL,
-    [APELLIDO] varchar(50)  NOT NULL,
-    [IDPERFIL] int  NOT NULL
-);
-GO
-
 -- Creating table 'CLASE'
 CREATE TABLE [dbo].[CLASE] (
     [id] int IDENTITY(1,1) NOT NULL,
@@ -143,6 +125,13 @@ CREATE TABLE [dbo].[GASTO] (
 );
 GO
 
+-- Creating table 'ROL'
+CREATE TABLE [dbo].[ROL] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [ROL1] varchar(50)  NOT NULL
+);
+GO
+
 -- Creating table 'SEXO'
 CREATE TABLE [dbo].[SEXO] (
     [id] int IDENTITY(1,1) NOT NULL,
@@ -151,21 +140,20 @@ CREATE TABLE [dbo].[SEXO] (
 );
 GO
 
+-- Creating table 'USUARIO'
+CREATE TABLE [dbo].[USUARIO] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [USUARIO1] varchar(50)  NOT NULL,
+    [CONTRASENA] varchar(50)  NOT NULL,
+    [NOMBRE] varchar(50)  NOT NULL,
+    [APELLIDO] varchar(50)  NOT NULL,
+    [IDPERFIL] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
-
--- Creating primary key on [ID] in table 'ROL'
-ALTER TABLE [dbo].[ROL]
-ADD CONSTRAINT [PK_ROL]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
-
--- Creating primary key on [ID] in table 'USUARIO'
-ALTER TABLE [dbo].[USUARIO]
-ADD CONSTRAINT [PK_USUARIO]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
 
 -- Creating primary key on [id] in table 'CLASE'
 ALTER TABLE [dbo].[CLASE]
@@ -179,10 +167,10 @@ ADD CONSTRAINT [PK_CLIENTE]
     PRIMARY KEY CLUSTERED ([CEDULA] ASC);
 GO
 
--- Creating primary key on [consecutivo] in table 'FACTURA'
+-- Creating primary key on [id] in table 'FACTURA'
 ALTER TABLE [dbo].[FACTURA]
 ADD CONSTRAINT [PK_FACTURA]
-    PRIMARY KEY CLUSTERED ([consecutivo] ASC);
+    PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
 -- Creating primary key on [id] in table 'GASTO'
@@ -191,30 +179,27 @@ ADD CONSTRAINT [PK_GASTO]
     PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
+-- Creating primary key on [ID] in table 'ROL'
+ALTER TABLE [dbo].[ROL]
+ADD CONSTRAINT [PK_ROL]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
 -- Creating primary key on [id] in table 'SEXO'
 ALTER TABLE [dbo].[SEXO]
 ADD CONSTRAINT [PK_SEXO]
     PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
+-- Creating primary key on [ID] in table 'USUARIO'
+ALTER TABLE [dbo].[USUARIO]
+ADD CONSTRAINT [PK_USUARIO]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
-
--- Creating foreign key on [IDPERFIL] in table 'USUARIO'
-ALTER TABLE [dbo].[USUARIO]
-ADD CONSTRAINT [FK_USUARIO_ROL]
-    FOREIGN KEY ([IDPERFIL])
-    REFERENCES [dbo].[ROL]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_USUARIO_ROL'
-CREATE INDEX [IX_FK_USUARIO_ROL]
-ON [dbo].[USUARIO]
-    ([IDPERFIL]);
-GO
 
 -- Creating foreign key on [claseID] in table 'FACTURA'
 ALTER TABLE [dbo].[FACTURA]
@@ -244,6 +229,21 @@ GO
 CREATE INDEX [IX_FK__FACTURA__cliente__2116E6DF]
 ON [dbo].[FACTURA]
     ([clienteID]);
+GO
+
+-- Creating foreign key on [compradorID] in table 'FACTURA'
+ALTER TABLE [dbo].[FACTURA]
+ADD CONSTRAINT [fk_Factura_Comprador]
+    FOREIGN KEY ([compradorID])
+    REFERENCES [dbo].[CLIENTE]
+        ([CEDULA])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'fk_Factura_Comprador'
+CREATE INDEX [IX_fk_Factura_Comprador]
+ON [dbo].[FACTURA]
+    ([compradorID]);
 GO
 
 -- Creating foreign key on [gastoID] in table 'FACTURA'
@@ -276,19 +276,19 @@ ON [dbo].[FACTURA]
     ([sexoID]);
 GO
 
--- Creating foreign key on [compradorID] in table 'FACTURA'
-ALTER TABLE [dbo].[FACTURA]
-ADD CONSTRAINT [fk_Factura_Comprador]
-    FOREIGN KEY ([compradorID])
-    REFERENCES [dbo].[CLIENTE]
-        ([CEDULA])
+-- Creating foreign key on [IDPERFIL] in table 'USUARIO'
+ALTER TABLE [dbo].[USUARIO]
+ADD CONSTRAINT [FK_USUARIO_ROL]
+    FOREIGN KEY ([IDPERFIL])
+    REFERENCES [dbo].[ROL]
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'fk_Factura_Comprador'
-CREATE INDEX [IX_fk_Factura_Comprador]
-ON [dbo].[FACTURA]
-    ([compradorID]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_USUARIO_ROL'
+CREATE INDEX [IX_FK_USUARIO_ROL]
+ON [dbo].[USUARIO]
+    ([IDPERFIL]);
 GO
 
 -- --------------------------------------------------

@@ -141,7 +141,14 @@ namespace OFLP.Modelo
                 using (MIGANEntities db = new MIGANEntities())
                 {
                     var delobj = db.FACTURA.Where(p => p.consecutivo == id).ToList();
-                    foreach (var factura in delobj)db.FACTURA.Remove(factura);
+                    foreach (var factura in delobj)
+                    {
+                        MGastos oGasto= new MGastos();
+                        db.FACTURA.Remove(factura);
+                        db.SaveChanges();
+                        oGasto.EliminarGasto(factura.gastoID);
+                    }
+                    return true;
                 }
             }
             catch (Exception ex)

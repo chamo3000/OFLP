@@ -444,8 +444,13 @@ namespace OFLP.Vistas
                 case "eliminar":
                     if (MessageBox.Show("Esta seguro que desea eliminar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        //CtrlFactura delFact = new CtrlFactura();
-                        //delFact.EliminarFactura(idFactura);
+                        CtrlFactura delFact = new CtrlFactura();
+                        if (delFact.EliminarFactura(IdFactura))
+                        {
+                            DtgDetalleFactura.Rows.Remove(DtgDetalleFactura.CurrentRow);
+                            MessageBox.Show("Factura eliminada correctamente", "Eliminar Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else MessageBox.Show("La factura no ha sido eliminada", "Eliminar Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     break;

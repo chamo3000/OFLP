@@ -57,7 +57,7 @@
   </EntityType>
   <EntityType Name="FACTURA">
     <Key>
-      <PropertyRef Name="consecutivo" />
+      <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="consecutivo" Type="Int32" Nullable="false" />
