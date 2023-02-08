@@ -49,6 +49,7 @@ namespace OFLP.Vistas
             DtgFactura.Rows.Clear();
             foreach (MFactura item in ClsInicio.Factura)
             {
+                
                 int gasto;
                 string propietario;
                 int IdFact = Convert.ToInt32(item.NumeroFactura);
@@ -56,13 +57,14 @@ namespace OFLP.Vistas
                 using (MIGANEntities db = new MIGANEntities())
                 {
                     
-                     gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
+                    gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
                     propietario = $"{db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).NOMBRE} {db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).PRIMERAPELLIDO}";
                     item.ValorTotal =  db.FACTURA.Where(p=>p.consecutivo==item.NumeroFactura).Sum(x => x.valortotal);
 
                 }
+ 
+                    DtgFactura.Rows.Add(item.NumeroFactura, item.Reunion, propietario, gasto.ToString(), Convert.ToInt32(item.ValorTotal).ToString("N") );
                 
-                DtgFactura.Rows.Add(item.NumeroFactura, item.Reunion, propietario, gasto.ToString(), Convert.ToInt32(item.ValorTotal).ToString("N") );
             }
 
         }
