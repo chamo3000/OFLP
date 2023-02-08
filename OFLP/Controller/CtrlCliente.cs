@@ -1,5 +1,6 @@
 ﻿using OFLP.Modelo;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OFLP.Controlador
 {
@@ -15,9 +16,11 @@ namespace OFLP.Controlador
         {
             MCliente oEquipo = new MCliente();
             List<MCliente> lstBusqueda = oEquipo.BuscarPropietario(datobusqueda);
-            if (lstBusqueda == null) return null;
+           if (lstBusqueda == null) return null;
             else return lstBusqueda;
+
         }
+
 
         public bool InsertarCliente(string[] DatosIngresar)
         {

@@ -12,6 +12,7 @@ namespace OFLP.Vistas
 {
     public partial class FrmFactura : Form
     {
+        private int idPropietario;
         public FrmFactura()
         {
             InitializeComponent();
@@ -51,12 +52,12 @@ namespace OFLP.Vistas
                 int gasto;
                 string propietario;
                 int IdFact = Convert.ToInt32(item.NumeroFactura);
-                int IdPropietario = Convert.ToInt32(item.PropietarioID);
+                idPropietario = Convert.ToInt32(item.PropietarioID);
                 using (MIGANEntities db = new MIGANEntities())
                 {
                     
                      gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
-                    propietario = $"{db.CLIENTE.FirstOrDefault(p => p.CEDULA == IdPropietario).NOMBRE} {db.CLIENTE.FirstOrDefault(p => p.CEDULA == IdPropietario).PRIMERAPELLIDO}";
+                    propietario = $"{db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).NOMBRE} {db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).PRIMERAPELLIDO}";
 
                 }
                 
@@ -105,5 +106,33 @@ namespace OFLP.Vistas
             f.Show();
         }
 
+        private void DtgFactura_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var opcion = DtgFactura.Columns[e.ColumnIndex].Name;
+            var idFactura = DtgFactura.Rows[DtgFactura.CurrentRow.Index].Cells[0].Value.ToString();
+            
+
+            switch (opcion)
+            {
+                case "Modificar":
+                    ActualizarFactura form = new ActualizarFactura(idFactura,idPropietario);
+                    form.ShowDialog();
+                    break;
+                case "Eliminar":
+                    if (MessageBox.Show("Esta seguro que desea eliminar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        CtrlFactura delFact = new CtrlFactura();
+                        delFact.EliminarFactura(idFactura);
+                    }
+
+                    break;
+                default:
+                    //lblApellidoUno.Text = dtgPropietario.CurrentRow.Cells[1].Value.ToString();
+                    //lblApellidoDos.Text = dtgPropietario.CurrentRow.Cells[2].Value.ToString();
+                    //lblNombre.Text = dtgPropietario.CurrentRow.Cells[3].Value.ToString();
+                    //lblCedula.Text = dtgPropietario.CurrentRow.Cells[4].Value.ToString();
+                    break;
+            }
+        }
     }
 }

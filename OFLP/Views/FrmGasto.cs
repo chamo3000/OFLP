@@ -41,7 +41,7 @@ namespace OFLP.Views
             GastosContoller objCtrlCliente = new GastosContoller(lstDatosIngresar);
             if (objCtrlCliente.InsertarGasto())
             {
-                MessageBox.Show("Cliente agregado exitosamente", "Agregar Gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Gasto agregado exitosamente", "Agregar Gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CtrlUtilidades.ImprimirLog("Gasto Agregado exitosamente");
                 this.Close();
             }

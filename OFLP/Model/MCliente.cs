@@ -57,6 +57,10 @@ namespace OFLP.Modelo
                            select cust).ToList();
             return lstBusqueda;
         }
+        //public ILookup<string,MCliente> BuscarPropietario(string datoBuscar)
+        //{
+        //    return (ILookup<string, MCliente>)ClsInicio.clientes.ToLookup(p => p.NombreCliente[datoBuscar.Length-1],p => p);
+        //}
         public bool InsertarCliente(string[] datos)
         {
             try

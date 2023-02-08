@@ -4,6 +4,7 @@ using OFLP.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,14 +19,11 @@ namespace OFLP.Vistas
         {
             InitializeComponent();
         }
-
         public void FrmCliente_Load(object sender, EventArgs e)
         {
             var @delegate = new delegadoLLenarGrid(LlenarGrid);
             new Task(() => this.label1.BeginInvoke(@delegate)).Start();
         }
-
-
         private void DtgPropietario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgPropietario.Columns[e.ColumnIndex].Name.Equals("Modificar"))
@@ -112,7 +110,10 @@ namespace OFLP.Vistas
 
         private void TxtBusquedaPropietario_TextChanged(object sender, EventArgs e)
         {
+            List<MCliente> lstBusqueda;
             Validar_Texto(txtBusquedaPropietario);
+            CtrlCliente objPropietario = new CtrlCliente();
+            lstBusqueda = objPropietario.BuscarPropietario(txtBusquedaPropietario.Text);
         }
 
         private void PicBuscarCliente_Click(object sender, EventArgs e)
@@ -161,7 +162,7 @@ namespace OFLP.Vistas
                 dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
             }
         }
-
+        
         private void PicAgregarCliente_Click(object sender, EventArgs e)
         {
             FrmAgregarCliente objfrmAgregarCliente = new FrmAgregarCliente(FrmPpal.TipoCliente);

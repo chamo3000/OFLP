@@ -113,12 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\clsInicio.cs" />
-    <Compile Include="Controller\ctrlBanco.cs" />
     <Compile Include="Controller\CtrlCliente.cs" />
-    <Compile Include="Controller\CtrlCuenta.cs" />
     <Compile Include="Controller\CtrlFactura.cs" />
     <Compile Include="Controller\CtrlGanado.cs" />
-    <Compile Include="Controller\ctrlHacienda.cs" />
     <Compile Include="Controller\CtrlSexo.cs" />
     <Compile Include="Controller\ctrlUsuario.cs" />
     <Compile Include="Controller\CtrlUtilidades.cs" />
@@ -152,12 +149,9 @@
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MGastos.cs" />
-    <Compile Include="Model\Banco.cs" />
     <Compile Include="Model\MCliente.cs" />
-    <Compile Include="Model\Cuenta.cs" />
     <Compile Include="Model\MFactura.cs" />
     <Compile Include="Model\Ganado.cs" />
-    <Compile Include="Model\Hacienda.cs" />
     <Compile Include="Model\ModSexo.cs" />
     <Compile Include="Model\MUsuario.cs" />
     <Compile Include="Model\ROL.cs">
@@ -169,35 +163,22 @@
     <Compile Include="Model\USUARIO.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\UtilidadesBd.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmAgregarCuenta.cs">
+    <Compile Include="Views\ActualizarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmAgregarCuenta.Designer.cs">
-      <DependentUpon>FrmAgregarCuenta.cs</DependentUpon>
+    <Compile Include="Views\ActualizarFactura.Designer.cs">
+      <DependentUpon>ActualizarFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmAgregarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmAgregarFactura.Designer.cs">
       <DependentUpon>FrmAgregarFactura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCuenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCuenta.Designer.cs">
-      <DependentUpon>FrmCuenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarBanco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarBanco.Designer.cs">
-      <DependentUpon>FrmActualizarBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmActualizarCliente.cs">
       <SubType>Form</SubType>
@@ -211,23 +192,11 @@
     <Compile Include="Views\FrmActualizarGanado.Designer.cs">
       <DependentUpon>FrmActualizarGanado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmActualizarHacienda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmActualizarHacienda.Designer.cs">
-      <DependentUpon>frmActualizarHacienda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmActualizaSexo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmActualizaSexo.Designer.cs">
       <DependentUpon>FrmActualizaSexo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmAgregarBanco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmAgregarBanco.Designer.cs">
-      <DependentUpon>FrmAgregarBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmAgregarCliente.cs">
       <SubType>Form</SubType>
@@ -241,23 +210,11 @@
     <Compile Include="Views\FrmAgregarGanado.Designer.cs">
       <DependentUpon>FrmAgregarGanado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmAgregarHacienda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmAgregarHacienda.Designer.cs">
-      <DependentUpon>frmAgregarHacienda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmAgregarSexo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmAgregarSexo.Designer.cs">
       <DependentUpon>FrmAgregarSexo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmBanco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmBanco.Designer.cs">
-      <DependentUpon>FrmBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmCliente.cs">
       <SubType>Form</SubType>
@@ -282,12 +239,6 @@
     </Compile>
     <Compile Include="Views\FrmGasto.Designer.cs">
       <DependentUpon>FrmGasto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\frmHaciendas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmHaciendas.Designer.cs">
-      <DependentUpon>frmHaciendas.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmPpal.cs">
       <SubType>Form</SubType>
@@ -315,17 +266,11 @@
     <Compile Include="Views\FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\FrmAgregarCuenta.resx">
-      <DependentUpon>FrmAgregarCuenta.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ActualizarFactura.resx">
+      <DependentUpon>ActualizarFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAgregarFactura.resx">
       <DependentUpon>FrmAgregarFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCuenta.resx">
-      <DependentUpon>FrmCuenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarBanco.resx">
-      <DependentUpon>FrmActualizarBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmActualizarCliente.resx">
       <DependentUpon>frmActualizarCliente.cs</DependentUpon>
@@ -333,14 +278,8 @@
     <EmbeddedResource Include="Views\FrmActualizarGanado.resx">
       <DependentUpon>FrmActualizarGanado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmActualizarHacienda.resx">
-      <DependentUpon>frmActualizarHacienda.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmActualizaSexo.resx">
       <DependentUpon>FrmActualizaSexo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmAgregarBanco.resx">
-      <DependentUpon>FrmAgregarBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmAgregarCliente.resx">
       <DependentUpon>frmAgregarCliente.cs</DependentUpon>
@@ -348,14 +287,8 @@
     <EmbeddedResource Include="Views\FrmAgregarGanado.resx">
       <DependentUpon>FrmAgregarGanado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmAgregarHacienda.resx">
-      <DependentUpon>frmAgregarHacienda.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAgregarSexo.resx">
       <DependentUpon>FrmAgregarSexo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBanco.resx">
-      <DependentUpon>FrmBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
@@ -371,9 +304,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmGasto.resx">
       <DependentUpon>FrmGasto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmHaciendas.resx">
-      <DependentUpon>frmHaciendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmPpal.resx">
       <DependentUpon>frmPpal.cs</DependentUpon>

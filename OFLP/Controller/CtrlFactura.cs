@@ -14,53 +14,34 @@ namespace OFLP.Controlador
         {
             MFactura oEquipo = new MFactura();
 
-
             if (!oEquipo.AgregarFactura(datos))
-            {
-                return false;
-            }
+            return false;
             else
-            {
-                return true;
-            }
-
+            return true;
         }
-
         public bool EliminarFactura(string consecutivo)
         {
             MFactura oEquipo = new MFactura();
 
-
             if (!oEquipo.Eliminarfactura(consecutivo))
-            {
-                return false;
-            }
+            return false;
             else
-            {
-                return true;
-            }
-
-
+            return true;
         }
-
-
         public bool LlenarGridFactura()
         {
             MFactura oEquipo = new MFactura();
 
-            if (!oEquipo.LlenarGrid())
-            {
-                return false;
-            }
-            else
-            {
-                //DataSet ds= oEquipo.dtModPropietario;
-                return true;
-            }
-
+            if (!oEquipo.LlenarGrid()) return false;
+            else return true;
         }
 
+        public bool LlenarGridFacturaActualizar(string consecutivo)
+        {
+            MFactura oEquipo = new MFactura();
 
-
+            if (!oEquipo.LlenarGridFacturaActualizar(consecutivo)) return false;
+            else return true;
+        }
     }
 }

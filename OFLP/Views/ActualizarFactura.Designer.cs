@@ -1,7 +1,7 @@
 ﻿
 namespace OFLP.Vistas
 {
-    partial class FrmAgregarFactura
+    partial class ActualizarFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,12 @@ namespace OFLP.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgregarFactura));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActualizarFactura));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.DtgAgregaFactura = new System.Windows.Forms.DataGridView();
+            this.DtgDetalleFactura = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.LblGasto = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.PnlAgregar = new System.Windows.Forms.Panel();
             this.txtKilos = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,10 +62,10 @@ namespace OFLP.Vistas
             this.button2 = new System.Windows.Forms.Button();
             this.btnTerminarGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LblPropietario = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.cmbHacienda = new System.Windows.Forms.ComboBox();
             this.CmbComprador = new System.Windows.Forms.ComboBox();
-            this.cmbPropietario = new System.Windows.Forms.ComboBox();
             this.dtpicFechaFactura = new System.Windows.Forms.DateTimePicker();
             this.lblReunion = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -82,19 +84,18 @@ namespace OFLP.Vistas
             this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claseAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.corralAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cabezasAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compradorAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilosAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ivaAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_kiloAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_totalAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.editarAgregaFactura = new System.Windows.Forms.DataGridViewImageColumn();
-            this.eliminarAgregaFactura = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_kilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgAgregaFactura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgDetalleFactura)).BeginInit();
             this.panel2.SuspendLayout();
             this.PnlAgregar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).BeginInit();
@@ -111,7 +112,7 @@ namespace OFLP.Vistas
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.DtgAgregaFactura);
+            this.panel1.Controls.Add(this.DtgDetalleFactura);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -119,33 +120,34 @@ namespace OFLP.Vistas
             this.panel1.Size = new System.Drawing.Size(944, 551);
             this.panel1.TabIndex = 0;
             // 
-            // DtgAgregaFactura
+            // DtgDetalleFactura
             // 
-            this.DtgAgregaFactura.AllowUserToAddRows = false;
-            this.DtgAgregaFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgAgregaFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.claseAgregaFactura,
-            this.corralAgregaFactura,
-            this.cabezasAgregaFactura,
-            this.sexoAgregaFactura,
-            this.compradorAgregaFactura,
-            this.kilosAgregaFactura,
-            this.ivaAgregaFactura,
-            this.valor_kiloAgregaFactura,
-            this.valor_totalAgregaFactura,
-            this.editarAgregaFactura,
-            this.eliminarAgregaFactura});
-            this.DtgAgregaFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DtgAgregaFactura.Location = new System.Drawing.Point(0, 351);
-            this.DtgAgregaFactura.Name = "DtgAgregaFactura";
-            this.DtgAgregaFactura.RowHeadersVisible = false;
-            this.DtgAgregaFactura.Size = new System.Drawing.Size(944, 200);
-            this.DtgAgregaFactura.TabIndex = 2;
-            this.DtgAgregaFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgAgregaFactura_CellClick);
+            this.DtgDetalleFactura.AllowUserToAddRows = false;
+            this.DtgDetalleFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgDetalleFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn5,
+            this.valor_kilo,
+            this.valor_total,
+            this.Modificar,
+            this.eliminar});
+            this.DtgDetalleFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DtgDetalleFactura.Location = new System.Drawing.Point(0, 351);
+            this.DtgDetalleFactura.Name = "DtgDetalleFactura";
+            this.DtgDetalleFactura.RowHeadersVisible = false;
+            this.DtgDetalleFactura.Size = new System.Drawing.Size(944, 200);
+            this.DtgDetalleFactura.TabIndex = 2;
+            this.DtgDetalleFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgDetalleFactura_CellClick);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.LblGasto);
+            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.PnlAgregar);
             this.panel2.Controls.Add(this.pnlBarraTitulo);
             this.panel2.Controls.Add(this.pictureBox3);
@@ -158,6 +160,28 @@ namespace OFLP.Vistas
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(944, 551);
             this.panel2.TabIndex = 1;
+            // 
+            // LblGasto
+            // 
+            this.LblGasto.AutoSize = true;
+            this.LblGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblGasto.ForeColor = System.Drawing.SystemColors.Window;
+            this.LblGasto.Location = new System.Drawing.Point(162, 263);
+            this.LblGasto.Name = "LblGasto";
+            this.LblGasto.Size = new System.Drawing.Size(77, 24);
+            this.LblGasto.TabIndex = 45;
+            this.LblGasto.Text = "label15";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.SystemColors.Window;
+            this.label15.Location = new System.Drawing.Point(14, 263);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(127, 24);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Gasto Total :";
             // 
             // PnlAgregar
             // 
@@ -189,7 +213,6 @@ namespace OFLP.Vistas
             this.txtKilos.Size = new System.Drawing.Size(58, 20);
             this.txtKilos.TabIndex = 7;
             this.txtKilos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtKilos.TextChanged += new System.EventHandler(this.TxtKilos_TextChanged);
             this.txtKilos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKilos_KeyPress);
             // 
             // label3
@@ -321,7 +344,6 @@ namespace OFLP.Vistas
             // 
             // TxtValorTotal
             // 
-            this.TxtValorTotal.Enabled = false;
             this.TxtValorTotal.Location = new System.Drawing.Point(595, 24);
             this.TxtValorTotal.Name = "TxtValorTotal";
             this.TxtValorTotal.Size = new System.Drawing.Size(136, 20);
@@ -473,10 +495,10 @@ namespace OFLP.Vistas
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LblPropietario);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.cmbHacienda);
             this.groupBox1.Controls.Add(this.CmbComprador);
-            this.groupBox1.Controls.Add(this.cmbPropietario);
             this.groupBox1.Controls.Add(this.dtpicFechaFactura);
             this.groupBox1.Controls.Add(this.lblReunion);
             this.groupBox1.Controls.Add(this.label10);
@@ -495,7 +517,16 @@ namespace OFLP.Vistas
             this.groupBox1.Size = new System.Drawing.Size(876, 151);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Agregar Factura";
+            this.groupBox1.Text = "Actualizar Factura";
+            // 
+            // LblPropietario
+            // 
+            this.LblPropietario.AutoSize = true;
+            this.LblPropietario.Location = new System.Drawing.Point(121, 78);
+            this.LblPropietario.Name = "LblPropietario";
+            this.LblPropietario.Size = new System.Drawing.Size(77, 24);
+            this.LblPropietario.TabIndex = 44;
+            this.LblPropietario.Text = "label15";
             // 
             // pictureBox5
             // 
@@ -531,22 +562,7 @@ namespace OFLP.Vistas
             this.CmbComprador.Name = "CmbComprador";
             this.CmbComprador.Size = new System.Drawing.Size(284, 28);
             this.CmbComprador.TabIndex = 2;
-            this.CmbComprador.Visible = false;
             this.CmbComprador.SelectedIndexChanged += new System.EventHandler(this.CmbComprador_SelectedIndexChanged);
-            this.CmbComprador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbPropietario_KeyPress);
-            // 
-            // cmbPropietario
-            // 
-            this.cmbPropietario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPropietario.FormattingEnabled = true;
-            this.cmbPropietario.ItemHeight = 20;
-            this.cmbPropietario.Location = new System.Drawing.Point(119, 77);
-            this.cmbPropietario.Name = "cmbPropietario";
-            this.cmbPropietario.Size = new System.Drawing.Size(284, 28);
-            this.cmbPropietario.TabIndex = 1;
-            this.cmbPropietario.SelectedIndexChanged += new System.EventHandler(this.CmbPropietario_SelectedIndexChanged);
-            this.cmbPropietario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbPropietario_KeyPress);
             // 
             // dtpicFechaFactura
             // 
@@ -557,7 +573,6 @@ namespace OFLP.Vistas
             this.dtpicFechaFactura.Size = new System.Drawing.Size(150, 26);
             this.dtpicFechaFactura.TabIndex = 0;
             this.dtpicFechaFactura.ValueChanged += new System.EventHandler(this.DtpicFechaFactura_ValueChanged);
-            this.dtpicFechaFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DateTimePicker1_KeyPress);
             // 
             // lblReunion
             // 
@@ -724,91 +739,85 @@ namespace OFLP.Vistas
             this.kilo.Name = "kilo";
             this.kilo.ReadOnly = true;
             // 
-            // claseAgregaFactura
+            // dataGridViewTextBoxColumn1
             // 
-            this.claseAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.claseAgregaFactura.FillWeight = 50F;
-            this.claseAgregaFactura.HeaderText = "CLASE";
-            this.claseAgregaFactura.Name = "claseAgregaFactura";
-            this.claseAgregaFactura.ReadOnly = true;
-            this.claseAgregaFactura.Width = 66;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "CLASE";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 66;
             // 
-            // corralAgregaFactura
+            // dataGridViewTextBoxColumn2
             // 
-            this.corralAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.corralAgregaFactura.HeaderText = "CORRAL";
-            this.corralAgregaFactura.Name = "corralAgregaFactura";
-            this.corralAgregaFactura.ReadOnly = true;
-            this.corralAgregaFactura.Width = 76;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn2.HeaderText = "CORRAL";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 76;
             // 
-            // cabezasAgregaFactura
+            // dataGridViewTextBoxColumn3
             // 
-            this.cabezasAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cabezasAgregaFactura.HeaderText = "CABEZAS";
-            this.cabezasAgregaFactura.Name = "cabezasAgregaFactura";
-            this.cabezasAgregaFactura.ReadOnly = true;
-            this.cabezasAgregaFactura.Width = 81;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.HeaderText = "CABEZAS";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 81;
             // 
-            // sexoAgregaFactura
+            // dataGridViewTextBoxColumn4
             // 
-            this.sexoAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.sexoAgregaFactura.HeaderText = "SEXO";
-            this.sexoAgregaFactura.Name = "sexoAgregaFactura";
-            this.sexoAgregaFactura.ReadOnly = true;
-            this.sexoAgregaFactura.Width = 61;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.HeaderText = "SEXO";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 61;
             // 
-            // compradorAgregaFactura
+            // dataGridViewTextBoxColumn6
             // 
-            this.compradorAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.compradorAgregaFactura.HeaderText = "COMPRADOR";
-            this.compradorAgregaFactura.Name = "compradorAgregaFactura";
-            this.compradorAgregaFactura.ReadOnly = true;
-            this.compradorAgregaFactura.Width = 102;
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn6.HeaderText = "COMPRADOR";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 102;
             // 
-            // kilosAgregaFactura
+            // dataGridViewTextBoxColumn5
             // 
-            this.kilosAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kilosAgregaFactura.HeaderText = "KILOS";
-            this.kilosAgregaFactura.Name = "kilosAgregaFactura";
-            this.kilosAgregaFactura.ReadOnly = true;
-            this.kilosAgregaFactura.Width = 63;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn5.HeaderText = "KILOS";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 63;
             // 
-            // ivaAgregaFactura
+            // valor_kilo
             // 
-            this.ivaAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ivaAgregaFactura.HeaderText = "IVA";
-            this.ivaAgregaFactura.Name = "ivaAgregaFactura";
-            this.ivaAgregaFactura.ReadOnly = true;
-            this.ivaAgregaFactura.Visible = false;
-            this.ivaAgregaFactura.Width = 49;
+            this.valor_kilo.HeaderText = "VALOR KILO";
+            this.valor_kilo.Name = "valor_kilo";
+            this.valor_kilo.ReadOnly = true;
             // 
-            // valor_kiloAgregaFactura
+            // valor_total
             // 
-            this.valor_kiloAgregaFactura.HeaderText = "VALOR KILO";
-            this.valor_kiloAgregaFactura.Name = "valor_kiloAgregaFactura";
+            this.valor_total.HeaderText = "VALOR TOTAL";
+            this.valor_total.Name = "valor_total";
             // 
-            // valor_totalAgregaFactura
+            // Modificar
             // 
-            this.valor_totalAgregaFactura.HeaderText = "VALOR TOTAL";
-            this.valor_totalAgregaFactura.Name = "valor_totalAgregaFactura";
+            this.Modificar.HeaderText = "EDITAR";
+            this.Modificar.Image = global::OFLP.Properties.Resources.edit;
+            this.Modificar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Modificar.Name = "Modificar";
+            this.Modificar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Modificar.Width = 52;
             // 
-            // editarAgregaFactura
+            // eliminar
             // 
-            this.editarAgregaFactura.HeaderText = "EDITAR";
-            this.editarAgregaFactura.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.editarAgregaFactura.Name = "editarAgregaFactura";
-            this.editarAgregaFactura.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.editarAgregaFactura.Width = 52;
+            this.eliminar.HeaderText = "ELIMINAR";
+            this.eliminar.Image = global::OFLP.Properties.Resources.eliminar;
+            this.eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.eliminar.Name = "eliminar";
+            this.eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.eliminar.Width = 62;
             // 
-            // eliminarAgregaFactura
-            // 
-            this.eliminarAgregaFactura.HeaderText = "ELIMINAR";
-            this.eliminarAgregaFactura.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.eliminarAgregaFactura.Name = "eliminarAgregaFactura";
-            this.eliminarAgregaFactura.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.eliminarAgregaFactura.Width = 62;
-            // 
-            // FrmAgregarFactura
+            // ActualizarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -816,13 +825,14 @@ namespace OFLP.Vistas
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmAgregarFactura";
+            this.Name = "ActualizarFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar nueva factura";
-            this.Load += new System.EventHandler(this.FrmAgregarFactura_Load);
+            this.Load += new System.EventHandler(this.ActualizarFactura_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgAgregaFactura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgDetalleFactura)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.PnlAgregar.ResumeLayout(false);
             this.PnlAgregar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).EndInit();
@@ -846,8 +856,6 @@ namespace OFLP.Vistas
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbHacienda;
-        private System.Windows.Forms.ComboBox cmbPropietario;
-        private System.Windows.Forms.DateTimePicker dtpicFechaFactura;
         private System.Windows.Forms.Label lblReunion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
@@ -884,7 +892,6 @@ namespace OFLP.Vistas
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.ComboBox CmbComprador;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel PnlAgregar;
         private System.Windows.Forms.DataGridViewTextBoxColumn clase;
@@ -893,17 +900,21 @@ namespace OFLP.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn sexo;
         private System.Windows.Forms.DataGridViewTextBoxColumn comprador;
         private System.Windows.Forms.DataGridViewTextBoxColumn kilo;
-        private System.Windows.Forms.DataGridView DtgAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn claseAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn corralAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cabezasAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexoAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn compradorAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kilosAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ivaAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_kiloAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_totalAgregaFactura;
-        private System.Windows.Forms.DataGridViewImageColumn editarAgregaFactura;
-        private System.Windows.Forms.DataGridViewImageColumn eliminarAgregaFactura;
+        private System.Windows.Forms.DataGridView DtgDetalleFactura;
+        private System.Windows.Forms.DateTimePicker dtpicFechaFactura;
+        private System.Windows.Forms.Label LblPropietario;
+        private System.Windows.Forms.ComboBox CmbComprador;
+        private System.Windows.Forms.Label LblGasto;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor_kilo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor_total;
+        private System.Windows.Forms.DataGridViewImageColumn Modificar;
+        private System.Windows.Forms.DataGridViewImageColumn eliminar;
     }
 }

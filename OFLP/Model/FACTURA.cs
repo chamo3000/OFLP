@@ -17,7 +17,7 @@ namespace OFLP.Model
         public int id { get; set; }
         public int consecutivo { get; set; }
         public int reunion { get; set; }
-        public System.DateTime fecha { get; set; }
+        public DateTime fecha { get; set; }
         public int cabezas { get; set; }
         public Nullable<int> corral { get; set; }
         public int kilos { get; set; }

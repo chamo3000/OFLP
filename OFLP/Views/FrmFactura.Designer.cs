@@ -31,6 +31,13 @@ namespace OFLP.Vistas
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.DtgFactura = new System.Windows.Forms.DataGridView();
+            this.idFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reunion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.propietario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gastos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlConfiguraHacienda = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.PicAgregarFactura = new System.Windows.Forms.PictureBox();
@@ -66,13 +73,6 @@ namespace OFLP.Vistas
             this.label2 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.idFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reunion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.propietario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gastos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
             this.pnlConfiguraHacienda.SuspendLayout();
@@ -111,6 +111,61 @@ namespace OFLP.Vistas
             this.DtgFactura.RowHeadersVisible = false;
             this.DtgFactura.Size = new System.Drawing.Size(1182, 108);
             this.DtgFactura.TabIndex = 7;
+            this.DtgFactura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgFactura_CellClick);
+            // 
+            // idFactura
+            // 
+            this.idFactura.HeaderText = "NUMERO FACTURA";
+            this.idFactura.Name = "idFactura";
+            this.idFactura.ReadOnly = true;
+            this.idFactura.Width = 122;
+            // 
+            // reunion
+            // 
+            this.reunion.HeaderText = "REUNION";
+            this.reunion.Name = "reunion";
+            this.reunion.ReadOnly = true;
+            this.reunion.Width = 82;
+            // 
+            // propietario
+            // 
+            this.propietario.HeaderText = "PROPIETARIO";
+            this.propietario.Name = "propietario";
+            this.propietario.ReadOnly = true;
+            this.propietario.Width = 105;
+            // 
+            // Gastos
+            // 
+            this.Gastos.HeaderText = "GASTOS";
+            this.Gastos.Name = "Gastos";
+            this.Gastos.ReadOnly = true;
+            this.Gastos.Width = 76;
+            // 
+            // valortotal
+            // 
+            this.valortotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valortotal.HeaderText = "VALOR TOTAL";
+            this.valortotal.Name = "valortotal";
+            this.valortotal.ReadOnly = true;
+            this.valortotal.Width = 97;
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "MODIFICAR";
+            this.Modificar.Image = global::OFLP.Properties.Resources.edit;
+            this.Modificar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            this.Modificar.Width = 72;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "ELIMINAR";
+            this.Eliminar.Image = global::OFLP.Properties.Resources.eliminar;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 64;
             // 
             // pnlConfiguraHacienda
             // 
@@ -525,60 +580,6 @@ namespace OFLP.Vistas
             this.label1.Size = new System.Drawing.Size(134, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Número Fatura:";
-            // 
-            // idFactura
-            // 
-            this.idFactura.HeaderText = "NUMERO FACTURA";
-            this.idFactura.Name = "idFactura";
-            this.idFactura.ReadOnly = true;
-            this.idFactura.Width = 122;
-            // 
-            // reunion
-            // 
-            this.reunion.HeaderText = "REUNION";
-            this.reunion.Name = "reunion";
-            this.reunion.ReadOnly = true;
-            this.reunion.Width = 82;
-            // 
-            // propietario
-            // 
-            this.propietario.HeaderText = "PROPIETARIO";
-            this.propietario.Name = "propietario";
-            this.propietario.ReadOnly = true;
-            this.propietario.Width = 105;
-            // 
-            // Gastos
-            // 
-            this.Gastos.HeaderText = "GASTOS";
-            this.Gastos.Name = "Gastos";
-            this.Gastos.ReadOnly = true;
-            this.Gastos.Width = 76;
-            // 
-            // valortotal
-            // 
-            this.valortotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.valortotal.HeaderText = "VALOR TOTAL";
-            this.valortotal.Name = "valortotal";
-            this.valortotal.ReadOnly = true;
-            this.valortotal.Width = 97;
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "MODIFICAR";
-            this.Modificar.Image = global::OFLP.Properties.Resources.edit;
-            this.Modificar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
-            this.Modificar.Width = 72;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "ELIMINAR";
-            this.Eliminar.Image = global::OFLP.Properties.Resources.eliminar;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 64;
             // 
             // FrmFactura
             // 

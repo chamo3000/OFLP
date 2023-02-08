@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace OFLP.Modelo
 {
@@ -33,7 +34,6 @@ namespace OFLP.Modelo
 
         public bool AgregarFactura(List<FACTURA> datos)
         {
-            
             try
             {
                 using (MIGANEntities db = new MIGANEntities())
@@ -49,7 +49,6 @@ namespace OFLP.Modelo
                 CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
                 return false;
             }
-            
         }
 
         public bool LlenarGrid()
@@ -89,33 +88,67 @@ namespace OFLP.Modelo
                 return false;
             }
         }
-        public bool Eliminarfactura(string consecutivo)
+
+        public bool LlenarGridFacturaActualizar(string consecutivo)
         {
-            bool rslt = false;
-            UtilidadesBd oBd = new UtilidadesBd();
-
-            if (oBd.AbrirConexion())
+            try
             {
-                try
+                int consec = Convert.ToInt32(consecutivo);
+                ClsInicio.FacturaActualizar.Clear();
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    SqlCommand command = new SqlCommand(oBd.Definirquery("EliminarFactura"), oBd.Con);
-
-                    command.Parameters.AddWithValue("@consecutivo", consecutivo);
-
-                    Int32 rowsAffected = command.ExecuteNonQuery();
-                    oBd.CerrarConexion();
-                    if (rowsAffected > 0)
+                    var lstFacturaActualizar = db.FACTURA.SqlQuery($"Select * from FACTURA where consecutivo={consecutivo}").ToList();
+                    foreach (var oFactura in lstFacturaActualizar)
                     {
-
-                        rslt = true;
+                        ClsInicio.FacturaActualizar.Add(new MFactura()
+                        {
+                            NumeroFactura = Convert.ToInt32(oFactura.consecutivo),
+                            Reunion = oFactura.reunion,
+                            Fecha = oFactura.fecha,
+                            PropietarioID = oFactura.clienteID,
+                            Propietario = $"{oFactura.CLIENTE.NOMBRE} {oFactura.CLIENTE.PRIMERAPELLIDO}",
+                            ClaseID = oFactura.claseID,
+                            Clase=oFactura.CLASE.descripcion,
+                            Corral = (int)oFactura.corral,
+                            Cabezas = (int)oFactura.cabezas,
+                            SexoID = oFactura.sexoID,
+                            Sexo=oFactura.SEXO.descripcion,
+                            CompradorID = oFactura.compradorID,
+                            Comprador = $"{oFactura.CLIENTE1.NOMBRE} {oFactura.CLIENTE1.PRIMERAPELLIDO}",
+                            Kilos = oFactura.kilos,
+                            ValorKilo = oFactura.valorkilo,
+                            ValorTotal = oFactura.valortotal,
+                            GastoID = oFactura.gastoID,
+                            Gasto=oFactura.GASTO.Total
+                            
+                        });
                     }
                 }
-                catch (Exception ex)
+                return true;
+            }
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
+        }
+        public bool Eliminarfactura(string consecutivo)
+        {
+            int id = Convert.ToInt32(consecutivo);
+            try
+            {
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    Console.WriteLine(ex.Message);
+                    var delobj = db.FACTURA.Where(p => p.consecutivo == id).ToList();
+                    foreach (var factura in delobj)db.FACTURA.Remove(factura);
                 }
             }
-            return rslt;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
         }
 
 

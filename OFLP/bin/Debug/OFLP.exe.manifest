@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="OFLP.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="OFLP" version="12.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="OFLP" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="OFLP.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OFLP.exe" size="1487360">
-      <assemblyIdentity name="OFLP" version="12.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OFLP.exe" size="1420288">
+      <assemblyIdentity name="OFLP" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>h4Z7JLDEP+CeUYAR9mhSxd7P/UVNDYAcrAxzSshISAM=</dsig:DigestValue>
+        <dsig:DigestValue>KjNnFG03nlfH8fE6jiJMka3IuBcJwuPaUmvKZKqkpDY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -299,13 +299,13 @@
       <dsig:DigestValue>lVORLrWZZ2zaQcs8CsA9k6l/rOLraXyZgdVf1DIbB3c=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="OFLP.exe.config" size="5090">
+  <file name="OFLP.exe.config" size="4721">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>MzMWG0nZBUnHqWNln1wdTSlNjYuhHAGPNGLjOwGeggY=</dsig:DigestValue>
+      <dsig:DigestValue>F+VW+KpWz23U6/AS/9q4wwzYe6CU3qJ+Q3YokUzdPZ4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\FACTBYA.png" size="18467">
