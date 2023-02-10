@@ -51,6 +51,47 @@ namespace OFLP.Modelo
             }
         }
 
+        public bool ActualizarFactura(List<FACTURA> datos, int index)
+        {
+            DateTime fecha= datos[index].fecha;
+            int idcomprador = Convert.ToInt32(datos[index].consecutivo);
+            int reunion = Convert.ToInt32(datos[index].reunion);
+            int cabezas = Convert.ToInt32(datos[index].cabezas);
+            int corral = Convert.ToInt32(datos[index].corral);
+            int valorT = Convert.ToInt32(datos[index].valortotal);
+            int claseId = Convert.ToInt32(datos[index].claseID);
+            int sexoId = Convert.ToInt32(datos[index].sexoID);
+            int gastoId = Convert.ToInt32(datos[index].gastoID);
+            try
+            {
+                using (MIGANEntities db = new MIGANEntities())
+                {
+                    FACTURA oFactura = db.FACTURA.Where(d => d.compradorID == idcomprador 
+                    && d.reunion==reunion 
+                    && d.cabezas==cabezas
+                    && d.corral==corral
+                    && d.valortotal==valorT
+                    && d.claseID==claseId
+                    && d.sexoID==sexoId
+                    && d.gastoID==gastoId).First();
+
+                    //oCliente.CEDULA = Convert.ToInt32(datos[0]);
+                    //oCliente.PRIMERAPELLIDO = datos[1];
+                    //oCliente.SEGUNDOAPELLIDO = datos[2];
+                    //oCliente.NOMBRE = datos[3];
+                    db.Entry(oFactura).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception err)
+            {
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.Message);
+                CtrlUtilidades.ImprimirLog("ERROR ---------------> " + err.StackTrace);
+                return false;
+            }
+        }
+
         public bool LlenarGrid()
         {
             try

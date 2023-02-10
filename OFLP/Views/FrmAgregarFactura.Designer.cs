@@ -38,7 +38,6 @@ namespace OFLP.Vistas
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.PicAgregar = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,14 +52,9 @@ namespace OFLP.Vistas
             this.txtCorral = new System.Windows.Forms.TextBox();
             this.txtCabezas = new System.Windows.Forms.TextBox();
             this.pnlBarraTitulo = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.picAceptar = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnTerminarGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.cmbHacienda = new System.Windows.Forms.ComboBox();
             this.CmbComprador = new System.Windows.Forms.ComboBox();
             this.cmbPropietario = new System.Windows.Forms.ComboBox();
@@ -75,18 +69,24 @@ namespace OFLP.Vistas
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.clase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.corral = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cabezas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PicAgregar = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picAceptar = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.claseAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.corralAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cabezasAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexoAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compradorAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.compradorActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilosAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ivaAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor_kiloAgregaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,14 +97,14 @@ namespace OFLP.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.DtgAgregaFactura)).BeginInit();
             this.panel2.SuspendLayout();
             this.PnlAgregar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).BeginInit();
             this.GrpIva.SuspendLayout();
             this.pnlBarraTitulo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAceptar)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +128,7 @@ namespace OFLP.Vistas
             this.corralAgregaFactura,
             this.cabezasAgregaFactura,
             this.sexoAgregaFactura,
-            this.compradorAgregaFactura,
+            this.compradorActualizaFactura,
             this.kilosAgregaFactura,
             this.ivaAgregaFactura,
             this.valor_kiloAgregaFactura,
@@ -225,18 +225,6 @@ namespace OFLP.Vistas
             this.label5.TabIndex = 1;
             this.label5.Text = "Cabezas";
             // 
-            // PicAgregar
-            // 
-            this.PicAgregar.Image = global::OFLP.Properties.Resources.Agregar;
-            this.PicAgregar.Location = new System.Drawing.Point(833, 14);
-            this.PicAgregar.Name = "PicAgregar";
-            this.PicAgregar.Size = new System.Drawing.Size(36, 33);
-            this.PicAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicAgregar.TabIndex = 7;
-            this.PicAgregar.TabStop = false;
-            this.PicAgregar.Visible = false;
-            this.PicAgregar.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -283,6 +271,7 @@ namespace OFLP.Vistas
             this.GrpIva.TabIndex = 5;
             this.GrpIva.TabStop = false;
             this.GrpIva.Text = "IVA";
+            this.GrpIva.Visible = false;
             // 
             // chkNoIva
             // 
@@ -389,50 +378,6 @@ namespace OFLP.Vistas
             this.pnlBarraTitulo.Size = new System.Drawing.Size(944, 33);
             this.pnlBarraTitulo.TabIndex = 47;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox6.Image = global::OFLP.Properties.Resources.FACTBYA_Icono;
-            this.pictureBox6.Location = new System.Drawing.Point(851, 0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(93, 33);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 44;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(37, 31);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 42;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::OFLP.Properties.Resources.cancelar;
-            this.pictureBox3.Location = new System.Drawing.Point(537, 303);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(45, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
-            // picAceptar
-            // 
-            this.picAceptar.Image = ((System.Drawing.Image)(resources.GetObject("picAceptar.Image")));
-            this.picAceptar.Location = new System.Drawing.Point(18, 302);
-            this.picAceptar.Name = "picAceptar";
-            this.picAceptar.Size = new System.Drawing.Size(46, 40);
-            this.picAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picAceptar.TabIndex = 8;
-            this.picAceptar.TabStop = false;
-            this.picAceptar.Visible = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -496,18 +441,6 @@ namespace OFLP.Vistas
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar Factura";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(595, 49);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(99, 79);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 43;
-            this.pictureBox5.TabStop = false;
             // 
             // cmbHacienda
             // 
@@ -672,15 +605,6 @@ namespace OFLP.Vistas
             this.label2.TabIndex = 1;
             this.label2.Text = "Reunion:";
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::OFLP.Properties.Resources.editar;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
             // clase
             // 
             this.clase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -724,6 +648,83 @@ namespace OFLP.Vistas
             this.kilo.Name = "kilo";
             this.kilo.ReadOnly = true;
             // 
+            // PicAgregar
+            // 
+            this.PicAgregar.Image = global::OFLP.Properties.Resources.Agregar;
+            this.PicAgregar.Location = new System.Drawing.Point(833, 14);
+            this.PicAgregar.Name = "PicAgregar";
+            this.PicAgregar.Size = new System.Drawing.Size(36, 33);
+            this.PicAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicAgregar.TabIndex = 7;
+            this.PicAgregar.TabStop = false;
+            this.PicAgregar.Visible = false;
+            this.PicAgregar.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox6.Image = global::OFLP.Properties.Resources.FACTBYA_Icono;
+            this.pictureBox6.Location = new System.Drawing.Point(851, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(93, 33);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 44;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 42;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::OFLP.Properties.Resources.cancelar;
+            this.pictureBox3.Location = new System.Drawing.Point(537, 303);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(45, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            // 
+            // picAceptar
+            // 
+            this.picAceptar.Image = ((System.Drawing.Image)(resources.GetObject("picAceptar.Image")));
+            this.picAceptar.Location = new System.Drawing.Point(18, 302);
+            this.picAceptar.Name = "picAceptar";
+            this.picAceptar.Size = new System.Drawing.Size(46, 40);
+            this.picAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAceptar.TabIndex = 8;
+            this.picAceptar.TabStop = false;
+            this.picAceptar.Visible = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(595, 49);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(99, 79);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 43;
+            this.pictureBox5.TabStop = false;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::OFLP.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
             // claseAgregaFactura
             // 
             this.claseAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -757,13 +758,13 @@ namespace OFLP.Vistas
             this.sexoAgregaFactura.ReadOnly = true;
             this.sexoAgregaFactura.Width = 61;
             // 
-            // compradorAgregaFactura
+            // compradorActualizaFactura
             // 
-            this.compradorAgregaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.compradorAgregaFactura.HeaderText = "COMPRADOR";
-            this.compradorAgregaFactura.Name = "compradorAgregaFactura";
-            this.compradorAgregaFactura.ReadOnly = true;
-            this.compradorAgregaFactura.Width = 102;
+            this.compradorActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.compradorActualizaFactura.HeaderText = "COMPRADOR";
+            this.compradorActualizaFactura.Name = "compradorActualizaFactura";
+            this.compradorActualizaFactura.ReadOnly = true;
+            this.compradorActualizaFactura.Width = 102;
             // 
             // kilosAgregaFactura
             // 
@@ -825,16 +826,16 @@ namespace OFLP.Vistas
             this.panel2.ResumeLayout(false);
             this.PnlAgregar.ResumeLayout(false);
             this.PnlAgregar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).EndInit();
             this.GrpIva.ResumeLayout(false);
             this.GrpIva.PerformLayout();
             this.pnlBarraTitulo.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAceptar)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
@@ -898,7 +899,7 @@ namespace OFLP.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn corralAgregaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn cabezasAgregaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoAgregaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn compradorAgregaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn compradorActualizaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn kilosAgregaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn ivaAgregaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor_kiloAgregaFactura;

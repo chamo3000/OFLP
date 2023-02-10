@@ -392,6 +392,7 @@
     <None Include="img\edit.jpg" />
     <None Include="img\eliminar.png" />
     <None Include="img\arhimicrostok170802891.jpg" />
+    <None Include="img\update.png" />
     <Content Include="Model\EntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntityModel.Context.cs</LastGenOutput>

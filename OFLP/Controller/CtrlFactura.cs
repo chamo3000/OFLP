@@ -19,6 +19,16 @@ namespace OFLP.Controlador
             else
             return true;
         }
+
+        public bool ActualizarFactura(List<FACTURA> datos,int index)
+        {
+            MFactura oEquipo = new MFactura();
+
+            if (!oEquipo.ActualizarFactura(datos,index))
+                return false;
+            else
+                return true;
+        }
         public bool EliminarFactura(string consecutivo)
         {
             MFactura oEquipo = new MFactura();

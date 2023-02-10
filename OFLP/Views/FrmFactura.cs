@@ -2,6 +2,7 @@
 using OFLP.Model;
 using OFLP.Modelo;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
@@ -33,7 +34,6 @@ namespace OFLP.Vistas
             CtrlCliente ObjCliente = new CtrlCliente();
             if (ClsInicio.clientes.Count == 0)
             {
-                
                 ObjCliente.LlenarGridCliente();
             }
         }
@@ -49,25 +49,56 @@ namespace OFLP.Vistas
             DtgFactura.Rows.Clear();
             foreach (MFactura item in ClsInicio.Factura)
             {
-                
                 int gasto;
                 string propietario;
                 int IdFact = Convert.ToInt32(item.NumeroFactura);
                 idPropietario = Convert.ToInt32(item.PropietarioID);
                 using (MIGANEntities db = new MIGANEntities())
                 {
-                    
                     gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
                     propietario = $"{db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).NOMBRE} {db.CLIENTE.FirstOrDefault(p => p.CEDULA == idPropietario).PRIMERAPELLIDO}";
                     item.ValorTotal =  db.FACTURA.Where(p=>p.consecutivo==item.NumeroFactura).Sum(x => x.valortotal);
+                }
+                var factExist = BuscarLINQ(IdFact.ToString(), "idFactura", DtgFactura);
+                if(!factExist)DtgFactura.Rows.Add(item.NumeroFactura, item.Reunion, propietario, gasto.ToString(), Convert.ToInt32(item.ValorTotal).ToString("N") );
+            }
+            DtgFactura.ClearSelection();
+        }
+
+        private bool BuscarLINQ(string TextoABuscar, string Columna, DataGridView grid)
+        {
+            
+                bool encontrado = false;
+                if (TextoABuscar == string.Empty) return false;
+                if (grid.RowCount == 0) return false;
+                grid.ClearSelection();
+                if (Columna == string.Empty)
+                {
+                    IEnumerable<DataGridViewRow> obj = (from DataGridViewRow row in grid.Rows.Cast<DataGridViewRow>()
+                                                        from DataGridViewCell cells in row.Cells
+                                                        where cells.OwningRow.Equals(row) && cells.Value.ToString() == TextoABuscar
+                                                        select row);
+                    if (obj.Any())
+                    {
+                        grid.Rows[obj.FirstOrDefault().Index].Selected = true;
+                        return true;
+                    }
+                }
+                else
+                {
+                    IEnumerable<DataGridViewRow> obj = (from DataGridViewRow row in grid.Rows.Cast<DataGridViewRow>()
+                                                        where row.Cells[Columna].Value.ToString() == TextoABuscar
+                                                        select row);
+                    if (obj.Any())
+                    {
+                        grid.Rows[obj.FirstOrDefault().Index].Selected = true;
+                        return true;
+                    }
 
                 }
- 
-                    DtgFactura.Rows.Add(item.NumeroFactura, item.Reunion, propietario, gasto.ToString(), Convert.ToInt32(item.ValorTotal).ToString("N") );
-                
-            }
+                return encontrado;
 
-        }
+            }
         private void LimpiarControles()
         {
             LblNumFactura.Text = string.Empty;
@@ -98,7 +129,7 @@ namespace OFLP.Vistas
             switch (opcion)
             {
                 case "Modificar":
-                    ActualizarFactura form = new ActualizarFactura(idFactura,idPropietario);
+                    ActualizarFactura form = new ActualizarFactura(DtgFactura, idFactura,idPropietario,e.RowIndex);
                     form.ShowDialog();
                     break;
                 case "Eliminar":

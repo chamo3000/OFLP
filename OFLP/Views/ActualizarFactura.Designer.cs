@@ -40,7 +40,6 @@ namespace OFLP.Vistas
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.PicAgregar = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,15 +54,10 @@ namespace OFLP.Vistas
             this.txtCorral = new System.Windows.Forms.TextBox();
             this.txtCabezas = new System.Windows.Forms.TextBox();
             this.pnlBarraTitulo = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.picAceptar = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnTerminarGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LblPropietario = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.cmbHacienda = new System.Windows.Forms.ComboBox();
             this.CmbComprador = new System.Windows.Forms.ComboBox();
             this.dtpicFechaFactura = new System.Windows.Forms.DateTimePicker();
@@ -77,35 +71,42 @@ namespace OFLP.Vistas
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.clase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.corral = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cabezas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_kilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PicAgregar = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picAceptar = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.claseActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.corralActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cabezasActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.compradorActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kilosActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_kiloActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_totalActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
             this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDetalleFactura)).BeginInit();
             this.panel2.SuspendLayout();
             this.PnlAgregar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).BeginInit();
             this.GrpIva.SuspendLayout();
             this.pnlBarraTitulo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAceptar)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,14 +126,14 @@ namespace OFLP.Vistas
             this.DtgDetalleFactura.AllowUserToAddRows = false;
             this.DtgDetalleFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgDetalleFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn5,
-            this.valor_kilo,
-            this.valor_total,
+            this.claseActualizaFactura,
+            this.corralActualizaFactura,
+            this.cabezasActualizaFactura,
+            this.sexoActualizaFactura,
+            this.compradorActualizaFactura,
+            this.kilosActualizaFactura,
+            this.valor_kiloActualizaFactura,
+            this.valor_totalActualizaFactura,
             this.Modificar,
             this.eliminar});
             this.DtgDetalleFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -213,6 +214,7 @@ namespace OFLP.Vistas
             this.txtKilos.Size = new System.Drawing.Size(58, 20);
             this.txtKilos.TabIndex = 7;
             this.txtKilos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtKilos.TextChanged += new System.EventHandler(this.txtKilos_TextChanged);
             this.txtKilos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKilos_KeyPress);
             // 
             // label3
@@ -247,18 +249,6 @@ namespace OFLP.Vistas
             this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Cabezas";
-            // 
-            // PicAgregar
-            // 
-            this.PicAgregar.Image = global::OFLP.Properties.Resources.Agregar;
-            this.PicAgregar.Location = new System.Drawing.Point(833, 14);
-            this.PicAgregar.Name = "PicAgregar";
-            this.PicAgregar.Size = new System.Drawing.Size(36, 33);
-            this.PicAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicAgregar.TabIndex = 7;
-            this.PicAgregar.TabStop = false;
-            this.PicAgregar.Visible = false;
-            this.PicAgregar.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // label6
             // 
@@ -329,6 +319,7 @@ namespace OFLP.Vistas
             this.chkSiIva.TabIndex = 0;
             this.chkSiIva.Text = "SI";
             this.chkSiIva.UseVisualStyleBackColor = true;
+            this.chkSiIva.Visible = false;
             this.chkSiIva.CheckedChanged += new System.EventHandler(this.ChkSiIva_CheckedChanged);
             // 
             // label9
@@ -344,6 +335,7 @@ namespace OFLP.Vistas
             // 
             // TxtValorTotal
             // 
+            this.TxtValorTotal.Enabled = false;
             this.TxtValorTotal.Location = new System.Drawing.Point(595, 24);
             this.TxtValorTotal.Name = "TxtValorTotal";
             this.TxtValorTotal.Size = new System.Drawing.Size(136, 20);
@@ -410,50 +402,6 @@ namespace OFLP.Vistas
             this.pnlBarraTitulo.Name = "pnlBarraTitulo";
             this.pnlBarraTitulo.Size = new System.Drawing.Size(944, 33);
             this.pnlBarraTitulo.TabIndex = 47;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox6.Image = global::OFLP.Properties.Resources.FACTBYA_Icono;
-            this.pictureBox6.Location = new System.Drawing.Point(851, 0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(93, 33);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 44;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(37, 31);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 42;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::OFLP.Properties.Resources.cancelar;
-            this.pictureBox3.Location = new System.Drawing.Point(537, 303);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(45, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
-            // picAceptar
-            // 
-            this.picAceptar.Image = ((System.Drawing.Image)(resources.GetObject("picAceptar.Image")));
-            this.picAceptar.Location = new System.Drawing.Point(18, 302);
-            this.picAceptar.Name = "picAceptar";
-            this.picAceptar.Size = new System.Drawing.Size(46, 40);
-            this.picAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picAceptar.TabIndex = 8;
-            this.picAceptar.TabStop = false;
-            this.picAceptar.Visible = false;
             // 
             // button2
             // 
@@ -527,18 +475,6 @@ namespace OFLP.Vistas
             this.LblPropietario.Size = new System.Drawing.Size(77, 24);
             this.LblPropietario.TabIndex = 44;
             this.LblPropietario.Text = "label15";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(595, 49);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(99, 79);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 43;
-            this.pictureBox5.TabStop = false;
             // 
             // cmbHacienda
             // 
@@ -687,15 +623,6 @@ namespace OFLP.Vistas
             this.label2.TabIndex = 1;
             this.label2.Text = "Reunion:";
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::OFLP.Properties.Resources.editar;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
             // clase
             // 
             this.clase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -739,65 +666,151 @@ namespace OFLP.Vistas
             this.kilo.Name = "kilo";
             this.kilo.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewImageColumn1
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "CLASE";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 66;
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::OFLP.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 50;
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewImageColumn2
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.HeaderText = "CORRAL";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 76;
+            this.dataGridViewImageColumn2.HeaderText = "ELIMINAR";
+            this.dataGridViewImageColumn2.Image = global::OFLP.Properties.Resources.eliminar;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 62;
             // 
-            // dataGridViewTextBoxColumn3
+            // PicAgregar
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.HeaderText = "CABEZAS";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 81;
+            this.PicAgregar.Image = global::OFLP.Properties.Resources.update;
+            this.PicAgregar.Location = new System.Drawing.Point(833, 14);
+            this.PicAgregar.Name = "PicAgregar";
+            this.PicAgregar.Size = new System.Drawing.Size(36, 33);
+            this.PicAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicAgregar.TabIndex = 7;
+            this.PicAgregar.TabStop = false;
+            this.PicAgregar.Visible = false;
+            this.PicAgregar.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
-            // dataGridViewTextBoxColumn4
+            // pictureBox6
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.HeaderText = "SEXO";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 61;
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox6.Image = global::OFLP.Properties.Resources.FACTBYA_Icono;
+            this.pictureBox6.Location = new System.Drawing.Point(851, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(93, 33);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 44;
+            this.pictureBox6.TabStop = false;
             // 
-            // dataGridViewTextBoxColumn6
+            // pictureBox4
             // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn6.HeaderText = "COMPRADOR";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 102;
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 42;
+            this.pictureBox4.TabStop = false;
             // 
-            // dataGridViewTextBoxColumn5
+            // pictureBox3
             // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn5.HeaderText = "KILOS";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 63;
+            this.pictureBox3.Image = global::OFLP.Properties.Resources.cancelar;
+            this.pictureBox3.Location = new System.Drawing.Point(537, 303);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(45, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
             // 
-            // valor_kilo
+            // picAceptar
             // 
-            this.valor_kilo.HeaderText = "VALOR KILO";
-            this.valor_kilo.Name = "valor_kilo";
-            this.valor_kilo.ReadOnly = true;
+            this.picAceptar.Image = ((System.Drawing.Image)(resources.GetObject("picAceptar.Image")));
+            this.picAceptar.Location = new System.Drawing.Point(18, 302);
+            this.picAceptar.Name = "picAceptar";
+            this.picAceptar.Size = new System.Drawing.Size(46, 40);
+            this.picAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAceptar.TabIndex = 8;
+            this.picAceptar.TabStop = false;
+            this.picAceptar.Visible = false;
             // 
-            // valor_total
+            // pictureBox5
             // 
-            this.valor_total.HeaderText = "VALOR TOTAL";
-            this.valor_total.Name = "valor_total";
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(595, 49);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(99, 79);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 43;
+            this.pictureBox5.TabStop = false;
+            // 
+            // claseActualizaFactura
+            // 
+            this.claseActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.claseActualizaFactura.FillWeight = 50F;
+            this.claseActualizaFactura.HeaderText = "CLASE";
+            this.claseActualizaFactura.Name = "claseActualizaFactura";
+            this.claseActualizaFactura.ReadOnly = true;
+            this.claseActualizaFactura.Width = 66;
+            // 
+            // corralActualizaFactura
+            // 
+            this.corralActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.corralActualizaFactura.HeaderText = "CORRAL";
+            this.corralActualizaFactura.Name = "corralActualizaFactura";
+            this.corralActualizaFactura.ReadOnly = true;
+            this.corralActualizaFactura.Width = 76;
+            // 
+            // cabezasActualizaFactura
+            // 
+            this.cabezasActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cabezasActualizaFactura.HeaderText = "CABEZAS";
+            this.cabezasActualizaFactura.Name = "cabezasActualizaFactura";
+            this.cabezasActualizaFactura.ReadOnly = true;
+            this.cabezasActualizaFactura.Width = 81;
+            // 
+            // sexoActualizaFactura
+            // 
+            this.sexoActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.sexoActualizaFactura.HeaderText = "SEXO";
+            this.sexoActualizaFactura.Name = "sexoActualizaFactura";
+            this.sexoActualizaFactura.ReadOnly = true;
+            this.sexoActualizaFactura.Width = 61;
+            // 
+            // compradorActualizaFactura
+            // 
+            this.compradorActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.compradorActualizaFactura.HeaderText = "COMPRADOR";
+            this.compradorActualizaFactura.Name = "compradorActualizaFactura";
+            this.compradorActualizaFactura.ReadOnly = true;
+            this.compradorActualizaFactura.Width = 102;
+            // 
+            // kilosActualizaFactura
+            // 
+            this.kilosActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.kilosActualizaFactura.HeaderText = "KILOS";
+            this.kilosActualizaFactura.Name = "kilosActualizaFactura";
+            this.kilosActualizaFactura.ReadOnly = true;
+            this.kilosActualizaFactura.Width = 63;
+            // 
+            // valor_kiloActualizaFactura
+            // 
+            this.valor_kiloActualizaFactura.HeaderText = "VALOR KILO";
+            this.valor_kiloActualizaFactura.Name = "valor_kiloActualizaFactura";
+            this.valor_kiloActualizaFactura.ReadOnly = true;
+            // 
+            // valor_totalActualizaFactura
+            // 
+            this.valor_totalActualizaFactura.HeaderText = "VALOR TOTAL";
+            this.valor_totalActualizaFactura.Name = "valor_totalActualizaFactura";
             // 
             // Modificar
             // 
@@ -835,16 +848,16 @@ namespace OFLP.Vistas
             this.panel2.PerformLayout();
             this.PnlAgregar.ResumeLayout(false);
             this.PnlAgregar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).EndInit();
             this.GrpIva.ResumeLayout(false);
             this.GrpIva.PerformLayout();
             this.pnlBarraTitulo.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAceptar)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
@@ -906,14 +919,15 @@ namespace OFLP.Vistas
         private System.Windows.Forms.ComboBox CmbComprador;
         private System.Windows.Forms.Label LblGasto;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_kilo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_total;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claseActualizaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn corralActualizaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cabezasActualizaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexoActualizaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn compradorActualizaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kilosActualizaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor_kiloActualizaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor_totalActualizaFactura;
         private System.Windows.Forms.DataGridViewImageColumn Modificar;
         private System.Windows.Forms.DataGridViewImageColumn eliminar;
     }
