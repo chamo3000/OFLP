@@ -85,6 +85,7 @@ namespace OFLP.Vistas
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.picAceptar = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.claseActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.corralActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cabezasActualizaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,6 +127,7 @@ namespace OFLP.Vistas
             this.DtgDetalleFactura.AllowUserToAddRows = false;
             this.DtgDetalleFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgDetalleFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.claseActualizaFactura,
             this.corralActualizaFactura,
             this.cabezasActualizaFactura,
@@ -752,6 +754,12 @@ namespace OFLP.Vistas
             this.pictureBox5.TabIndex = 43;
             this.pictureBox5.TabStop = false;
             // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
             // claseActualizaFactura
             // 
             this.claseActualizaFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -920,6 +928,7 @@ namespace OFLP.Vistas
         private System.Windows.Forms.Label LblGasto;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn claseActualizaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn corralActualizaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn cabezasActualizaFactura;

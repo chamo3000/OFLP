@@ -11,7 +11,7 @@ namespace OFLP.Modelo
 {
     class MFactura
     {
-
+        public Int32 Id { get; set; }
         public Int32 IdFactura { get; set; }
         public Double NumeroFactura { get; set; }
         public int Reunion { get; set; }
