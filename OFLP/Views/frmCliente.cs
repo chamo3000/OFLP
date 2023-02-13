@@ -95,8 +95,8 @@ namespace OFLP.Vistas
             {
                 datos[i] = dtgPropietario.Rows[dtgPropietario.CurrentRow.Index].Cells[i].Value.ToString();
             }
-            FrmActualizarCliente objfrmAgregarCliente = new FrmActualizarCliente(datos);
-            objfrmAgregarCliente.Show();
+            FrmActualizarCliente objfrmActualizarCliente = new FrmActualizarCliente(datos);
+            objfrmActualizarCliente.Show();
         }
 
         private void Validar_Texto(TextBox Elemento)

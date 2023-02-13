@@ -53,32 +53,36 @@ namespace OFLP.Modelo
 
         public bool ActualizarFactura(List<FACTURA> datos, int index)
         {
+            
             DateTime fecha= datos[index].fecha;
-            int idcomprador = Convert.ToInt32(datos[index].consecutivo);
+            //int idcomprador = Convert.ToInt32(datos[index].consecutivo);
             int reunion = Convert.ToInt32(datos[index].reunion);
             int cabezas = Convert.ToInt32(datos[index].cabezas);
             int corral = Convert.ToInt32(datos[index].corral);
+            int valorKilo = Convert.ToInt32(datos[index].valorkilo);
             int valorT = Convert.ToInt32(datos[index].valortotal);
             int claseId = Convert.ToInt32(datos[index].claseID);
             int sexoId = Convert.ToInt32(datos[index].sexoID);
             int gastoId = Convert.ToInt32(datos[index].gastoID);
+            int kilos = Convert.ToInt32(datos[index].kilos);
+            int idact = datos[index].id;
             try
             {
                 using (MIGANEntities db = new MIGANEntities())
                 {
-                    FACTURA oFactura = db.FACTURA.Where(d => d.compradorID == idcomprador 
-                    && d.reunion==reunion 
-                    && d.cabezas==cabezas
-                    && d.corral==corral
-                    && d.valortotal==valorT
-                    && d.claseID==claseId
-                    && d.sexoID==sexoId
-                    && d.gastoID==gastoId).First();
+                    FACTURA oFactura = db.FACTURA.Where(d => d.id == idact).FirstOrDefault();
+                    oFactura.reunion = reunion;
+                    oFactura.cabezas = cabezas;
+                    oFactura.corral = corral;
+                    oFactura.kilos= kilos;
+                    oFactura.valorkilo=valorKilo;
+                    oFactura.valortotal = valorT;
+                    oFactura.claseID= claseId;
+                    oFactura.sexoID= sexoId;
+                    oFactura.gastoID= gastoId;
+                    //oFactura.compradorID = idcomprador;
+                    oFactura.fecha=fecha;
 
-                    //oCliente.CEDULA = Convert.ToInt32(datos[0]);
-                    //oCliente.PRIMERAPELLIDO = datos[1];
-                    //oCliente.SEGUNDOAPELLIDO = datos[2];
-                    //oCliente.NOMBRE = datos[3];
                     db.Entry(oFactura).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -104,6 +108,7 @@ namespace OFLP.Modelo
                     {
                         ClsInicio.Factura.Add(new MFactura()
                         {
+                            Id= Convert.ToInt32(oFactura.id),
                             NumeroFactura = Convert.ToInt32(oFactura.consecutivo),
                             Reunion = oFactura.reunion,
                             Fecha = oFactura.fecha,
@@ -143,6 +148,7 @@ namespace OFLP.Modelo
                     {
                         ClsInicio.FacturaActualizar.Add(new MFactura()
                         {
+                            Id = Convert.ToInt32(oFactura.id),
                             NumeroFactura = Convert.ToInt32(oFactura.consecutivo),
                             Reunion = oFactura.reunion,
                             Fecha = oFactura.fecha,
