@@ -479,7 +479,7 @@ namespace OFLP.Vistas
             idClase = ClsInicio.ganado.FirstOrDefault(x => claseGanado.Contains(x.Descripcion)).IdGanado;
             cantidadKilos = DtgDetalleFactura.Rows[indexRow].Cells["kilosActualizaFactura"].Value.ToString();
             valorKilo = DtgDetalleFactura.Rows[indexRow].Cells["valor_kiloActualizaFactura"].Value.ToString().Replace(",", string.Empty);
-            CalcularValorTotal();
+            ValorTotal=(Convert.ToInt32(valorKilo)* Convert.ToInt32(cantidadKilos));
         }
         private void LimpiarDatos()
         {
@@ -554,8 +554,8 @@ namespace OFLP.Vistas
                             cabezas = Convert.ToInt32(numeroCabezas),
                             corral = Convert.ToInt32(numeroCorral),
                             kilos = Convert.ToInt32(cantidadKilos),
-                            valorkilo = Convert.ToInt32(valorKiloGuardar.Replace(",",string.Empty)),
-                            valortotal = Convert.ToInt32(valorTotalGuardar),
+                            valorkilo = Convert.ToInt32(valorKilo.Replace(",",string.Empty)),
+                            valortotal = Convert.ToInt32(ValorTotal),
                             anio = DateTime.Now.Year,
                             clienteID = IdPropietario,
                             claseID = idClase,
