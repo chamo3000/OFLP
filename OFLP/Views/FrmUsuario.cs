@@ -29,8 +29,6 @@ namespace OFLP.Views
                 }
                 else MessageBox.Show("Usuario o contraseña no validos, por favor verifique e intente nuevamente", "Valida Usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }else MessageBox.Show("Debe completar todos los campos", "Ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            this.Hide();
-            Program.objfrmPpal.Show();
         }
         private void TxtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
