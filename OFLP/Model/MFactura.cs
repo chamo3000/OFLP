@@ -180,20 +180,19 @@ namespace OFLP.Modelo
                 return false;
             }
         }
-        public bool Eliminarfactura(string consecutivo)
+        public bool Eliminarfactura(string idFactura)
         {
-            int id = Convert.ToInt32(consecutivo);
+            int id = Convert.ToInt32(idFactura);
             try
             {
                 using (MIGANEntities db = new MIGANEntities())
                 {
-                    var delobj = db.FACTURA.Where(p => p.consecutivo == id).ToList();
+                    var delobj = db.FACTURA.Where(p => p.id == id).ToList();
                     foreach (var factura in delobj)
                     {
                         MGastos oGasto= new MGastos();
                         db.FACTURA.Remove(factura);
                         db.SaveChanges();
-                        oGasto.EliminarGasto(factura.gastoID);
                     }
                     return true;
                 }

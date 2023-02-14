@@ -94,24 +94,15 @@ namespace OFLP.Vistas
                         grid.Rows[obj.FirstOrDefault().Index].Selected = true;
                         return true;
                     }
-
                 }
                 return encontrado;
-
             }
         private void LimpiarControles()
         {
             LblNumFactura.Text = string.Empty;
             LblReunion.Text = string.Empty;
-            lblFecha.Text = string.Empty;
             lblPropietario.Text = string.Empty;
-            LblClase.Text = string.Empty;
-            LblCorral.Text = string.Empty;
-            LblCabezas.Text = string.Empty;
-            LblSexo.Text = string.Empty;
-            LblComprador.Text = string.Empty;
-            LblKilos.Text = string.Empty;
-            LblValorKilo.Text = string.Empty;
+            LblGasto.Text = string.Empty;
             LblValorTotal.Text = string.Empty;
         }
         private void PicAgregarFactura_Click(object sender, EventArgs e)
@@ -131,6 +122,7 @@ namespace OFLP.Vistas
                 case "Modificar":
                     ActualizarFactura form = new ActualizarFactura(DtgFactura, idFactura,idPropietario,e.RowIndex);
                     form.ShowDialog();
+
                     break;
                 case "Eliminar":
                     if (MessageBox.Show("Esta seguro que desea eliminar la factura?", "Eliminar Factura", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -146,10 +138,11 @@ namespace OFLP.Vistas
 
                     break;
                 default:
-                    //lblApellidoUno.Text = dtgPropietario.CurrentRow.Cells[1].Value.ToString();
-                    //lblApellidoDos.Text = dtgPropietario.CurrentRow.Cells[2].Value.ToString();
-                    //lblNombre.Text = dtgPropietario.CurrentRow.Cells[3].Value.ToString();
-                    //lblCedula.Text = dtgPropietario.CurrentRow.Cells[4].Value.ToString();
+                    LblNumFactura.Text = DtgFactura.CurrentRow.Cells["idFactura"].Value.ToString();
+                    LblReunion.Text = DtgFactura.CurrentRow.Cells["reunion"].Value.ToString();
+                    lblPropietario.Text = DtgFactura.CurrentRow.Cells["propietario"].Value.ToString();
+                    LblGasto.Text = DtgFactura.CurrentRow.Cells["Gastos"].Value.ToString();
+                    LblValorTotal.Text= DtgFactura.CurrentRow.Cells["valortotal"].Value.ToString();
                     break;
             }
         }

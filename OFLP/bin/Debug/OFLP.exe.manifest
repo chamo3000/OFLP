@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OFLP.exe" size="1430528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OFLP.exe" size="1428480">
       <assemblyIdentity name="OFLP" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kwsTwRiSLH7vDhyYovl+/mGcY8e1XJ/wXzJ55sRhVHs=</dsig:DigestValue>
+        <dsig:DigestValue>G3mGjpH/jErlQBwtTrKhbCqJxjEgbcniYKw6OHLkWbs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
