@@ -39,34 +39,20 @@ namespace OFLP.Vistas
             this.PicLimpiarBusquedaCliente = new System.Windows.Forms.PictureBox();
             this.PicBuscarCliente = new System.Windows.Forms.PictureBox();
             this.LblValorTotal = new System.Windows.Forms.Label();
-            this.LblComprador = new System.Windows.Forms.Label();
-            this.LblKilos = new System.Windows.Forms.Label();
             this.lblPropietario = new System.Windows.Forms.Label();
-            this.LblCabezas = new System.Windows.Forms.Label();
             this.LblNumFactura = new System.Windows.Forms.Label();
             this.LblReunion = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.PicLogo = new System.Windows.Forms.PictureBox();
-            this.LblClase = new System.Windows.Forms.Label();
-            this.LblValorKilo = new System.Windows.Forms.Label();
-            this.LblCorral = new System.Windows.Forms.Label();
-            this.LblSexo = new System.Windows.Forms.Label();
+            this.LblGasto = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBusquedaHacienda = new System.Windows.Forms.TextBox();
             this.lblconfigFactura = new System.Windows.Forms.Label();
             this.lblNombreHacienda = new System.Windows.Forms.Label();
             this.lblMunicipio = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.idFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reunion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,34 +110,20 @@ namespace OFLP.Vistas
             this.pnlConfiguraHacienda.Controls.Add(this.PicLimpiarBusquedaCliente);
             this.pnlConfiguraHacienda.Controls.Add(this.PicBuscarCliente);
             this.pnlConfiguraHacienda.Controls.Add(this.LblValorTotal);
-            this.pnlConfiguraHacienda.Controls.Add(this.LblComprador);
-            this.pnlConfiguraHacienda.Controls.Add(this.LblKilos);
             this.pnlConfiguraHacienda.Controls.Add(this.lblPropietario);
-            this.pnlConfiguraHacienda.Controls.Add(this.LblCabezas);
             this.pnlConfiguraHacienda.Controls.Add(this.LblNumFactura);
             this.pnlConfiguraHacienda.Controls.Add(this.LblReunion);
             this.pnlConfiguraHacienda.Controls.Add(this.label12);
-            this.pnlConfiguraHacienda.Controls.Add(this.label11);
-            this.pnlConfiguraHacienda.Controls.Add(this.label10);
-            this.pnlConfiguraHacienda.Controls.Add(this.label9);
-            this.pnlConfiguraHacienda.Controls.Add(this.label8);
             this.pnlConfiguraHacienda.Controls.Add(this.PicLogo);
-            this.pnlConfiguraHacienda.Controls.Add(this.LblClase);
-            this.pnlConfiguraHacienda.Controls.Add(this.LblValorKilo);
-            this.pnlConfiguraHacienda.Controls.Add(this.LblCorral);
-            this.pnlConfiguraHacienda.Controls.Add(this.LblSexo);
+            this.pnlConfiguraHacienda.Controls.Add(this.LblGasto);
             this.pnlConfiguraHacienda.Controls.Add(this.label5);
             this.pnlConfiguraHacienda.Controls.Add(this.txtBusquedaHacienda);
             this.pnlConfiguraHacienda.Controls.Add(this.lblconfigFactura);
             this.pnlConfiguraHacienda.Controls.Add(this.lblNombreHacienda);
             this.pnlConfiguraHacienda.Controls.Add(this.lblMunicipio);
-            this.pnlConfiguraHacienda.Controls.Add(this.label7);
-            this.pnlConfiguraHacienda.Controls.Add(this.label6);
             this.pnlConfiguraHacienda.Controls.Add(this.label4);
-            this.pnlConfiguraHacienda.Controls.Add(this.label14);
             this.pnlConfiguraHacienda.Controls.Add(this.label3);
             this.pnlConfiguraHacienda.Controls.Add(this.label2);
-            this.pnlConfiguraHacienda.Controls.Add(this.lblFecha);
             this.pnlConfiguraHacienda.Controls.Add(this.label1);
             this.pnlConfiguraHacienda.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlConfiguraHacienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,49 +187,16 @@ namespace OFLP.Vistas
             this.LblValorTotal.TabIndex = 52;
             this.LblValorTotal.Text = "11111";
             // 
-            // LblComprador
-            // 
-            this.LblComprador.AutoSize = true;
-            this.LblComprador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblComprador.ForeColor = System.Drawing.Color.White;
-            this.LblComprador.Location = new System.Drawing.Point(233, 235);
-            this.LblComprador.Name = "LblComprador";
-            this.LblComprador.Size = new System.Drawing.Size(59, 20);
-            this.LblComprador.TabIndex = 52;
-            this.LblComprador.Text = "11111";
-            // 
-            // LblKilos
-            // 
-            this.LblKilos.AutoSize = true;
-            this.LblKilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblKilos.ForeColor = System.Drawing.Color.White;
-            this.LblKilos.Location = new System.Drawing.Point(233, 258);
-            this.LblKilos.Name = "LblKilos";
-            this.LblKilos.Size = new System.Drawing.Size(49, 20);
-            this.LblKilos.TabIndex = 50;
-            this.LblKilos.Text = "1111";
-            // 
             // lblPropietario
             // 
             this.lblPropietario.AutoSize = true;
             this.lblPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPropietario.ForeColor = System.Drawing.Color.White;
-            this.lblPropietario.Location = new System.Drawing.Point(233, 121);
+            this.lblPropietario.Location = new System.Drawing.Point(233, 96);
             this.lblPropietario.Name = "lblPropietario";
             this.lblPropietario.Size = new System.Drawing.Size(49, 20);
             this.lblPropietario.TabIndex = 51;
             this.lblPropietario.Text = "1111";
-            // 
-            // LblCabezas
-            // 
-            this.LblCabezas.AutoSize = true;
-            this.LblCabezas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCabezas.ForeColor = System.Drawing.Color.White;
-            this.LblCabezas.Location = new System.Drawing.Point(233, 191);
-            this.LblCabezas.Name = "LblCabezas";
-            this.LblCabezas.Size = new System.Drawing.Size(49, 20);
-            this.LblCabezas.TabIndex = 50;
-            this.LblCabezas.Text = "1111";
             // 
             // LblNumFactura
             // 
@@ -292,50 +231,6 @@ namespace OFLP.Vistas
             this.label12.TabIndex = 46;
             this.label12.Text = "Valor Total:";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(11, 281);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 20);
-            this.label11.TabIndex = 46;
-            this.label11.Text = "Valor Kilo:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(11, 258);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 20);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "Kilos:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 235);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 20);
-            this.label9.TabIndex = 46;
-            this.label9.Text = "Comprador:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 212);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 20);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "Sexo:";
-            // 
             // PicLogo
             // 
             this.PicLogo.BackColor = System.Drawing.Color.White;
@@ -348,49 +243,16 @@ namespace OFLP.Vistas
             this.PicLogo.TabIndex = 45;
             this.PicLogo.TabStop = false;
             // 
-            // LblClase
+            // LblGasto
             // 
-            this.LblClase.AutoSize = true;
-            this.LblClase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblClase.ForeColor = System.Drawing.Color.White;
-            this.LblClase.Location = new System.Drawing.Point(233, 144);
-            this.LblClase.Name = "LblClase";
-            this.LblClase.Size = new System.Drawing.Size(39, 20);
-            this.LblClase.TabIndex = 18;
-            this.LblClase.Text = "111";
-            // 
-            // LblValorKilo
-            // 
-            this.LblValorKilo.AutoSize = true;
-            this.LblValorKilo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblValorKilo.ForeColor = System.Drawing.Color.White;
-            this.LblValorKilo.Location = new System.Drawing.Point(233, 281);
-            this.LblValorKilo.Name = "LblValorKilo";
-            this.LblValorKilo.Size = new System.Drawing.Size(39, 20);
-            this.LblValorKilo.TabIndex = 16;
-            this.LblValorKilo.Text = "111";
-            // 
-            // LblCorral
-            // 
-            this.LblCorral.AutoSize = true;
-            this.LblCorral.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCorral.ForeColor = System.Drawing.Color.White;
-            this.LblCorral.Location = new System.Drawing.Point(233, 169);
-            this.LblCorral.Name = "LblCorral";
-            this.LblCorral.Size = new System.Drawing.Size(39, 20);
-            this.LblCorral.TabIndex = 17;
-            this.LblCorral.Text = "111";
-            // 
-            // LblSexo
-            // 
-            this.LblSexo.AutoSize = true;
-            this.LblSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSexo.ForeColor = System.Drawing.Color.White;
-            this.LblSexo.Location = new System.Drawing.Point(233, 212);
-            this.LblSexo.Name = "LblSexo";
-            this.LblSexo.Size = new System.Drawing.Size(39, 20);
-            this.LblSexo.TabIndex = 16;
-            this.LblSexo.Text = "111";
+            this.LblGasto.AutoSize = true;
+            this.LblGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGasto.ForeColor = System.Drawing.Color.White;
+            this.LblGasto.Location = new System.Drawing.Point(233, 122);
+            this.LblGasto.Name = "LblGasto";
+            this.LblGasto.Size = new System.Drawing.Size(39, 20);
+            this.LblGasto.TabIndex = 18;
+            this.LblGasto.Text = "111";
             // 
             // label5
             // 
@@ -441,49 +303,16 @@ namespace OFLP.Vistas
             this.lblMunicipio.Size = new System.Drawing.Size(0, 20);
             this.lblMunicipio.TabIndex = 4;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 191);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Cabezas:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 169);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 20);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Corral:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 121);
+            this.label4.Location = new System.Drawing.Point(12, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Propietario:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(12, 96);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 20);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Fecha:";
             // 
             // label3
             // 
@@ -501,22 +330,11 @@ namespace OFLP.Vistas
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 144);
+            this.label2.Location = new System.Drawing.Point(12, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Clase:";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.White;
-            this.lblFecha.Location = new System.Drawing.Point(233, 96);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(49, 20);
-            this.lblFecha.TabIndex = 1;
-            this.lblFecha.Text = "1111";
+            this.label2.Text = "Gastos";
             // 
             // label1
             // 
@@ -552,7 +370,7 @@ namespace OFLP.Vistas
             // 
             // Gastos
             // 
-            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.Format = "0,000";
             dataGridViewCellStyle1.NullValue = "0";
             this.Gastos.DefaultCellStyle = dataGridViewCellStyle1;
             this.Gastos.HeaderText = "GASTOS";
@@ -563,7 +381,7 @@ namespace OFLP.Vistas
             // valortotal
             // 
             this.valortotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.Format = "0,000";
             dataGridViewCellStyle2.NullValue = "0";
             this.valortotal.DefaultCellStyle = dataGridViewCellStyle2;
             this.valortotal.HeaderText = "VALOR TOTAL";
@@ -615,37 +433,23 @@ namespace OFLP.Vistas
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlConfiguraHacienda;
-        private System.Windows.Forms.Label LblClase;
-        private System.Windows.Forms.Label LblCorral;
-        private System.Windows.Forms.Label LblSexo;
+        private System.Windows.Forms.Label LblGasto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBusquedaHacienda;
         private System.Windows.Forms.Label lblconfigFactura;
         private System.Windows.Forms.Label lblNombreHacienda;
         private System.Windows.Forms.Label lblMunicipio;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox PicLogo;
         public System.Windows.Forms.DataGridView DtgFactura;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label LblComprador;
         private System.Windows.Forms.Label lblPropietario;
-        private System.Windows.Forms.Label LblCabezas;
         private System.Windows.Forms.Label LblNumFactura;
         private System.Windows.Forms.Label LblReunion;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label LblValorTotal;
-        private System.Windows.Forms.Label LblKilos;
-        private System.Windows.Forms.Label LblValorKilo;
         private System.Windows.Forms.PictureBox PicLimpiarBusquedaCliente;
         private System.Windows.Forms.PictureBox PicBuscarCliente;
         private System.Windows.Forms.Label label13;

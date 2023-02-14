@@ -34,10 +34,9 @@ namespace OFLP.Vistas
         string nombreComprador;
         string valorTotal;
         string valorTotalGuardar;
-        string totaliva;
         int idClase;
         int idGenero;
-        DateTime fecha;
+        
         List<string> idActualizar = new List<string>();
         string idauxActualizar;
 
@@ -66,6 +65,7 @@ namespace OFLP.Vistas
             CargarDatosListas();
             LlenarCombos();
             LlenarGrid();
+            lblTotal.Text = FormatoNumeros(DtgFormFactura.Rows[IndexFactura].Cells["valortotal"].Value.ToString());
             LblPropietario.Text = ClsInicio.FacturaActualizar.Where(p => p.PropietarioID == IdPropietario).Take(1).First().Propietario;
             LblGasto.Text = ClsInicio.FacturaActualizar.Where(p => p.NumeroFactura == idFact).Take(1).First().Gasto.ToString("0,00");
             DtgDetalleFactura.ClearSelection();
@@ -358,7 +358,7 @@ namespace OFLP.Vistas
             valorKiloGuardar = txtValorKilo.Text;
             valorKilo = Convert.ToDouble(txtValorKilo.Text).ToString("N");
             valorTotal = TxtValorTotal.Text;
-            totaliva = ValorIva.ToString();
+            
 
             if (string.IsNullOrEmpty(claseGanado) || string.IsNullOrEmpty(numeroCorral) ||
                 string.IsNullOrEmpty(numeroCabezas) || string.IsNullOrEmpty(genero) ||
@@ -370,11 +370,10 @@ namespace OFLP.Vistas
             }
             else
             {
-                
                 DtgDetalleFactura.Rows.Remove(DtgDetalleFactura.CurrentRow);
                 nombreComprador = CmbComprador.SelectedItem.ToString();
                 DtgDetalleFactura.Rows.Add(claseGanado, numeroCorral, numeroCabezas, genero, nombreComprador, cantidadKilos, FormatoNumeros(valorKilo) , valorTotal, idauxActualizar);
-
+                lblTotal.Text = calcularTotalFactura();
                 cmbClase.SelectedItem = null;
                 txtCorral.Text = string.Empty;
                 txtCabezas.Text = string.Empty;
@@ -384,7 +383,6 @@ namespace OFLP.Vistas
                 TxtValorTotal.Text = string.Empty;
                 chkNoIva.Checked = true;
                 PicAgregar.Visible = false;
-
 
             }
         }
@@ -399,6 +397,19 @@ namespace OFLP.Vistas
             var fecha = dtpicFechaFactura.Value.ToString("yyyyMMdd");
             IdFactura = fecha + Reunion + CantFacturas;
             return IdFactura;
+        }
+        private string calcularTotalFactura() 
+        {
+            int suma=0;
+            string valor;
+            foreach (DataGridViewRow item in DtgDetalleFactura.Rows)
+            {
+                valor= item.Cells["valor_totalActualizaFactura"].Value.ToString();
+                if (valor.Contains(",")) valor = valor.Replace(",", string.Empty);
+                if (valor.Contains(".")) valor =FormatoNumeros(valor);
+                suma +=Convert.ToInt32(valor);
+            }
+            return suma.ToString("#,##0");
         }
         private void CalcularValorTotal()
         {
@@ -451,7 +462,7 @@ namespace OFLP.Vistas
                     if (MessageBox.Show("Esta seguro que desea eliminar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
                         CtrlFactura delFact = new CtrlFactura();
-                        if (delFact.EliminarFactura(IdFactura))
+                        if (delFact.EliminarFactura(DtgDetalleFactura.Rows[e.RowIndex].Cells["id"].Value.ToString()))
                         {
                             DtgDetalleFactura.Rows.Remove(DtgDetalleFactura.CurrentRow);
                             MessageBox.Show("Factura eliminada correctamente", "Eliminar Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -491,8 +502,6 @@ namespace OFLP.Vistas
             valorKilo = string.Empty;
             nombreComprador = string.Empty;
             valorTotal = string.Empty;
-            totaliva = string.Empty;
-
             cmbClase.SelectedItem = null;
             txtCorral.Text = string.Empty;
             txtCabezas.Text = string.Empty;
@@ -569,8 +578,10 @@ namespace OFLP.Vistas
                     }
                 }
             }
-
-            DtgFormFactura.Rows.Add(lblNumeroFact.Text, lblReunion.Text, Propietario, gasto.ToString(), valorTotalGuardar);
+            CtrlUtilidades util = new CtrlUtilidades();
+            util.CerrarFormulario<FrmFactura>(Program.objfrmPpal.pnlContenedor);
+            util.AbrirFormulario<FrmFactura>(Program.objfrmPpal.pnlContenedor);
+            //DtgFormFactura.Rows.Add(lblNumeroFact.Text, lblReunion.Text, Propietario, gasto.ToString(), valorTotalGuardar);
             this.Close();
         }
 
