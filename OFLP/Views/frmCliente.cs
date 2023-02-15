@@ -4,6 +4,7 @@ using OFLP.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,19 +18,12 @@ namespace OFLP.Vistas
         public FrmCliente()
         {
             InitializeComponent();
-
-
         }
-
         public void FrmCliente_Load(object sender, EventArgs e)
         {
-
             var @delegate = new delegadoLLenarGrid(LlenarGrid);
             new Task(() => this.label1.BeginInvoke(@delegate)).Start();
-
         }
-
-
         private void DtgPropietario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgPropietario.Columns[e.ColumnIndex].Name.Equals("Modificar"))
@@ -42,7 +36,6 @@ namespace OFLP.Vistas
                 {
                     EliminarCliente(dtgPropietario.CurrentRow.Index, dtgPropietario.Rows[dtgPropietario.CurrentRow.Index].Cells[0].Value.ToString());
                 }
-
             }
             else
             {
@@ -50,7 +43,6 @@ namespace OFLP.Vistas
                 lblApellidoDos.Text = dtgPropietario.CurrentRow.Cells[2].Value.ToString();
                 lblNombre.Text = dtgPropietario.CurrentRow.Cells[3].Value.ToString();
                 lblCedula.Text = dtgPropietario.CurrentRow.Cells[4].Value.ToString();
-
             }
         }
 
@@ -59,7 +51,6 @@ namespace OFLP.Vistas
 
         private void LlenarGrid()
         {
-
             CtrlCliente objPropietario = new CtrlCliente();
             objPropietario.LlenarGridCliente();
             dtgPropietario.ScrollBars = ScrollBars.Both;
@@ -69,23 +60,20 @@ namespace OFLP.Vistas
             dtgPropietario.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             if (ClsInicio.clientes.Count > 0)
             {
-                foreach (ModCliente item in ClsInicio.clientes)
+                foreach (MCliente item in ClsInicio.clientes)
                 {
                     dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
                 }
-
             }
             if (dtgPropietario.DataSource == null) lblError.Text = "Error al cargar los datos de la base de datos";
         }
         #endregion
         private void EliminarCliente(int fila, string idCliente)
         {
-
-            
             CtrlCliente ObjCtrlCliente = new CtrlCliente();
             if (ObjCtrlCliente.EliminarCliente(idCliente))
             {
-                ClsInicio.clientes.RemoveAll(x => x.CedulaCliente ==Convert.ToInt32(idCliente));
+                ClsInicio.clientes.RemoveAll(x => x.CedulaCliente == Convert.ToInt32(idCliente));
                 MessageBox.Show("Cliente Eliminado exitosamente", "Eliminar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgPropietario.Rows.Remove(dtgPropietario.Rows[fila]);
                 lblApellidoUno.Text = "";
@@ -93,7 +81,6 @@ namespace OFLP.Vistas
                 lblNombre.Text = "";
                 lblCedula.Text = "";
                 lblTipoCliente.Text = "";
-
             }
             else
             {
@@ -103,20 +90,17 @@ namespace OFLP.Vistas
 
         private void ActualizarCliente(int columnas)
         {
-
             string[] datos = new string[4];
-            for (int i = 0; i < columnas-2; i++)
+            for (int i = 0; i < columnas - 2; i++)
             {
                 datos[i] = dtgPropietario.Rows[dtgPropietario.CurrentRow.Index].Cells[i].Value.ToString();
             }
-
-            FrmActualizarCliente objfrmAgregarCliente = new FrmActualizarCliente(datos);
-            objfrmAgregarCliente.Show();
+            FrmActualizarCliente objfrmActualizarCliente = new FrmActualizarCliente(datos);
+            objfrmActualizarCliente.Show();
         }
 
-        private void Validar_Texto(TextBox Elemento, EventArgs e)
+        private void Validar_Texto(TextBox Elemento)
         {
-
             if (Controlador.Restricciones.Tiene_Letras(Elemento.Text.Trim()))
             {
                 Elemento.Text = string.Empty;
@@ -124,15 +108,18 @@ namespace OFLP.Vistas
             }
         }
 
-        private void txtBusquedaPropietario_TextChanged(object sender, EventArgs e)
+        private void TxtBusquedaPropietario_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(txtBusquedaPropietario, e);
+            List<MCliente> lstBusqueda;
+            Validar_Texto(txtBusquedaPropietario);
+            CtrlCliente objPropietario = new CtrlCliente();
+            lstBusqueda = objPropietario.BuscarPropietario(txtBusquedaPropietario.Text);
         }
 
         private void PicBuscarCliente_Click(object sender, EventArgs e)
         {
             string datoBuscar = txtBusquedaPropietario.Text.ToUpper();
-            List<ModCliente> lstBusqueda = new List<ModCliente>();
+            List<MCliente> lstBusqueda;
             lblApellidoUno.Text = "";
             lblApellidoDos.Text = "";
             lblNombre.Text = "";
@@ -142,17 +129,14 @@ namespace OFLP.Vistas
             CtrlCliente objPropietario = new CtrlCliente();
             lstBusqueda = objPropietario.BuscarPropietario(datoBuscar);
 
-
             if (lstBusqueda.Count > 0)
             {
-
-                objPropietario = null;
                 dtgPropietario.ScrollBars = ScrollBars.Both;
                 dtgPropietario.Enabled = true;
                 pnlConfiguraPropietario.Visible = true;
                 dtgPropietario.AutoGenerateColumns = false;
                 dtgPropietario.Rows.Clear();
-                foreach (ModCliente item in lstBusqueda)
+                foreach (MCliente item in lstBusqueda)
                 {
                     dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
 
@@ -163,8 +147,6 @@ namespace OFLP.Vistas
                 MessageBox.Show("El criterio de busqueda no arroja resultado", "Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-
-
         }
 
         private void PicLimpiarBusquedaCliente_Click(object sender, EventArgs e)
@@ -175,12 +157,12 @@ namespace OFLP.Vistas
             pnlConfiguraPropietario.Visible = true;
             dtgPropietario.AutoGenerateColumns = false;
             dtgPropietario.Rows.Clear();
-            foreach (ModCliente item in ClsInicio.clientes)
+            foreach (MCliente item in ClsInicio.clientes)
             {
                 dtgPropietario.Rows.Add(item.CedulaCliente, item.PrimerApellido, item.SegundoApellido, item.NombreCliente);
             }
         }
-
+        
         private void PicAgregarCliente_Click(object sender, EventArgs e)
         {
             FrmAgregarCliente objfrmAgregarCliente = new FrmAgregarCliente(FrmPpal.TipoCliente);

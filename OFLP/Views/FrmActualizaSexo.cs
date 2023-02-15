@@ -14,19 +14,19 @@ namespace OFLP.Vistas
 {
     public partial class FrmActualizaSexo : Form
     {
-        private string[] datosActualizar { get; set; }
+        private string[] DatosActualizar { get; set; }
       
 
         public FrmActualizaSexo(string[] datos)
         {
             InitializeComponent();
-            datosActualizar = datos;
+            DatosActualizar = datos;
         }
 
         private void FrmActualizarSexo_Load(object sender, EventArgs e)
         {
-            TxtActualizarSexo.Text = datosActualizar[1];
-            TxtActualizarDescripcion.Text = datosActualizar[2];
+            TxtActualizarSexo.Text = DatosActualizar[1];
+            TxtActualizarDescripcion.Text = DatosActualizar[2];
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -45,13 +45,13 @@ namespace OFLP.Vistas
                 else
                 {
 
-                    datosActualizar[1] = TxtActualizarSexo.Text;
-                    datosActualizar[2] = TxtActualizarDescripcion.Text;
+                    DatosActualizar[1] = TxtActualizarSexo.Text;
+                    DatosActualizar[2] = TxtActualizarDescripcion.Text;
 
 
                     CtrlSexo objCtrSexo = new CtrlSexo();
 
-                    if (objCtrSexo.ActualizarSexo(datosActualizar))
+                    if (objCtrSexo.ActualizarSexo(DatosActualizar))
                     {
                         MessageBox.Show("Hacienda actualizada exitosamente", "Actualizar Hacienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ActualizarSexo();
@@ -77,7 +77,7 @@ namespace OFLP.Vistas
 
         }
 
-        private void Validar_Texto(TextBox Elemento, EventArgs e)
+        private void Validar_Texto(TextBox Elemento)
         {
 
             if (Controlador.Restricciones.Tiene_Letras(Elemento.Text.Trim()))
@@ -90,12 +90,12 @@ namespace OFLP.Vistas
 
         private void TxtActualizarSexo_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(TxtActualizarSexo,e);
+            Validar_Texto(TxtActualizarSexo);
         }
 
         private void TxtActualizarDescripcion_TextChanged(object sender, EventArgs e)
         {
-            Validar_Texto(TxtActualizarDescripcion,e);
+            Validar_Texto(TxtActualizarDescripcion);
         }
     }
 }

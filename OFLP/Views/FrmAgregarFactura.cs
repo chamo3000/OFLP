@@ -1,10 +1,16 @@
 ﻿using OFLP.Controlador;
+using OFLP.Model;
 using OFLP.Modelo;
+using OFLP.Views;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Shapes;
 
 namespace OFLP.Vistas
 {
@@ -17,15 +23,21 @@ namespace OFLP.Vistas
         private int CantFacturas { get; set; }
         public string Propietario { get; set; }
         public int IdPropietario { get; set; }
+        public string IdFactura { get; set; }
+        public int IdComprador { get; set; }
         string claseGanado;
         string numeroCorral;
         string numeroCabezas;
         string genero;
         string cantidadKilos;
         string valorKilo;
+
         string nombreComprador;
         string valorTotal;
+
         string totaliva;
+        int idClase;
+        int idGenero;
 
 
         public FrmAgregarFactura(DataGridView dtgFrm)
@@ -33,35 +45,25 @@ namespace OFLP.Vistas
             InitializeComponent();
             this.DtgFormFactura = dtgFrm;
             this.CantFacturas = dtgFrm.Rows.Count;
-
-
-
         }
-
         private void Button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void FrmAgregarFactura_Load(object sender, EventArgs e)
         {
             PnlAgregar.Visible = false;
             LimpiarControles();
             CalcularReunion();
             Thread hiloPropietarios = new Thread(LlenarComboPropietarios);
-            Thread hiloCompradores = new Thread(LlenarComboCompradores);
             hiloPropietarios.Start();
-            hiloCompradores.Start();
             CargarDatosListas();
             LlenarCombos();
-
         }
-
         private void CalcularReunion()
         {
             DateTime v2 = new DateTime(dtpicFechaFactura.Value.Year, dtpicFechaFactura.Value.Month, dtpicFechaFactura.Value.Day);
@@ -69,7 +71,6 @@ namespace OFLP.Vistas
             lblNumeroFact.Text = CalcularConsecutivo();
             lblReunion.Text = Reunion.ToString();
         }
-
         private void CargarDatosListas()
         {
             CheckForIllegalCrossThreadCalls = false;
@@ -77,12 +78,6 @@ namespace OFLP.Vistas
             {
                 CtrlCliente ObjCliente = new CtrlCliente();
                 ObjCliente.LlenarGridCliente();
-            }
-
-            if (ClsInicio.haciendas.Count == 0)
-            {
-                ctrlHacienda ObjHacienda = new ctrlHacienda();
-                ObjHacienda.LlenarGridHacienda();
             }
 
             if (ClsInicio.ganado.Count == 0)
@@ -96,45 +91,32 @@ namespace OFLP.Vistas
                 CtrlSexo objSexo = new CtrlSexo();
                 objSexo.LlenarGridSexo();
             }
-
         }
-
         private void LlenarComboPropietarios()
         {
-            foreach (ModCliente item in ClsInicio.clientes)
+            foreach (MCliente item in ClsInicio.clientes)
             {
                 cmbPropietario.Items.Add(item.NombreCliente + " " + item.PrimerApellido);
             }
         }
-
         private void LlenarComboCompradores()
         {
-            foreach (ModCliente item in ClsInicio.Compradores)
+            foreach (MCliente item in ClsInicio.clientes)
             {
-                CmbComprador.Items.Add(item.NombreCliente + " " + item.PrimerApellido);
+                if (!cmbPropietario.Text.Equals(item.NombreCliente + " " + item.PrimerApellido)) CmbComprador.Items.Add(item.NombreCliente + " " + item.PrimerApellido);
             }
         }
-
         private void LlenarCombos()
         {
-
-            //foreach (ModHacienda item in clsInicio.haciendas)
-            //{
-            //    cmbHacienda.Items.Add(item.nombreHacienda);
-            //}
-
-            foreach (ModGanado item in ClsInicio.ganado)
+            foreach (Ganado item in ClsInicio.ganado)
             {
-                cmbClase.Items.Add(item.claseGanado + ": "+item.descripcion);
+                cmbClase.Items.Add(item.ClaseGanado + ": " + item.Descripcion);
             }
             foreach (ModSexo item in ClsInicio.sexo)
             {
-                cmbSexo.Items.Add(item.descripcion);
+                cmbSexo.Items.Add(item.Descripcion);
             }
-
-
         }
-
         private void CmbClase_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -147,11 +129,8 @@ namespace OFLP.Vistas
                 {
                     MessageBox.Show("Debe ingresar una clase de ganado");
                 }
-
             }
-
         }
-
         private void TxtCorral_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -164,7 +143,6 @@ namespace OFLP.Vistas
                 {
                     MessageBox.Show("Debe ingresar un numero de corral");
                 }
-
             }
             else if (Char.IsDigit(e.KeyChar))
             {
@@ -183,7 +161,6 @@ namespace OFLP.Vistas
                 e.Handled = true;
             }
         }
-
         private void TxtCabezas_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -196,7 +173,6 @@ namespace OFLP.Vistas
                 {
                     MessageBox.Show("Debe ingresar un numero de cabezas");
                 }
-
             }
             else if (Char.IsDigit(e.KeyChar))
             {
@@ -215,7 +191,6 @@ namespace OFLP.Vistas
                 e.Handled = true;
             }
         }
-
         private void CmbSexo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -228,14 +203,10 @@ namespace OFLP.Vistas
                 {
                     MessageBox.Show("Debe ingresar el sexo del lote");
                 }
-
             }
-
         }
-
         private void TxtKilos_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 if (!string.IsNullOrEmpty(txtKilos.Text))
@@ -246,7 +217,6 @@ namespace OFLP.Vistas
                 {
                     MessageBox.Show("Debe ingresar la cantidad total de kilos");
                 }
-
             }
             else if (Char.IsDigit(e.KeyChar))
             {
@@ -280,7 +250,6 @@ namespace OFLP.Vistas
                 {
                     MessageBox.Show("Debe ingresar la cantidad total de kilos");
                 }
-
             }
             else if (Char.IsDigit(e.KeyChar))
             {
@@ -298,18 +267,15 @@ namespace OFLP.Vistas
             {
                 e.Handled = true;
             }
-
-
         }
-
         private void ChkSiIva_CheckedChanged(object sender, EventArgs e)
         {
             if (chkSiIva.Checked)
             {
                 chkNoIva.Checked = false;
-                //ValorTotal = (Convert.ToInt32(txtKilos.Text) * Convert.ToInt32(txtValorKilo.Text));
                 CalcularValorTotal();
-                TxtValorTotal.Text = string.Format("{0:n}", ValorTotal);
+                //valorTotalGuardar = ValorTotal.ToString();
+                TxtValorTotal.Text = ValorTotal.ToString("0,0");
             }
         }
 
@@ -318,20 +284,17 @@ namespace OFLP.Vistas
             if (chkNoIva.Checked)
             {
                 chkSiIva.Checked = false;
-
-
                 CalcularValorTotal();
-                TxtValorTotal.Text = string.Format("{0:n}", ValorTotal);
+                // valorTotalGuardar = ValorTotal.ToString();
+                TxtValorTotal.Text = ValorTotal.ToString("0,0");
             }
         }
-
         private void DateTimePicker1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 cmbPropietario.Select();
             }
-
         }
 
         private void CmbPropietario_KeyPress(object sender, KeyPressEventArgs e)
@@ -346,7 +309,6 @@ namespace OFLP.Vistas
                 {
                     MessageBox.Show("Debe Seleccionar un propiertario");
                 }
-
             }
         }
 
@@ -358,19 +320,12 @@ namespace OFLP.Vistas
             }
 
         }
-
         private void LimpiarControles()
         {
             lblNumeroFact.Text = string.Empty;
             lblMunicipio.Text = string.Empty;
             lblReunion.Text = string.Empty;
         }
-
-        private void TxtValorKilo_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
         private void TxtValorKilo_TextChanged(object sender, EventArgs e)
         {
 
@@ -378,9 +333,8 @@ namespace OFLP.Vistas
             {
                 PicAgregar.Visible = true;
                 GrpIva.Enabled = true;
-                //ValorTotal = (Convert.ToInt32(txtKilos.Text) * Convert.ToInt32(txtValorKilo.Text));
                 CalcularValorTotal();
-                TxtValorTotal.Text = string.Format("{0:n}", ValorTotal);
+                TxtValorTotal.Text = ValorTotal.ToString("0,0");
             }
             else
             {
@@ -391,76 +345,55 @@ namespace OFLP.Vistas
             }
 
         }
-
-        private void CmbHacienda_SelectedValueChanged(object sender, EventArgs e)
+        private void LlenarDatos(int indexRow)
         {
-
+            claseGanado = DtgAgregaFactura.Rows[indexRow].Cells["claseAgregaFactura"].Value.ToString();
+            numeroCorral = DtgAgregaFactura.Rows[indexRow].Cells["corralAgregaFactura"].Value.ToString();
+            numeroCabezas = DtgAgregaFactura.Rows[indexRow].Cells["cabezasAgregaFactura"].Value.ToString();
+            genero = DtgAgregaFactura.Rows[indexRow].Cells["sexoAgregaFactura"].Value.ToString();
+            IdComprador = ExtraerIdComprador(DtgAgregaFactura.Rows[indexRow].Cells["compradorAgregaFactura"].Value.ToString());
+            idGenero = ClsInicio.sexo.FirstOrDefault(p => p.Descripcion.Equals(genero)).Id;
+            idClase = ClsInicio.ganado.FirstOrDefault(x => claseGanado.Contains(x.Descripcion)).IdGanado;
+            cantidadKilos = DtgAgregaFactura.Rows[indexRow].Cells["kilosAgregaFactura"].Value.ToString();
+            valorKilo = DtgAgregaFactura.Rows[indexRow].Cells["valor_kiloAgregaFactura"].Value.ToString().Replace(",", string.Empty);
+            valorTotal = DtgAgregaFactura.Rows[indexRow].Cells["valor_totalAgregaFactura"].Value.ToString().Replace(",", string.Empty);
         }
 
-        private void CmbHacienda_TextChanged(object sender, EventArgs e)
+        private void AgregarFilaGrid()
         {
-
-        }
-
-        private void CmbHacienda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CmbHacienda_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            string hacienda = cmbHacienda.SelectedItem.ToString();
-
-            foreach (ModHacienda item in ClsInicio.haciendas)
-            {
-                if (item.nombreHacienda.Equals(hacienda))
-                {
-                    lblMunicipio.Text = item.municipio;
-                }
-            }
-
-
-        }
-
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-            btnTerminarGuardar.Visible = true;
             claseGanado = cmbClase.SelectedItem.ToString();
             numeroCorral = txtCorral.Text;
             numeroCabezas = txtCabezas.Text;
             genero = cmbSexo.SelectedItem.ToString();
+            idGenero = ClsInicio.sexo.FirstOrDefault(p => p.Descripcion.Equals(genero)).Id;
+            idClase = ClsInicio.ganado.FirstOrDefault(x => claseGanado.Contains(x.Descripcion)).IdGanado;
             cantidadKilos = txtKilos.Text;
-            valorKilo = Convert.ToDouble(txtValorKilo.Text).ToString("N");  
+            valorKilo = Convert.ToDouble(txtValorKilo.Text).ToString("0,0");
             valorTotal = TxtValorTotal.Text;
             totaliva = ValorIva.ToString();
-
+        }
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            btnTerminarGuardar.Visible = true;
+            picAceptar.Visible = true;
+            AgregarFilaGrid();
 
             if (string.IsNullOrEmpty(claseGanado) || string.IsNullOrEmpty(numeroCorral) ||
                 string.IsNullOrEmpty(numeroCabezas) || string.IsNullOrEmpty(genero) ||
                 string.IsNullOrEmpty(cantidadKilos) || string.IsNullOrEmpty(valorKilo) ||
-                string.IsNullOrEmpty(CmbComprador.SelectedItem.ToString()))
+                CmbComprador.SelectedIndex.Equals(-1))
             {
 
                 MessageBox.Show("Debe ingresar todos los datos necesarios", "Ingresa datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-
                 nombreComprador = CmbComprador.SelectedItem.ToString();
                 DtgAgregaFactura.Rows.Add(claseGanado, numeroCorral, numeroCabezas, genero, nombreComprador, cantidadKilos, totaliva, valorKilo, valorTotal);
                 DtgAgregaFactura.Rows[DtgAgregaFactura.Rows.Count - 1].Cells[9].Value = Image.FromFile(@".\editar.png");
                 DtgAgregaFactura.Rows[DtgAgregaFactura.Rows.Count - 1].Cells[10].Value = Image.FromFile(@".\eliminar.png");
 
-                claseGanado = string.Empty;
-                numeroCorral = string.Empty;
-                numeroCabezas = string.Empty;
-                genero = string.Empty;
-                cantidadKilos = string.Empty;
-                valorKilo = string.Empty;
-                nombreComprador = string.Empty;
-                valorTotal = string.Empty;
-                totaliva = string.Empty;
-
+                CmbComprador.SelectedItem = null;
                 cmbClase.SelectedItem = null;
                 txtCorral.Text = string.Empty;
                 txtCabezas.Text = string.Empty;
@@ -471,21 +404,14 @@ namespace OFLP.Vistas
                 chkNoIva.Checked = true;
                 PicAgregar.Visible = false;
                 cmbPropietario.Enabled = false;
-
             }
-
-
-
         }
-
         private string CalcularConsecutivo()
         {
-            string consecutivo;
             var fecha = dtpicFechaFactura.Value.ToString("yyyyMMdd");
-            consecutivo = fecha + Reunion + CantFacturas;
-            return consecutivo;
+            IdFactura = fecha + Reunion + CantFacturas;
+            return IdFactura;
         }
-
         private void CalcularValorTotal()
         {
             double Total;
@@ -510,36 +436,6 @@ namespace OFLP.Vistas
 
             ValorTotal = Total + ValorIva;
         }
-
-        private void DtgAgregaFactura_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-
-
-
-
-
-        }
-
-        private void DtgAgregaFactura_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
-
-
-
-
-        }
-
-        private void DtgAgregaFactura_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-
-        }
-
-        private void DtgAgregaFactura_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-
-
-
-        }
-
         private void DtgAgregaFactura_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 10)
@@ -577,7 +473,6 @@ namespace OFLP.Vistas
                 }
             }
         }
-
         private void LimpiarDatos()
         {
             claseGanado = string.Empty;
@@ -601,73 +496,86 @@ namespace OFLP.Vistas
             PicAgregar.Visible = false;
             cmbPropietario.Enabled = false;
         }
-
-
         private void DtpicFechaFactura_ValueChanged(object sender, EventArgs e)
         {
             CalcularReunion();
         }
-
         private void BtnTerminarGuardar_Click(object sender, EventArgs e)
         {
-            string[] datos = new string[13];
-            CtrlFactura objCtrlFactura = new CtrlFactura();
-            CantFacturas++;
-            foreach (DataGridViewRow item in DtgAgregaFactura.Rows)
+
+            if (MessageBox.Show("Desea agregar gastos a la factura", "Agregar Gastos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                string fecha = dtpicFechaFactura.Value.ToString("dd-MM-yyyy");
-                datos[0] = lblNumeroFact.Text;
-                datos[1] = lblReunion.Text;
-                datos[2] = fecha;
-                datos[3] = IdPropietario.ToString();
-                datos[4] = ExtraerIdClaseGanado(item.Cells[0].Value.ToString().Split(':')[0]).ToString() ;
-                datos[5] = item.Cells[1].Value.ToString();
-                datos[6] = item.Cells[2].Value.ToString();
-                datos[7] = ExtraerIdSexo(item.Cells[3].Value.ToString()).ToString();
-                datos[8] = item.Cells[5].Value.ToString();
-                datos[9] = item.Cells[7].Value.ToString();
-                datos[10] = item.Cells[8].Value.ToString();
-                datos[11] = DateTime.ParseExact(fecha, "dd-MM-yyyy", CultureInfo.InvariantCulture).Year.ToString();
-                datos[12] = ExtraerIdComprador(item.Cells[4].Value.ToString()).ToString();
 
-                objCtrlFactura.AgregarFactura(datos);
-                DtgFormFactura.Rows.Add(lblNumeroFact.Text, lblReunion.Text, fecha, Propietario, item.Cells[0].Value, item.Cells[1].Value, item.Cells[2].Value, item.Cells[3].Value, item.Cells[4].Value, item.Cells[5].Value, item.Cells[7].Value, item.Cells[8].Value);
-            }
+                int idGasto;
+                int gasto;
+                FrmGasto OGasto = new FrmGasto(IdFactura, IdPropietario, Reunion);
+                OGasto.ShowDialog();
+                int IdFact = Convert.ToInt32(IdFactura);
 
-            this.Close();
-
-        }
-
-        private int ExtraerIdClaseGanado(string claseganado)
-        {
-            int retorno=0;
-            foreach(ModGanado item in ClsInicio.ganado)
-            {
-                if (claseganado.Equals(item.claseGanado))
+                using (MIGANEntities db = new MIGANEntities())
                 {
-                    retorno = item.idGanado;
+                    idGasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).id;
+                    gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
                 }
-            }
-            return retorno;
-        }
-
-        private int ExtraerIdSexo(string genero)
-        {
-            int retorno = 0;
-            foreach (ModSexo item in ClsInicio.sexo)
-            {
-                if (genero.Equals(item.descripcion))
+                for (int i = 0; i < DtgAgregaFactura.RowCount; i++)
                 {
-                    retorno = item.id;
-                }
-            }
-            return retorno;
-        }
+                        LlenarDatos(i);
+                        List<FACTURA> listFactura = new List<FACTURA>()
+                    {
+                        new FACTURA
+                        {
+                            consecutivo = IdFact,
+                            reunion = Reunion,
+                            fecha = DateTime.Now,
+                            cabezas = Convert.ToInt32(numeroCabezas),
+                            corral = Convert.ToInt32(numeroCorral),
+                            kilos = Convert.ToInt32(cantidadKilos),
+                            valorkilo = Convert.ToInt32(string.Format("{0:n}",valorKilo)),
+                            valortotal = Convert.ToInt32(string.Format("{0:n}",valorTotal)),
+                            anio = DateTime.Now.Year,
+                            clienteID = IdPropietario,
+                            claseID = idClase,
+                            sexoID = idGenero,
+                            gastoID = idGasto,
+                            compradorID = IdComprador,
 
+                        }
+                    };
+                    CtrlFactura factura = new CtrlFactura();
+                    factura.AgregarFactura(listFactura);
+                }
+                DtgFormFactura.Rows.Add(lblNumeroFact.Text, lblReunion.Text, Propietario, gasto.ToString(), valorTotal);
+                this.Close();
+            }
+        }
+        //private int ExtraerIdClaseGanado(string claseganado)
+        //{
+        //    int retorno = 0;
+        //    foreach (Ganado item in ClsInicio.ganado)
+        //    {
+        //        if (claseganado.Equals(item.ClaseGanado))
+        //        {
+        //            retorno = item.IdGanado;
+        //        }
+        //    }
+        //    return retorno;
+        //}
+        //private int ExtraerIdSexo(string genero)
+        //{
+        //    int retorno = 0;
+        //    foreach (ModSexo item in ClsInicio.sexo)
+        //    {
+        //        if (genero.Equals(item.Descripcion))
+        //        {
+        //            retorno = item.Id;
+        //        }
+        //    }
+        //    return retorno;
+        //}
         private int ExtraerIdComprador(string comprador)
         {
             int retorno = 0;
-            foreach (ModCliente item in ClsInicio.Compradores)
+            foreach (MCliente item in ClsInicio.clientes)
             {
                 if (comprador.Contains(item.PrimerApellido) && comprador.Contains(item.NombreCliente))
                 {
@@ -676,25 +584,41 @@ namespace OFLP.Vistas
             }
             return retorno;
         }
-
         private void CmbPropietario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
             Propietario = cmbPropietario.SelectedItem.ToString();
-            foreach (ModCliente item in ClsInicio.clientes)
+            Thread hiloCompradores = new Thread(LlenarComboCompradores);
+            hiloCompradores.Start();
+            foreach (MCliente item in ClsInicio.clientes)
             {
-                if(Propietario.Contains(item.PrimerApellido) && Propietario.Contains(item.NombreCliente))
+                if (Propietario.Contains(item.PrimerApellido) && Propietario.Contains(item.NombreCliente))
                 {
                     IdPropietario = item.CedulaCliente;
                 }
             }
-            
             CmbComprador.Visible = true;
         }
-
         private void CmbComprador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PnlAgregar.Visible = true;
+            if (CmbComprador.SelectedItem != null)
+            {
+                PnlAgregar.Visible = true;
+                nombreComprador = CmbComprador.SelectedItem.ToString();
+                foreach (MCliente item in ClsInicio.clientes)
+                {
+                    if (nombreComprador.Contains(item.PrimerApellido) && nombreComprador.Contains(item.NombreCliente))
+                    {
+                        IdComprador = item.CedulaCliente;
+                    }
+                }
+            }
+        }
+
+        private void TxtKilos_TextChanged(object sender, EventArgs e)
+        {
+            CalcularValorTotal();
+            //valorTotalGuardar = ValorTotal.ToString();
+            TxtValorTotal.Text = ValorTotal.ToString("0,0");
         }
     }
 }

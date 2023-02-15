@@ -17,18 +17,12 @@ namespace OFLP.Vistas
         private bool auxCerrar = false;
         private void PnlBarraTitulo_MouseDown(object sender, MouseEventArgs e)
         {
-            //ReleaseCapture();
-            //SendMessage(this.Handle, 0x112, 0xf012, 0);
-
         }
         public FrmPpal()
         {
            
             InitializeComponent();
         }
-
-
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Esta seguro que desea salir?", "Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -37,16 +31,10 @@ namespace OFLP.Vistas
                 Application.Exit();
 
             }
-
         }
-
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Maximized;
-            //btnMaximizar.Visible = false;
-            //btnRestaurar.Visible = true;
         }
-
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
@@ -61,13 +49,10 @@ namespace OFLP.Vistas
 
         private void btnDatos_MouseEnter(object sender, EventArgs e)
         {
-            //pnlMenuDatos.Visible = true;
         }
 
         private void btnDatos_MouseLeave(object sender, EventArgs e)
         {
-
-            // pnlMenuDatos.Visible = false;
         }
 
         private void btnDatos_Click(object sender, EventArgs e)
@@ -76,22 +61,13 @@ namespace OFLP.Vistas
             {
                 CtrlUtilidades ObjUtil = new CtrlUtilidades();
                 ObjUtil.CerrarListaFormulario(pnlContenedor.Controls.OfType<Form>().ToList<Form>());
-                // ObjUtil.CerrarFormEnPanel(Program.objfrmPpal.pnlContenedor);
-                ObjUtil = null;
-                GC.Collect();
             }
-
             if (pnlMenuDatos.Visible) pnlMenuDatos.Visible = false;
             else pnlMenuDatos.Visible = true;
         }
-
-
-
         private void BtnInformes_Click(object sender, EventArgs e)
         {
-
         }
-
         private void BtnComisiones_Click(object sender, EventArgs e)
         {
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
@@ -99,7 +75,6 @@ namespace OFLP.Vistas
             objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }
-
         private void btnPropietario_Click(object sender, EventArgs e)
         {
             TipoCliente = 1;
@@ -107,55 +82,25 @@ namespace OFLP.Vistas
             objUtilidades.AbrirFormulario<FrmCliente>(pnlContenedor);
             pnlMenuDatos.Visible = false;
         }
-
         private void frmPpal_Load(object sender, EventArgs e)
         {
             lblVersion.Text = ConfigurationManager.AppSettings["Version"];
-
         }
-
         private void btnCompradores_Click(object sender, EventArgs e)
         {
             TipoCliente = 2;
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
             objUtilidades.AbrirFormulario<FrmCliente>(pnlContenedor);
-            //objUtilidades.AbrirFormEnPanel(new frmCliente(2), pnlContenedor);
             objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }
-
-        private void btnHaciendas_Click(object sender, EventArgs e)
-        {
-
-            CtrlUtilidades objUtilidades = new CtrlUtilidades();
-            objUtilidades.AbrirFormulario<FrmHaciendas>(pnlContenedor);
-            //objUtilidades.AbrirFormEnPanel(new frmCliente(2), pnlContenedor);
-            objUtilidades = null;
-            pnlMenuDatos.Visible = false;
-
-        }
-
-
-
         private void frmPpal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!auxCerrar)
             {
                 e.Cancel = true;
             }
-
-
         }
-
-        private void btnBancos_Click(object sender, EventArgs e)
-        {
-            CtrlUtilidades objUtilidades = new CtrlUtilidades();
-            objUtilidades.AbrirFormulario<FrmBanco>(pnlContenedor);
-            //objUtilidades.AbrirFormEnPanel(new frmCliente(2), pnlContenedor);
-            objUtilidades = null;
-            pnlMenuDatos.Visible = false;
-        }
-
         private void btnClasesGanado_Click(object sender, EventArgs e)
         {
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
@@ -163,21 +108,10 @@ namespace OFLP.Vistas
             objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }
-
         private void btnSexos_Click(object sender, EventArgs e)
         {
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
             objUtilidades.AbrirFormulario<FrmSexo>(pnlContenedor);
-            objUtilidades = null;
-            pnlMenuDatos.Visible = false;
-        }
-
-        private void btnCuentasBancarias_Click(object sender, EventArgs e)
-        {
-
-            CtrlUtilidades objUtilidades = new CtrlUtilidades();
-            objUtilidades.AbrirFormulario<FrmCuenta>(pnlContenedor);
-            //objUtilidades.AbrirFormEnPanel(new frmCliente(2), pnlContenedor);
             objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }

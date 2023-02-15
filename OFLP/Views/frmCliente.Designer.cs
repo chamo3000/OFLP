@@ -282,7 +282,7 @@
             this.txtBusquedaPropietario.Name = "txtBusquedaPropietario";
             this.txtBusquedaPropietario.Size = new System.Drawing.Size(185, 22);
             this.txtBusquedaPropietario.TabIndex = 11;
-            this.txtBusquedaPropietario.TextChanged += new System.EventHandler(this.txtBusquedaPropietario_TextChanged);
+            this.txtBusquedaPropietario.TextChanged += new System.EventHandler(this.TxtBusquedaPropietario_TextChanged);
             // 
             // lblTipoCliente
             // 

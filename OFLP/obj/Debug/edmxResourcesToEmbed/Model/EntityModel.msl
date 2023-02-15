@@ -1,30 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MIGANModelStoreContainer" CdmEntityContainer="MIGANEntities">
+    <EntitySetMapping Name="CLASE">
+      <EntityTypeMapping TypeName="IsTypeOf(MIGANModel.CLASE)">
+        <MappingFragment StoreEntitySet="CLASE">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="claseGanado" ColumnName="claseGanado" />
+          <ScalarProperty Name="clase1" ColumnName="clase1" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CLIENTE">
-      <EntityTypeMapping TypeName="MIGANModel.CLIENTE">
+      <EntityTypeMapping TypeName="IsTypeOf(MIGANModel.CLIENTE)">
         <MappingFragment StoreEntitySet="CLIENTE">
-          <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
-          <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+          <ScalarProperty Name="PRIMERAPELLIDO" ColumnName="PRIMERAPELLIDO" />
+          <ScalarProperty Name="SEGUNDOAPELLIDO" ColumnName="SEGUNDOAPELLIDO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURA">
+      <EntityTypeMapping TypeName="IsTypeOf(MIGANModel.FACTURA)">
+        <MappingFragment StoreEntitySet="FACTURA">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
+          <ScalarProperty Name="reunion" ColumnName="reunion" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="cabezas" ColumnName="cabezas" />
+          <ScalarProperty Name="corral" ColumnName="corral" />
+          <ScalarProperty Name="kilos" ColumnName="kilos" />
+          <ScalarProperty Name="valorkilo" ColumnName="valorkilo" />
+          <ScalarProperty Name="valortotal" ColumnName="valortotal" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="clienteID" ColumnName="clienteID" />
+          <ScalarProperty Name="claseID" ColumnName="claseID" />
+          <ScalarProperty Name="sexoID" ColumnName="sexoID" />
+          <ScalarProperty Name="gastoID" ColumnName="gastoID" />
+          <ScalarProperty Name="compradorID" ColumnName="compradorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GASTO">
+      <EntityTypeMapping TypeName="IsTypeOf(MIGANModel.GASTO)">
+        <MappingFragment StoreEntitySet="GASTO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="reunion" ColumnName="reunion" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="bascula" ColumnName="bascula" />
+          <ScalarProperty Name="transporte" ColumnName="transporte" />
+          <ScalarProperty Name="bano" ColumnName="bano" />
+          <ScalarProperty Name="recibida" ColumnName="recibida" />
+          <ScalarProperty Name="comisionF" ColumnName="comisionF" />
+          <ScalarProperty Name="comisionG" ColumnName="comisionG" />
+          <ScalarProperty Name="vacuna" ColumnName="vacuna" />
+          <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="idfactura" ColumnName="idfactura" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ROL">
-      <EntityTypeMapping TypeName="MIGANModel.ROL">
+      <EntityTypeMapping TypeName="IsTypeOf(MIGANModel.ROL)">
         <MappingFragment StoreEntitySet="ROL">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ROL1" ColumnName="ROL" />
+          <ScalarProperty Name="ROL1" ColumnName="ROL1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEXO">
+      <EntityTypeMapping TypeName="IsTypeOf(MIGANModel.SEXO)">
+        <MappingFragment StoreEntitySet="SEXO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sexo1" ColumnName="sexo1" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="USUARIO">
-      <EntityTypeMapping TypeName="MIGANModel.USUARIO">
+      <EntityTypeMapping TypeName="IsTypeOf(MIGANModel.USUARIO)">
         <MappingFragment StoreEntitySet="USUARIO">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO" />
+          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO1" />
           <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />

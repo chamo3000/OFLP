@@ -1,4 +1,5 @@
-﻿using OFLP.Modelo;
+﻿using OFLP.Model;
+using OFLP.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,60 +10,48 @@ namespace OFLP.Controlador
 {
     class CtrlFactura
     {
-
-
-
-        public bool AgregarFactura(string [] datos)
+        public bool AgregarFactura(List<FACTURA> datos)
         {
-            ModFactura oEquipo = new ModFactura();
-
+            MFactura oEquipo = new MFactura();
 
             if (!oEquipo.AgregarFactura(datos))
-            {
-                return false;
-            }
+            return false;
             else
-            {
-                return true;
-            }
-
+            return true;
         }
 
+        public bool ActualizarFactura(List<FACTURA> datos,int index)
+        {
+            MFactura oEquipo = new MFactura();
+
+            if (!oEquipo.ActualizarFactura(datos,index))
+                return false;
+            else
+                return true;
+        }
         public bool EliminarFactura(string consecutivo)
         {
-            ModFactura oEquipo = new ModFactura();
-
+            MFactura oEquipo = new MFactura();
 
             if (!oEquipo.Eliminarfactura(consecutivo))
-            {
-                return false;
-            }
+            return false;
             else
-            {
-                return true;
-            }
-
-
+            return true;
         }
-
-
         public bool LlenarGridFactura()
         {
-            ModFactura oEquipo = new ModFactura();
+            MFactura oEquipo = new MFactura();
 
-            if (!oEquipo.LlenarGrid())
-            {
-                return false;
-            }
-            else
-            {
-                //DataSet ds= oEquipo.dtModPropietario;
-                return true;
-            }
-
+            if (!oEquipo.LlenarGrid()) return false;
+            else return true;
         }
 
+        public bool LlenarGridFacturaActualizar(string consecutivo)
+        {
+            MFactura oEquipo = new MFactura();
 
-
+            if (!oEquipo.LlenarGridFacturaActualizar(consecutivo)) return false;
+            else return true;
+        }
     }
 }
