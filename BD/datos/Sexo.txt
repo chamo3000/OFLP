@@ -1,0 +1,12 @@
+id,sexo1,descripcion
+1,B,Bueyes
+2,T,Toros
+3,M,Machos
+4,V,Vacas
+5,N,Novillas
+6,C,Crias
+7,A,Terneras
+8,P,Paridas
+9,O,Terneros
+10,E,Novillos
+11,U,Bufalo

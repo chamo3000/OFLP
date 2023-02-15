@@ -1,0 +1,10 @@
+id,claseGanado,clase1,descripcion
+1,C,Caido,Gordo en Transporte
+2,D,Caido,Caido Flaco en Transporte
+3,F,Flaco,Ganado Flaco
+4,G,Gordo,Ganado Gordo
+5,H,Caido,Caido Gordo en Feria
+6,I,Caido,Caido Flaco en Feria
+7,M,Muerto,Muerto en transporte
+8,N,Muerto,Muerto Gordo en Feria
+9,O,Muerto,Muerto Flaco en Feria
