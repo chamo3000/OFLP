@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/08/2023 09:35:09
--- Generated from EDMX file: H:\Salvados\Oficina LBP\Github\OFLP\OFLP\Model\EntityModel.edmx
+-- Date Created: 02/16/2023 09:43:19
+-- Generated from EDMX file: C:\Users\jbedoya\Documents\OFLP\OFLP\OFLP\Model\EntityModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -23,14 +23,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK__FACTURA__cliente__2116E6DF]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[FACTURA] DROP CONSTRAINT [FK__FACTURA__cliente__2116E6DF];
 GO
+IF OBJECT_ID(N'[dbo].[fk_Factura_Comprador]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FACTURA] DROP CONSTRAINT [fk_Factura_Comprador];
+GO
 IF OBJECT_ID(N'[dbo].[FK__FACTURA__gastoID__23F3538A]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[FACTURA] DROP CONSTRAINT [FK__FACTURA__gastoID__23F3538A];
 GO
 IF OBJECT_ID(N'[dbo].[FK__FACTURA__sexoID__22FF2F51]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[FACTURA] DROP CONSTRAINT [FK__FACTURA__sexoID__22FF2F51];
-GO
-IF OBJECT_ID(N'[dbo].[fk_Factura_Comprador]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FACTURA] DROP CONSTRAINT [fk_Factura_Comprador];
 GO
 IF OBJECT_ID(N'[dbo].[FK_USUARIO_ROL]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[USUARIO] DROP CONSTRAINT [FK_USUARIO_ROL];
