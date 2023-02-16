@@ -36,11 +36,11 @@ namespace OFLP.Vistas
 
         private void BtnAceptarActualizar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Esta seguro que desea Actualizar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("Esta seguro que desea Actualizar el Sexo?", "Actualizar Sexo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 if (TxtActualizarSexo.Text.Equals(string.Empty) || TxtActualizarDescripcion.Text.Equals(string.Empty))
                 {
-                    MessageBox.Show("Debe ingresar nombre del banco ", "Ingrese datos del Banco", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Debe ingresar todos los datos ", "Ingrese datos del Sexo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -53,13 +53,13 @@ namespace OFLP.Vistas
 
                     if (objCtrSexo.ActualizarSexo(DatosActualizar))
                     {
-                        MessageBox.Show("Hacienda actualizada exitosamente", "Actualizar Hacienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sexo actualizada exitosamente", "Actualizar Sexo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ActualizarSexo();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Error al actualizar la hacienda, valide e intente nuevamente", "Actualizar Hacienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error al actualizar Sexo, valide e intente nuevamente", "Actualizar Sexo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

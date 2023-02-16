@@ -51,6 +51,7 @@ namespace OFLP.Vistas
 
                         ClsInicio.ganado.RemoveAll(c => c.IdGanado == Convert.ToInt32(idganado));
                         DtgGanado.Rows.RemoveAt(DtgGanado.CurrentRow.Index);
+                        MessageBox.Show("Registro Eliminado exitosamente", "Eliminar Clase Ganado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

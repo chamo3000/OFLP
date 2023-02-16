@@ -130,6 +130,7 @@ namespace OFLP.Vistas
 
                     ClsInicio.sexo.RemoveAll(c => c.Id == Convert.ToInt32(idsexo));
                     DtgSexo.Rows.RemoveAt(DtgSexo.CurrentRow.Index);
+                    MessageBox.Show("Registro Eliminado exitosamente", "Eliminar Sexo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
 

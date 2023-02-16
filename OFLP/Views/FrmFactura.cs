@@ -107,8 +107,12 @@ namespace OFLP.Vistas
         }
         private void PicAgregarFactura_Click(object sender, EventArgs e)
         {
-            FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
-            f.Show();
+            if (ClsInicio.clientes.Count > 0)
+            {
+                FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
+                f.Show();
+            }
+            else MessageBox.Show("La lista de clientes se encuentra vacia, debe registrar clientes para realizar la carga de facturas", "Error Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void DtgFactura_CellClick(object sender, DataGridViewCellEventArgs e)

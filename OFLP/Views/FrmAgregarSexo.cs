@@ -25,14 +25,14 @@ namespace OFLP.Vistas
 
             if (string.IsNullOrEmpty(sexo) || string.IsNullOrEmpty(descripcion))
             {
-                MessageBox.Show(this, "Es necesario ingresar los campos completos para realizar el proceso.", "Agregar Hacienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Es necesario ingresar los campos completos para realizar el proceso.", "Agregar Sexo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 CtrlSexo objSexo = new CtrlSexo();
                 if (objSexo.AgregarSexo(sexo, descripcion))
                 {
-                    MessageBox.Show(this, "El registro ha sido agregado exitosamente", "Agregar Banco", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "El registro ha sido agregado exitosamente", "Agregar Sexo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     CtrlUtilidades util = new CtrlUtilidades();
                     util.CerrarFormulario<FrmSexo>(Program.objfrmPpal.pnlContenedor);
@@ -41,7 +41,7 @@ namespace OFLP.Vistas
                 }
                 else
                 {
-                    MessageBox.Show(this, "El registro no ha sido agregado, intente nuevamen", "Agregar Banco", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(this, "El registro no ha sido agregado, intente nuevamen", "Agregar Sexo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 TxtInsertarSexo.Text = string.Empty;
                 TxtInsertarDescripcion.Text = string.Empty;
