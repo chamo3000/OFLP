@@ -1,4 +1,5 @@
-﻿using OFLP.Modelo;
+﻿using OFLP.Model;
+using OFLP.Modelo;
 using OFLP.Vistas;
 using System.Collections.Generic;
 
@@ -13,13 +14,11 @@ namespace OFLP.Controlador
         public static List<ModSexo> sexo = new List<ModSexo>();
         public static List<MFactura> Factura = new List<MFactura>();
         public static List<MFactura> FacturaActualizar = new List<MFactura>();
+        public static List<MPorcentaje> Porcentajes = new List<MPorcentaje>();
 
         public void Iniciar()
         {
-           
             System.Windows.Forms.Application.Run(objfrmPpal);
-            
-           
         }
 
        

@@ -116,6 +116,7 @@
     <Compile Include="Controller\CtrlCliente.cs" />
     <Compile Include="Controller\CtrlFactura.cs" />
     <Compile Include="Controller\CtrlGanado.cs" />
+    <Compile Include="Controller\CtrlPorcentaje.cs" />
     <Compile Include="Controller\CtrlSexo.cs" />
     <Compile Include="Controller\ctrlUsuario.cs" />
     <Compile Include="Controller\CtrlUtilidades.cs" />
@@ -153,7 +154,11 @@
     <Compile Include="Model\MFactura.cs" />
     <Compile Include="Model\Ganado.cs" />
     <Compile Include="Model\ModSexo.cs" />
+    <Compile Include="Model\MPorcentaje.cs" />
     <Compile Include="Model\MUsuario.cs" />
+    <Compile Include="Model\Porcentajes.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ROL.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
@@ -173,6 +178,12 @@
     </Compile>
     <Compile Include="Views\ActualizarFactura.Designer.cs">
       <DependentUpon>ActualizarFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmAgregarFactura.cs">
       <SubType>Form</SubType>
@@ -268,6 +279,9 @@
     </Compile>
     <EmbeddedResource Include="Views\ActualizarFactura.resx">
       <DependentUpon>ActualizarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAgregarFactura.resx">
       <DependentUpon>FrmAgregarFactura.cs</DependentUpon>

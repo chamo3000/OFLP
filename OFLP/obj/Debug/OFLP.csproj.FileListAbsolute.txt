@@ -675,3 +675,4 @@ H:\Salvados\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.application
 H:\Salvados\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.csproj.CopyComplete
 H:\Salvados\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.exe
 H:\Salvados\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.pdb
+H:\Salvados\Oficina LBP\Github\OFLP\OFLP\obj\Debug\OFLP.Views.Configuracion.resources

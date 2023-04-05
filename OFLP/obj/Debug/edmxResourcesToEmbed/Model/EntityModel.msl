@@ -93,5 +93,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Porcentajes">
+      <EntityTypeMapping TypeName="MIGANModel.Porcentajes">
+        <MappingFragment StoreEntitySet="Porcentajes">
+          <ScalarProperty Name="FondoNal" ColumnName="FondoNal" />
+          <ScalarProperty Name="Comision" ColumnName="Comision" />
+          <ScalarProperty Name="Recibida" ColumnName="Recibida" />
+          <ScalarProperty Name="Feria" ColumnName="Feria" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

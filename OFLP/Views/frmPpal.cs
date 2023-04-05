@@ -1,4 +1,5 @@
 ﻿using OFLP.Controlador;
+using OFLP.Views;
 using System;
 using System.Configuration;
 using System.Linq;
@@ -114,6 +115,12 @@ namespace OFLP.Vistas
             objUtilidades.AbrirFormulario<FrmSexo>(pnlContenedor);
             objUtilidades = null;
             pnlMenuDatos.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Configuracion FrmConfig=new Configuracion();
+            FrmConfig.ShowDialog();
         }
     }
 }

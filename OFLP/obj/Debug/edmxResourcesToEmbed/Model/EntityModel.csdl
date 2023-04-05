@@ -32,6 +32,7 @@
       <End Role="ROL" EntitySet="ROL" />
       <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>
+    <EntitySet Name="Porcentajes" EntityType="MIGANModel.Porcentajes" />
   </EntityContainer>
   <EntityType Name="CLASE">
     <Key>
@@ -202,4 +203,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Porcentajes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Feria" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Recibida" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Comision" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FondoNal" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
 </Schema>

@@ -46,6 +46,7 @@
             this.btnInformes = new System.Windows.Forms.Button();
             this.btnDatos = new System.Windows.Forms.Button();
             this.pnlMenuDatos = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSexos = new System.Windows.Forms.Button();
             this.btnClasesGanado = new System.Windows.Forms.Button();
             this.btnPropietario = new System.Windows.Forms.Button();
@@ -286,6 +287,7 @@
             // pnlMenuDatos
             // 
             this.pnlMenuDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlMenuDatos.Controls.Add(this.button1);
             this.pnlMenuDatos.Controls.Add(this.btnSexos);
             this.pnlMenuDatos.Controls.Add(this.btnClasesGanado);
             this.pnlMenuDatos.Controls.Add(this.btnPropietario);
@@ -294,9 +296,25 @@
             this.pnlMenuDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.pnlMenuDatos.Location = new System.Drawing.Point(5, 110);
             this.pnlMenuDatos.Name = "pnlMenuDatos";
-            this.pnlMenuDatos.Size = new System.Drawing.Size(189, 124);
+            this.pnlMenuDatos.Size = new System.Drawing.Size(189, 151);
             this.pnlMenuDatos.TabIndex = 0;
             this.pnlMenuDatos.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 126);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 21);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Configuración";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSexos
             // 
@@ -446,6 +464,7 @@
         public System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button button1;
     }
 }
 
