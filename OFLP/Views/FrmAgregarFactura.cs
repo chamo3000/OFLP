@@ -508,7 +508,8 @@ namespace OFLP.Vistas
 
                 int idGasto;
                 int gasto;
-                FrmGasto OGasto = new FrmGasto(IdFactura, IdPropietario, Reunion);
+                int total =NumeroSinCaracteres(valorTotal.ToString());
+                FrmGasto OGasto = new FrmGasto(IdFactura, IdPropietario, Reunion,total);
                 OGasto.ShowDialog();
                 int IdFact = Convert.ToInt32(IdFactura);
 
@@ -619,6 +620,16 @@ namespace OFLP.Vistas
             CalcularValorTotal();
             //valorTotalGuardar = ValorTotal.ToString();
             TxtValorTotal.Text = ValorTotal.ToString("0,0");
+        }
+
+        private int NumeroSinCaracteres(string dato)
+        {
+            string cad = string.Empty;
+            foreach(char item in dato)
+            {
+               if(char.IsNumber(item))cad=cad+item;
+            }
+            return Convert.ToInt32(cad);
         }
     }
 }

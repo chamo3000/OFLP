@@ -1,4 +1,5 @@
 ﻿using OFLP.Controlador;
+using OFLP.Controller;
 using OFLP.Views;
 using System;
 using System.Configuration;
@@ -24,7 +25,7 @@ namespace OFLP.Vistas
            
             InitializeComponent();
         }
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Esta seguro que desea salir?", "Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
@@ -33,30 +34,24 @@ namespace OFLP.Vistas
 
             }
         }
-        private void btnMaximizar_Click(object sender, EventArgs e)
+        private void BtnMaximizar_Click(object sender, EventArgs e)
         {
         }
-        private void btnRestaurar_Click(object sender, EventArgs e)
+        private void BtnRestaurar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             btnMaximizar.Visible = true;
             btnRestaurar.Visible = false;
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        private void BtnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnDatos_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        private void btnDatos_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        private void btnDatos_Click(object sender, EventArgs e)
+        private void BtnDatos_MouseEnter(object sender, EventArgs e){}
+        private void BtnDatos_MouseLeave(object sender, EventArgs e){}
+        private void BtnDatos_Click(object sender, EventArgs e)
         {
             if (pnlContenedor.Controls.Count > 1)
             {
@@ -73,54 +68,56 @@ namespace OFLP.Vistas
         {
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
             objUtilidades.AbrirFormulario<FrmFactura>(pnlContenedor);
-            objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }
-        private void btnPropietario_Click(object sender, EventArgs e)
+        private void BtnPropietario_Click(object sender, EventArgs e)
         {
             TipoCliente = 1;
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
             objUtilidades.AbrirFormulario<FrmCliente>(pnlContenedor);
             pnlMenuDatos.Visible = false;
         }
-        private void frmPpal_Load(object sender, EventArgs e)
+        private void FrmPpal_Load(object sender, EventArgs e)
         {
             lblVersion.Text = ConfigurationManager.AppSettings["Version"];
         }
-        private void btnCompradores_Click(object sender, EventArgs e)
+        private void BtnCompradores_Click(object sender, EventArgs e)
         {
             TipoCliente = 2;
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
             objUtilidades.AbrirFormulario<FrmCliente>(pnlContenedor);
-            objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }
-        private void frmPpal_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmPpal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!auxCerrar)
             {
                 e.Cancel = true;
             }
         }
-        private void btnClasesGanado_Click(object sender, EventArgs e)
+        private void BtnClasesGanado_Click(object sender, EventArgs e)
         {
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
             objUtilidades.AbrirFormulario<FrmGanado>(pnlContenedor);
-            objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }
-        private void btnSexos_Click(object sender, EventArgs e)
+        private void BtnSexos_Click(object sender, EventArgs e)
         {
             CtrlUtilidades objUtilidades = new CtrlUtilidades();
             objUtilidades.AbrirFormulario<FrmSexo>(pnlContenedor);
-            objUtilidades = null;
             pnlMenuDatos.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             Configuracion FrmConfig=new Configuracion();
             FrmConfig.ShowDialog();
+        }
+
+        private void BtnGastos_Click(object sender, EventArgs e)
+        {
+            BackUpDataBase n=new BackUpDataBase();
+            n.BackUp();
         }
     }
 }

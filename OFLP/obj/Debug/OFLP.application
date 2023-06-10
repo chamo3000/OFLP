@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="OFLP.exe.manifest" size="18402">
+    <dependentAssembly dependencyType="install" codebase="OFLP.exe.manifest" size="24660">
       <assemblyIdentity name="OFLP.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>W8PV+la2XZm5E+zpqmzGf3sohOEETTX24qftlgu89n4=</dsig:DigestValue>
+        <dsig:DigestValue>RfSXSoMuu7nLP0x1AUJY0iJ3P0c5povSpeuq8SHd7ag=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

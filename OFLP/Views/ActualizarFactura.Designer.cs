@@ -46,6 +46,8 @@ namespace OFLP.Vistas
             this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
             this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.LblGasto = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.PnlAgregar = new System.Windows.Forms.Panel();
@@ -98,8 +100,6 @@ namespace OFLP.Vistas
             this.kilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDetalleFactura)).BeginInit();
             this.panel2.SuspendLayout();
@@ -268,6 +268,28 @@ namespace OFLP.Vistas
             this.panel2.Size = new System.Drawing.Size(944, 551);
             this.panel2.TabIndex = 1;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblTotal.Location = new System.Drawing.Point(692, 263);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(77, 24);
+            this.lblTotal.TabIndex = 45;
+            this.lblTotal.Text = "label15";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.SystemColors.Window;
+            this.label16.Location = new System.Drawing.Point(544, 263);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(117, 24);
+            this.label16.TabIndex = 45;
+            this.label16.Text = "Valor Total:";
+            // 
             // LblGasto
             // 
             this.LblGasto.AutoSize = true;
@@ -320,7 +342,7 @@ namespace OFLP.Vistas
             this.txtKilos.Size = new System.Drawing.Size(58, 20);
             this.txtKilos.TabIndex = 7;
             this.txtKilos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtKilos.TextChanged += new System.EventHandler(this.txtKilos_TextChanged);
+            this.txtKilos.TextChanged += new System.EventHandler(this.TxtKilos_TextChanged);
             this.txtKilos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKilos_KeyPress);
             // 
             // label3
@@ -859,28 +881,6 @@ namespace OFLP.Vistas
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 62;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label16.ForeColor = System.Drawing.SystemColors.Window;
-            this.label16.Location = new System.Drawing.Point(544, 263);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(117, 24);
-            this.label16.TabIndex = 45;
-            this.label16.Text = "Valor Total:";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblTotal.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTotal.Location = new System.Drawing.Point(692, 263);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(77, 24);
-            this.lblTotal.TabIndex = 45;
-            this.lblTotal.Text = "label15";
             // 
             // ActualizarFactura
             // 

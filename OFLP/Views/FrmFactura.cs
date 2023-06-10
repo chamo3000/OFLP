@@ -3,7 +3,6 @@ using OFLP.Model;
 using OFLP.Modelo;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
@@ -64,7 +63,6 @@ namespace OFLP.Vistas
             }
             DtgFactura.ClearSelection();
         }
-
         private bool BuscarLINQ(string TextoABuscar, string Columna, DataGridView grid)
         {
             
@@ -110,19 +108,25 @@ namespace OFLP.Vistas
             FrmAgregarFactura f = new FrmAgregarFactura(DtgFactura);
             f.Show();
         }
-
         private void DtgFactura_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var opcion = DtgFactura.Columns[e.ColumnIndex].Name;
             var idFactura = DtgFactura.Rows[DtgFactura.CurrentRow.Index].Cells[0].Value.ToString();
-            
 
             switch (opcion)
             {
                 case "Modificar":
-                    ActualizarFactura form = new ActualizarFactura(DtgFactura, idFactura,idPropietario,e.RowIndex);
+                    int idActualiza=0;
+                    foreach (MFactura item in ClsInicio.Factura)
+                    {
+                        if (item.NumeroFactura.ToString().Equals(idFactura))
+                        {
+                            idActualiza = item.PropietarioID;
+                            break;
+                        }
+                    }
+                    ActualizarFactura form = new ActualizarFactura(DtgFactura, idFactura, idActualiza, e.RowIndex);
                     form.ShowDialog();
-
                     break;
                 case "Eliminar":
                     if (MessageBox.Show("Esta seguro que desea eliminar la factura?", "Eliminar Factura", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -135,7 +139,6 @@ namespace OFLP.Vistas
                         }
                         else MessageBox.Show("La factura no ha sido eliminada", "Eliminar Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                     break;
                 default:
                     LblNumFactura.Text = DtgFactura.CurrentRow.Cells["idFactura"].Value.ToString();

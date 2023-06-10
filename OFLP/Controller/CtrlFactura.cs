@@ -19,7 +19,6 @@ namespace OFLP.Controlador
             else
             return true;
         }
-
         public bool ActualizarFactura(List<FACTURA> datos,int index)
         {
             MFactura oEquipo = new MFactura();
@@ -45,7 +44,6 @@ namespace OFLP.Controlador
             if (!oEquipo.LlenarGrid()) return false;
             else return true;
         }
-
         public bool LlenarGridFacturaActualizar(string consecutivo)
         {
             MFactura oEquipo = new MFactura();

@@ -23,20 +23,21 @@ namespace OFLP.Vistas
         public int IdPropietario { get; set; }
         public string IdFactura { get; set; }
         public int IdComprador { get; set; }
-        int IndexFactura;
+
+        readonly int IndexFactura;
         string claseGanado;
         string numeroCorral;
         string numeroCabezas;
         string genero;
         string cantidadKilos;
         string valorKilo;
-        string valorKiloGuardar;
+        private string valorKiloGuardar;
         string nombreComprador;
         string valorTotal;
         string valorTotalGuardar;
         int idClase;
         int idGenero;
-        
+
         List<string> idActualizar = new List<string>();
         string idauxActualizar;
 
@@ -69,6 +70,10 @@ namespace OFLP.Vistas
             LblPropietario.Text = ClsInicio.FacturaActualizar.Where(p => p.PropietarioID == IdPropietario).Take(1).First().Propietario;
             LblGasto.Text = ClsInicio.FacturaActualizar.Where(p => p.NumeroFactura == idFact).Take(1).First().Gasto.ToString("0,00");
             DtgDetalleFactura.ClearSelection();
+            CmbComprador.Visible = true;
+            CmbComprador.Enabled = true;
+            PnlAgregar.Visible = true;
+
         }
         private void LlenarGrid()
         {
@@ -358,7 +363,7 @@ namespace OFLP.Vistas
             valorKiloGuardar = txtValorKilo.Text;
             valorKilo = Convert.ToDouble(txtValorKilo.Text).ToString("N");
             valorTotal = TxtValorTotal.Text;
-            
+
 
             if (string.IsNullOrEmpty(claseGanado) || string.IsNullOrEmpty(numeroCorral) ||
                 string.IsNullOrEmpty(numeroCabezas) || string.IsNullOrEmpty(genero) ||
@@ -370,26 +375,64 @@ namespace OFLP.Vistas
             }
             else
             {
-                DtgDetalleFactura.Rows.Remove(DtgDetalleFactura.CurrentRow);
-                nombreComprador = CmbComprador.SelectedItem.ToString();
-                DtgDetalleFactura.Rows.Add(claseGanado, numeroCorral, numeroCabezas, genero, nombreComprador, cantidadKilos, FormatoNumeros(valorKilo) , valorTotal, idauxActualizar);
-                lblTotal.Text = calcularTotalFactura();
-                cmbClase.SelectedItem = null;
-                txtCorral.Text = string.Empty;
-                txtCabezas.Text = string.Empty;
-                cmbSexo.SelectedItem = null;
-                txtKilos.Text = string.Empty;
-                txtValorKilo.Text = string.Empty;
-                TxtValorTotal.Text = string.Empty;
-                chkNoIva.Checked = true;
-                PicAgregar.Visible = false;
-
+                var datos = ExtraerDatos();
+                if (datos != null)
+                {
+                    if(ValidarRegistro(datos, DtgDetalleFactura))
+                    {
+                        MessageBox.Show("El registro ya existe, no lo puede agregar nuevamente", "Ingresa datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        nombreComprador = CmbComprador.SelectedItem.ToString();
+                        DtgDetalleFactura.Rows.Add(claseGanado, numeroCorral, numeroCabezas, genero, nombreComprador, cantidadKilos, FormatoNumeros(valorKilo), valorTotal, idauxActualizar);
+                        lblTotal.Text = CalcularTotalFactura();
+                        cmbClase.SelectedItem = null;
+                        txtCorral.Text = string.Empty;
+                        txtCabezas.Text = string.Empty;
+                        cmbSexo.SelectedItem = null;
+                        txtKilos.Text = string.Empty;
+                        txtValorKilo.Text = string.Empty;
+                        TxtValorTotal.Text = string.Empty;
+                        chkNoIva.Checked = true;
+                        PicAgregar.Visible = false;
+                    }
+                }
             }
         }
+        private string[] ExtraerDatos()
+        {
+            string[] datosActualizar = new string[7];
+            try
+            {
+                
+                datosActualizar[0] = cmbClase.Text;
+                datosActualizar[1] = txtCorral.Text;
+                datosActualizar[2] = txtCabezas.Text;
+                datosActualizar[3] = cmbSexo.Text;
+                datosActualizar[4] = txtKilos.Text;
+                datosActualizar[5] = txtValorKilo.Text;
+                datosActualizar[6] = TxtValorTotal.Text;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
+
+
+            return datosActualizar;
+        }
+        private bool ValidaRegistroExistente()
+        {
+            return true;
+        }
+
         public string FormatoNumeros(string numero)
         {
-            
-            if (numero.Contains("."))numero= numero.Split('.')[0];
+
+            if (numero.Contains(".")) numero = numero.Split('.')[0];
             return numero;
         }
         private string CalcularConsecutivo()
@@ -398,16 +441,16 @@ namespace OFLP.Vistas
             IdFactura = fecha + Reunion + CantFacturas;
             return IdFactura;
         }
-        private string calcularTotalFactura() 
+        private string CalcularTotalFactura()
         {
-            int suma=0;
+            int suma = 0;
             string valor;
             foreach (DataGridViewRow item in DtgDetalleFactura.Rows)
             {
-                valor= item.Cells["valor_totalActualizaFactura"].Value.ToString();
+                valor = item.Cells["valor_totalActualizaFactura"].Value.ToString();
                 if (valor.Contains(",")) valor = valor.Replace(",", string.Empty);
-                if (valor.Contains(".")) valor =FormatoNumeros(valor);
-                suma +=Convert.ToInt32(valor);
+                if (valor.Contains(".")) valor = FormatoNumeros(valor);
+                suma += Convert.ToInt32(valor);
             }
             return suma.ToString("#,##0");
         }
@@ -421,7 +464,7 @@ namespace OFLP.Vistas
             }
             else
             {
-                ValorTotal = txtValorKilo.Text.Contains(",")?(Convert.ToInt32(txtKilos.Text) * Convert.ToInt32(txtValorKilo.Text.Replace(",", ""))): Convert.ToInt32(txtKilos.Text) * Convert.ToInt32(txtValorKilo.Text);
+                ValorTotal = txtValorKilo.Text.Contains(",") ? (Convert.ToInt32(txtKilos.Text) * Convert.ToInt32(txtValorKilo.Text.Replace(",", ""))) : Convert.ToInt32(txtKilos.Text) * Convert.ToInt32(txtValorKilo.Text);
             }
             Total = ValorTotal;
 
@@ -439,7 +482,7 @@ namespace OFLP.Vistas
         private void DtgDetalleFactura_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var opcion = DtgDetalleFactura.Columns[e.ColumnIndex].Name;
-            
+
             switch (opcion)
             {
                 case "Modificar":
@@ -456,7 +499,7 @@ namespace OFLP.Vistas
                     idActualizar.Add(DtgDetalleFactura.Rows[e.RowIndex].Cells[8].Value.ToString());
                     idauxActualizar = DtgDetalleFactura.Rows[e.RowIndex].Cells["id"].Value.ToString();
                     int idact = Convert.ToInt32(idauxActualizar);
-                    dtpicFechaFactura.Value = ClsInicio.FacturaActualizar.Where(p => p.Id == idact).Select(x=>x.Fecha).FirstOrDefault();
+                    dtpicFechaFactura.Value = ClsInicio.FacturaActualizar.Where(p => p.Id == idact).Select(x => x.Fecha).FirstOrDefault();
                     break;
                 case "eliminar":
                     if (MessageBox.Show("Esta seguro que desea eliminar el cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -471,12 +514,6 @@ namespace OFLP.Vistas
                     }
 
                     break;
-                default:
-                    //lblApellidoUno.Text = dtgPropietario.CurrentRow.Cells[1].Value.ToString();
-                    //lblApellidoDos.Text = dtgPropietario.CurrentRow.Cells[2].Value.ToString();
-                    //lblNombre.Text = dtgPropietario.CurrentRow.Cells[3].Value.ToString();
-                    //lblCedula.Text = dtgPropietario.CurrentRow.Cells[4].Value.ToString();
-                    break;
             }
         }
         private void LlenarDatos(int indexRow)
@@ -490,7 +527,7 @@ namespace OFLP.Vistas
             idClase = ClsInicio.ganado.FirstOrDefault(x => claseGanado.Contains(x.Descripcion)).IdGanado;
             cantidadKilos = DtgDetalleFactura.Rows[indexRow].Cells["kilosActualizaFactura"].Value.ToString();
             valorKilo = DtgDetalleFactura.Rows[indexRow].Cells["valor_kiloActualizaFactura"].Value.ToString().Replace(",", string.Empty);
-            ValorTotal=(Convert.ToInt32(valorKilo)* Convert.ToInt32(cantidadKilos));
+            ValorTotal = (Convert.ToInt32(valorKilo) * Convert.ToInt32(cantidadKilos));
         }
         private void LimpiarDatos()
         {
@@ -537,22 +574,22 @@ namespace OFLP.Vistas
             DtgFormFactura.Rows.RemoveAt(IndexFactura);
             int idGasto;
             int gasto;
-            
+
             int IdFact = Convert.ToInt32(IdFactura);
             using (MIGANEntities db = new MIGANEntities())
             {
                 idGasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).id;
                 gasto = db.GASTO.FirstOrDefault(p => p.idfactura == IdFact).Total;
-                
+
             }
             for (int i = 0; i < idActualizar.Count; i++)
             {
 
                 foreach (DataGridViewRow item in DtgDetalleFactura.Rows)
                 {
-                    if (item.Cells[8].Value.Equals(idActualizar[i])) 
+                    if (item.Cells[8].Value.Equals(idActualizar[i]))
                     {
-                    LlenarDatos(item.Index);
+                        LlenarDatos(item.Index);
                         List<FACTURA> listFactura = new List<FACTURA>()
                         {
                             new FACTURA
@@ -581,7 +618,6 @@ namespace OFLP.Vistas
             CtrlUtilidades util = new CtrlUtilidades();
             util.CerrarFormulario<FrmFactura>(Program.objfrmPpal.pnlContenedor);
             util.AbrirFormulario<FrmFactura>(Program.objfrmPpal.pnlContenedor);
-            //DtgFormFactura.Rows.Add(lblNumeroFact.Text, lblReunion.Text, Propietario, gasto.ToString(), valorTotalGuardar);
             this.Close();
         }
 
@@ -636,10 +672,67 @@ namespace OFLP.Vistas
             }
         }
 
-        private void txtKilos_TextChanged(object sender, EventArgs e)
+        private void TxtKilos_TextChanged(object sender, EventArgs e)
         {
             CalcularValorTotal();
             TxtValorTotal.Text = ValorTotal.ToString("0,0");
+        }
+        private bool ValidarRegistro(string[] reg, DataGridView datos)
+        {
+            foreach (DataGridViewRow item in datos.Rows)
+            {
+                var clase = item.Cells[0].Value.ToString();
+                var corral = item.Cells[1].Value.ToString();
+                var cabezas = item.Cells[2].Value.ToString();
+                var sexo = item.Cells[3].Value.ToString();
+                var kilos = item.Cells[4].Value.ToString();
+                var valorKilo = item.Cells[5].Value.ToString();
+                var total = item.Cells[6].Value.ToString();
+                if(
+                    ValidarClase(clase, reg[0].Split(':')[1]) &&
+                    ValidarCorral(corral, reg[1])&&
+                    ValidarCabezas(cabezas, reg[2])&&
+                    ValidarSexo(sexo, reg[3])&&
+                    ValidarKilos(kilos, reg[4])&&
+                    ValidarValorKilo(valorKilo, reg[5])&&
+                    ValidarValorTotal(total, reg[6])
+                )
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool ValidarClase(string claseDtg,string claseRegistro)
+        {
+            return claseDtg.Equals(claseRegistro);
+        }
+        private bool ValidarCorral(string corralDtg, string corralRegistro)
+        {
+            return corralDtg.Equals(corralRegistro);
+        }
+
+        private bool ValidarCabezas(string cabezasDtg, string cabezasRegistro)
+        {
+            return cabezasDtg.Equals(cabezasRegistro);
+        }
+
+        private bool ValidarSexo(string sexoDtg, string sexoRegistro)
+        {
+            return sexoDtg.Equals(sexoRegistro);
+        }
+
+        private bool ValidarKilos(string kilosDtg, string kilosRegistro)
+        {
+            return kilosDtg.Equals(kilosRegistro);
+        }
+        private bool ValidarValorKilo(string valorKiloDtg, string valorKiloRegistro)
+        {
+            return valorKiloDtg.Equals(valorKiloRegistro);
+        }
+        private bool ValidarValorTotal(string valorKiloTDtg, string valorKiloTRegistro)
+        {
+            return valorKiloTDtg.Equals(valorKiloTRegistro);
         }
     }
 }

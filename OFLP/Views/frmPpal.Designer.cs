@@ -119,7 +119,7 @@
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 0;
             this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
             // btnRestaurar
             // 
@@ -133,7 +133,7 @@
             this.btnRestaurar.TabIndex = 0;
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            this.btnRestaurar.Click += new System.EventHandler(this.BtnRestaurar_Click);
             // 
             // btnMaximizar
             // 
@@ -147,7 +147,7 @@
             this.btnMaximizar.TabIndex = 0;
             this.btnMaximizar.TabStop = false;
             this.btnMaximizar.Visible = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            this.btnMaximizar.Click += new System.EventHandler(this.BtnMaximizar_Click);
             // 
             // btnCerrar
             // 
@@ -161,7 +161,7 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // pnlMenu
             // 
@@ -261,8 +261,8 @@
             this.btnInformes.Text = "     Informes";
             this.btnInformes.UseVisualStyleBackColor = false;
             this.btnInformes.Click += new System.EventHandler(this.BtnInformes_Click);
-            this.btnInformes.MouseEnter += new System.EventHandler(this.btnDatos_MouseEnter);
-            this.btnInformes.MouseLeave += new System.EventHandler(this.btnDatos_MouseLeave);
+            this.btnInformes.MouseEnter += new System.EventHandler(this.BtnDatos_MouseEnter);
+            this.btnInformes.MouseLeave += new System.EventHandler(this.BtnDatos_MouseLeave);
             // 
             // btnDatos
             // 
@@ -280,9 +280,9 @@
             this.btnDatos.TabIndex = 1;
             this.btnDatos.Text = "Datos";
             this.btnDatos.UseVisualStyleBackColor = false;
-            this.btnDatos.Click += new System.EventHandler(this.btnDatos_Click);
-            this.btnDatos.MouseEnter += new System.EventHandler(this.btnDatos_MouseEnter);
-            this.btnDatos.MouseLeave += new System.EventHandler(this.btnDatos_MouseLeave);
+            this.btnDatos.Click += new System.EventHandler(this.BtnDatos_Click);
+            this.btnDatos.MouseEnter += new System.EventHandler(this.BtnDatos_MouseEnter);
+            this.btnDatos.MouseLeave += new System.EventHandler(this.BtnDatos_MouseLeave);
             // 
             // pnlMenuDatos
             // 
@@ -314,7 +314,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Configuración";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnSexos
             // 
@@ -330,7 +330,7 @@
             this.btnSexos.TabIndex = 0;
             this.btnSexos.Text = "Sexos";
             this.btnSexos.UseVisualStyleBackColor = false;
-            this.btnSexos.Click += new System.EventHandler(this.btnSexos_Click);
+            this.btnSexos.Click += new System.EventHandler(this.BtnSexos_Click);
             // 
             // btnClasesGanado
             // 
@@ -346,7 +346,7 @@
             this.btnClasesGanado.TabIndex = 0;
             this.btnClasesGanado.Text = "Clases de Ganado";
             this.btnClasesGanado.UseVisualStyleBackColor = false;
-            this.btnClasesGanado.Click += new System.EventHandler(this.btnClasesGanado_Click);
+            this.btnClasesGanado.Click += new System.EventHandler(this.BtnClasesGanado_Click);
             // 
             // btnPropietario
             // 
@@ -362,7 +362,7 @@
             this.btnPropietario.TabIndex = 0;
             this.btnPropietario.Text = "Clientes";
             this.btnPropietario.UseVisualStyleBackColor = false;
-            this.btnPropietario.Click += new System.EventHandler(this.btnPropietario_Click);
+            this.btnPropietario.Click += new System.EventHandler(this.BtnPropietario_Click);
             // 
             // btnGastos
             // 
@@ -378,6 +378,7 @@
             this.btnGastos.TabIndex = 0;
             this.btnGastos.Text = "Gastos";
             this.btnGastos.UseVisualStyleBackColor = false;
+            this.btnGastos.Click += new System.EventHandler(this.BtnGastos_Click);
             // 
             // btnComisiones
             // 
@@ -419,8 +420,8 @@
             this.Name = "FrmPpal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OFLBP";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPpal_FormClosing);
-            this.Load += new System.EventHandler(this.frmPpal_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPpal_FormClosing);
+            this.Load += new System.EventHandler(this.FrmPpal_Load);
             this.pnlBarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

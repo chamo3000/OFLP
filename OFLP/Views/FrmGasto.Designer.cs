@@ -39,10 +39,8 @@
             this.TxtOtros = new System.Windows.Forms.TextBox();
             this.TxtAnticipos = new System.Windows.Forms.TextBox();
             this.TxtVacunas = new System.Windows.Forms.TextBox();
-            this.TxtComiGordo = new System.Windows.Forms.TextBox();
-            this.txtComiFlaco = new System.Windows.Forms.TextBox();
+            this.txtComision = new System.Windows.Forms.TextBox();
             this.TxtRecibida = new System.Windows.Forms.TextBox();
-            this.txtBaños = new System.Windows.Forms.TextBox();
             this.TxtTranposte = new System.Windows.Forms.TextBox();
             this.TxtFeriaBascula = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,8 +48,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,6 +77,7 @@
             this.pnlContenedorGasto.Name = "pnlContenedorGasto";
             this.pnlContenedorGasto.Size = new System.Drawing.Size(800, 450);
             this.pnlContenedorGasto.TabIndex = 0;
+            this.pnlContenedorGasto.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlContenedorGasto_Paint);
             // 
             // pictureBox3
             // 
@@ -145,10 +142,8 @@
             this.grbGasto.Controls.Add(this.TxtOtros);
             this.grbGasto.Controls.Add(this.TxtAnticipos);
             this.grbGasto.Controls.Add(this.TxtVacunas);
-            this.grbGasto.Controls.Add(this.TxtComiGordo);
-            this.grbGasto.Controls.Add(this.txtComiFlaco);
+            this.grbGasto.Controls.Add(this.txtComision);
             this.grbGasto.Controls.Add(this.TxtRecibida);
-            this.grbGasto.Controls.Add(this.txtBaños);
             this.grbGasto.Controls.Add(this.TxtTranposte);
             this.grbGasto.Controls.Add(this.TxtFeriaBascula);
             this.grbGasto.Controls.Add(this.label10);
@@ -156,8 +151,6 @@
             this.grbGasto.Controls.Add(this.label8);
             this.grbGasto.Controls.Add(this.label7);
             this.grbGasto.Controls.Add(this.label4);
-            this.grbGasto.Controls.Add(this.label6);
-            this.grbGasto.Controls.Add(this.label3);
             this.grbGasto.Controls.Add(this.label5);
             this.grbGasto.Controls.Add(this.label2);
             this.grbGasto.Controls.Add(this.label1);
@@ -204,37 +197,22 @@
             this.TxtVacunas.Size = new System.Drawing.Size(171, 22);
             this.TxtVacunas.TabIndex = 7;
             // 
-            // TxtComiGordo
+            // txtComision
             // 
-            this.TxtComiGordo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtComiGordo.Location = new System.Drawing.Point(160, 178);
-            this.TxtComiGordo.Name = "TxtComiGordo";
-            this.TxtComiGordo.Size = new System.Drawing.Size(171, 22);
-            this.TxtComiGordo.TabIndex = 6;
-            // 
-            // txtComiFlaco
-            // 
-            this.txtComiFlaco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComiFlaco.Location = new System.Drawing.Point(160, 147);
-            this.txtComiFlaco.Name = "txtComiFlaco";
-            this.txtComiFlaco.Size = new System.Drawing.Size(171, 22);
-            this.txtComiFlaco.TabIndex = 5;
+            this.txtComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComision.Location = new System.Drawing.Point(160, 113);
+            this.txtComision.Name = "txtComision";
+            this.txtComision.Size = new System.Drawing.Size(171, 22);
+            this.txtComision.TabIndex = 5;
             // 
             // TxtRecibida
             // 
+            this.TxtRecibida.Enabled = false;
             this.TxtRecibida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtRecibida.Location = new System.Drawing.Point(160, 116);
+            this.TxtRecibida.Location = new System.Drawing.Point(160, 82);
             this.TxtRecibida.Name = "TxtRecibida";
             this.TxtRecibida.Size = new System.Drawing.Size(171, 22);
             this.TxtRecibida.TabIndex = 4;
-            // 
-            // txtBaños
-            // 
-            this.txtBaños.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBaños.Location = new System.Drawing.Point(160, 85);
-            this.txtBaños.Name = "txtBaños";
-            this.txtBaños.Size = new System.Drawing.Size(171, 22);
-            this.txtBaños.TabIndex = 3;
             // 
             // TxtTranposte
             // 
@@ -246,6 +224,7 @@
             // 
             // TxtFeriaBascula
             // 
+            this.TxtFeriaBascula.Enabled = false;
             this.TxtFeriaBascula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtFeriaBascula.Location = new System.Drawing.Point(160, 23);
             this.TxtFeriaBascula.Name = "TxtFeriaBascula";
@@ -296,41 +275,21 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 122);
+            this.label4.Location = new System.Drawing.Point(13, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Recibida";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 184);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 16);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Comision Gan. Gordo";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Baños";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 153);
+            this.label5.Location = new System.Drawing.Point(12, 119);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 16);
+            this.label5.Size = new System.Drawing.Size(63, 16);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Comision Gan. Flaco";
+            this.label5.Text = "Comisión";
             // 
             // label2
             // 
@@ -396,6 +355,7 @@
             this.Name = "FrmGasto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGasto";
+            this.Load += new System.EventHandler(this.FrmGasto_Load);
             this.pnlContenedorGasto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -419,10 +379,8 @@
         private System.Windows.Forms.TextBox TxtOtros;
         private System.Windows.Forms.TextBox TxtAnticipos;
         private System.Windows.Forms.TextBox TxtVacunas;
-        private System.Windows.Forms.TextBox TxtComiGordo;
-        private System.Windows.Forms.TextBox txtComiFlaco;
+        private System.Windows.Forms.TextBox txtComision;
         private System.Windows.Forms.TextBox TxtRecibida;
-        private System.Windows.Forms.TextBox txtBaños;
         private System.Windows.Forms.TextBox TxtTranposte;
         private System.Windows.Forms.TextBox TxtFeriaBascula;
         private System.Windows.Forms.Label label10;
@@ -430,8 +388,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
